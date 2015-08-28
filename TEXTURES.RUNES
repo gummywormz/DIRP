@@ -1,0 +1,19 @@
+//runes
+
+//strength
+graphic  STRG_R, 32, 32{XScale 2.0 YScale 2.0 offset 16, 32  Patch FACE1, 0, 0}
+
+//haste
+graphic  HASTE_R, 32, 32{XScale 2.0 YScale 2.0 offset 16, 32  Patch FACE15, 0, 0}
+
+//rage
+graphic  RAGE_R, 32, 32{XScale 2.0 YScale 2.0 offset 16, 32  Patch FACE37, 0, 0}
+
+//high jump
+Graphic  HIJM_R, 32, 32{XScale 2.0 YScale 2.0 offset 16, 32  Patch FACE65, 0, 0}
+
+//spread
+graphic  SPRD_R, 32, 34{XScale 2.0 YScale 2.0 offset 16, 34  Patch FACE99X0, 0, 0}
+
+//reflection
+graphic  RFLT_R, 32, 32{XScale 2.0 YScale 2.0 offset 16, 32  Patch FACE01K, 0, 0}

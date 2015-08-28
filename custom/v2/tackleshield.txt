@@ -1,0 +1,179 @@
+actor TackleCheck : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor TackleShieldAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}
+
+actor TackleShieldWep : MegaBuster
+{
+Weapon.AmmoGive 30
+Weapon.SlotNumber 7
+Obituary "%o was burnt by %k's Tackle Shield."
+Inventory.Pickupmessage "Power up! Tackle Shield!"
+weapon.ammotype "TackleShieldAmmo"
+weapon.ammouse 4
+inventory.pickupsound "weapon/weaponup"
+inventory.icon "TKSHICO"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+TKSH L -1
+stop
+Ready:
+TKSH A 0 ACS_ExecuteAlways(998,0,21)
+TKSH A 0 A_ClearRefire
+TKSH A 1 A_WeaponReady
+Goto Ready+2
+Deselect:
+TKSH A 0 A_TakeInventory("TackleCheck",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+TKSH A 1 A_Lower
+loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+TKSH A 1 A_Raise
+Loop
+Fire:
+TKSH A 0 A_JumpIfInventory("TackleCheck",1,"ShieldThrow")
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+TKSH A 0 A_TakeInventory("BasicArmor",9999)
+TKSH A 1 A_GiveInventory("TackleCheck",1)
+TKSH BCDEF 2
+goto ShieldActive
+Hold:
+TKSH A 1
+goto Ready+1
+ShieldActive:
+TKSH A 0 A_PlayWeaponSound("weapon/firestorm")
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 0)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 45)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 90)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 67)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 123)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 180)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 225)
+TKSH A 1 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 270)
+TKSH A 0 A_TakeInventory("TackleShieldAmmo",4)
+TKSH A 15
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+TKSH A 0 A_PlayWeaponSound("weapon/firestorm")
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 0)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 45)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 90)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 67)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 123)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 180)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 225)
+TKSH A 1 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 40, 270)
+TKSH A 0 A_TakeInventory("TackleShieldAmmo",4)
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+Goto Shield
+Shield:
+TKSH A 15 A_WeaponReady
+TKSH A 0 A_PlayWeaponSound("weapon/firestorm")
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 0)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 45)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 90)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 67)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 123)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 180)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 225)
+TKSH A 1 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 270)
+TKSH A 0 A_TakeInventory("TackleShieldAmmo",4)
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+TKSH A 15 A_WeaponReady
+TKSH A 0 A_PlayWeaponSound("weapon/firestorm")
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 0)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 45)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 90)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 67)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 123)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 180)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 225)
+TKSH A 1 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 270)
+TKSH A 0 A_TakeInventory("TackleShieldAmmo",4)
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+TKSH A 15 A_WeaponReady
+TKSH A 0 A_PlayWeaponSound("weapon/firestorm")
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 0)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 45)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 90)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 67)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 123)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 180)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 225)
+TKSH A 1 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 270)
+TKSH A 0 A_TakeInventory("TackleShieldAmmo",4)
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+TKSH A 15 A_WeaponReady
+TKSH A 0 A_PlayWeaponSound("weapon/firestorm")
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 0)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 45)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 90)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 67)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 123)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 180)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 225)
+TKSH A 1 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 270)
+TKSH A 0 A_TakeInventory("TackleShieldAmmo",4)
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+TKSH A 15 A_WeaponReady
+TKSH A 0 A_PlayWeaponSound("weapon/firestorm")
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 0)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 45)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 90)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 67)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 123)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 180)
+TKSH A 0 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 225)
+TKSH A 1 A_SpawnItemEx("TackleShieldProjectile", 145, 0, 8, 0, 0, 0, 270)
+TKSH A 0 A_TakeInventory("TackleShieldAmmo",4)
+TKSH A 0 A_JumpIfNoAmmo("NoAmmo")
+TKSH A 1
+loop
+ShieldThrow:
+TKSH A 0 A_TakeInventory("TackleCheck",999)
+TKSH A 0
+TKSH IJ 3
+TKSH K 27
+TKSH I 3
+goto Ready+1
+NoAmmo:
+TKSH A 1 ACS_Execute(979,0)
+TKSH A 1 A_TakeInventory("TackleCheck",1)
+goto Ready+1
+}
+}
+
+actor TackleShieldProjectile
+{
+PROJECTILE
+height 16
+radius 16
+DamageType "FireStorm"
+Obituary "%o was burnt by %k's Tackle Shield."
+Damage (25)
+scale 2.5
+Speed 0
++DONTBLAST
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 ThrustThingZ(0,40,0,0)
+HOTH CD 4
+Goto Spawn+1
+Death:
+TNT1 A 0
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+}
+}

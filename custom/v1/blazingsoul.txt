@@ -1,0 +1,101 @@
+actor SoulHoming
+{
+PROJECTILE
++SEEKERMISSILE
+-EXTREMEDEATH
+Radius 5
++DONTBLAST
+Obituary "%o was blazed by %k's Blazing Soul"
+Height 27
+scale 2.5
+damage (50)
+damagetype "FireStorm"
+speed 30
+States
+{
+Spawn:
+BZSU A 1 A_SeekerMissile(2,10,SMF_LOOK,256,4)
+loop
+Death:
+MMFX BCDE 2
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+}
+}
+
+Actor SoulBounce
+{
+PROJECTILE
+Obituary "%o was blazed by %k's Blazing Soul"
+Damage (30)
++DONTBLAST
++HEXENBOUNCE
+BOUNCEFACTOR 1.0
+WALLBOUNCEFACTOR 1.0
+BOUNCECOUNT 2
+DamageType "FireStorm"
+Scale 2.5
+Speed 21
+Radius 5
+Height 27
+States
+{
+Spawn:
+BZSU A -1
+stop
+Death:
+TNT1 A 1 A_SpawnItemEx("SoulHoming",0,0,15,24,0,0,180)
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+Stop
+}
+}
+
+actor SoulAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+
+Actor BlazingSoulWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+inventory.icon "BZSUICO"
+Obituary "%o was blazed by %k's Blazing Soul"
+Inventory.Pickupmessage "Power up! Blazing Soul!"
+weapon.ammotype "SoulAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+BZSU F -1
+stop
+Ready:
+BZSU C 0 ACS_ExecuteAlways(998,0,211)
+BZSU C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BZSU C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BZSU C 1 A_Raise
+Loop
+Fire:
+BZSU C 0 A_JumpIfNoAmmo("NoAmmo")
+BZSU C 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+BZSU DEC 6
+BZSU C 0 A_FireCustomMissile("SoulBounce",0,1,8,0)
+BZSU C 26
+BZSU C 1 A_Refire
+goto Ready+1
+NoAmmo:
+BZSU C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

@@ -1,0 +1,67 @@
+actor IceShardWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was sprinkled by %k's Ice Shards."
+Inventory.Pickupmessage "Power up! Ice Shard!"
+weapon.ammotype "IceShardAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SHRDICO"
+Scale 2.0
+States
+{
+Spawn:
+SHRD B 1
+loop
+Ready:
+ICEW I 0 ACS_ExecuteAlways(998,0,82)
+ICEW I 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+ICEW I 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+ICEW I 1 A_Raise
+Loop
+Fire:
+ICEW I 0 A_JumpIfNoAmmo("NoAmmo")
+ICEW I 0 A_PlaySoundEx("weapon/iceslasher","Weapon")
+ICEW I 0 A_FireCustomMissile("IceShardP",0,1,random(-30,30),0)
+ICEW JK 5
+ICEW I 3
+ICEW I 0 A_Refire
+Goto Ready+1
+NoAmmo:
+ICEW I 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor IceShardP
+{
+PROJECTILE
+Damage (10)
+Obituary "%o was sprinkled by %k's Ice Shards."
+Scale 3.5
+Height 5
+Scale 2.0
+Radius 10
+Speed 50
++FORCEXYBILLBOARD
+States
+{
+Spawn:
+SHRD A 1
+loop
+}
+}
+
+actor IceShardAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

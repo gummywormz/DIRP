@@ -1,0 +1,158 @@
+actor PharaohShotGunWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Obituary "%o was sacrificed thrice by %k's Pharaoh ShotGun."
+Inventory.Pickupmessage "Power up! Pharaoh ShotGun!"
+weapon.ammotype "PharaohShotGunAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "PHSGICO"
+Scale 2.0
+States
+{
+Spawn:
+PHSG A -1
+stop
+Ready:
+PHAN A 0 ACS_ExecuteAlways(998,0,31)
+PHAN A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PHAN A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PHAN A 1 A_Raise
+Loop
+Fire:
+PHAN A 0 A_JumpIfNoAmmo("NoAmmo")
+PHAN A 0
+Goto Hold
+Hold:
+PHAN A 0 A_JumpIfNoAmmo("NoAmmo")
+PHAN A 0 A_JumpIfInventory("PharaohShotCharge",48,"BotCheck")
+PHAN A 0 A_JumpIfInventory("PharaohShotCharge",1,"Hold2")
+PHAN A 1 A_GiveInventory("PharaohShotCharge",1)
+PHAN A 0 A_Refire
+Goto Throw1
+Hold2:
+PHAN A 0 A_JumpIfInventory("PharaohShotCharge",2,"Hold3")
+PHAN A 0 A_GiveInventory("PharaohShotCharge",1)
+PHAN BCDE 2
+PHAN A 0 A_Refire
+Goto Throw1
+BotCheck:
+TNT1 A 0 A_Jump(224, "Hold3")
+TNT1 A 0 ACS_ExecuteAlways(974,0)
+Goto Hold3
+Hold3:
+TNT1 A 1 A_GiveInventory("PharaohShotCharge",1)
+TNT1 A 2 ACS_ExecuteAlways(998,0,235,1)
+TNT1 A 1 ACS_ExecuteAlways(998,0,31,1)
+TNT1 A 0 A_Refire
+TNT1 A 0 A_JumpIfInventory("PharaohShotCharge",48,"Throw3")
+TNT1 A 0 A_JumpIfInventory("PharaohShotCharge",20,"Throw2")
+Goto Throw1
+Throw1:
+TNT1 A 1 ACS_ExecuteAlways(998,0,31,1)
+TNT1 A 0 A_TakeInventory("PharaohShotCharge",100)
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh1","Weapon")
+PHAN A 0 A_FireCustomMissile("PharaohShotGun1",0,1,8,0)
+PAHN A 0 A_FireCustomMissile("PharaohShotGun1",-15,1,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun1",15,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun1",8,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun1",-8,0,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+Goto Ready+1
+Throw2:
+TNT1 A 1 ACS_ExecuteAlways(998,0,31,1)
+TNT1 A 0 A_TakeInventory("PharaohShotCharge",100)
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh1","Weapon")
+TNT1 A 0 A_TakeInventory("PharaohShotGunAmmo",2)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun2",0,1,8,0)
+PAHN A 0 A_FireCustomMissile("PharaohShotGun2",-15,1,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun2",15,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun2",8,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun2",-8,0,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+Goto Ready+1
+Throw3:
+TNT1 A 1 ACS_ExecuteAlways(998,0,31,1)
+TNT1 A 0 A_TakeInventory("PharaohShotCharge",100)
+TNT1 A 0 A_TakeInventory("PharaohShotGunAmmo",8)
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",0,0,8,0)
+PAHN A 0 A_FireCustomMissile("PharaohShotGun3",-15,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",15,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",8,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",-8,0,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+Goto Ready+1
+NoAmmo:
+PHAN A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor PharaohShotGunAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor PharaohShotGun1 : PharaohShot1
+{
+Obituary "%o was sacrificed thrice by %k's Pharaoh ShotGun."
+
+damage (8)
+States
+{
+Death:
+TNT1 A 0
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+}
+}
+
+actor PharaohShotGun2 : PharaohShot2
+{
+damage (16)
+Obituary "%o was sacrificed thrice by %k's Pharaoh ShotGun."
+
+States
+{
+Death:
+TNT1 A 0
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+}
+}
+
+actor PharaohShotGun3 : PharaohShot3
+{
+Damage (24)
+Obituary "%o was sacrificed thrice by %k's Pharaoh ShotGun."
+
+States
+{
+Death:
+TNT1 A 0
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+}
+}
+
+actor PharaohShotCharge : Inventory
+{
+inventory.amount 1
+inventory.maxamount 48
+}

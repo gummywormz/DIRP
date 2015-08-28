@@ -1,0 +1,224 @@
+Actor StonePuck
+{
+PROJECTILE
+Radius 38
+Height 10
+DamageType "PowerStone"
+scale 2.5
+damage (30)
+Obituary "%o was blocked by %k's Stone Wall."
+speed 35
+bouncecount 20
+-FLOORHUGGER
++DOOMBOUNCE
+-NOGRAVITY
+Gravity 1
+BounceFactor 0.5
+WallBounceFactor 0.91
+ReactionTime 160
+States
+{
+Spawn:
+STNW D 1 A_ChangeFlag("FLOORHUGGER",1)
+STNW D 0 A_ChangeFlag("FLOORHUGGER",0)
+STNW D 1
+STNW D 0 A_CountDown
+STNW D 0 A_JumpIf(z-floorz<3, "Floor")
+STNW D 0 A_SpawnItemEx("StonePuckSpawner",0,0,0,20,0,0,0,0,0)
+STNW D 1
+stop
+Death:
+MMFX BCDE 3
+stop
+Floor:
+Goto Spawn+2
+stop
+}
+}
+
+actor StonePuckSpawner
+{
+PROJECTILE
+-NOGRAVITY
+Damage (0)
+Speed 35
+Radius 38
+Height 10
+Scale 2.5
+States
+{
+Spawn:
+STNW D -1
+stop
+Death:
+STNW D 0 A_SpawnItemEx("StonePuck",0,0,0,20,0,0,0,0,0)
+stop
+}
+}
+
+actor StoneWallSpawner
+{
+-SOLID
++FLOORHUGGER
++NOINTERACTION
++MISSILE
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("StoneWall", 64, 0, 0)
+stop
+}
+}
+
+actor FireStone : inventory
+{
+inventory.amount 1
+inventory.maxamount 3
+}
+
+actor KillStone : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor StoneOut : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor StoneWall
+{
+PROJECTILE
++NOEXPLODEFLOOR
+-NOGRAVITY
++PUSHABLE
++SOLID
+-NOBLOCKMAP
+Speed 20
+Radius 38
+Height 30
+reactiontime 70
+Scale 2.5
+gravity 0.65
+states
+{
+Spawn:
+STNW A 0
+STNW A 1 A_JumpIfInTargetInventory("FireStone",1,"Fire1")
+STNW A 1 A_JumpIfInTargetInventory("KillStone",1,"Death")
+STNW A 0
+goto spawn+1
+Fire1:
+STNW A 0
+STNW A 1 A_PlaySoundEx("weapon/powerstone","Voice")
+STNW B 1 A_SpawnItemEx("StonePuckSpawner",30,0,40,35,0,10,0)
+goto Spawn2
+Spawn2:
+STNW B 0
+STNW B 1 A_JumpIfInTargetInventory("FireStone",2,"Fire2")
+STNW B 1 A_JumpIfInTargetInventory("KillStone",1,"Death")
+goto Spawn2+1
+Fire2:
+STNW B 0
+STNW D 1 A_PlaySoundEx("weapon/powerstone","Voice")
+STNW D 1 A_SpawnItemEx("StonePuckSpawner",30,0,40,35,0,10,0)
+goto Spawn3
+Spawn3:
+STNW D 0
+STNW D 1 A_JumpIfInTargetInventory("FireStone",3,"Fire3")
+STNW D 1 A_JumpIfInTargetInventory("KillStone",1,"Death")
+goto Spawn3+1
+Fire3:
+STNW D 0
+TNT1 A 1 A_PlaySoundEx("weapon/powerstone","Voice")
+TNT1 A 1 A_SpawnItemEx("StonePuckSpawner",30,0,40,35,0,10,0)
+TNT1 A 1 A_TakeFromTarget("StoneOut",1)
+stop
+Death:
+TNT1 A 0 A_Stop
+TNT1 A 1 A_TakeFromTarget("StoneOut",1)
+stop
+}
+}
+
+actor StoneWallAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor StoneWallWep : Megabuster
+{
+Weapon.AmmoUse 28
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was blocked by %k's Stone Wall."
+Inventory.Pickupmessage "Power up! Stone Wall!"
+weapon.ammotype "StoneWallAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "STNWICO"
+Scale 2.0
+States
+{
+Spawn:
+STNW C -1
+stop
+Ready:
+POWS E 0 ACS_ExecuteAlways(998,0,29)
+POWS E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+POWS E 0 A_TakeInventory("StoneOut",1)
+POWS E 0 A_GiveInventory("KillStone",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+POWS E 1 A_Lower
+Loop
+Select:
+POWS E 0 A_TakeInventory("KillStone",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+POWS E 1 A_Raise
+Loop
+Fire:
+POWS E 0 A_JumpIfInventory("StoneOut",1,"ShootStones")
+POWS E 0 A_JumpIfNoAmmo("NoAmmo")
+POWS E 0 A_PlaySoundEx("weapon/powerstone","Weapon")
+POWS FG 2
+POWS H 3 A_FireCustomMissile("StoneWallSpawner",0,1,0,0)
+POWS E 0 A_GiveInventory("StoneOut",1)
+POWS HH 8
+POWS H 20
+POWS GF 4
+POWS E 13
+POWS E 0 A_Refire
+Goto Ready+1
+ShootStones:
+POWS E 0 A_JumpIfInventory("FireStone",2,"FinalStone")
+POWS FG 2
+POWS E 0 A_GiveInventory("StoneOut",1)
+POWS E 0 A_GiveInventory("FireStone",1)
+POWS H 3
+POWS HH 8
+POWS H 20
+POWS GF 4
+POWS E 13
+goto Ready+1
+FinalStone:
+POWS FG 2
+POWS E 0 A_GiveInventory("FireStone",1)
+POWS H 3
+POWS HH 8
+POWS H 20
+POWS GF 4
+POWS E 13
+POWS E 0 A_TakeInventory("FireStone",3)
+POWS E 0 A_TakeInventory("StoneOut",3)
+goto Ready+1
+NoAmmo:
+POWS E 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

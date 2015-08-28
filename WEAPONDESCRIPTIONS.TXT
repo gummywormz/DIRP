@@ -1,0 +1,242 @@
+Drown in Robot Parts (Gummywormz's weapon pack)
+Features 131 new weapons and 4 new items
+
+Included in v1:
+
+Form of Mist - Turns you into mist, which allows you to pass through players and
+become invisible.
+
+Shock Mine - Leaves a mine on the ground that shocks players who touch it. It can
+be shot.
+
+Thunder Wool - Just like mm10's version so yeah..
+
+Spell of Darkness - Darkens your enemy's screen for 10 seconds
+
+Speed Gear - A gear that revs up and goes along floors and ceilings. Slows down and stops
+after a while
+
+Aqua Punch - A powerful, close range attack that pushes enemies away from you.
+
+Leech Seed - Leave an area of plants that drains life from anyone in contact.
+
+Bullet Seed - A machine gun of seeds that get faster the lower your life is.
+
+Oblivion Buster - Stops you for a full 2 seconds and then explodes violently,
+making anyone near you very dead.
+
+Heal Block - Prevents anyone hit from healing for 10 seconds
+
+Lightning Chain - Upon hitting a player, it will hit others in a radius around them.
+
+Flurry Spread - Sends weak projectiles in random directions around you.
+
+Shadow Force - You are invisible for a while, then cause a radius attack.
+
+Magnet Drill - Upon hitting the ground, it explodes into 8 homing, floor hugging drills.
+
+Boulder Cracker - It shoots rocks that bounce and do damage dependant on how high you are.
+
+Blazing Soul - After 2 bounces, it turns into a homing shot.
+
+Blast Freeze - Send 3 massively damaging pillars of ice at a low fire rate.
+
+Bomb Sniper - Upon hitting a player, it sends a bomb in front of and behind the player.
+The bombs can hurt you too so don't go spamming it in people's faces.
+
+Flame Spout - Goes out a bit, then starts spewing flame projectiles everywhere.
+
+Cross Flame - A melee attack that upon hitting a player, causes a ripping fire projectile
+to come from behind the player you hit. Use it for combos.
+
+Included in v2:
+
+Dizzy Bomb - A fast, spinning projectile that causes the enemy to have reversed
+movement 20% of the time.
+
+Gimmick Star - Charge it to fire a bouncing projectile. From the NES game Gimmick!
+
+Cross Light - Fires 3 projectiles that spread out slightly. The two side ones
+go out in a wave pattern.
+
+Drill Torpedo - Fires 3 ripping drills. The side ones hug the floor. From the
+Rockman 4mi expansion that's dead.
+
+NMG - My old CSCC class alt. A rapid fire machine gun of swirling needles.
+
+Tackle Shield - A shield weapon that fires a constant stream of tackle fires
+around you.
+
+Wave Guide - Fires a harpoon that upon hitting a wall, fires Water Wave backwards.
+
+Crystal Mine - Fires a mine that explodes after a while and sends fires Crystal
+Eyebits
+
+Fizz Bomb - Fires a soda can that explodes and leaves residue. Getting hit with
+the can or residue will slow you down.
+
+Paint Gun - A simple spread weapon that allows you to paint the level AND the town!
+
+Pop Corn Cannon - Fires a kernel that explodes into more kernels in a large radius.
+
+Double Napalm - Fires 2 Napalm Missiles that go horizontally to opposite ends of
+the screen.
+
+Pin Missile - Fires a column of needles quickly.
+
+Phoenix Rod - From Heretic. Fires a slow, but powerful and explosive phoenix at
+your enemies. You can hit yourself with it, however.
+
+Ice Spike - Fires a spike that shoots 8 icicles after a bit.
+
+Cloud Bomber - Fires an ascending projectile that drops bombs.
+
+Fade Launcher - Fires a projectile that gets stronger and harder to see the farther
+it goes.
+
+Twist Laser - Fires a ring of lasers that go off in random directions after a while.
+
+Perfect Chainsaw - A melee weapon that fires a chainsaw when held. If you have
+enough ammo left, you can release it and fire high speed projectiles.
+
+Sky Uppercut - Upon hitting an opponent, it will knock you and your enemy to the
+sky and continue damaging him. You can also use it to combo and reach high places.
+
+Quad Missile - Fires four slow, but powerful missiles in a square around you.
+
+Coal Shot - A rapid fire weapon that gets more powerful the more you use it.
+Using it too much will cause an overheat and damage you.
+
+Danger Field - A fireable shield that reflects players and projectiles.
+
+Gravity Hole - When charged, it creates a vortex that fires shots in a circle
+rapidly.
+
+Stone Wall - A pushable projectile that can fire 3 bouncing projectiles if you
+fire again while it is up.
+
+Equalizer - Boosts speed and damage depending on your remaining health.
+
+Magic Balloon - Fly until you get hit.
+
+Shock Guard - Protects from (most) spikes once.
+
+Anti-Homing Device - Prevents homing attacks from working on you.
+
+Gambling Dice - Summons a single die that does various things depending on the
+number rolled.
+
+Included in version 3:
+Side Star - Summons 2 Star Crashes that bounce at high speeds and rip.
+Super Arrow - It's from Mega Man 5.
+Comet Launcher - Lobs an explosive comet ahead.
+Volcano Hand - Mid-ranged flame thrower that forces you to stand still.
+Ice Shurikens - Quickly fires shurikens in a v pattern.
+Triple Zap - Aim three bolts of lightning ahead.
+Shatter Stone - Summons a guts block that breaks backwards.
+Scatter Balls - Summons balls that bounce at high speeds after a bit.
+Frost Bomb - A bomb that sends ice around when it explodes.
+Thunder Fang - A mid-range ripping attack that stuns at the end.
+Stealth Rocks - Summons a ring of rocks.
+Hail Shotgun - A mid-range shotgun.
+Frenzy Plant - A long range attack that travels along the ground.
+Head Crash - A melee attack that gets stronger with each boulder.
+Apex Laser - After a delay, high speed lasers will fire.
+Hammer Tail - Summons rocks around you.
+Gem Cannon - Follows the ground after a while and explodes.
+Spike Ball - A boomerang that stops for a bit. Charge it up to send a high speed ripping ball.
+Optic Laser - A multi-hit laser.
+Delay Buster - Waits at the beginning and the end.
+Fractal Laser - A laser that splits upon hitting a wall.
+Dimensional Wave - Summons 5 projectiles in a sine wave. Each projectile is aimable and the last one can pierce armor.
+Sizzle Rocket - A high speed bouncing rocket that explodes 3 times.
+Pursuit - Fires a bullet that on impact with a player, dashes you forward.
+Thunder Chain - A short range chain of electricity that splits on the floor.
+Rocket Chaingun - IT'S A ROCKET AND A CHAINGUN! ROCKET CHAINGUN1
+Rakuhouha - Charge to 9 large blasts of energy ahead
+Noteable Shot - A short range projectile that explodes 4 times on impact with a player.
+Pharaoh Sacrifice - Summons multiple pharaoh shots that home in on players.
+*Toad - Turns players into weak frogs. You can cancel your weapon on fire.
+Recycle Inhaler - A short range melee attack that can be held down. It turns players into items when they die.
+HCR Boomerang - Hold to keep the boomerang in place.
+Water Cutter - A fast, high damage laser.
+Rush Cannon - A high speed, instant kill attack that can only be aimed once.
+Pharaoh Shotgun - Fires 5 pharaoh shots.
+Spark Manbow - Hold it down for a melee. Hit the floor to stun players, or other surfaces for a ripping explosion.
+Hell Wheel - Go through people at fast speeds.
+FireWorks - Jumps 3 times, firing fireworks around you.
+Fridge Buster - Fires random health and energy capsules.
+Stone - Gives you temporary invinciblity for a few seconds.
+Drill Arm - Pushes you forward. Hitting a wall sends rocks behind you.
+Laser Missile - A dive missile with a laser trail.
+Dust Vaccum - A projectile that pulls players towards you.
+Ring Toss - A high speed bouncing projectile.
+Quake Skull - Explodes and causes blindness and dizzyness. It can hurt everyone, including yourself.
+Sun Spark - An attack that splits upon hitting a wall.
+Rain Flood - Summons a pool of water that boosts jump height
+Glue Shot - Stuns players and can be used as a platform.
+Tank Arsenal - Fires a missile, a floor hugging object, and a grenade forward.
+Jet Missile - A rapid fire attack that can lock on to enemies when charged.
+Yoku Attack - A ripping, homing projectile that causes enemies to turn into items on death.
+Yoyo Cutter - A boomerang that can go along the floor.
+Rainbow Beam - Press fire again after firing to cause a long lasting explosion.
+Hammer Toss - An arcing hammer.
+Dumpling Bomb - A rapid fire bomb.
+Nail Shield - Reduces damage except damage cause by explosions.
+Comet Dash - Dashes you forward.
+Nitro Blast - Sends 3 explosions forwards.
+
+Included in Version 3b:
+Rocket Chaingun - IT'S A ROCKET AND IT'S A CHAINGUN! ROCKET CHAINGUN!
+Piaofu Feng - Hold it to lift yourself up slowly. Release to fire a wind storm.
+Rakuhouha - A buster that fires 2 shots at once. Charge it to send 9 powerful shots forward.
+Noteable Shot - An arcing shot that explodes 3 times when a player is hit by it.
+Pharaoh Sacrifice - Summons Pharaoh Shots that go forwards after a short delay.
+
+Included in Version 3c:
+Water Shuriken - Sends 1 - 5 fast projectiles forward.
+Ice Shards - Summons random ice shards quickly.
+Tri Attack - Fires fire, ice, and electric attacks in succession.
+Blaze Kick - Flings you back upon hitting an enemy.
+OctaZooka - A powerful cannon that darkens the enemy's screen.
+Night Daze - A radius attack that darkens enemy screens.
+Giga Drain - A Melee weapon that drains opponents health.
+Moon Blast - Summons a moon straight down that explodes.
+Freeze Dry - A short range freeze thrower. Great for finishing people off.
+Ice Beam - Fires an infinite length beam.
+Self Destruct - Does high damage in a radius at the cost of 30 health.
+Fell Stinger - If a player is hit with a random crit or dies to fell stinger, the player gets 10 critical hits.
+Will-O-Wisp - Causes burn damage.
+Magnet Bomb - Fires 3 powerful homing shots.
+Leaf Storm - Sends quick ripping projectiles.
+Wild Tornado - Spins you around in place while dealing wind storm damage.
+Teleport - Sends you flying at a random angle.
+Charge Beam - Fires up to 5 shots at once depending on the charge length
+Water Spout - Fires water up that splashes int oa radius on the floor.
+Bee Order - Increase armor when up, if you have less than 50 health it will heal you, otherwise it sends homing bees.
+Steel Wing - Fires two ripping projectiles at large angles.
+Seed Flare - Fires a ring of seeds around you.
+Fire Blast - Becomes a shield for a bit, then summons a high damage projectile that explodes multiple times.
+Fire Ball - Summons a fire ball that shoots random sub shots everywhere
+PK Fire - Summons a floor hugging projectile that turns into a ripping flame blast when hitting an opponent.
+Serious Bomb - Sends a powerful bomb with a large radius forward.
+
+Included in Version 4a:
+
+Jump Kick - A melee attack that drops you down and stuns enemies. Only works in the air.
+Fire Fly - A homing attack that stops every so often
+Suguri Dash - Dashes you forwards and repels all projectiles in range
+Hyper Space Hole - Hold it down to fire a projectile. Release to teleport to it.
+Egg Bomb - A homing attack that only seeks every few seconds. Hugs the floor.
+Water Pulse - A projectile that expands into an AOE when it hits a player
+Boomerang Bomb - A crash bomb that reverses itself.
+Explosive Hadouken - A ripping projectile that explodes upon hitting a player.
+
+Circuit Breaker - An explosive projectile that fires forwards and backwards.
+Solar Flare - A projectile that splits into 3 suns after a bit.
+Pulse Stopper - A medium range, slow ripper that turns into a shield when you are near it.
+Crypt Cloak - Turns you invisible but causes waves to appear when you jump
+Charade Clone - Fire once to leave a clone and turn invisible. Getting hit returns you to the clone. Firing again causes the clone to come near you and explode.
+Phantom Fuse - A long, explosive projectile that you can guide.
+Virus Outbreak - Blocks attacks around you. Fire to expand the shield, leaving you vulnerable for a bit
+Shock Gauntlet - Boomerang that stuns opponents in a medium range.

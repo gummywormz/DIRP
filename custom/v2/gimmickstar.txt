@@ -1,0 +1,346 @@
+actor GimmickStar
+{
+PROJECTILE
+Radius 30
++SOLID
++DONTRIP
+-NOGRAVITY
+Obituary "%o was poked by %k's Gimmick Star."
+BOUNCETYPE "DOOMCOMPAT"
+-bounceonactors
+SeeSound "weapon/starbounce"
+Height 30
+scale 2.5
+damagetype "Gimmick"
+speed 30
+BounceCount 6
+States
+{
+Spawn:
+NSTA AB 3
+loop
+Death:
+TNT1 A 2 A_Explode(40,128,0)
+GSTA CDEFG 4
+stop
+}
+}
+
+actor GimmickStarWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 112
+Weapon.SlotNumber 2
+Obituary "%o was poked by %k's Gimmick Star."
+Inventory.Pickupmessage "Power up! Gimmick Star!"
+weapon.ammotype "GimmickStarAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "GSTAICO"
+Scale 2.0
+States
+{
+Spawn:
+GSTA Z -1
+stop
+Ready:
+GSTA H 0 ACS_ExecuteAlways(998,0,216)
+GSTA H 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+GSTA H 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+GSTA H 1 A_Raise
+Loop
+Fire:
+GSTA H 0 A_JumpIfNoAmmo("NoAmmo")
+GSTA H 0 A_PlaySoundEx("weapon/startos","Weapon")
+GSTA H 0
+Goto Hold
+Hold:
+GSTA H 0 A_JumpIfNoAmmo("NoAmmo")
+GSTA H 0 A_JumpIfInventory("GimmickCharge",78,"BotCheck")
+GSTA H 0 A_JumpIfInventory("GimmickCharge",1,"Hold2")
+GSTA H 2 A_GiveInventory("GimmickCharge",1)
+GSTA H 0 A_Refire
+Goto Throw1
+Hold2:
+GSTA H 0 A_JumpIfInventory("GimmickCharge",2,"Hold3")
+GSTA H 0 A_GiveInventory("GimmickCharge",1)
+GSTA IJKL 2
+GSTA L 0 A_SpawnItemEx("GimmickFX")
+GSTA H 0 A_Refire
+Goto Throw1
+BotCheck:
+TNT1 A 0 A_Jump(224, "Hold3")
+TNT1 A 0 ACS_ExecuteAlways(974,0)
+Goto Hold3
+Hold3:
+TNT1 A 1 A_GiveInventory("GimmickCharge",1)
+TNT1 A 0 A_Refire
+TNT1 A 0 A_JumpIfInventory("GimmickCharge",78,"Throw3")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge",33,"Throw2")
+Goto Throw1
+Throw1:
+TNT1 A 0 A_TakeInventory("GimmickCharge",100)
+GSTA MNOPQR 2
+TNT1 A 4 A_ClearRefire
+GSTA STH 2
+Goto Ready+1
+Throw2:
+TNT1 A 0 A_TakeInventory("GimmickCharge",100)
+GSTA MNOPQR 2
+TNT1 A 4 A_ClearRefire
+GSTA STH 2
+Goto Ready+1
+Throw3:
+TNT1 A 0 A_TakeInventory("GimmickCharge",100)
+TNT1 A 0 A_TakeInventory("GimmickStarAmmo",3)
+GSTA H 0 A_PlaySoundEx("weapon/starout","Weapon")
+GSTA H 0 A_FireCustomMissile("GimmickStar",0,1,8,0)
+GSTA MNOPQR 2
+TNT1 H 4 A_ClearRefire
+GSTA STH 2
+Goto Ready+1
+NoAmmo:
+GSTA H 1 ACS_Execute(979,0)
+GSTA H 0 A_Refire
+Goto Ready+1
+}
+}
+
+actor GimmickStarAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor GimmickFX
+{
++NOINTERACTION
+-SOLID
++MISSILE
+radius 1
+height 1
++NOGRAVITY
+renderstyle none
+States
+{
+Spawn:
+PLAY A 0
+PLAY A 0 A_JumpIfInTargetInventory("GimmickCharge",78,"Give2")
+PLAY A 0 A_JumpIfInTargetInventory("GimmickCharge",1,"Give")
+stop
+Give:
+PLAY A 1 A_GiveToTarget("GimmickFXGive",1)
+Goto Spawn
+Give2:
+PLAY AAA 1 A_GiveToTarget("GimmickFXGive2",1)
+PLAY A 0 A_JumpIfInTargetInventory("GimmickCharge",78,"Give3")
+stop
+Give3:
+PLAY AAA 1 A_GiveToTarget("GimmickFXGive3",1)
+PLAY A 0 A_JumpIfInTargetInventory("GimmickCharge",78,"Give2")
+stop
+}
+}
+
+actor GimmickFXGive : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
++AUTOACTIVATE
+states
+{
+Spawn:
+TNT1 A 1
+loop
+Use:
+TNT1 A 0 A_GiveInventory("GimmickCharge",0)
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 69, "FX8")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 60, "FX7")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 51, "FX6")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 43, "FX5")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 33, "FX4")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 24, "FX3")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 15, "FX2")
+TNT1 A 0 A_JumpIfInventory("GimmickCharge", 6, "FX1")
+stop
+FX1:
+TNT1 A 0 //A_Print("FX1")
+TNT1 A 0 A_SpawnItemEx("GimmickFX1",0,0,80)
+stop
+FX2:
+TNT1 A 0 A_SpawnItemEx("GimmickFX2",0,0,80)
+stop
+FX3:
+TNT1 A 0 //A_Print("FX3")
+TNT1 A 0 A_SpawnItemEx("GimmickFX3",0,0,80)
+stop
+FX4:
+TNT1 A 0 A_SpawnItemEx("GimmickFX4",0,0,80)
+stop
+FX5:
+TNT1 A 0 A_SpawnItemEx("GimmickFX5",0,0,80)
+stop
+FX6:
+TNT1 A 0// A_Print("FX6")
+TNT1 A 0 A_SpawnItemEx("GimmickFX6",0,0,80)
+stop
+FX7:
+TNT1 A 0 A_SpawnItemEx("GimmickFX7",0,0,80)
+stop
+FX8:
+TNT1 A 0// A_Print("FX8")
+TNT1 A 0 A_SpawnItemEx("GimmickFX8",0,0,80)
+stop
+}
+}
+
+actor GimmickFXGive2 : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
++AUTOACTIVATE
+states
+{
+Spawn:
+TNT1 A 1
+loop
+Use:
+TNT1 A 0 A_SpawnItemEx("GimmickFX9",0,0,80)
+stop
+}
+}
+
+actor GimmickFXGive3 : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
++AUTOACTIVATE
+states
+{
+Spawn:
+TNT1 A 1
+loop
+Use:
+TNT1 A 0 A_SpawnItemEx("GimmickFX10",0,0,80)
+stop
+}
+}
+
+actor GimmickFX1
+{
+-SOLID
++NOGRAVITY
+Scale 2.5
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX2 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX3 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX4 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX5 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX6 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX7 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX8 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX9 : GimmickFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor GimmickFX10 : GimmickFX1
+{
+damagetype "GimmickHold"
+Obituary "%o was poked by %k's Gimmick Star."
++EXPLODEONDEATH
+States
+{
+Spawn:
+NSTA A 0
+NSTA AB 2 A_Explode(5,64,0)
+stop
+}
+}
+
+actor GimmickCharge : Inventory
+{
+inventory.amount 1
+inventory.maxamount 78
+}

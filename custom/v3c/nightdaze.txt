@@ -1,0 +1,94 @@
+actor NightDaze
+{
+PROJECTILE
+Scale 2.0
++FLOORHUGGER
+Translation "192:192=0:0"
+Speed 90
+Damagetype "Darken2"
+Obituary "%o woke up due to %k's Night Daze."
+Damage (3)
+Radius 32
+Height 32
+States
+{
+Spawn:
+DUOR T 1 A_FadeOut(0.1)
+loop
+}
+}
+
+actor NightDazeWep : MegaBuster
+{
+Weapon.AmmoUse 7
+Weapon.AmmoGive 56
+Weapon.SlotNumber 6
+Obituary "%o woke up due to %k's Night Daze."
+Inventory.Pickupmessage "Power up! Night Daze!"
+weapon.ammotype "NightDazeAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "NDAZICO"
+Scale 2.0
+States
+{
+Spawn:
+NDAZ A 1
+loop
+Ready:
+DRWE A 0 ACS_ExecuteAlways(998,0,201)
+DRWE A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+DRWE A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+DRWE A 1 A_Raise
+Loop
+Fire:
+DRWE A 0 A_JumpIfNoAmmo("No")
+DRWE A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+DRWE A 0 A_TakeInventory("NightDazeAmmo",7)
+DRWE A 0 //A_FireCustomMissile("NightDazeSpawner",0,0,8,0)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,0)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,15)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,30)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,45)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,60)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,75)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,90)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,105)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,120)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,135)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,150)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,165)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,180)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,195)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,210)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,225)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,240)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,255)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,270)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,285)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,300)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,315)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,330)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,345)
+DRWE D 2
+DRWE CB 2
+DRWE A 18
+DRWE A 0 A_Refire
+Goto Ready+1
+No:
+DRWE A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor NightDazeAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 56
+}

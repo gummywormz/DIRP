@@ -1,0 +1,128 @@
+actor CoalShot1
+{
+PROJECTILE
++LOOKALLAROUND
++SKYEXPLODE
++DONTBLAST
+Obituary "%o was burned by %k's Coal Shot."
+damagetype "ChargeKick"
+Speed 27
+Damage (10)
+radius 5
+height 5
+scale 2.5
+States
+{
+Spawn:
+COAL ABC 3
+loop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor CoalShot2 : CoalShot1
+{
+Damage (20)
+}
+
+actor CoalShot3 : CoalShot1
+{
+Damage (30)
+}
+
+actor CoalShot4 : CoalShot1
+{
+Damage (40)
+}
+
+actor TemperatureGauge : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor CoalShotAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 56
+}
+
+actor CoalShotWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 56
+Weapon.SlotNumber 3
+Obituary "%o was burned by %k's Coal Shot."
+Inventory.Pickupmessage "Power up! Coal Shot!"
+weapon.ammotype "CoalShotAmmo"
+inventory.pickupsound "weapon/weaponup"
+Inventory.Icon "COALICO"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+COAL I -1
+stop
+Ready:
+FLMB P 0 ACS_ExecuteAlways(998,0,24)
+FLMB P 1 A_TakeInventory("TemperatureGauge",1)
+FLMB P 4 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FLMB P 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FLMB P 1 A_Raise
+Loop
+Fire:
+FLMB P 0 A_JumpIfNoAmmo("NoAmmo")
+FLMB P 0 A_JumpIfInventory("TemperatureGauge",28,"NoAmmo")
+FLMB P 0 A_JumpIfInventory("TemperatureGauge",26,"Fire4")
+FLMB P 0 A_JumpIfInventory("TemperatureGauge",25,"Fire3")
+FLMB P 0 A_JumpIfInventory("TemperatureGauge",18,"Fire3")
+FLMB P 0 A_JumpIfInventory("TemperatureGauge",9,"Fire2")
+FLMB P 0 A_PlaySoundEx("weapon/coalgun","Weapon")
+FLMB P 0 A_FireCustomMissile("CoalShot1",0,1,8,0)
+FLMB P 0 A_GiveInventory("TemperatureGauge",1)
+FLMB QRP 3
+FLMB P 1
+FLMB P 0 A_Refire
+Goto Ready+1
+Fire2:
+FLMB P 0 A_JumpIfNoAmmo("NoAmmo")
+FLMB P 0 A_PlaySoundEx("weapon/coalgun","Weapon")
+FLMB P 0 A_FireCustomMissile("CoalShot2",0,1,8,0)
+FLMB P 0 A_GiveInventory("TemperatureGauge",1)
+FLMB QRP 3
+FLMB P 3
+FLMB P 0 A_Refire
+Goto Ready+1
+Fire3:
+FLMB P 0 A_JumpIfNoAmmo("NoAmmo")
+FLMB P 0 A_PlaySoundEx("weapon/coalgun","Weapon")
+FLMB P 0 A_FireCustomMissile("CoalShot3",0,1,8,0)
+FLMB P 0 A_GiveInventory("TemperatureGauge",1)
+FLMB QRP 5
+FLMB P 7
+FLMB P 0 A_Refire
+Goto Ready+1
+Fire4:
+FLMB P 0 A_JumpIfNoAmmo("NoAmmo")
+FLMB P 0 A_PlaySoundEx("weapon/coalgun","Weapon")
+FLMB P 0 A_FireCustomMissile("CoalShot4",0,1,8,0)
+FLMB P 0 A_GiveInventory("TemperatureGauge",1)
+FLMB P 0 DamageThing(25)
+FLMB QRP 3
+FLMB P 12
+FLMB P 0 A_Refire
+Goto Ready+1
+NoAmmo:
+FLMB P 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

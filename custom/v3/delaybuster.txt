@@ -1,0 +1,119 @@
+//few tics to go forward, few tics before it dies.
+actor DelayBuster1
+{
+PROJECTILE
+Radius 20
+Obituary "%o was too late to avoid %k's Delay Buster."
+Height 20
+scale 2.5
+damagetype "ProtoBuster"
+speed 30
+damage (10)
+reactiontime 4
+States
+{
+Spawn:
+MMFX D 0
+MMFX D 5
+MMFX D 1 A_Stop
+MMFX D 0 A_Countdown
+MMFX D 1
+loop
+Death:
+TNT1 A 0 A_SpawnItemEx("DelayBuster2",0,0,0,30,0,0,0)
+stop
+}
+}
+
+actor DelayBuster2
+{
+PROJECTILE
+Obituary "%o was too late to avoid %k's Delay Buster."
+Damagetype "ProtoBuster"
+Radius 20
+Height 20
+scale 2.5
+damage (10)
+speed 30
+States
+{
+Spawn:
+MMFX D 3
+loop
+Death:
+MMFX D 0 A_Stop
+TNT1 A 0 A_SpawnItemEx("DelayBuster3",-10,0,0,0,0,0,0)
+stop
+}
+}
+
+actor DelayBuster3
+{
+PROJECTILE
+Obituary "%o was too late to avoid %k's Delay Buster."
+Damagetype "ProtoBuster"
+Radius 20
+Height 20
+scale 2.5
+damage (10)
+speed 0
+States
+{
+Spawn:
+MMFX D 1
+MMFX D 12
+stop
+Death:
+MMFX D 0
+stop
+}
+}
+
+actor DelayBusterWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was too late to avoid %k's Delay Buster."
+Inventory.Pickupmessage "Power up! Delay Buster!"
+weapon.ammotype "DelayBusterAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "DELBICO"
+Scale 2.0
+States
+{
+Spawn:
+DELB A -1
+stop
+Ready:
+RSHC A 0 ACS_ExecuteAlways(998,0,227)
+RSHC A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RSHC A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RSHC A 1 A_Raise
+Loop
+Fire:
+RSHC A 0 A_JumpIfNoAmmo("NoAmmo")
+RSHC A 0 A_PlaySoundEx("weapon/pshot","Weapon")
+RSHC A 0 A_FireCustomMissile("DelayBuster1",0,1,8,0)
+RSHC BCA 3
+RSHC A 7
+RSHC A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+RSHC A 1
+Goto Ready+1
+}
+}
+
+actor DelayBusterAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

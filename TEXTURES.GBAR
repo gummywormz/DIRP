@@ -1,0 +1,295 @@
+//Barrz
+texture BARAMGS2, 56, 8
+{
+patch BARAMGS, 0, 0 {rotate 90}
+}
+
+texture BARAMEB2, 56, 8
+{
+patch BARAMEB, 0, 0 {rotate 90}
+}
+
+texture BARAMCR2, 56, 8
+{
+patch BARAMCR, 0, 0 {rotate 90}
+}
+
+texture BARAMNO2, 56, 8
+{
+patch BARAMNO, 0, 0 {rotate 90}
+}
+
+texture BARAMYC2, 56, 8
+{
+patch BARAMYC, 0, 0 {rotate 90}
+}
+
+texture BARAMJM2, 56, 8
+{
+patch BARAMJM, 0, 0 {rotate 90}
+}
+
+texture BARAMRM2, 56, 8
+{
+patch BARAMRM, 0, 0 {rotate 90}
+}
+
+texture BARAMRB2, 56, 8
+{
+patch BARAMRB, 0, 0 {rotate 90}
+}
+
+texture BARAMBT2, 56, 8
+{
+patch BARAMBT, 0, 0 {rotate 90}
+}
+
+texture BARAMHM2, 56, 8
+{
+patch BARAMHM, 0, 0 {rotate 90}
+}
+
+texture BARAMYM2, 56, 8
+{
+patch BARAMYM, 0, 0 {rotate 90}
+}
+
+texture BARAMTA2, 56, 8
+{
+patch BARAMTA, 0, 0 {rotate 90}
+}
+
+texture BARAMSP2, 56, 8
+{
+patch BARAMSP, 0, 0 {rotate 90}
+}
+
+texture BARAMNS2, 56, 8
+{
+patch BARAMNS, 0, 0 {rotate 90}
+}
+
+texture BARAMNM2, 56, 8
+{
+patch BARAMNM, 0, 0 {rotate 90}
+}
+
+texture BARAMCD2, 56, 8
+{
+patch BARAMCD, 0, 0 {rotate 90}
+}
+
+texture BARAMSM2, 56, 8
+{
+patch BARAMMSM, 0, 0 {rotate 90}
+}
+
+texture BARAMHT2, 56, 8
+{
+patch BARAMHT, 0, 0 {rotate 90}
+}
+
+texture BARAMBT2, 56, 8
+{
+patch BARAMBT, 0, 0 {rotate 90}
+}
+
+texture BARAMFW2, 56, 8
+{
+patch BARAMFW, 0, 0 {rotate 90}
+}
+
+texture BARAMSS2, 56, 8
+{
+patch BARAMSS, 0, 0 {rotate 90}
+}
+
+texture BARAMAX2, 56, 8
+{
+patch BARAMAX, 0, 0 {rotate 90}
+}
+
+texture BARAMTF2, 56, 8
+{
+patch BARAMTF, 0, 0 {rotate 90}
+}
+
+texture VARAMRSH, 56, 8
+{
+patch BARAMRSH, 0, 0 {rotate 90}
+}
+
+texture BARAMFG2, 56, 8
+{
+patch BARAMFG, 0, 0 {rotate 90}
+}
+
+texture BARAMYA2, 56, 8
+{
+patch BARAMYA, 0, 0 {rotate 90}
+}
+
+texture BARAMDF2, 56, 8
+{
+patch BARAMDF, 0, 0 {rotate 90}
+}
+
+texture BARAMGC2, 56, 8
+{
+patch BARAMGC, 0, 0 {rotate 90}
+}
+
+texture VARAMCML, 56, 8
+{
+patch BARAMCML, 0, 0 {rotate 90}
+}
+
+texture BARAMEQ2, 56, 8
+{
+patch BARAMEQ, 0, 0 {rotate 90}
+}
+
+texture BARAMQM2, 56, 8
+{
+patch BARAMQM, 0, 0 {rotate 90}
+}
+
+texture BARAMCT2, 56, 8
+{
+patch BARAMCT, 0, 0 {rotate 90}
+}
+
+texture BARAMPC2, 56, 8
+{
+patch BARAMPC, 0, 0 {rotate 90}
+}
+
+texture BARAMSU2, 56, 8
+{
+patch BARAMSU, 0, 0 {rotate 90}
+}
+
+texture BARAMFL2, 56, 8
+{
+patch BARAMFL, 0, 0 {rotate 90}
+}
+
+texture BARAMCB2, 56, 8
+{
+patch BARAMCB, 0, 0 {rotate 90}
+}
+
+texture BARAMPP2, 56, 8
+{
+patch BARAMPOP, 0, 0 {rotate 90}
+}
+
+texture BARAMPT2, 56, 8
+{
+patch BARAMPT, 0, 0 {rotate 90}
+}
+
+texture BARAMFB2, 56, 8
+{
+patch BARAMFB, 0, 0 {rotate 90}
+}
+
+texture BARAMBN2, 56, 8
+{
+patch BARAMBN, 0, 0 {rotate 90}
+}
+
+texture BARAMD2, 56, 8
+{
+patch BARAMMD, 0, 0 {rotate 90}
+}
+
+texture BARAMSK2, 56, 8
+{
+patch BARAMSK, 0, 0 {rotate 90}
+}
+
+texture BARAMBC2, 56, 8
+{
+patch BARAMBC, 0, 0 {rotate 90}
+}
+
+texture BARAMRT2, 56, 8
+{
+patch BARAMRT, 0, 0 {rotate 90}
+}
+
+texture BARAMBZ2, 56, 8
+{
+patch BARAMBZ, 0, 0 {rotate 90}
+}
+
+texture BARAMHB2, 56, 8
+{
+patch BARAMHB, 0, 0 {rotate 90}
+}
+
+texture BARAMSG2, 56, 8
+{
+patch BARAMMSG, 0, 0 {rotate 90}
+}
+
+texture BARALE2, 56, 8
+{
+patch BARAMLES, 0, 0 {rotate 90}
+}
+
+texture BARALS2, 56, 8
+{
+patch BARAMLS, 0, 0 {rotate 90}
+}
+
+texture BARAMAQ2, 56, 8
+{
+patch BARAMAQ, 0, 0 {rotate 90}
+}
+
+texture BARAMNK2, 56, 8
+{
+patch BARAMNK, 0, 0 {rotate 90}
+}
+
+texture BARAMSF2, 56, 8
+{
+patch BARAMSF, 0, 0 {rotate 90}
+}
+
+texture BARAMDF2, 56, 8
+{
+patch BARAMDF, 0, 0 {rotate 90}
+}
+
+texture BARAMRU2, 56, 8
+{
+patch BARAMRU, 0, 0 {rotate 90}
+}
+
+texture BARAMNO2, 56, 8
+{
+patch BARAMNO, 0, 0 {rotate 90}
+}
+
+texture BARAMBO2, 56, 8
+{
+patch BARAMBO, 0, 0 {rotate 90}
+}
+
+texture BARAMWW2, 56, 8
+{
+patch BARAMWW, 0, 0 {rotate 90}
+}
+
+texture BARAMCG2, 56, 8
+{
+patch BARAMCG, 0, 0 {rotate 90}
+}
+
+texture BARAMTY2, 56, 8 // Give it a different name as the graphic you're using. In this case I just put 2 on the end.
+{
+patch BARAMTY, 0, 0 {rotate 90} // The name of the energy bar graphic goes here
+}

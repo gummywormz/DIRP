@@ -1,0 +1,987 @@
+actor ItemSpawner : RandomSpawner
+{
+DropItem "WTank" 255 10
+DropItem "HomingDeviceGiver" 255 5
+DropItem "ShockGuardGiver" 255 5
+DropItem "MagicBalloonGiver" 255 5
+DropItem "GamblingDice" 255 5
+DropItem "SeriousBombItem" 255 5
+}
+
+Actor ActualItemSpawner
+{
+Height 1
+Radius 1
+Scale 2.5
+states
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,0)==2,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,2)==2,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,2)==1,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(694,2)==1,"Death")
+TNT1 A 0 A_SpawnItemEx("ItemSpawner",0,0,0,0,0,0,0)
+stop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor BaseSpawner : RandomSpawner
+{
+    DropItem "MistFormWep" 255 3
+    DropItem "ShockMineWep" 255 12
+    DropItem "ThunderCloud" 255 6
+    DropItem "DarkGiver" 255 3
+    DropItem "HealGiver" 255 3
+    DropItem "LightningChainWep" 255 7
+    DropItem "FlurrySpreadWep" 255 11
+    DropItem "SpeedGearWep" 255 11
+    DropItem "LeechSeedWep" 255 8
+    DropItem "BulletSeedWep" 255 12
+    DropItem "AquaPunchWep" 255 6
+    DropItem "NukeGiver" 255 1
+    DropItem "ShadowForceWep" 255 5
+    DropItem "MagnetDrillWep" 255 10
+    DropItem "BoulderCrackerWep" 255 10
+    DropItem "BlazingSoulWep" 255 10
+    DropItem "BlastFreezeWep" 255 2
+    DropItem "CrossFlameWep" 255 8
+    DropItem "FlameSpoutWep" 255 11
+    DropItem "BombSniperWep" 255 10
+
+	DropItem "GimmickStarWep" 255 12
+    DropItem "WaveGuideWep" 255 10
+    DropItem "CrystalMineWep" 255 7
+    DropItem "FizzBombWep" 255 8
+    DropItem "DrillTorpWep" 255 9
+    DropItem "DizzyBombWep" 255 8
+    DropItem "CrossLightWep" 255 10
+    DropItem "PaintGunWep" 255 10
+    DropItem "NMGWep" 255 12
+    DropItem "TackleShieldWep" 255 3
+
+    DropItem "TwistLaserWep" 255 10
+    DropItem "FadeLauncherWep" 255 9
+    DropItem "CloudBomberWep" 255 7
+    DropItem "IceSpikeWep" 255 7
+    DropItem "PhoenixRodWep" 255 4
+    DropItem "PinMissileWep" 255 9
+    DropItem "PopCornWep" 255 8
+    DropItem "DoubleNapalmWep" 255 6
+
+    DropItem "PerfectChainsawWep" 255 5
+    DropItem "SkyUppercutWep" 255 5
+    DropItem "EqualizerWep" 255 7
+    DropItem "QuadMissileWep" 255 5
+    DropItem "CoalShotWep" 255 10
+    DropItem "DangerFieldWep" 255 6
+    DropItem "GravityHoleWep" 255 6
+    DropItem "StoneWallWep" 255 6
+
+	DropItem "HellWheelWep" 255 3
+	DropItem "FireWorksWep" 255 3
+	DropItem "UnDeadArmyWep" 255 4
+	DropItem "ShatterStoneWep" 255 6
+	DropItem "CometLauncherWep" 255 6
+	DropItem "GemCannonWep" 255 6
+	DropItem "SideStarWep" 255 6
+	DropItem "FrostBombWep" 255 7
+	DropItem "TripleZapWep" 255 8
+	DropItem "SunSparkWep" 255 10
+	DropItem "HailShotGunWep" 255 12
+	DropItem "HeadCrashWep" 255 5
+	DropItem "HammerTailWep" 255 6
+	DropItem "HCRBoomerangWep" 255 5
+	DropItem "ThunderFangWep" 255 6
+	DropItem "StealthRockWep" 255 8
+	DropItem "IceShurikensWep" 255 10
+	DropItem "ScatterBallWep" 255 9
+	DropItem "WaterCutterWep" 255 11
+	DropItem "VolcanoHandWep" 255 11
+	DropItem "SuperArrowWep" 255 5
+	DropItem "SparkManBowWep" 255 6
+	DropItem "PharaohShotGunWep" 255 7
+	DropItem "LaserMissileWep" 255 5
+	DropItem "DustVaccumWep" 255 7
+	DropItem "RingTossWep" 255 10
+	DropItem "ApexGiver" 255 1
+	DropItem "StarToadWep" 255 4
+	DropItem "RushCannonGiver" 255 2
+	DropItem "FridgeBusterWep" 255 6
+	DropItem "RainFloodWep" 255 2
+
+	DropItem "SpikeBallWep" 255 8
+	DropItem "StoneWep" 255 3
+	DropItem "DrillArmWep" 255 6
+	DropItem "OpticLaserWep" 255 9
+	DropItem "PursuitWep" 255 5
+	DropItem "DelayBusterWep" 255 9
+	DropItem "ThunderChainWep" 255 7
+	DropItem "FractalLaserWep" 255 6
+	DropItem "DimensionalWaveWep" 255 6
+	DropItem "SizzleRocketWep" 255 5
+	DropItem "GlueShotWep" 255 4
+	DropItem "TankArsenalWep" 255 8
+	DropItem "JetMissileWep" 255 7
+	DropItem "YokuAttackWep" 255 4
+	DropItem "YoyoCutterWep" 255 9
+	DropItem "RainbowBeamWep" 255 4
+	DropItem "HammerTossWep" 255 10
+	DropItem "DumplingBombWep" 255 10
+	DropItem "NailShieldWep" 255 5
+	DropItem "CometDashWep" 255 10
+	DropItem "NitroBlastWep" 255 5
+	DropItem "FrenzyPlantWep" 255 6
+	DropItem "RecycleInhalerWep" 255 8
+
+	DropItem "RakuhouhaWep" 255 4
+	DropItem "PiaofuFengWep" 255 8
+	DropItem "NoteableShotWep" 255 6
+	DropItem "RocketChaingunWep" 255 3
+	DropItem "PharaohSacrificeWep" 255 2
+
+	DropItem "WaterShurikenWep" 255 9
+	DropItem "IceShardWep" 255 12
+	DropItem "TriAttackWep" 255 8
+	DropItem "BlazeKickWep" 255 7
+	DropItem "OctaZookaWep" 255 7
+	DropItem "NightDazeWep" 255 4
+	DropItem "GigaDrainWep" 255 3
+	DropItem "MoonBlastWep" 255 4
+	DropItem "FreezeDryWep" 255 6
+	DropItem "IceBeamWep" 255 9
+	DropItem "SelfDestructWep" 255 2
+	DropItem "FellStingerWep" 255 11
+	DropItem "WillOWispWep" 255 10
+	DropItem "MagnetBombWep" 255 7
+	DropItem "LeafStormWep" 255 6
+	DropItem "WildTornadoWep" 255 3
+	DropItem "TeleportWep" 255 3
+	DropItem "ChargeBeamWep" 255 7
+	DropItem "WaterSpoutWep" 255 7
+	DropItem "BeeOrderWep" 255 6
+	DropItem "SteelWingWep" 255 8
+	DropItem "SeedFlareWep" 255 4
+	DropItem "FireBlastWep" 255 4
+	DropItem "PKFireWep" 255 7
+	DropItem "FireBallWep" 255 5
+
+	DropItem "JumpKickWep" 255 7
+	DropItem "FireFlyWep" 255 6
+	DropItem "SuguriDashWep" 255 4
+	DropItem "HyperSpaceHoleWep" 255 8
+	DropItem "EggBombWep" 255 10
+	DropItem "WaterPulseWep" 255 7
+	DropItem "BoomerangBombWep" 255 6
+	DropItem "ExplosiveHadoukenWep" 255 5
+
+	DropItem "CircuitBreakerWep" 255 12
+	DropItem "SolarFlareWep" 255 8
+	DropItem "PulseStopperWep" 255 10
+	DropItem "CryptCloakWep" 255 3
+	DropItem "CharadeCloneWep" 255 2
+	DropItem "PhantomFuseWep" 255 6
+	DropItem "VirusOutbreakWep" 255 2
+	DropItem "ShockGauntletWep" 255 9
+
+	//DropItem "DangerWrapWep" 255 3
+	//DropItem "NoiseCrushWep" 255 3
+	//DropItem "ThunderBoltWep" 255 3
+	//DropItem "ScorchWheelWep" 255 3
+	//DropItem "WildCoilWep" 255 3
+	//DropItem "SlashClawWep" 255 3
+	//DropItem "AirShooterWep" 255 3
+	//DropItem "AtomicFireWep" 255 4
+	//DropItem "BalladeCrackerWep" 255 3
+	//DropItem "BlizzardAttackWep" 255 3
+	//DropItem "BubbleLeadWep" 255 3
+	//DropItem "ChargeKickWep" 255 3
+	//DropItem "CrashBombWep" 255 3
+	//DropItem "CrystalEyeWep" 255 3
+	//DropItem "DiveMissileWep" 255 3
+	//DropItem "DrillBombep" 255 3
+	//DropItem "DustCrusherWep" 255 3
+	//DropItem "FireStormWep" 255 3
+	//DropItem "FlameBlastWep" 255 3
+	//DropItem "FreezeCrackerWep" 255 3
+	//DropItem "GeminiLaserWep" 255 3
+	//DropItem "GyroAttackWep" 255 3
+	//DropItem "HardKnuckleWep" 255 3
+	//DropItem "HyperBombWep" 255 3
+	//DropItem "IceSlasherWep" 255 3
+	//DropItem "KnightCrushWep" 255 3
+	//DropItem "LeafShieldWep" 255 3
+	//DropItem "MagnetMissileWep" 255 3
+	//DropItem "MetalBladeWep" 255 3
+	//DropItem "NapalmBombWep" 255 3
+	//DropItem "NeedleCannonWep" 255 3
+	//DropItem "PharaohShotWep" 255 3
+	//DropItem "PlantBarrierWep" 255 3
+	//DropItem "PowerStoneWep" 255 3
+	//DropItem "QuickBoomerangWep" 255 3
+	//DropItem "RainFlushWep" 255 3
+	//DropItem "RingBoomerangWep" 255 3
+	//DropItem "ScrewCrusherWep" 255 3
+	//DropItem "SearchSnakeWep" 255 3
+	//DropItem "ShadowBladeWep" 255 3
+	//DropItem "SilverTomahawkWep" 255 3
+	//DropItem "SparkShockWep" 255 3
+	//DropItem "StarCrashWep" 255 3
+	//DropItem "SuperArmWep" 255 3
+	//DropItem "ThunderBeamWep" 255 3
+	//DropItem "RollingCutterWep" 255 3
+	//DropItem "TopSpinWep" 255 3
+	//DropItem "WaterWaveWep" 255 3
+	//DropItem "WindStormWep" 255 3
+	//DropItem "YamatoSpearWep" 255 3
+}
+
+actor BaseAOESpawner : RandomSpawner
+{
+    DropItem "MistFormWep" 255 10
+    DropItem "ShockMineWep" 255 5
+    DropItem "ThunderCloud" 255 8
+    DropItem "DarkGiver" 255 15
+    DropItem "HealGiver" 255 15
+    DropItem "LightningChainWep" 255 3
+    DropItem "FlurrySpreadWep" 255 5
+    DropItem "SpeedGearWep" 255 5
+    DropItem "LeechSeedWep" 255 9
+    DropItem "BulletSeedWep" 255 4
+    DropItem "AquaPunchWep" 255 16
+    DropItem "NukeGiver" 255 12
+    DropItem "ShadowForceWep" 255 6
+    DropItem "MagnetDrillWep" 255 7
+    DropItem "BoulderCrackerWep" 255 6
+    DropItem "BlazingSoulWep" 255 4
+    DropItem "BlastFreezeWep" 255 10
+    DropItem "CrossFlameWep" 255 13
+    DropItem "FlameSpoutWep" 255 7
+    DropItem "BombSniperWep" 255 8
+	DropItem "TackleShieldWep" 255 9
+
+	DropItem "GimmickStarWep" 255 12
+    DropItem "WaveGuideWep" 255 5
+    DropItem "CrystalMineWep" 255 9
+    DropItem "FizzBombWep" 255 4
+    DropItem "DrillTorpWep" 255 4
+    DropItem "DizzyBombWep" 255 4
+    DropItem "CrossLightWep" 255 3
+    DropItem "PaintGunWep" 255 3
+    DropItem "NMGWep" 255 3
+
+	DropItem "TwistLaserWep" 255 15
+    DropItem "FadeLauncherWep" 255 4
+    DropItem "CloudBomberWep" 255 9
+    DropItem "IceSpikeWep" 255 3
+    DropItem "PhoenixRodWep" 255 6
+    DropItem "PinMissileWep" 255 3
+    DropItem "PopCornWep" 255 7
+    DropItem "DoubleNapalmWep" 255 7
+
+	DropItem "PerfectChainsawWep" 255 7
+    DropItem "SkyUppercutWep" 255 7
+    DropItem "EqualizerWep" 255 5
+    DropItem "QuadMissileWep" 255 10
+    DropItem "CoalShotWep" 255 3
+    DropItem "DangerFieldWep" 255 8
+    DropItem "GravityHoleWep" 255 8
+    DropItem "StoneWallWep" 255 8
+
+	DropItem "HellWheelWep" 255 8
+	DropItem "FireWorksWep" 255 8
+	DropItem "UnDeadArmyWep" 255 7
+	DropItem "ShatterStoneWep" 255 3
+	DropItem "CometLauncherWep" 255 3
+	DropItem "GemCannonWep" 255 3
+	DropItem "SideStarWep" 255 3
+	DropItem "FrostBombWep" 255 3
+	DropItem "TripleZapWep" 255 4
+	DropItem "SunSparkWep" 255 5
+	DropItem "HailShotGunWep" 255 6
+	DropItem "HeadCrashWep" 255 8
+	DropItem "HammerTailWep" 255 8
+	DropItem "HCRBoomerangWep" 255 4
+	DropItem "ThunderFangWep" 255 3
+	DropItem "StealthRockWep" 255 10
+	DropItem "IceShurikensWep" 255 5
+	DropItem "ScatterBallWep" 255 4
+	DropItem "WaterCutterWep" 255 5
+	DropItem "VolcanoHandWep" 255 5
+	DropItem "SuperArrowWep" 255 1
+	DropItem "SparkManBowWep" 255 7
+	DropItem "PharaohShotGunWep" 255 9
+	DropItem "LaserMissileWep" 255 2
+	DropItem "DustVaccumWep" 255 2
+	DropItem "RingTossWep" 255 3
+	DropItem "ApexGiver" 255 12
+	DropItem "StarToadWep" 255 9
+	DropItem "RushCannonGiver" 255 5
+	DropItem "FridgeBusterWep" 255 4
+	DropItem "RainFloodWep" 255 7
+
+	DropItem "SpikeBallWep" 255 2
+	DropItem "StoneWep" 255 6
+	DropItem "DrillArmWep" 255 2
+	DropItem "OpticLaserWep" 255 2
+	DropItem "PursuitWep" 255 7
+	DropItem "DelayBusterWep" 255 2
+	DropItem "ThunderChainWep" 255 2
+	DropItem "FractalLaserWep" 255 2
+	DropItem "DimensionalWaveWep" 255 2
+	DropItem "SizzleRocketWep" 255 8
+	DropItem "GlueShotWep" 255 7
+	DropItem "TankArsenalWep" 255 2
+	DropItem "JetMissileWep" 255 2
+	DropItem "YokuAttackWep" 255 5
+	DropItem "YoyoCutterWep" 255 2
+	DropItem "RainbowBeamWep" 255 5
+	DropItem "HammerTossWep" 255 10
+	DropItem "DumplingBombWep" 255 2
+	DropItem "NailShieldWep" 255 7
+	DropItem "CometDashWep" 255 2
+	DropItem "NitroBlastWep" 255 7
+	DropItem "FrenzyPlantWep" 255 4
+	DropItem "RecycleInhalerWep" 255 4
+
+	DropItem "RakuhouhaWep" 255 10
+	DropItem "PiaofuFengWep" 255 3
+	DropItem "NoteableShotWep" 255 2
+	DropItem "RocketChaingunWep" 255 8
+	DropItem "PharaohSacrificeWep" 255 7
+
+	DropItem "WaterShurikenWep" 255 2
+	DropItem "IceShardWep" 255 1
+	DropItem "TriAttackWep" 255 4
+	DropItem "BlazeKickWep" 255 3
+	DropItem "OctaZookaWep" 255 3
+	DropItem "NightDazeWep" 255 8
+	DropItem "GigaDrainWep" 255 8
+	DropItem "MoonBlastWep" 255 6
+	DropItem "FreezeDryWep" 255 2
+	DropItem "IceBeamWep" 255 3
+	DropItem "SelfDestructWep" 255 5
+	DropItem "FellStingerWep" 255 4
+	DropItem "WillOWispWep" 255 6
+	DropItem "MagnetBombWep" 255 4
+	DropItem "LeafStormWep" 255 3
+	DropItem "WildTornadoWep" 255 8
+	DropItem "TeleportWep" 255 10
+	DropItem "ChargeBeamWep" 255 3
+	DropItem "WaterSpoutWep" 255 3
+	DropItem "BeeOrderWep" 255 7
+	DropItem "SteelWingWep" 255 2
+	DropItem "SeedFlareWep" 255 6
+	DropItem "FireBlastWep" 255 6
+	DropItem "PKFireWep" 255 3
+	DropItem "FireBallWep" 255 7
+
+	DropItem "JumpKickWep" 255 2
+	DropItem "FireFlyWep" 255 2
+	DropItem "SuguriDashWep" 255 8
+	DropItem "HyperSpaceHoleWep" 255 4
+	DropItem "EggBombWep" 255 2
+	DropItem "WaterPulseWep" 255 2
+	DropItem "BoomerangBombWep" 255 2
+	DropItem "ExplosiveHadoukenWep" 255 2
+
+	DropItem "CircuitBreakerWep" 255 2
+	DropItem "SolarFlareWep" 255 2
+	DropItem "PulseStopperWep" 255 5
+	DropItem "CryptCloakWep" 255 10
+	DropItem "CharadeCloneWep" 255 12
+	DropItem "PhantomFuseWep" 255 2
+	DropItem "VirusOutbreakWep" 255 8
+	DropItem "ShockGauntletWep" 255 2
+	//DropItem "DangerWrapWep" 255 3
+	//DropItem "NoiseCrushWep" 255 3
+	//DropItem "ThunderBoltWep" 255 3
+	//DropItem "ScorchWheelWep" 255 3
+	//DropItem "WildCoilWep" 255 3
+	//DropItem "SlashClawWep" 255 3
+	//DropItem "AirShooterWep" 255 3
+	//DropItem "AtomicFireWep" 255 4
+	//DropItem "BalladeCrackerWep" 255 3
+	//DropItem "BlizzardAttackWep" 255 3
+	//DropItem "BubbleLeadWep" 255 3
+	//DropItem "ChargeKickWep" 255 3
+	//DropItem "CrashBombWep" 255 3
+	//DropItem "CrystalEyeWep" 255 3
+	//DropItem "DiveMissileWep" 255 3
+	//DropItem "DrillBombep" 255 3
+	//DropItem "DustCrusherWep" 255 3
+	//DropItem "FireStormWep" 255 3
+	//DropItem "FlameBlastWep" 255 3
+	//DropItem "FreezeCrackerWep" 255 3
+	//DropItem "GeminiLaserWep" 255 3
+	//DropItem "GyroAttackWep" 255 3
+	//DropItem "HardKnuckleWep" 255 3
+	//DropItem "HyperBombWep" 255 3
+	//DropItem "IceSlasherWep" 255 3
+	//DropItem "KnightCrushWep" 255 3
+	//DropItem "LeafShieldWep" 255 3
+	//DropItem "MagnetMissileWep" 255 3
+	//DropItem "MetalBladeWep" 255 3
+	//DropItem "NapalmBombWep" 255 3
+	//DropItem "NeedleCannonWep" 255 3
+	//DropItem "PharaohShotWep" 255 3
+	//DropItem "PlantBarrierWep" 255 3
+	//DropItem "PowerStoneWep" 255 3
+	//DropItem "QuickBoomerangWep" 255 3
+	//DropItem "RainFlushWep" 255 3
+	//DropItem "RingBoomerangWep" 255 3
+	//DropItem "ScrewCrusherWep" 255 3
+	//DropItem "SearchSnakeWep" 255 3
+	//DropItem "ShadowBladeWep" 255 3
+	//DropItem "SilverTomahawkWep" 255 3
+	//DropItem "SparkShockWep" 255 3
+	//DropItem "StarCrashWep" 255 3
+	//DropItem "SuperArmWep" 255 3
+	//DropItem "ThunderBeamWep" 255 3
+	//DropItem "RollingCutterWep" 255 3
+	//DropItem "TopSpinWep" 255 3
+	//DropItem "WaterWaveWep" 255 3
+	//DropItem "WindStormWep" 255 3
+	//DropItem "YamatoSpearWep" 255 3
+	//DropItem "CentaurFlashWep" 255 3
+	//DropItem "FlashStopperGiver" 255 3
+	//DropItem "GravityHoldWep" 255 3
+	//DropItem "MirrorBusterWep" 255 3
+	//DropItem "SakugarneGiver" 255 3
+	//DropItem "SkullBarrierGiver" 255 3
+	//DropItem "TimeStopperGiver" 255 10
+}
+
+Actor ActualBaseSpawner
+{
+Height 1
+Radius 1
+Scale 2.5
+states
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,0)==2,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,2)==2,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,2)==1,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(694,2)==1,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(696,0)==1,"AllWeps")
+TNT1 A 0 A_SpawnItemEx("BaseSpawner",0,0,0,0,0,0,0)
+stop
+Death:
+TNT1 A 0
+stop
+AllWeps:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("AllBaseSpawner",0,0,0,0,0,0,0)
+stop
+}
+}
+
+Actor ActualBaseAOESpawner
+{
+Height 1
+Radius 1
+Scale 2.5
+states
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,0)==2,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,2)==2,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(694,2)==1,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(975,2)==1,"Death")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(696,0)==1,"AllWeps")
+TNT1 A 0 A_SpawnItemEx("BaseAOESpawner",0,0,0,0,0,0,0)
+stop
+Death:
+TNT1 A 0
+stop
+AllWeps:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("AllAOESpawner",0,0,0,0,0,0,0)
+stop
+}
+}
+
+actor WTankSpawn : ActualItemSpawner 10151 {}
+
+actor DangerWrapSpawn : ActualBaseSpawner 10085 {}
+actor JunkShieldSpawn : ActualBaseSpawner 10087 {}
+actor NoiseCrushSpawn : ActualBaseSpawner 10083 {}
+actor ScorchWheelSpawn : ActualBaseSpawner 10086 {}
+actor ThunderBoltSpawn : ActualBaseSpawner 10089 {}
+actor WildCoilSpawn : ActualBaseSpawner 10084 {}
+actor SlashClawSpawn : ActualBaseSpawner 10088 {}
+actor AirShooterSpawn : ActualBaseSpawner 10036 {}
+actor AtomicFireSpawn : ActualBaseSpawner 10010 {}
+actor BalladeCrackerSpawn : ActualBaseSpawner 10076 {}
+actor BlizzardAttackSpawn : ActualBaseSpawner 10051 {}
+actor BubbleLeadSpawn : ActualBaseSpawner 10007 {}
+actor CenaturFlashSpawn : ActualBaseAOESpawner 10080 {}
+actor ChargeKickSpawn : ActualBaseSpawner 10055 {}
+actor CrashBombSpawn : ActualBaseSpawner 10054 {}
+actor CrystalEyeSpawn : ActualBaseSpawner 10064 {}
+actor DiveMissileSpawn : ActualBaseSpawner 10068 {}
+actor DrillBombSpawn : ActualBaseSpawner 10050 {}
+actor DustCrusherSpawn : ActualBaseSpawner 10061 {}
+actor FireStormSpawn : ActualBaseSpawner 10052 {}
+actor FlameBlastSpawn : ActualBaseSpawner 10066 {}
+actor FlashStopperSpawn : ActualBaseAOESpawner 10078 {}
+actor FreezeCrackerSpawn : ActualBaseSpawner 10082 {}
+actor GeminiLaserSpawn : ActualBaseSpawner 10041 {}
+actor GravityHoldSpawn : ActualBaseAOESpawner 10079 {}
+actor GyroAttackSpawn : ActualBaseSpawner 10059 {}
+actor HardKnuckleSpawn : ActualBaseSpawner 10049 {}
+actor HyperBombSpawn : ActualBaseSpawner 10037 {}
+actor IceSlasherSpawn : ActualBaseSpawner 10045 {}
+actor KnightCrushSpawn : ActualBaseSpawner 10072 {}
+actor LeafShieldSpawn : ActualBaseAOESpawner 10011 {}
+actor MagnetMissileSpawn : ActualBaseSpawner 10038 {}
+actor MetalBladeSpawn : ActualBaseSpawner 10048 {}
+actor MirrorBusterSpawn : ActualBaseAOESpawner 10081 {}
+actor NapalmBombSpawn : ActualBaseSpawner 10035 {}
+actor NeedleCannonSpawn : ActualBaseSpawner 10040 {}
+actor PharaohShotSpawn : ActualBaseSpawner 10062 {}
+actor PlantBarrierSpawn : ActualBaseSpawner 10069 {}
+actor PowerStoneSpawn : ActualBaseSpawner 10060 {}
+actor QuickBoomerangSpawn : ActualBaseSpawner 10053 {}
+actor RainFlushSpawn : ActualBaseAOESpawner 10074 {}
+actor RingBoomerangSpawn : ActualBaseSpawner 10058 {}
+actor RollingCutterSpawn : ActualBaseSpawner 10056 {}
+actor SakugarneSpawn : ActualBaseAOESpawner 10075 {}
+actor ScrewCrusherSpawn : ActualBaseSpawner 10077 {}
+actor SearchSnakeSpawn : ActualBaseSpawner 10042 {}
+actor ShadowBladeSpawn : ActualBaseSpawner 10022 {}
+actor SilverTomahawkSpawn : ActualBaseSpawner 10070 {}
+actor SkullBarrierSpawn : ActualBaseAOESpawner 10065 {}
+actor SparkShockSpawn : ActualBaseSpawner 10057 {}
+actor StarCrashSpawn : ActualBaseSpawner 10073 {}
+actor SuperArmSpawn : ActualBaseSpawner 10044 {}
+actor ThunderBeamSpawn : ActualBaseSpawner 10047 {}
+actor TimeStopperSpawn : ActualBaseAOESpawner 10043 {}
+actor TopSpinSpawn : ActualBaseSpawner 10039 {}
+actor WaterWaveSpawn : ActualBaseSpawner 10063 {}
+actor WindStormSpawn : ActualBaseSpawner 10071 {}
+actor YamatoSpearSpawn : ActualBaseSpawner 10067 {}
+actor MegaBallSpawn : ActualBaseSpawner 11093 {}
+
+actor AstroCrushSpawn : ActualBaseAOESpawner 11094 {}
+actor TimeSlowSpawn : ActualBaseAOESpawner 11010 {}
+
+actor FlameSwordSpawn : ActualBaseSpawner 11095 {}
+actor OilSliderSpawn : ActualBaseSpawner 20042 {}
+actor FlashBombSpawn : ActualBaseSpawner 11091 {}
+actor IceWaveSpawn : ActualBaseSpawner 11090 {}
+actor HomingSniperSpawn : ActualBaseSpawner 11097 {}
+actor ThunderClawSpawn : ActualBaseSpawner 11096 {}
+actor TornadoHoldSpawn : ActualBaseSpawner 11092 {}
+actor WaterBalloonSpawn : ActualBaseSpawner 11098 {}
+
+actor TenguBladeSpawn : ActualBaseSpawner 10012 {}
+actor WaveBurnerSpawn : ActualBaseSpawner 10013 {}
+actor SpreadDrillSpawn : ActualBaseSpawner 10014 {}
+actor CopyVisionSpawn : ActualBaseSpawner 10015 {}
+actor MagicCardSpawn : ActualBaseSpawner 10016 {}
+actor RemoteMineSpawn : ActualBaseSpawner 10017 {}
+actor IceWallSpawn : ActualBaseSpawner 10018 {}
+actor LightningBoltSpawn : ActualBaseAOESpawner 10019 {}
+
+actor AllBaseSpawner : RandomSpawner
+{
+    DropItem "MistFormWep" 255 3
+    DropItem "ShockMineWep" 255 12
+    DropItem "ThunderCloud" 255 6
+    DropItem "DarkGiver" 255 3
+    DropItem "HealGiver" 255 3
+    DropItem "LightningChainWep" 255 7
+    DropItem "FlurrySpreadWep" 255 14
+    DropItem "SpeedGearWep" 255 14
+    DropItem "LeechSeedWep" 255 8
+    DropItem "BulletSeedWep" 255 19
+    DropItem "AquaPunchWep" 255 6
+    DropItem "NukeGiver" 255 1
+    DropItem "ShadowForceWep" 255 5
+    DropItem "MagnetDrillWep" 255 13
+    DropItem "BoulderCrackerWep" 255 15
+    DropItem "BlazingSoulWep" 255 15
+    DropItem "BlastFreezeWep" 255 2
+    DropItem "CrossFlameWep" 255 8
+    DropItem "FlameSpoutWep" 255 11
+    DropItem "BombSniperWep" 255 15
+
+	DropItem "GimmickStarWep" 255 7
+    DropItem "WaveGuideWep" 255 15
+    DropItem "CrystalMineWep" 255 6
+    DropItem "FizzBombWep" 255 8
+    DropItem "DrillTorpWep" 255 9
+    DropItem "DizzyBombWep" 255 8
+    DropItem "CrossLightWep" 255 12
+    DropItem "PaintGunWep" 255 14
+    DropItem "NMGWep" 255 9
+    DropItem "TackleShieldWep" 255 3
+
+	DropItem "TwistLaserWep" 255 6
+    DropItem "FadeLauncherWep" 255 9
+    DropItem "CloudBomberWep" 255 5
+    DropItem "IceSpikeWep" 255 7
+    DropItem "PhoenixRodWep" 255 4
+    DropItem "PinMissileWep" 255 9
+    DropItem "PopCornWep" 255 6
+    DropItem "DoubleNapalmWep" 255 4
+
+	DropItem "PerfectChainsawWep" 255 5
+    DropItem "SkyUppercutWep" 255 5
+    DropItem "EqualizerWep" 255 7
+    DropItem "QuadMissileWep" 255 5
+    DropItem "CoalShotWep" 255 10
+    DropItem "DangerFieldWep" 255 6
+    DropItem "GravityHoleWep" 255 6
+    DropItem "StoneWallWep" 255 6
+
+	DropItem "HellWheelWep" 255 3
+	DropItem "FireWorksWep" 255 3
+	DropItem "UnDeadArmyWep" 255 4
+	DropItem "ShatterStoneWep" 255 6
+	DropItem "CometLauncherWep" 255 6
+	DropItem "GemCannonWep" 255 6
+	DropItem "SideStarWep" 255 6
+	DropItem "FrostBombWep" 255 7
+	DropItem "TripleZapWep" 255 8
+	DropItem "SunSparkWep" 255 10
+	DropItem "HailShotGunWep" 255 12
+	DropItem "HeadCrashWep" 255 5
+	DropItem "HammerTailWep" 255 6
+	DropItem "HCRBoomerangWep" 255 7
+	DropItem "ThunderFangWep" 255 6
+	DropItem "StealthRockWep" 255 8
+	DropItem "IceShurikensWep" 255 10
+	DropItem "ScatterBallWep" 255 9
+	DropItem "WaterCutterWep" 255 11
+	DropItem "VolcanoHandWep" 255 11
+	DropItem "SuperArrowWep" 255 5
+	DropItem "SparkManBowWep" 255 6
+	DropItem "PharaohShotGunWep" 255 7
+	DropItem "LaserMissileWep" 255 5
+	DropItem "DustVaccumWep" 255 7
+	DropItem "RingTossWep" 255 10
+	DropItem "ApexGiver" 255 1
+	DropItem "StarToadWep" 255 4
+	DropItem "RushCannonGiver" 255 2
+	DropItem "FridgeBusterWep" 255 6
+	DropItem "RainFloodWep" 255 2
+
+	DropItem "SpikeBallWep" 255 8
+	DropItem "StoneWep" 255 3
+	DropItem "DrillArmWep" 255 6
+	DropItem "OpticLaserWep" 255 9
+	DropItem "PursuitWep" 255 5
+	DropItem "DelayBusterWep" 255 9
+	DropItem "ThunderChainWep" 255 7
+	DropItem "FractalLaserWep" 255 6
+	DropItem "DimensionalWaveWep" 255 6
+	DropItem "SizzleRocketWep" 255 5
+	DropItem "GlueShotWep" 255 4
+	DropItem "TankArsenalWep" 255 8
+	DropItem "JetMissileWep" 255 7
+	DropItem "YokuAttackWep" 255 4
+	DropItem "YoyoCutterWep" 255 9
+	DropItem "RainbowBeamWep" 255 4
+	DropItem "HammerTossWep" 255 10
+	DropItem "DumplingBombWep" 255 10
+	DropItem "NailShieldWep" 255 5
+	DropItem "CometDashWep" 255 10
+	DropItem "NitroBlastWep" 255 5
+	DropItem "FrenzyPlantWep" 255 6
+	DropItem "RecycleInhalerWep" 255 8
+
+	DropItem "RakuhouhaWep" 255 4
+	DropItem "PiaofuFengWep" 255 8
+	DropItem "NoteableShotWep" 255 6
+	DropItem "RocketChaingunWep" 255 3
+	DropItem "PharaohSacrificeWep" 255 2
+
+	DropItem "WaterShurikenWep" 255 9
+	DropItem "IceShardWep" 255 12
+	DropItem "TriAttackWep" 255 8
+	DropItem "BlazeKickWep" 255 7
+	DropItem "OctaZookaWep" 255 7
+	DropItem "NightDazeWep" 255 4
+	DropItem "GigaDrainWep" 255 3
+	DropItem "MoonBlastWep" 255 4
+	DropItem "FreezeDryWep" 255 6
+	DropItem "IceBeamWep" 255 9
+	DropItem "SelfDestructWep" 255 2
+	DropItem "FellStingerWep" 255 11
+	DropItem "WillOWispWep" 255 10
+	DropItem "MagnetBombWep" 255 7
+	DropItem "LeafStormWep" 255 6
+	DropItem "WildTornadoWep" 255 3
+	DropItem "TeleportWep" 255 3
+	DropItem "ChargeBeamWep" 255 7
+	DropItem "WaterSpoutWep" 255 7
+	DropItem "BeeOrderWep" 255 6
+	DropItem "SteelWingWep" 255 8
+	DropItem "SeedFlareWep" 255 4
+	DropItem "FireBlastWep" 255 4
+	DropItem "PKFireWep" 255 7
+	DropItem "FireBallWep" 255 5
+
+	DropItem "DangerWrapWep" 255 4
+	DropItem "NoiseCrushWep" 255 4
+	DropItem "ThunderBoltWep" 255 4
+	DropItem "ScorchWheelWep" 255 4
+	DropItem "WildCoilWep" 255 4
+	DropItem "SlashClawWep" 255 4
+	DropItem "AirShooterWep" 255 4
+	DropItem "AtomicFireWep" 255 4
+	DropItem "BalladeCrackerWep" 255 4
+	DropItem "BlizzardAttackWep" 255 4
+	DropItem "BubbleLeadWep" 255 4
+	DropItem "ChargeKickWep" 255 4
+	DropItem "CrashBombWep" 255 4
+	DropItem "CrystalEyeWep" 255 4
+	DropItem "DiveMissileWep" 255 4
+	DropItem "DrillBombWep" 255 4
+	DropItem "DustCrusherWep" 255 4
+	DropItem "FireStormWep" 255 4
+	DropItem "FlameBlastWep" 255 4
+	DropItem "FreezeCrackerWep" 255 4
+	DropItem "GeminiLaserWep" 255 4
+	DropItem "GyroAttackWep" 255 4
+	DropItem "HardKnuckleWep" 255 4
+	DropItem "HyperBombWep" 255 4
+	DropItem "IceSlasherWep" 255 4
+	DropItem "KnightCrushWep" 255 4
+	DropItem "LeafShieldWep" 255 4
+	DropItem "MagnetMissileWep" 255 4
+	DropItem "MetalBladeWep" 255 4
+	DropItem "NapalmBombWep" 255 4
+	DropItem "NeedleCannonWep" 255 4
+	DropItem "PharaohShotWep" 255 4
+	DropItem "PlantBarrierWep" 255 4
+	DropItem "PowerStoneWep" 255 4
+	DropItem "QuickBoomerangWep" 255 4
+	DropItem "RainFlushWep" 255 4
+	DropItem "RingBoomerangWep" 255 4
+	DropItem "ScrewCrusherWep" 255 4
+	DropItem "SearchSnakeWep" 255 4
+	DropItem "ShadowBladeWep" 255 4
+	DropItem "SilverTomahawkWep" 255 4
+	DropItem "SparkShockWep" 255 4
+	DropItem "StarCrashWep" 255 4
+	DropItem "SuperArmWep" 255 4
+	DropItem "ThunderBeamWep" 255 4
+	DropItem "RollingCutterWep" 255 4
+	DropItem "TopSpinWep" 255 4
+	DropItem "WaterWaveWep" 255 4
+	DropItem "WindStormWep" 255 4
+	DropItem "YamatoSpearWep" 255 4
+
+	DropItem "MegaBallWep" 255 4
+	DropItem "FlameSwordWep" 255 4
+	DropItem "FlashBombWep" 255 4
+	DropItem "WaterBalloonWep" 255 4
+	DropItem "HomingSniperWep" 255 4
+	DropItem "IceWaveWep" 255 4
+	DropItem "ThunderClawWep" 255 4
+	DropItem "TornadoHoldWep" 255 4
+
+	DropItem "RemoteMineWep" 255 4
+	DropItem "WaveBurnerWep" 255 4
+	DropItem "IceWallWep" 255 4
+	DropItem "MagicCardWep" 255 4
+	DropItem "SpreadDrillWep" 255 4
+	DropItem "TenguBladeWep" 255 4
+	DropItem "CopyVisionWep" 255 4
+
+	DropItem "JumpKickWep" 255 7
+	DropItem "FireFlyWep" 255 6
+	DropItem "SuguriDashWep" 255 4
+	DropItem "HyperSpaceHoleWep" 255 8
+	DropItem "EggBombWep" 255 10
+	DropItem "WaterPulseWep" 255 7
+	DropItem "BoomerangBombWep" 255 6
+	DropItem "ExplosiveHadoukenWep" 255 5
+
+	DropItem "CircuitBreakerWep" 255 12
+	DropItem "SolarFlareWep" 255 8
+	DropItem "PulseStopperWep" 255 10
+	DropItem "CryptCloakWep" 255 3
+	DropItem "CharadeCloneWep" 255 2
+	DropItem "PhantomFuseWep" 255 6
+	DropItem "VirusOutbreakWep" 255 2
+	DropItem "ShockGauntletWep" 255 9
+}
+
+actor AllAOESpawner : RandomSpawner
+{
+    DropItem "MistFormWep" 255 10
+    DropItem "ShockMineWep" 255 5
+    DropItem "ThunderCloud" 255 8
+    DropItem "DarkGiver" 255 15
+    DropItem "HealGiver" 255 15
+    DropItem "LightningChainWep" 255 3
+    DropItem "FlurrySpreadWep" 255 5
+    DropItem "SpeedGearWep" 255 5
+    DropItem "LeechSeedWep" 255 9
+    DropItem "BulletSeedWep" 255 4
+    DropItem "AquaPunchWep" 255 16
+    DropItem "NukeGiver" 255 12
+    DropItem "ShadowForceWep" 255 6
+    DropItem "MagnetDrillWep" 255 7
+    DropItem "BoulderCrackerWep" 255 6
+    DropItem "BlazingSoulWep" 255 4
+    DropItem "BlastFreezeWep" 255 10
+    DropItem "CrossFlameWep" 255 13
+    DropItem "FlameSpoutWep" 255 7
+    DropItem "BombSniperWep" 255 8
+
+	DropItem "TackleShieldWep" 255 10
+	DropItem "GimmickStarWep" 255 12
+	DropItem "WaveGuideWep" 255 5
+	DropItem "CrystalMineWep" 255 9
+    DropItem "FizzBombWep" 255 4
+    DropItem "DrillTorpWep" 255 4
+    DropItem "DizzyBombWep" 255 4
+    DropItem "CrossLightWep" 255 3
+    DropItem "PaintGunWep" 255 3
+    DropItem "NMGWep" 255 3
+
+	DropItem "TwistLaserWep" 255 9
+    DropItem "FadeLauncherWep" 255 4
+    DropItem "CloudBomberWep" 255 8
+    DropItem "IceSpikeWep" 255 3
+    DropItem "PhoenixRodWep" 255 6
+    DropItem "PinMissileWep" 255 3
+    DropItem "PopCornWep" 255 5
+    DropItem "DoubleNapalmWep" 255 7
+
+	DropItem "PerfectChainsawWep" 255 7
+    DropItem "SkyUppercutWep" 255 7
+    DropItem "EqualizerWep" 255 5
+    DropItem "QuadMissileWep" 255 10
+    DropItem "CoalShotWep" 255 3
+    DropItem "DangerFieldWep" 255 8
+    DropItem "GravityHoleWep" 255 8
+    DropItem "StoneWallWep" 255 8
+
+	DropItem "SpikeBallWep" 255 2
+	DropItem "StoneWep" 255 6
+	DropItem "DrillArmWep" 255 2
+	DropItem "OpticLaserWep" 255 2
+	DropItem "PursuitWep" 255 7
+	DropItem "DelayBusterWep" 255 2
+	DropItem "ThunderChainWep" 255 2
+	DropItem "FractalLaserWep" 255 2
+	DropItem "DimensionalWaveWep" 255 2
+	DropItem "SizzleRocketWep" 255 8
+	DropItem "GlueShotWep" 255 7
+	DropItem "TankArsenalWep" 255 2
+	DropItem "JetMissileWep" 255 2
+	DropItem "YokuAttackWep" 255 5
+	DropItem "YoyoCutterWep" 255 2
+	DropItem "RainbowBeamWep" 255 5
+	DropItem "HammerTossWep" 255 10
+	DropItem "DumplingBombWep" 255 2
+	DropItem "NailShieldWep" 255 7
+	DropItem "CometDashWep" 255 2
+	DropItem "NitroBlastWep" 255 7
+	DropItem "RecycleInhalerWep" 255 4
+
+	DropItem "CentaurFlashWep" 255 5
+	DropItem "FlashStopperGiver" 255 5
+	DropItem "GravityHoldWep" 255 5
+	DropItem "MirrorBusterWep" 255 5
+	DropItem "SakugarneGiver" 255 5
+	DropItem "SkullBarrierGiver" 255 5
+	DropItem "TimeStopperGiver" 255 5
+	DropItem "AstroCrushWep" 255 5
+	DropItem "LightningBoltWep" 255 5
+
+	DropItem "HellWheelWep" 255 8
+	DropItem "FireWorksWep" 255 8
+	DropItem "UnDeadArmyWep" 255 7
+	DropItem "ShatterStoneWep" 255 3
+	DropItem "CometLauncherWep" 255 3
+	DropItem "GemCannonWep" 255 3
+	DropItem "SideStarWep" 255 3
+	DropItem "FrostBombWep" 255 3
+	DropItem "TripleZapWep" 255 4
+	DropItem "SunSparkWep" 255 5
+	DropItem "HailShotGunWep" 255 6
+	DropItem "HeadCrashWep" 255 8
+	DropItem "HammerTailWep" 255 8
+	DropItem "HCRBoomerangWep" 255 4
+	DropItem "ThunderFangWep" 255 3
+	DropItem "StealthRockWep" 255 10
+	DropItem "IceShurikensWep" 255 5
+	DropItem "ScatterBallWep" 255 4
+	DropItem "WaterCutterWep" 255 5
+	DropItem "VolcanoHandWep" 255 5
+	DropItem "SuperArrowWep" 255 1
+	DropItem "SparkManBowWep" 255 7
+	DropItem "PharaohShotGunWep" 255 9
+	DropItem "LaserMissileWep" 255 2
+	DropItem "DustVaccumWep" 255 2
+	DropItem "RingTossWep" 255 3
+	DropItem "ApexGiver" 255 12
+	DropItem "StarToadWep" 255 9
+	DropItem "RushCannonGiver" 255 10
+	DropItem "FridgeBusterWep" 255 4
+	DropItem "RainFloodWep" 255 7
+	DropItem "FrenzyPlantWep" 255 4
+
+	DropItem "RakuhouhaWep" 255 10
+	DropItem "PiaofuFengWep" 255 3
+	DropItem "NoteableShotWep" 255 2
+	DropItem "RocketChaingunWep" 255 8
+	DropItem "PharaohSacrificeWep" 255 7
+
+	DropItem "WaterShurikenWep" 255 2
+	DropItem "IceShardWep" 255 1
+	DropItem "TriAttackWep" 255 4
+	DropItem "BlazeKickWep" 255 3
+	DropItem "OctaZookaWep" 255 3
+	DropItem "NightDazeWep" 255 8
+	DropItem "GigaDrainWep" 255 8
+	DropItem "MoonBlastWep" 255 6
+	DropItem "FreezeDryWep" 255 2
+	DropItem "IceBeamWep" 255 3
+	DropItem "SelfDestructWep" 255 5
+	DropItem "FellStingerWep" 255 4
+	DropItem "WillOWispWep" 255 6
+	DropItem "MagnetBombWep" 255 4
+	DropItem "LeafStormWep" 255 3
+	DropItem "WildTornadoWep" 255 8
+	DropItem "TeleportWep" 255 10
+	DropItem "ChargeBeamWep" 255 3
+	DropItem "WaterSpoutWep" 255 3
+	DropItem "BeeOrderWep" 255 7
+	DropItem "SteelWingWep" 255 2
+	DropItem "SeedFlareWep" 255 6
+	DropItem "FireBlastWep" 255 6
+	DropItem "PKFireWep" 255 3
+	DropItem "FireBallWep" 255 7
+
+	DropItem "JumpKickWep" 255 2
+	DropItem "FireFlyWep" 255 2
+	DropItem "SuguriDashWep" 255 8
+	DropItem "HyperSpaceHoleWep" 255 4
+	DropItem "EggBombWep" 255 2
+	DropItem "WaterPulseWep" 255 2
+	DropItem "BoomerangBombWep" 255 2
+	DropItem "ExplosiveHadoukenWep" 255 2
+
+	DropItem "CircuitBreakerWep" 255 2
+	DropItem "SolarFlareWep" 255 2
+	DropItem "PulseStopperWep" 255 5
+	DropItem "CryptCloakWep" 255 10
+	DropItem "CharadeCloneWep" 255 12
+	DropItem "PhantomFuseWep" 255 2
+	DropItem "VirusOutbreakWep" 255 8
+	DropItem "ShockGauntletWep" 255 2
+}

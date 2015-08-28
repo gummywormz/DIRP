@@ -1,0 +1,44 @@
+actor HomingDeviceGiver : CustomInventory
+{
+Inventory.Pickupmessage "Support Item! Anti-Homing Device!"
+inventory.pickupsound "item/1up"
+Inventory.RespawnTics 1800
+scale 2.0
+states
+{
+Spawn:
+ATHD A -1
+stop
+Pickup:
+ATHD A 0 A_JumpIfInventory("IHasDevicez",1,"Fale")
+ATHD A 0 A_GiveInventory("HomingDevice")
+ATHD A 0 A_GiveInventory("IHasDevicez")
+stop
+Fale:
+ATHD A 0
+fail
+}
+}
+//
+//
+//
+//
+//
+//
+actor HomingDevice : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0
+TNT1 A 0 A_ChangeFlag("DONTSEEKINVISIBLE", 1)
+TNT1 A 0 A_ChangeFlag("CANTSEEK", 1)
+stop
+}
+}
+
+actor IHasDevicez : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}

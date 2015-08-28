@@ -1,0 +1,239 @@
+actor RecycleInhalerMain
+{
+PROJECTILE
+Radius 6
+Height 6
+scale 2.5
+Obituary "%o was inhaled by %k's Recycle Inhaler."
++DONTSPLASH
+damagetype "RecycleInhaler"
+damage (3)
+speed 35
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 6
+TNT1 A 0 A_Jump(40,"ParticleSpawn")
+stop
+ParticleSpawn:
+TNT1 A 0 A_SpawnItemEx("RecycleParticle",16,-16,0,0,0,20,0)
+TNT1 A 0 A_SpawnItemEx("RecycleParticle",-16,-16,0,0,0,-20,0)
+TNT1 A 0 A_SpawnItemEx("RecycleParticle",16,16,0,0,0,20,0)
+TNT1 A 0 A_SpawnItemEx("RecycleParticle",-16,16,0,0,0,-20,0)
+stop
+}
+}
+
+actor RecycleParticle
+{
++NOINTERACTION
++NOGRAVITY
+States
+{
+Spawn:
+WHST B 0
+WHST B 1
+WHST B 0 A_Stop
+WHST B 1 ThrustThing(angle*256/360+128, 25, 1, 0)
+WHST B 8
+stop
+}
+}
+
+actor RecycleInhalerWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 56
+Weapon.SlotNumber 4
+Obituary "%o was inhaled by %k's Recycle Inhaler."
+Inventory.Pickupmessage "Power up! Recycle Inhaler!"
+weapon.ammotype "RecycleInhalerAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "RCIHICO"
+Scale 2.0
+States
+{
+Spawn:
+RCIH A -1
+stop
+Ready:
+DSTS B 0 ACS_ExecuteAlways(998,0,30)
+DSTS B 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+DSTS B 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+DSTS B 1 A_Raise
+Loop
+Fire:
+DSTS B 0 A_JumpIfNoAmmo("NoAmmo")
+DSTS B 0 A_PlaySoundEx("weapon/recycleinhaler","Weapon")
+DSTS C 0 A_FireCustomMissile("RecycleInhalerMain",0,1,8,0)
+DSTS C 1
+DSTS C 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS C 1
+DSTS C 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS C 1
+DSTS C 0 A_FireCustomMissile("RecycleInhalerMain",0,1,8,0)
+DSTS C 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,1,8,0)
+DSTS D 1
+DSTS D 1 A_Refire
+DSTS B 16
+Goto Ready+1
+Hold:
+DSTS D 0 A_JumpIfNoAmmo("NoAmmo")
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,1,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,1,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,0,8,0)
+DSTS D 1
+DSTS D 0 A_FireCustomMissile("RecycleInhalerMain",0,1,8,0)
+DSTS D 1
+DSTS D 1 A_Refire
+DSTS B 16
+Goto Ready+1
+NoAmmo:
+DSTS B 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor RecycleInhalerAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 56
+}
+
+actor StuffBWE
+{
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("SmallHealth")
+TNT1 A 0 A_Jump(100,"SpawnMore")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnMore:
+TNT1 A 0 A_SpawnItemEx("SmallHealth")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnWeapon:
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("WaterCutterWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("PharaohShotGunWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("HCRBoomerangWep")
+stop
+}
+}
+
+actor StuffBH
+{
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("WeaponEnergy")
+TNT1 A 0 A_SpawnItemEx("WeaponEnergy")
+TNT1 A 0 A_Jump(100,"SpawnMore")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnMore:
+TNT1 A 0 A_SpawnItemEx("WeaponEnergy")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnWeapon:
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("WaterCutterWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("PharaohShotGunWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("HCRBoomerangWep")
+stop
+}
+}
+
+actor StuffET
+{
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("BigWeaponEnergy")
+TNT1 A 0 A_Jump(100,"SpawnMore")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnMore:
+TNT1 A 0 A_SpawnItemEx("BigWeaponEnergy")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnWeapon:
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("DrillTorpWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("SparkManBowWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("WaterCutterWep")
+stop
+}
+}
+
+actor StuffWT
+{
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("BigHealth")
+TNT1 A 0 A_Jump(100,"SpawnMore")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnMore:
+TNT1 A 0 A_SpawnItemEx("BigHealth")
+TNT1 A 0 A_Jump(25,"SpawnWeapon")
+stop
+SpawnWeapon:
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("DrillTorpWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_Jump(100,3)
+TNT1 A 0 A_SpawnItemEx("SparkManBowWep")
+stop
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("WaterCutterWep")
+stop
+}
+}

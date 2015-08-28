@@ -1,0 +1,91 @@
+actor PKFire // : MaceFX1
+{
+-SOLID
+PROJECTILE
+-NOGRAVITY
+Obituary "%o was incinerated by %k's PK fire."
+Damage (13)
+damagetype "FlameBlast"
+Height 5
+Radius 6
+Scale 2.5
+gravity 900.0
+speed 30
+States
+{
+Spawn:
+FLMB H 1
+FLMB H 0 A_GiveInventory("Clip",1)
+FLMB HHHHHH 4
+Goto Spawn+2
+Crash:
+XDeath:
+TNT1 A 0 A_SpawnItemEx("PKFireTower")
+TNT1 A 0 A_SpawnItemEx("OilPitIgnite",0,0,-16)
+stop
+Death:
+TNT1 A 0 A_JumpIfInventory("Clip",1,"Continue")
+TNT1 A 1
+stop
+Continue:
+TNT1 A 0 A_CustomMissile("PKFire",0,0,0,2,0)
+TNT1 A 1
+stop
+}
+}
+
+actor PKFireTower : FlamePillar
+{
++RIPPER
+Damage (6)
+reactiontime 20
+}
+
+actor PKFireWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was incinerated by %k's PK fire."
+Inventory.Pickupmessage "Power up! PK fire!"
+weapon.ammotype "PKFireAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "PKFRICO"
+Scale 2.0
+States
+{
+Spawn:
+PKFR A 1
+loop
+Ready:
+FLMB P 0 ACS_ExecuteAlways(998,0,35)
+FLMB P 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FLMB P 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FLMB P 1 A_Raise
+Loop
+Fire:
+FLMB P 0 A_JumpIfNoAmmo("NoAmmo")
+FLMB P 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FLMB P 0 A_FireCustomMissile("PKFire",0,1,8,0)
+FLMB QRP 5
+FLMB P 15
+FLMB P 0 A_Refire
+Goto Ready+1
+NoAmmo:
+FLMB P 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor PKFireAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

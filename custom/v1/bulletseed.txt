@@ -1,0 +1,145 @@
+actor BulletSeed
+{
+-SOLID
+PROJECTILE
+Obituary "%o was pelted by %k's Bullet Seed."
++NOGRAVITY
+damagetype "LeafShield"
++FORCEXYBILLBOARD
+Damage (7)
+Speed 35
+Height 10
+Radius 10
+Scale 2.0
+States
+{
+Spawn:
+LESE C -1
+stop
+Death:
+LESE C 0 A_SpawnItemEx("BulletSeedDown",0,0,8,30,0,0,180)
+LESE C 1
+stop
+}
+}
+
+actor BulletSeed75 : BulletSeed
+{
+Speed 40
+}
+
+actor BulletSeed50 : BulletSeed
+{
+Speed 50
+}
+
+actor BulletSeed25 : BulletSeed
+{
+Speed 60
+}
+
+actor BulletSeedAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 65
+}
+
+
+actor BulletSeedDown
+{
+-SOLID
+PROJECTILE
+Obituary "%o was pelted by %k's Bullet Seed."
++DOOMBOUNCE
+damagetype "LeafShield"
+reactiontime 20
+bouncefactor 1.0
+-NOGRAVITY
+bouncecount 1
++FORCEXYBILLBOARD
+Damage (4)
+Speed 40
+Height 10
+Radius 10
+Scale 2.0
+States
+{
+Spawn:
+LESE C 1 A_CountDown
+loop
+Death:
+LESE C 1
+stop
+}
+}
+
+Actor BulletSeedWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 65
+Weapon.SlotNumber 3
+inventory.icon "BSEDICO"
+Obituary "%o was pelted by %k's Bullet Seed."
+Inventory.Pickupmessage "Power up! Bullet Seed!"
+weapon.ammotype "BulletSeedAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+BSED A -1
+stop
+Ready:
+BUSD A 0 ACS_ExecuteAlways(998,0,2)
+BUSD A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BUSD A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BUSD A 1 A_Raise
+Loop
+Fire:
+BUSD A 0 A_JumpIfNoAmmo("NoAmmo")
+BUSD A 0 A_JumpIfHealthLower(75,"Bullet75")
+BUSD A 0 A_PlaySoundEx("weapon/leafshield","Weapon")
+BUSD A 0 A_FireCustomMissile("BulletSeed",0,1,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 7
+BUSD A 1 A_Refire
+Goto Ready+1
+Bullet75:
+BUSD A 0 A_JumpIfNoAmmo("NoAmmo")
+BUSD A 0 A_JumpIfHealthLower(50,"Bullet50")
+BUSD A 0 A_PlaySoundEx("weapon/leafshield","Weapon")
+BUSD A 0 A_FireCustomMissile("BulletSeed75",0,1,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 5
+BUSD A 1 A_Refire
+Bullet50:
+BUSD A 0 A_JumpIfNoAmmo("NoAmmo")
+BUSD A 0 A_JumpIfHealthLower(25,"Bullet25")
+BUSD A 0 A_PlaySoundEx("weapon/leafshield","Weapon")
+BUSD A 0 A_FireCustomMissile("BulletSeed50",0,1,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 3
+BUSD A 1 A_Refire
+Bullet25:
+BUSD A 0 A_JumpIfNoAmmo("NoAmmo")
+BUSD A 0 A_PlaySoundEx("weapon/leafshield","Weapon")
+BUSD A 0 A_FireCustomMissile("BulletSeed25",0,1,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 1
+BUSD A 1 A_Refire
+NoAmmo:
+BUSD A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

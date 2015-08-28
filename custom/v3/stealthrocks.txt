@@ -1,0 +1,131 @@
+//All who enter the trap of stones get damaged.
+Actor StealthTrap
+{
+PROJECTILE
++FLOORHUGGER
++RIPPER
+Damage (0)
+SCALE 2.5
++EXPLODEONDEATH
+DamageType "QuickBoomerang"
+Height 1
+ReactionTime 10
+Radius 64
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 0)
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 45)
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 90)
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 67)
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 123)
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 180)
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 225)
+TNT1 A 0 A_SpawnItemEx("RockShot", 64, 0, 1, 0, 0, 15, 270)
+TNT1 A 2 A_Explode(10,64,0)
+TNT1 A 2 A_Explode(10,64,0)
+TNT1 A 2 A_Explode(10,64,0)
+TNT1 A 2 A_Explode(10,64,0)
+TNT1 A 2 A_Explode(10,64,0)
+TNT1 A 1 A_CountDown
+Goto Spawn+1
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor StealthRockWep : MegaBuster
+{
+Weapon.AmmoUse 10
+Weapon.AmmoGive 50
+Weapon.SlotNumber 6
+Obituary "%o entered %k's Stealth Rocks."
+Inventory.Pickupmessage "Power up! Stealth Rock!"
+weapon.ammotype "StealthRockAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "STHRICO"
+Scale 2.0
+States
+{
+Spawn:
+STHR D -1
+stop
+Ready:
+STHR A 0 ACS_ExecuteAlways(998,0,29)
+STHR A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+STHR A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+STHR A 1 A_Raise
+Loop
+Fire:
+STHR A 0 A_JumpIfNoAmmo("NoAmmo")
+STHR A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+STHR A 0 A_FireCustomMissile("StealthRockStart",0,1,8,0)
+STHR BC 3
+STHR A 35
+STHR A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+STHR A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor StealthRockAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 50
+}
+
+Actor RockShot
+{
+PROJECTILE
+Damage (21)
+SCALE 2.5
+Height 5
+Radius 5
+Obituary "%o entered %k's Stealth Rocks."
+States
+{
+Spawn:
+POWS A -1
+stop
+}
+}
+
+actor StealthRockStart
+{
+PROJECTILE
+-NOGRAVITY
++DONTBLAST
+damagetype "PowerStone"
+Speed 20
+Damage (10)
+Obituary "%o entered %k's Stealth Rocks."
+Radius 38
+Height 10
+scale 2.5
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 ThrustThingZ(0,4,0,1)
+POWS D 1
+goto spawn+2
+XDeath:
+TNT1 A 0
+stop
+Death:
+TNT1 A 1 A_PlaySoundEx("weapon/napalm","Voice")
+TNT1 A 1 A_SpawnItemEx("StealthTrap",0,0,1,0,0,0,0)
+stop
+}
+}

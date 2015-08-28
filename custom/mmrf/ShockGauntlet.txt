@@ -1,0 +1,111 @@
+actor ChainPart
+{
+PROJECTILE
++RIPPER
+Scale 2.5
+Height 2
+Obituary "%o was sliced up by %k's shock gauntlet chain"
+Radius 2
+Speed 0
+Damage (1)
+States
+{
+Spawn:
+SGCN A 1
+SGCN A 8
+stop
+}
+}
+
+actor ShockGauntlet
+{
+PROJECTILE
++RIPPER
++PIERCEARMOR
+Damage (10)
+Radius 8
+Height 5
+Scale 2.5
+Obituary "%o was overloaded by %k's shock gauntlet"
+Speed 30
+DamageType "ShockGauntlet"
+States
+{
+Spawn:
+SGHN A 1
+SGHN A 2 A_SpawnItemEx("ChainPart")
+SGHN A 2 A_SpawnItemEx("ChainPart")
+SGHN A 2 A_SpawnItemEx("ChainPart")
+SGHN A 2 A_SpawnItemEx("ChainPart")
+SGHN A 2 A_SpawnItemEx("ChainPart")
+SGHN A 2 A_SpawnItemEx("ChainPart")
+SGHN A 0 A_ScaleVelocity(-1)
+SGHN A 1
+SGHN A 2 A_SpawnItemEx("ChainPart",-160)
+SGHN A 2 A_SpawnItemEx("ChainPart",-160)
+SGHN A 2 A_SpawnItemEx("ChainPart",-160)
+SGHN A 2 A_SpawnItemEx("ChainPart",-160)
+SGHN A 2 A_SpawnItemEx("ChainPart",-160)
+SGHN A 2 A_SpawnItemEx("ChainPart",-160)
+stop
+}
+}
+
+actor ShockGauntletWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Inventory.Pickupmessage "Power Up! Shock Gauntlet!"
+Obituary "%o was overloaded by %k's shock gauntlet"
+weapon.ammotype "ShockGauntletAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SGHNICO"
+Scale 2.0
+States
+{
+Spawn:
+SGHN B -1
+stop
+Ready:
+SPAS C 0 ACS_ExecuteAlways(998,0,26)
+SPAS C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SPAS C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SPAS C 1 A_Raise
+Loop
+Fire:
+SPAS C 0 A_JumpIfNoAmmo("NoAmmo")
+SPAS C 2
+SPAS C 0 A_PlaySoundEx("weapon/thunderbolt","Weapon")
+SPAS C 0 A_FireCustomMissile("ShockGauntlet",0,1,8,0)
+SPAS DE 4
+SPAS D 18
+SPAS D 0 A_Refire
+Goto Ready+1
+NoAmmo:
+SPAS C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor ShockGauntletAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor ThunderclawPeg2 : ThunderClawPeg replaces ThunderClawPeg
+{
+States
+{
+Pain.ShockGauntlet:
+goto Super::pain.ThunderClaw
+}
+}

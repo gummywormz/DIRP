@@ -1,0 +1,67 @@
+actor WildTornadoWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 4
+Obituary "%o was spun by %k's Wild Tornado."
+Inventory.Pickupmessage "Power up! Wild Tornado!"
+weapon.ammotype "WildTornadoAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "WTORICO"
+Scale 2.0
+States
+{
+Spawn:
+WTOR A 1
+loop
+Ready:
+TOPH A 0 ACS_ExecuteAlways(998,0,9)
+TOPH A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+TOPH A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+TOPH A 1 A_Raise
+Loop
+Fire:
+TOPH A 0 A_JumpIfNoAmmo("NoAmmo")
+TOPH A 0 A_TakeInventory("WildTornadoAmmo",4)
+TOPH A 0 SetPlayerProperty(0,1,0)
+TOPH A 0 A_PlaySoundEx("weapon/mirrordeflect2","Weapon")
+TOPH A 1 A_SpawnItemEx("WildTornadoRadius")
+TOPH ABCDE 4 A_SetAngle(60 + angle)
+TOPH A 1 A_Refire
+TOPH A 0 SetPlayerProperty(0,0,0)
+TOPH A 18
+goto Ready+1
+}
+}
+
+actor WildTornadoRadius
+{
+PROJECTILE
++NOGRAVITY
+-SOLID
+speed 0
+Obituary "%o was spun by %k's Wild Tornado."
+Radius 15
+Height 15
+scale 10
+damagetype "WindStorm"
+States
+{
+Spawn:
+TORH FGHFGHFGHFGH 1 A_Explode(18,80,0)
+stop
+}
+}
+
+actor WildTornadoAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

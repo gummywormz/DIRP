@@ -1,0 +1,128 @@
+actor MistGiver : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+states
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 0 A_ChangeFlag("SHOOTABLE",0)
+SKLB G 0 A_ChangeFlag("SOLID",0)
+SKLB G 1 A_SetTranslucent (0.5, 2)
+stop
+}
+}
+
+actor MistProj
+{
+PROJECTILE
+Obituary "%o was mystified by %k's mist form"
+Damagetype "QuickBoomerang"
+Radius 28
+Height 5
+scale 2.5
+damage (5)
+speed 28
++RIPPER
+-SOLID
++NOGRAVITY
++DONTSPLASH
+States
+{
+Spawn:
+tnt1 A 0
+tnt1 A 0
+tnt1 A 2
+stop
+}
+}
+
+actor Fired : Inventory
+{
+Inventory.Amount 1
+Inventory.maxamount 1
+}
+
+actor MistAmmo : Ammo
+{
+Inventory.Amount 1
+Inventory.MaxAmount 60
+}
+
+actor MistUnGiver : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+states
+{
+Spawn:
+TNT1 A 1
+stop
+Pickup:
+SKLB G 0 A_ChangeFlag("SHOOTABLE",1)
+SKLB G 0 A_ChangeFlag("SOLID",1)
+SKLB G 1 A_SetTranslucent (1.0, 0)
+stop
+}
+}
+
+
+
+Actor MistFormWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 60
++WEAPON.NOAUTOAIM
+Weapon.SlotNumber 7
+inventory.icon "PINKICO"
+Obituary "%o was mystified by %k's mist form"
+Inventory.Pickupmessage "Power up! Mist Form!"
+weapon.ammotype "MistAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+PIMS A -1
+stop
+Ready:
+MSFH A 0 ACS_ExecuteAlways(998,0,254)
+MSFH A 0 A_GiveInventory("MistUnGiver",1)
+MSFH A 0 A_TakeInventory("Fired",1)
+MSFH A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+TNT1 A 0 A_GiveInventory("MistUnGiver",1)
+MSFH A 1 A_TakeInventory("Fired",1)
+MSFH A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+TNT1 A 0 A_GiveInventory("MistUnGiver",1)
+MSFH A 1 A_TakeInventory("Fired",1)
+MSFH A 1 A_Raise
+Loop
+Fire:
+TNT1 A 0 A_JumpIfNoAmmo("NoAmmo")
+TNT1 A 0 A_SpawnItemEx("MistProj", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_JumpIfInventory("Fired",1,"Fire2")
+MSFH A 1 A_PlaySoundEx("weapon/rainflush","Voice")
+MSFH BCDEF 2
+goto fire2
+Fire2:
+TNT1 A 1 A_GiveInventory("MistGiver", 1)
+TNT1 A 1 A_GiveInventory("Fired",1)
+TNT1 A 1 A_TakeInventory("MistAmmo", 2)
+TNT1 A 1 A_Refire
+Goto Ready+1
+NoAmmo:
+MSFH A 1 ACS_Execute(979,0)
+MSFH A 0 A_GiveInventory("MistUnGiver",1)
+MSFH A 1 A_TakeInventory("Fired",1)
+Goto Ready+1
+}
+}

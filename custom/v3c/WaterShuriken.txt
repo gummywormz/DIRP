@@ -1,0 +1,97 @@
+actor WaterShurikenWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was splashed by %k's Water Shuriken"
+weapon.ammotype "WaterShurikenAmmo"
+Inventory.Pickupmessage "Power up! Water Shuriken!"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "WSHUICO"
+Scale 2.0
+States
+{
+Spawn:
+WSHU A 1
+loop
+Ready:
+SKLB G 0 ACS_ExecuteAlways(998,0,32)
+SKLB G 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SKLB G 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SKLB G 1 A_Raise
+Loop
+Fire:
+SKLB H 0 A_JumpIfNoAmmo("NoAmmo")
+SKLB H 0 A_PlaySoundEx("weapon/shadow","Weapon")
+SKLB H 0 A_FireCustomMissile("WaterShuriken",0,1,8,0)
+SKLB HHHHHH 2
+SKLB H 2
+SKLB HG 1
+SKLB G 0 A_GiveInventory("WaterFlag",1)
+SKLB G 0 A_Jump(128,"refire")
+SKLB G 2 A_TakeInventory("WaterFlag",999)
+SKLB G 10
+Goto Ready+1
+Refire:
+SKLB H 0 A_PlaySoundEx("weapon/shadow","Weapon")
+SKLB H 0 A_FireCustomMissile("WaterShuriken",0,0,random(-20,20),0)
+SKLB HHHHHH 2
+SKLB H 2
+SKLB HG 1
+SKLB G 0 A_GiveInventory("WaterFlag",1)
+SKLB G 0 A_JumpIfInventory("WaterFlag",4,1)
+SKLB G 0 A_Jump(128,"refire")
+SKLB G 2 A_TakeInventory("WaterFlag",999)
+SKLB G 10
+Goto Ready+1
+NoAmmo:
+SKLB G 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor WaterShuriken
+{
+PROJECTILE
+Speed 35
+Damage (7)
+RenderStyle Add
+Obituary "%o was splashed by %k's Water Shuriken"
+damagetype "Buster"
++RIPPER
++DONTBLAST
+Radius 7
+Height 7
+scale 2.5
+States
+{
+Spawn:
+SBLA ABABAB 2
+SBLA ABABAB 2
+SBLA ABABAB 2
+Goto Death
+Death:
+WTRB KLMN 1
+TNT1 A 1
+stop
+}
+}
+
+actor WaterFlag : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 4
+}
+
+actor WaterShurikenAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

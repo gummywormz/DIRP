@@ -1,0 +1,140 @@
+actor RainBowFired1 : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor RainBowFired2 : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor RainbowBeamMega
+{
+PROJECTILE
+Damage (20)
+Obituary "%o was caught in %k's Rainbow Beam."
+Scale 2.5
+DamageType "RainbowBeam"
+Height 12
++notargetswitch
+Radius 12
+Speed 45
+States
+{
+Spawn:
+RNBW A 1 A_JumpIfInTargetInventory("RainBowFired2",1,"Asplode")
+loop
+Asplode:
+RNBW A 1 A_PlaySoundEx("weapon/rainbowspread","Voice")
+RNBW A 1 A_SpawnItemEx("RainbowAsplode")
+stop
+Death:
+RNBW A 1 A_TakeFromTarget("RainbowFired1",999)
+stop
+}
+}
+
+Actor RainbowAsplode
+{
+PROJECTILE
+Obituary "%o was caught in %k's Rainbow Beam."
++RIPPER
+Damage (4)
+Scale 1.0
+DamageType "RainbowBeam"
+Height 44
+Radius 44
+Speed 0
+ReactionTime 25
++NOTARGETSWITCH
+States
+{
+Spawn:
+RNBW BC 2
+TNT1 A 1 A_CountDown
+goto Spawn+1
+Death:
+TNT1 A 1 A_TakeFromTarget("RainbowFired2",999)
+TNT1 A 1 A_TakeFromTarget("RainbowFired1",999)
+stop
+}
+}
+
+actor RainbowBeamWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 32
+Weapon.SlotNumber 2
+Obituary "%o was caught in %k's Rainbow Beam."
+Inventory.Pickupmessage "Power up! Rainbow Beam!"
+weapon.ammotype "RainbowBeamAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "RNBWICO"
+Scale 2.0
+States
+{
+Spawn:
+RNBW D 1
+loop
+Ready:
+RNBW E 0 ACS_ExecuteAlways(998,0,508)
+RNBW E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+RNBW E 0 A_GiveInventory("RainbowEmergency",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RNBW E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RNBW E 1 A_Raise
+Loop
+Fire:
+RNBW E 1 A_JumpIfInventory("RainbowFired1",1,"AsplodeIt")
+RNBW E 1 A_JumpIfInventory("RainbowFired2",1,"NoAmmo")
+RNBW E 0 A_JumpIfNoAmmo("NoAmmo")
+RNBW E 0 A_PlaySoundEx("weapon/rainbowbeammega","Weapon")
+RNBW E 0 A_FireCustomMissile("RainbowBeamMega",0,1,8,0)
+RNBW E 0 A_GiveInventory("RainbowFired1",1)
+RNBW GFE 4
+RNBW E 3
+RNBW E 13 A_WeaponReady(WRF_NOSWITCH)
+RNBW E 1 A_Refire
+Goto Ready+1
+AsplodeIt:
+RNBW E 1 A_GiveInventory("RainbowFired2",1)
+RNBW E 13
+goto Ready+1
+NoAmmo:
+RNBW E 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor RainbowBeamAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor RainbowEmergency : CustomInventory
+{
++INVENTORY.AUTOACTIVATE
+inventory.amount 1
+inventory.maxamount 1
+States
+{
+Use:
+TNT1 A 1
+TNT1 A 35
+TNT1 A 35
+TNT1 A 35
+TNT1 A 1 A_TakeInventory("RainbowFired1",999)
+TNT1 A 1 A_TakeInventory("RainbowFired2",999)
+TNT1 A 1 A_TakeInventory("RainbowEmergency",999)
+stop
+}
+}

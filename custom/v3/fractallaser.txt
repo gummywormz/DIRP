@@ -1,0 +1,122 @@
+//gemini laser that splits into two when wall then three,
+//but with low speed and the 3 disappear after a while and don't bounce
+
+actor FractalLaser1
+{
+PROJECTILE
+Obituary "%o was surprised by %k's Fractal Laser."
+speed 30
+Radius 5
+Height 5
+damagetype "GeminiLaser"
+scale 2.5
+damage (30)
++FORCEXYBILLBOARD
+speed 22
+reactiontime 150
+States
+{
+Spawn:
+GEMI A 0
+GEMI A 0 A_SpawnItemEx("GeminiTrail",0,0,0,0,0,0,0)
+GEMI A 1 A_CountDown
+loop
+XDeath:
+TNT1 A 0
+stop
+Death:
+TNT1 A 0 A_CustomMissile("FractalLaser2",0,0,15)
+TNT1 A 0 A_CustomMissile("FractalLaser2",0,0,-15)
+STOP
+}
+}
+
+actor FractalLaser2 : FractalLaser1
+{
+Speed 30
+States
+{
+Spawn:
+GEMI A 0
+GEMI A 0 A_SpawnItemEx("GeminiTrail",0,0,0,0,0,0,0)
+GEMI A 1 A_CountDown
+loop
+XDeath:
+TNT1 A 0
+stop
+Death:
+TNT1 A 0 A_CustomMissile("FractalLaser3",0,0,15,0,0)
+TNT1 A 0 A_CustomMissile("FractalLaser3",0,0,0,0,0)
+TNT1 A 0 A_CustomMissile("FractalLaser3",0,0,-15,0,0)
+STOP
+}
+}
+
+actor FractalLaser3 : FractalLaser1
+{
+Speed 20
+ReactionTime 75
+States
+{
+Spawn:
+GEMI A 0
+GEMI A 0 A_SpawnItemEx("GeminiTrail",0,0,0,0,0,0,0)
+GEMI A 1 A_CountDown
+loop
+XDeath:
+TNT1 A 0
+stop
+Death:
+TNT1 A 0
+STOP
+}
+}
+
+actor FractalLaserWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was suprised by %k's Fractal Laser."
+Inventory.Pickupmessage "Power up! Fractal Laser!"
+weapon.ammotype "FractalLaserAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "FLASICO"
+Scale 2.0
+States
+{
+Spawn:
+FLAS A -1
+stop
+Ready:
+BLIZ D 0 ACS_ExecuteAlways(998,0,11)
+BLIZ D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BLIZ D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BLIZ D 1 A_Raise
+Loop
+Fire:
+BLIZ D 0 A_JumpIfNoAmmo("NoAmmo")
+BLIZ D 0 A_PlaySoundEx("weapon/gemini","Weapon")
+BLIZ D 0 A_FireCustomMissile("FractalLaser1",0,1,8,0)
+BLIZ EF 3
+BLIZ D 20
+BLIZ D 0 A_Refire
+Goto Ready+1
+NoAmmo:
+BLIZ D 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor FractalLaserAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

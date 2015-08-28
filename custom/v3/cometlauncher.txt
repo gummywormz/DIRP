@@ -1,0 +1,93 @@
+//fast arcing shot that explodes on impact
+
+actor CometFX : MegaBallFX1
+{
+States
+{
+Spawn:
+TNT1 A 2
+MBAL JLM 3 A_FadeOut
+stop
+}
+}
+
+actor CometLaunched
+{
+PROJECTILE
+-NOGRAVITY
+Obituary "%o was distracted by %k's Comet Launcher."
++FORCEXYBILLBOARD
+scale 1.5
+height 16
+radius 16
+damage (30)
+Gravity 0.50
+speed 45
+damagetype "AstroCrush"
+States
+{
+Spawn:
+COMT C 2
+COMT C 0 ThrustThingZ(0, 10, 0, 1)
+COMT CD 3 A_SpawnItemEx("CometFX")
+Goto Spawn+2
+Death:
+TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 0 A_Explode(40,128,0)
+TNT1 A 1 A_PlaySoundEx("weapon/napalm","Voice")
+ASEX ABCDEF 2
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}
+
+actor CometLauncherWep : MegaBuster
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 30
+Weapon.SlotNumber 2
+Obituary "%o was distracted by %k's Comet Launcher."
+Inventory.Pickupmessage "Power up! Comet Launcher!"
+weapon.ammotype "CometLauncherAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "COMTLICO"
+Scale 2.0
+States
+{
+Spawn:
+COMT F -1
+stop
+Ready:
+COMT A 0 ACS_ExecuteAlways(998,0,225)
+COMT A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+COMT A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+COMT A 1 A_Raise
+Loop
+Fire:
+COMT A 0 A_JumpIfNoAmmo("NoAmmo")
+COMT A 0 A_PlaySoundEx("weapon/megaball","Weapon")
+COMT A 0 A_FireCustomMissile("CometLaunched",0,1,8,0)
+COMT BE 4
+COMT A 16
+COMT A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+COMT A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor CometLauncherAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}

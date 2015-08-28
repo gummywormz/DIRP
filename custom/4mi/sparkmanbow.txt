@@ -1,0 +1,186 @@
+//hold it like perfect chainsaw, but take ammo every so often while holding and
+//when activated. on release, fire a bulb that if it hits something it deals an
+//explosion that travels slightly farther. Holding up gives a radius time freeze.
+
+actor SparkManBowWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Inventory.Pickupmessage "Power up! Spark ManBow!"
+weapon.ammotype "SparkManbowAmmo"
+Obituary "%o was tazed by %k's Spark ManBow."
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SPMBICO"
+Scale 2.0
+States
+{
+Spawn:
+MIWP A -1
+stop
+Ready:
+SPMB A 0 ACS_ExecuteAlways(998,0,49)
+SPMB A 1 A_JumpIfInventory("IHeldItMan",1,"Release")
+SPMB A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+SPMB A 1 A_TakeInventory("IHeldItMan",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SPMB A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SPMB A 1 A_Raise
+Loop
+Fire:
+SPMB A 0 A_JumpIfNoAmmo("NoAmmo")
+SPMB A 0 A_JumpIfInventory("IHeldItMan",1,"Hold")
+SPMB A 1 A_PlaySoundEx("weapon/sparkmanbow","Weapon")
+SPMB A 0 A_FireCustomMissile("SparkManBowTemp",0,1,8,0)
+SPMB BC 5
+SPMB C 3
+Goto Hold
+Hold:
+SPMB C 0 A_JumpIfNoAmmo("NoAmmo")
+SPMB C 1 A_JumpIfInventory("SparkManBowCooler",10,"HoldAndTake")
+SPMB C 0 A_GiveInventory("IHeldItMan",1)
+SPMB C 3
+SPMB C 1 A_PlaySoundEx("weapon/sparkmanbow","Weapon")
+SPMB C 0 A_FireCustomMissile("SparkManBowTemp",0,0,8,0)
+SPMB C 1 A_GiveInventory("SparkManBowCooler",1)
+Goto Ready+2
+HoldAndTake:
+SPMB C 0 A_GiveInventory("IHeldItMan",1)
+SPMB C 3
+SPMB C 1 A_PlaySoundEx("weapon/sparkmanbow","Weapon")
+SPMB C 0 A_FireCustomMissile("SparkManBowTemp",0,1,8,0)
+SPMB C 1 A_TakeInventory("SparkManBowCooler",999)
+Goto Ready+2
+Release:
+SPMB C 0 A_TakeInventory("IHeldItMan",1)
+SPMB C 0 A_FireCustomMissile("SparkManBowProjectile",0,0,8,0)
+SPMB BA 3
+goto Ready+1
+NoAmmo:
+SPMB D 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor SparkManBowTemp
+{
+PROJECTILE
+Radius 6
+Height 6
+Obituary "%o was tazed by %k's Spark ManBow."
+scale 2.5
+damagetype "ElecBeam"
+damage (6)
+speed 30
+States
+{
+Spawn:
+SPMB D 0
+SPMB D 1
+SPMB E 1
+stop
+}
+}
+
+Actor SparkManBowProjectile
+{
+PROJECTILE
+Radius 6
+Height 6
+Obituary "%o was tazed by %k's Spark ManBow."
+Scale 2.5
+damagetype "ElecBeam"
+Damage (35)
+Speed 45
+States
+{
+Spawn:
+SPMB D 0
+SPMB DE 2
+loop
+XDeath:
+SPMB E 0 A_SpawnItemEx("SparkManBowExplosion",0,0,0,45,0,0,0)
+SPMB E 1 A_PlaySoundEx("weapon/drillexplode","Voice")
+stop
+Death:
+SPMB D 0 A_JumpIf(z-floorz<5, "FlashIt")
+SPMB D 0 A_JumpIf(z-ceilingz==0-6, "FlashIt")
+SPMB E 0 A_SpawnItemEx("SparkManBowExplosion",80,0,0,45,0,0,0)
+SPMB E 1 A_PlaySoundEx("weapon/drillexplode","Voice")
+stop
+FlashIt:
+SPMB E 0 A_SpawnItemEx("SparkManBowFlash")
+SPMB E 1 A_TakeFromTarget("SparkManBowAmmo",4)
+SPMB E 1 A_PlaySoundEx("weapon/flashstopper","Voice")
+stop
+}
+}
+
+actor SparkManBowFlash
+{
+PROJECTILE
+Radius 1
+Height 1
+Obituary "%o was tazed by %k's Spark ManBow."
+scale 2.5
+damagetype "SparkManBow"
+damage (0)
+speed 0
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_Explode(30,250,0)
+TNT1 A 1
+stop
+}
+}
+
+Actor SparkManBowExplosion
+{
+PROJECTILE
+Obituary "%o was tazed by %k's Spark ManBow."
+Radius 64
+Height 50
++RIPPER
+Height 1
+Scale 2.5
+damagetype "ElecBeam"
+Damage (6)
+Speed 45
+States
+{
+Spawn:
+BOMB J 0
+BOMB JK 5
+stop
+Death:
+BOMB LMNOPQR 3
+stop
+}
+}
+
+
+Actor IHeldItMan : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+Actor SparkManBowCooler : Inventory
+{
+inventory.amount 1
+inventory.maxamount 10
+}
+
+actor SparkManBowAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

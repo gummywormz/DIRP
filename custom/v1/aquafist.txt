@@ -1,0 +1,76 @@
+actor AquaPunch
+{
++SOLID
+PROJECTILE
++NOGRAVITY
++FORCEXYBILLBOARD
+Obituary "%o felt the whiplash of %k's Aqua Fist."
+Damage (35)
+Speed 5
+damagetype "AquaPunch"
+Height 20
+Radius 30
+Scale 2.0
+States
+{
+Spawn:
+AQPN A 0
+AQPN A 20
+goto Death
+Death:
+DOLP BCDE 5 A_PlaySoundEx("weapon/aquafist2","Weapon")
+stop
+}
+}
+
+actor AquaPunchAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 75
+}
+
+
+Actor AquaPunchWep : MegaBuster
+{
+Weapon.AmmoUse 15
+Weapon.AmmoGive 75
+Weapon.Kickback 37
+Weapon.SlotNumber 5
+inventory.icon "AQICO"
+Obituary "%o felt the whiplash of %k's Aqua Fist."
+Inventory.Pickupmessage "Power up! Aqua Fist!"
+weapon.ammotype "AquaPunchammo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+AQPN B -1
+stop
+Ready:
+AQPN C 0 ACS_ExecuteAlways(998,0,204)
+AQPN C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+AQPN C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+AQPN C 1 A_Raise
+Loop
+Fire:
+AQPN C 0 A_JumpIfNoAmmo("NoAmmo")
+AQPN C 0 A_PlaySoundEx("weapon/aquafist1","Weapon")
+AQPN C 2 A_FireCustomMissile("AquaPunch",0,1,8,0)
+AQPN C 0
+AQPN DE 2
+AQPN C 19
+AQPN C 1 A_Refire
+Goto Ready+1
+NoAmmo:
+AQPN C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

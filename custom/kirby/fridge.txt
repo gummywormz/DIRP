@@ -1,0 +1,325 @@
+//kirby 64
+
+actor FridgeCounter : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+actor FridgeBusterWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 7
+Obituary "%o was chilled out by %k's Fridge Buster."
+Inventory.Pickupmessage "Power up! Fridge Buster!"
+weapon.ammotype "FridgeAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "FRDGICO"
+Scale 2.0
+States
+{
+Spawn:
+FRDG D -1
+stop
+Ready:
+FRDG A 0 ACS_ExecuteAlways(998,0,226)
+FRDG A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FRDG A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FRDG A 1 A_Raise
+Loop
+Fire:
+FRDG A 0 A_JumpIfNoAmmo("NoAmmo")
+FRDG A 0 A_JumpIfInventory("FridgeCounter",1,"LongShot")
+FRDG A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FRDG A 0 A_FireCustomMissile("FridgeDecider1",0,1,8,0)
+FRDG A 0 A_GiveInventory("FridgeCounter",1)
+FRDG BC 3
+FRDG A 4
+FRDG A 0 A_Refire
+Goto Ready+1
+LongShot:
+FRDG A 0 A_JumpIfNoAmmo("NoAmmo")
+FRDG A 0 A_TakeInventory("FridgeCounter",1)
+FRDG A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FRDG A 0 A_FireCustomMissile("FridgeDecider2",0,1,8,0)
+FRDG BC 3
+FRDG A 4
+FRDG A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+FRDG A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor FridgeAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+
+Actor FridgeDecider1
+{
+PROJECTILE
+Speed 0
++NOGRAVITY
++RIPPER
+Damage (0)
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_Jump(64,"SmallWeapon")
+TNT1 A 0 A_Jump(64,"SmallHealth")
+TNT1 A 0 A_Jump(64,"BigWeapon")
+TNT1 A 0 A_Jump(64,"BigHealth")
+loop
+SmallWeapon:
+TNT1 A 1 A_SpawnItemEx("SmallWeaponProjectile",0,0,0,30,0,-10,0)
+stop
+SmallHealth:
+TNT1 A 1 A_SpawnItemEx("SmallHealthProjectile",0,0,0,30,0,-10,0)
+stop
+BigWeapon:
+TNT1 A 1 A_SpawnItemEx("BigWeaponProjectile",0,0,0,30,0,-10,0)
+stop
+BigHealth:
+TNT1 A 1 A_SpawnItemEx("BigHealthProjectile",0,0,0,30,0,-10,0)
+stop
+}
+}
+
+Actor FridgeDecider2 : FridgeDecider1
+{
+States
+{
+SmallWeapon:
+TNT1 A 1 A_SpawnItemEx("SmallWeaponProjectile",0,0,0,30,0,-5,0)
+stop
+SmallHealth:
+TNT1 A 1 A_SpawnItemEx("SmallHealthProjectile",0,0,0,30,0,-5,0)
+stop
+BigWeapon:
+TNT1 A 1 A_SpawnItemEx("BigWeaponProjectile",0,0,0,30,0,-5,0)
+stop
+BigHealth:
+TNT1 A 1 A_SpawnItemEx("BigHealthProjectile",0,0,0,30,0,-5,0)
+stop
+}
+}
+
+actor SmallHealthProjectile
+{
+PROJECTILE
+Radius 8
+Height 8
+Obituary "%o was chilled out by %k's Fridge Buster."
+Speed 30
+scale 2.5
+damagetype "IceSlasher"
+damage (13)
+States
+{
+Spawn:
+HBAL A 0
+HBAL AB 6
+loop
+Death:
+TNT1 A 0 A_SpawnItemEx("FridgeSmallHealthGiver")
+stop
+XDeath: //player
+TNT1 A 1
+stop
+}
+}
+
+actor BigHealthProjectile
+{
+PROJECTILE
+Radius 16
+Height 16
+Speed 30
+Obituary "%o was chilled out by %k's Fridge Buster."
+scale 2.5
+damagetype "IceSlasher"
+damage (21)
+States
+{
+Spawn:
+HBAL CD 6
+loop
+Death:
+TNT1 A 0 A_SpawnItemEx("FridgeBigHealthGiver")
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}
+
+actor BigWeaponProjectile
+{
+PROJECTILE
+Radius 16
+Height 16
+Speed 30
+Obituary "%o was chilled out by %k's Fridge Buster."
+scale 2.5
+damagetype "IceSlasher"
+damage (21)
+States
+{
+Spawn:
+EBAL CD 6
+loop
+Death:
+TNT1 A 0 A_SpawnItemEx("FridgeBigWeaponGiver")
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}
+
+actor SmallWeaponProjectile
+{
+PROJECTILE
+Radius 8
+Height 8
+Speed 30
+Obituary "%o was chilled out by %k's Fridge Buster."
+scale 2.5
+damagetype "IceSlasher"
+damage (13)
+States
+{
+Spawn:
+EBAL AB 6
+loop
+Death:
+TNT1 A 0 A_SpawnItemEx("FridgeSmallWeaponGiver")
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}
+
+actor FridgeBigWeaponGiver : CustomInventory
+{
+inventory.pickupmessage "Picked up a large energy capsule."
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+EBAL CD 6
+Loop
+Pickup:
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(984,0),"Success")
+fail
+Success:
+TNT1 A 0 A_GiveInventory("ActualFridgeBigWeaponEnergy",1)
+stop
+}
+}
+
+actor FridgeSmallWeaponGiver : CustomInventory
+{
+inventory.pickupmessage "Picked up a small energy capsule."
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+EBAL AB 6
+loop
+Pickup:
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(984,0),"Success")
+fail
+Success:
+TNT1 A 0 A_GiveInventory("ActualFridgeWeaponEnergy",1)
+stop
+}
+}
+
+
+actor FridgeSmallHealthGiver : CustomInventory
+{
+inventory.pickupmessage "Picked up a small health capsule."
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+HBAL AB 6
+loop
+Pickup:
+HBAL A 0 A_JumpIfHealthLower(99,"GoForIt")
+fail
+GoForIt:
+HBAL A 1 HealThing(5)
+stop
+}
+}
+
+actor FridgeBigHealthGiver : CustomInventory
+{
+inventory.pickupmessage "Picked up a Big health capsule."
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+HBAL CD 6
+loop
+Pickup:
+HBAL C 0 A_JumpIfHealthLower(99,"GoForIt")
+fail
+GoForIt:
+HBAL C 1 HealThing(10)
+stop
+}
+}
+
+actor ActualFridgeWeaponEnergy : CustomInventory
+{
+inventory.amount 1
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1
+Goto Spawn+2
+Pickup:
+TNT1 A 0 ACS_ExecuteAlways(992,0,2)
+stop
+}
+}
+
+actor ActualFridgeBigWeaponEnergy : CustomInventory
+{
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1
+Goto Spawn+2
+Pickup:
+TNT1 A 0 ACS_ExecuteAlways(992,0,5)
+stop
+}
+}

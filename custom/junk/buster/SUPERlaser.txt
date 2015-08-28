@@ -1,0 +1,1 @@
+//SUPER laser buster fast firing lasers (longer but weaker than default) upon enemy death it powers up with double then spread

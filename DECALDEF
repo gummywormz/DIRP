@@ -1,0 +1,137 @@
+//begin paintgun
+
+slider PaintSlide
+{
+   DistY -9999
+   SlideStart 0
+   SlideTime 340
+}
+
+decal RedDecal
+{
+       pic REDPT
+	  //shade "255 0 0"
+       x-scale 2.0
+       y-scale 2.0
+       randomflipx
+       randomflipy
+	   animator PaintSlide
+}
+
+decal BlueDecal
+{
+       pic BLUPT
+	   //Shade "0 0 255"
+       x-scale 2.0
+       y-scale 2.0
+       randomflipx
+       randomflipy
+	   animator PaintSlide
+}
+
+decal GreenDecal
+{
+       pic GRNPT
+	   //Shade "0 255 0"
+       x-scale 2.0
+       y-scale 2.0
+       randomflipx
+       randomflipy
+	   animator PaintSlide
+}
+
+generator PaintGunRed RedDecal
+generator PaintGunBlue BlueDecal
+generator PaintGunGreen GreenDecal
+
+//end paint gun
+
+decal BloodSplat1
+{
+	pic BSPLAT1
+	//shade "BloodDefault"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat2
+{
+	pic BSPLAT2
+	//shade "BloodDefault"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat3
+{
+	pic BSPLAT3
+	//shade "BloodDefault"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat4
+{
+	pic BSPLAT4
+	//shade "BloodDefault"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat5
+{
+	pic BSPLAT5
+	//shade "BloodDefault"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat6
+{
+	pic BSPLAT6
+	//shade "BloodDefault"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSplat7
+{
+	pic BSPLAT7
+	//shade "BloodDefault"
+	x-scale 0.75
+	y-scale 0.75
+	randomflipx
+	randomflipy
+}
+
+decal BloodSmear1
+{
+	pic BSMEAR1
+	x-scale 0.625
+	y-scale 0.625
+	//shade "BloodDefault"
+	randomflipx
+	//animator BloodSmearer
+}
+
+decal BloodSmear2
+{
+	pic BSMEAR1
+	x-scale 0.625
+	y-scale 0.625
+	//shade "BloodDefault"
+	randomflipx
+	//animator BloodSmearer
+}

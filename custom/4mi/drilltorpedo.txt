@@ -1,0 +1,191 @@
+actor DrillTorpAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor DrillOut : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor MOARDrills : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor DrillTorpNorm
+{
+PROJECTILE
+Radius 6
+Height 6
+scale 2.5
+Obituary "%o was excavated by %k's Drill Torpedo."
++RIPPER
+damagetype "DrillBomb"
+damage (10)
+speed 35
+States
+{
+Spawn:
+DRIL ABC 3
+DRIL A 0 A_JumpIfInTargetInventory("MOARDrills",1,"SilentDeath")
+loop
+SilentDeath:
+TNT1 A 0
+TNT1 A 1 A_TakefromTarget("DrillOut",999)
+TNT1 A 1 A_TakefromTarget("MOARDrills",999)
+stop
+Death:
+MMFX BCDE 2
+TNT1 A 0 A_TakefromTarget("DrillOut",999)
+TNT1 A 0 A_TakefromTarget("MOARDrills",999)
+stop
+}
+}
+
+actor DrillTorpFloorSpawn
+{
+PROJECTILE
+Radius 6
+Obituary "%o was excavated by %k's Drill Torpedo."
+Height 6
+scale 2.5
++RIPPER
+damagetype "DrillBomb"
+damage (10)
+speed 35
+States
+{
+Spawn:
+DRIL ABC 3
+DRIL A 1 A_JumpIfInTargetInventory("MOARDrills",1,"SilentDeath")
+loop
+SilentDeath:
+TNT1 A 0
+TNT1 A 1 A_TakefromTarget("DrillOut",999)
+TNT1 A 1 A_TakefromTarget("MOARDrills",999)
+stop
+Death:
+TNT1 A 0 A_TakefromTarget("DrillOut",999)
+TNT1 A 0 A_TakefromTarget("MOARDrills",999)
+TNT1 A 0 A_SpawnItemEx("DrillTorpFloor",0,0,8,35,0,0)
+stop
+}
+}
+
+actor DrillTorpFloor
+{
+PROJECTILE
+Radius 6
+Height 6
+Obituary "%o was excavated by %k's Drill Torpedo."
++FLOORHUGGER
++RIPPER
+maxstepheight 0
+scale 2.5
+damagetype "DrillBomb"
+damage (9)
+speed 35
+States
+{
+Spawn:
+DRTP ABC 3
+DRTP A 0 A_JumpIfInTargetInventory("MOARDrills",1,"SilentDeath")
+loop
+SilentDeath:
+TNT1 A 0
+TNT1 A 1 A_TakefromTarget("DrillOut",999)
+TNT1 A 1 A_TakefromTarget("MOARDrills",999)
+stop
+Death:
+MMFX BCDE 2
+TNT1 A 0 A_TakefromTarget("DrillOut",999)
+TNT1 A 0 A_TakefromTarget("MOARDrills",999)
+stop
+}
+}
+
+Actor DrillTorpSpawner
+{
+Radius 5
+Height 5
+Damage (0)
+Speed 0
+PROJECTILE
+-NOGRAVITY
++FLOORHUGGER
++RIPPER
+states
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("DrillTorpFloorSpawn", 70, 0, 16, 0, 35, 0, 0)
+TNT1 A 0 A_SpawnItemEx("DrillTorpFloorSpawn", 70, 0, 16, 0, -35, 0, 0)
+stop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor DrillTorpWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was detonated by %k's Drill Torpedo."
+Inventory.Pickupmessage "Power up! Drill Torpedo"
+weapon.ammotype "DrillTorpAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "DRTPICO"
+Scale 2.0
+States
+{
+Spawn:
+DLTP A 1
+loop
+Ready:
+DRIL D 0 ACS_ExecuteAlways(998,0,19)
+DRIL D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+DRIL D 0 A_TakeInventory("DrillOut",99)
+DRIL D 0 A_TakeInventory("MOARDrills",99)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+DRIL D 1 A_Lower
+Loop
+Select:
+DRIL D 0 A_TakeInventory("DrillOut",99)
+DRIL D 0 A_TakeInventory("MOARDrills",99)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+DRIL D 1 A_Raise
+Loop
+Fire:
+DRIL D 0 A_JumpIfNoAmmo("NoAmmo")
+DRIL D 0 A_JumpIfInventory("DrillOut",1,"Fire2")
+DRIL D 0 A_GiveInventory("DrillOut",1)
+DRIL D 0 A_PlaySoundEx("weapon/drillfly","Weapon")
+DRIL D 0 A_FireCustomMissile("DrillTorpSpawner",0,1,8,0)
+DRIL D 0 A_FireCustomMissile("DrillTorpNorm",0,0,8,0)
+DRIL EFD 6
+DRIL D 0
+goto Ready+1
+Fire2:
+DRIL D 0 A_JumpIfNoAmmo("NoAmmo")
+DRIL D 1 A_GiveInventory("MOARDrills",1)
+DRIL D 1 A_PlaySoundEx("weapon/drillfly","Weapon")
+DRIL D 0 A_FireCustomMissile("DrillTorpSpawner",0,1,8,0)
+DRIL D 0 A_FireCustomMissile("DrillTorpNorm",0,0,8,0)
+DRIL D 0 A_TakeInventory("MOARDrills",99)
+DRIL EFD 6
+DRIL D 0
+goto Ready+1
+NoAmmo:
+BUST E 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

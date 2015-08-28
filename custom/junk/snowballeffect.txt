@@ -1,0 +1,1 @@
+//goes bigger and more damager farther it goes. floor hugger but dies on walls.

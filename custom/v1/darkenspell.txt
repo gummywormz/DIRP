@@ -1,0 +1,107 @@
+actor NightBurst
+{
+PROJECTILE
+Obituary "%o wandered into %k's Spell of Darkness."
++PIERCEARMOR
++FORCERADIUSDMG
++DONTBLAST
++FORCEXYBILLBOARD
+Radius 8
+Height 8
+scale 2.5
+speed 0
+damage (1)
+damagetype "Night"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_Explode(5, 1280, 0)
+TNT1 A 1
+stop
+}
+}
+
+
+
+actor Darked : PowerProtection
+{
+damagefactor "Nighttwo", 1.0
+powerup.duration -10
+//powerup.color "00 00 00", 0.6
+}
+
+actor nightammo : Ammo
+{
+Inventory.amount 1
+Inventory.MaxAmount 50
+}
+
+actor DarkGiver : CustomInventory
+{
+Inventory.Pickupmessage "Power up! Spell of Darkness!"
+inventory.pickupsound "weapon/weaponup"
+Inventory.RespawnTics 1800
+scale 2.5
+states
+{
+Spawn:
+SPDK A -1
+stop
+Pickup:
+SPDK A 0 A_JumpIfInventory("EternalNight",1,"Fale")
+SPDK A 0 A_GiveInventory("EternalNight")
+stop
+Fale:
+SPDK A 1
+fail
+}
+}
+
+
+Actor EternalNight : MegaBuster
+{
+Weapon.AmmoUse 50
++Weapon.Noautoaim
+Weapon.AmmoGive 50
+Weapon.SlotNumber 6
+inventory.icon "SPDKICO"
+Obituary "%o wandered into %k's Spell of Darkness."
+Inventory.Pickupmessage "Power up! Spell of Darkness!"
+weapon.ammotype "nightammo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+//Scale 2.0
+States
+{
+Spawn:
+SPDK A -1
+stop
+Ready:
+DRWE A 0 ACS_ExecuteAlways(998,0,201)
+DRWE A 1 A_WeaponReady
+DRWE A 1
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+DRWE A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+DRWE A 1 A_Raise
+Loop
+Fire:
+DRWE A 0 A_JumpIfNoAmmo("NoAmmo")
+DRWE A 0 A_PlaySoundEx("weapon/flashstopper","Weapon")
+DRWE A 2 A_FireCustomMissile("NightBurst",0,0,0,0)
+DRWE A 0 A_TakeInventory("nightammo", 50)
+DRWE D 2
+DRWE CB 2
+DRWE A 16
+DRWE A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+DRWE A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

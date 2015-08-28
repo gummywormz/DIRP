@@ -1,0 +1,1 @@
+//fire a mid range projectile that deals more damage and slows more with less health

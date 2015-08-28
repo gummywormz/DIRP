@@ -1,0 +1,127 @@
+Actor DangerField
+{
+PROJECTILE
+Obituary "%o was tossed aside by %k's Danger Field."
++REFLECTIVE
++RIPPER
++SHOOTABLE
+Damagetype "AquaPunch"
+Damage (10)
+Speed 15
++NOGRAVITY
++NOBLOOD
++INVULNERABLE
++DONTBLAST
++DEFLECT
++NORADIUSDMG
+ReactionTime 40
+height 46
+radius 46
+scale 2.5
+States
+{
+Spawn:
+DANF ABCDE 3
+DANF A 1 A_Stop
+DANF A 2
+DANF A 1 A_SpawnItemEx("ProjectileReflector")
+goto ActualSpawn
+ActualSpawn:
+DANF A 1 A_PlaySoundEx("weapon/lightshield","Voice",1)
+DANF ABCDE 3
+DANF A 1 A_CountDown
+goto ActualSpawn+1
+Death:
+NAPA E 1 A_StopSound(CHAN_VOICE)
+NAPA E 1 A_PlaySoundEx("weapon/drillexplode","Voice")
+NAPA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor ProjectileReflector
+{
++MISSILE
++SHOOTABLE
++RIPPER
++NOBLOOD
++REFLECTIVE
++NOGRAVITY
++DEFLECT
++INVULNERABLE
++DONTBLAST
++NORADIUSDMG
++DONTSPLASH
+damage 0
+ReactionTime 40
+height 46
+radius 46
+scale 2.5
+speed 0
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_LookEx(LOF_NOSOUNDCHECK,0,70,0,360,"See")
+TNT1 ABCDE 3 A_LookEx(LOF_NOSOUNDCHECK,0,70,0,360,"See")
+TNT1 A 1 A_CountDown
+loop
+See:
+TNT1 A 1 ACS_ExecuteAlways(190, 0, 30)
+TNT1 A 1 A_ClearTarget
+Goto Spawn
+Death:
+TNT1 A 1
+stop
+}
+}
+
+
+actor DangerFieldAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 60
+}
+
+actor DangerFieldWep : MegaBuster
+{
+Weapon.AmmoUse 20
+Weapon.AmmoGive 60
+Weapon.SlotNumber 6
+Obituary "%o was tossed aside by %k's Danger Field."
+Inventory.Pickupmessage "Power up! Danger Field!"
+weapon.ammotype "DangerFieldAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "DANFICO"
+Scale 2.0
+States
+{
+Spawn:
+DANF F -1
+stop
+Ready:
+DANF G 0 ACS_ExecuteAlways(998,0,223)
+DANF G 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+DANF G 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+DANF G 1 A_Raise
+Loop
+Fire:
+DANF G 0 A_JumpIfNoAmmo("NoAmmo")
+DANF G 0 A_PlaySoundEx("weapon/mmvshot","Weapon")
+DANF G 0 A_FireCustomMissile("DangerField",0,1,8,0)
+DANF HIG 5
+DANF G 20
+DANF G 0 A_Refire
+Goto Ready+1
+NoAmmo:
+DANF G 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

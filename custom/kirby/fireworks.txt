@@ -1,0 +1,191 @@
+//kirby 64
+actor FireworksCounter : Inventory
+{
+inventory.amount 1
+inventory.maxamount 3
+}
+
+actor FireSplode1
+{
+PROJECTILE
++DONTSPLASH
++NOTARGETSWITCH
+Obituary "%o stood in awe of %k's Fire Works."
+Damagetype "QuickBoomerang"
+Damage 0
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_Explode(30,160,0)
+TNT1 A 1 A_SpawnItemEx("FireWorksFX1")
+stop
+}
+}
+
+actor FireSplode2 : FireSplode1
+{
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_Explode(40,200,0)
+TNT1 A 1 A_SpawnItemEx("FireworksFX2")
+stop
+}
+}
+
+actor FireSplode3 : FireSplode1
+{
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_Explode(50,240,0)
+TNT1 A 1 A_SpawnItemEx("FireworksFX3")
+stop
+}
+}
+
+actor FireWorksFX1
+{
+Scale 2.5
++CLIENTSIDEONLY
++NOINTERACTION
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-10,10),random(-10,10),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-20,20),random(-20,20),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-20,20),random(-20,20),random(-15,64))
+stop
+}
+}
+
+actor FireWorksFX2
+{
+Scale 2.5
++CLIENTSIDEONLY
++NOINTERACTION
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-10,10),random(-10,10),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-20,20),random(-20,20),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-20,20),random(-20,20),random(-15,64))
+
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-30,30),random(-30,30),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-30,30),random(-30,30),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-30,30),random(-30,30),random(-15,64))
+
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-50,50),random(-50,50),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-50,50),random(-50,50),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-50,50),random(-50,50),random(-15,64))
+stop
+}
+}
+
+actor FireWorksFX3
+{
+Scale 2.5
++CLIENTSIDEONLY
++NOINTERACTION
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-50,50),random(-50,50),random(-15,150))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-60,60),random(-60,60),random(-15,150))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-60,60),random(-60,60),random(-15,150))
+
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-70,70),random(-70,70),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-80,80),random(-80,80),random(-15,64))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-90,90),random(-90,90),random(-15,64))
+
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-20,20),random(-20,20),random(-15,32))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-20,20),random(-20,20),random(-15,32))
+TNT1 A 1 A_SpawnItemEx("BrightFireworkExp",random(-20,20),random(-20,20),random(-15,32))
+stop
+}
+}
+
+actor FireWorksAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}
+
+actor FireWorksWep : MegaBuster
+{
+Weapon.AmmoUse 5
+Weapon.AmmoGive 30
+Weapon.SlotNumber 4
+Obituary "%o stood in awe of %k's Fire Works."
+Inventory.Pickupmessage "Power up! Fire Works!"
+weapon.ammotype "FireWorksAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "FIRWICO"
+Scale 2.0
+States
+{
+Spawn:
+FIRW D -1
+stop
+Ready:
+FIRW A 0 ACS_ExecuteAlways(998,0,229)
+FIRW A 1 A_WeaponReady
+FIRW A 0 A_JumpIfInventory("FireworksCounter",1,"TakeItTest")
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FIRW A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FIRW A 1 A_Raise
+Loop
+Fire:
+FIRW A 0 A_JumpIfNoAmmo("NoAmmo")
+FIRW A 0 A_JumpIfInventory("FireworksCounter",3,"NoAmmo")
+FIRW A 0 A_JumpIfInventory("FireworksCounter",2,"Fire3")
+FIRW A 0 A_JumpIfInventory("FireworksCounter",1,"Fire2")
+FIRW A 0 A_PlaySoundEx("weapon/crackerexplode", "Weapon")
+FIRW A 1 ThrustThingZ(0,50,0,1)
+FIRW A 0 A_FireCustomMissile("FireSplode1",0,1,8,0)
+FIRW A 0 A_GiveInventory("FireworksCounter",1)
+FIRW BCA 3
+FIRW A 5
+FIRW A 0 A_Refire
+Goto Ready+1
+Fire2:
+FIRW A 0 A_PlaySoundEx("weapon/crackerexplode", "Weapon")
+FIRW A 1 ThrustThingZ(0,80,0,1)
+FIRW A 0 A_FireCustomMissile("FireSplode2",0,1,8,0)
+FIRW A 0 A_GiveInventory("FireworksCounter",1)
+FIRW BCA 3
+FIRW A 15
+FIRW A 0 A_Refire
+Goto Ready+1
+Fire3:
+FIRW A 0 A_PlaySoundEx("weapon/crackerexplode", "Weapon")
+FIRW A 1 ThrustThingZ(0,110,0,1)
+FIRW A 0 A_FireCustomMissile("FireSplode3",0,1,8,0)
+FIRW A 0 A_GiveInventory("FireworksCounter",1)
+FIRW BCA 3
+FIRW A 15
+FIRW A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+FIRW A 1
+Goto Ready+1
+TakeItTest:
+FIRW A 0 A_JumpIf(z-floorz<=0 || momz==0, "TakeIt")
+Goto Ready+1
+TakeIt:
+FIRW A 0 A_TakeInventory("FireWorksCounter",4)
+goto Ready+1
+}
+}

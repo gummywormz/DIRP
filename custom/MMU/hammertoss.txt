@@ -1,0 +1,81 @@
+actor HammerTossAmmo : Ammo
+{
+Inventory.Amount 1
+Inventory.MaxAmount 40
+}
+
+actor HammerTossWep : MegaBuster 
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 40
+Weapon.SlotNumber 2
+Obituary "%o was smashed by %k's Hammer Toss."
+Inventory.Pickupmessage "Power up! Hammer Toss!"
+weapon.ammotype "HammerTossAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "HAMMICO"
+Scale 2.0
+States
+{
+Spawn:
+HAMM H 1
+loop
+Ready:
+HMHD A 0 ACS_ExecuteAlways(998,0,510)
+HMHD A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+HMHD A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+HMHD A 1 A_Raise
+Loop
+Fire:
+HMHD A 0 A_JumpIfNoAmmo("NoAmmo")
+HMHD A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+HMHD A 0 A_FireCustomMissile("HammerTosser",0,1,8,0)
+HMHD BCDEFGIJ 3
+HMHD A 15
+HMHD A 1 A_Refire
+Goto Ready+1
+NoAmmo:
+HMHD A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor HammerTosser
+{
+PROJECTILE
+Radius 20
+Height 20
+Obituary "%o was smashed by %k's Hammer Toss."
+scale 2.5
+-NOGRAVITY
+DamageType "HammerToss"
+Speed 35
+Damage (25)
+States
+{
+Spawn:
+HAMM A 1
+HAMM A 0 A_Recoil(-10)
+HAMM A 1 ThrustThingZ(0, 50, 0, 1)
+goto Actual
+Actual:
+HAMM ABCD 4
+HAMM ABCD 2
+HAMM A 0 A_Stop
+HAMM A 0 ThrustThingZ(0, 50, 1, 1)
+goto Actual2
+Actual2:
+HAMM ABCD 4
+loop
+Death:
+HAMM A 0 A_Stop
+stop
+}
+}

@@ -1,0 +1,89 @@
+actor HyperSpaceHole
+{
+PROJECTILE
+Height 8
+Radius 15
++ACTIVATEMCROSS
+-NOBLOCKMONST
+Damage (20)
+Speed 48
+Scale 2.5
+Obituary "%o was sucked into Hyper Space by %k's Hyperspace Hole"
+States
+{
+Spawn:
+HSHO A 0
+HSHO A 1 Thing_ChangeTID(0,6000+ACS_ExecuteWithResult(257, 0))
+Anim:
+HSHO FGHIJKLMNOPQ 4
+loop
+Death:
+TNT1 A 0 A_GiveToTarget("ImNotHere",1)
+stop
+}
+}
+
+actor ImNotHere : Inventory
+{
+INVENTORY.AMOUNT 1
+INVENTORY.MAXAMOUNT 1
+}
+
+actor HyperSpaceHoleWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was sucked into Hyper Space by %k's Hyperspace Hole"
+Inventory.Pickupmessage "Power up! Hyper Space Hole!"
+weapon.ammotype "HyperSpaceHoleAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "HPSHICO"
+Scale 2.0
+States
+{
+Spawn:
+HPSH A -1
+stop
+Ready:
+FDLU E 0 ACS_ExecuteAlways(998,0,220)
+FDLU E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FDLU E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FDLU E 1 A_Raise
+Loop
+Fire:
+FDLU E 0 A_JumpIfNoAmmo("NoAmmo")
+FDLU E 0 A_PlaySoundEx("weapon/hyperspacehole","Weapon")
+FDLU E 0 A_FireCustomMissile("HyperSpaceHole",0,1,8,0)
+FDLU FGE 5
+goto Hold
+Hold:
+FDLU E 2
+FDLU E 0 A_Refire
+FDLU E 1 A_JumpIfInventory("ImNotHere",1,"Next")
+FDLU E 1 A_SetTranslucent(.5,0)
+FDLU E 1 Thing_Move(tid, tid+6000, 1)
+FDLU E 1 A_SetTranslucent(1.0,0)
+FDLU E 0 A_PlaySoundEx("misc/partyball","Weapon")
+Next:
+FDLU E 0 A_TakeInventory("ImNotHere",1)
+FDLU E 19
+Goto Ready+1
+NoAmmo:
+FDLU E 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor HyperSpaceHoleAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

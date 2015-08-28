@@ -1,0 +1,101 @@
+//dive missile but faster and leaves laser trail.
+actor LaserMissileTrail
+{
+PROJECTILE
++RIPPER
+Radius 5
+Height 5
+scale 2.5
+Obituary "%o crossed the path of %k's Laser Missile."
+damage (7)
+speed 0
+damagetype "GeminiLaser"
+States
+{
+Spawn:
+GEMI A 0
+GEMI A 16
+stop
+}
+}
+
+actor LaserMissile
+{
+PROJECTILE
++SEEKERMISSILE
+-EXTREMEDEATH
+Obituary "%o crossed the path of %k's Laser Missile."
+Radius 5
+Height 5
+scale 2.5
+damage (10)
+damagetype "DiveMissile"
+speed 40
+ReactionTime 40
+States
+{
+Spawn:
+DIVE A 0
+DIVE A 1 A_SpawnItemEx("LaserMissileTrail",-32,0,0,0,0,0,0)
+DIVE AB 1 A_SeekerMissile(2,10,SMF_LOOK,256,4)
+DIVE A 1 A_SpawnItemEx("LaserMissileTrail",-32,0,0,0,0,0,0)
+DIVE AB 1 A_SeekerMissile(2,10,SMF_LOOK,256,4)
+DIVE A 1 A_SpawnItemEx("LaserMissileTrail",-32,0,0,0,0,0,0)
+DIVE AB 1 A_SeekerMissile(2,10,SMF_LOOK,256,4)
+DIVE A 0 A_CountDown
+loop
+Death:
+MMFX BCDE 2
+stop
+}
+}
+
+
+actor LaserMissileWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o crossed the path of %k's Laser Missile."
+Inventory.Pickupmessage "Power up! Laser Missile!"
+weapon.ammotype "LaserMissileAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "LASMICO"
+Scale 2.0
+States
+{
+Spawn:
+LASM A 1
+loop
+Ready:
+AIRS D 0 ACS_ExecuteAlways(998,0,38)
+AIRS D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+AIRS D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+AIRS D 1 A_Raise
+Loop
+Fire:
+AIRS D 0 A_JumpIfNoAmmo("NoAmmo")
+AIRS D 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+AIRS D 0 A_FireCustomMissile("LaserMissile",0,1,8,0)
+AIRS EFD 3
+AIRS D 16
+AIRS D 0 A_Refire
+Goto Ready+1
+NoAmmo:
+AIRS D 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor LaserMissileAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

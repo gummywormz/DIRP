@@ -1,0 +1,39 @@
+#include "zcommon.acs"
+#library "lighting"
+
+script 80 OPEN CLIENTSIDE
+{
+int setlights = GetCvar("halloween_lights");
+int gl = GetCvar("gl_lights");
+If(GetCVAR("vid_renderer")==0)terminate;
+if(!setlights){
+	For(int i=0; i<=150; i++){
+		Light_LowerByValue(i,105*gl);
+		}
+	}
+
+while(true){
+	while(setlights){Delay(1); setlights = GetCvar("halloween_lights");}
+	if(gl!=GetCvar("gl_lights")){
+	gl = GetCvar("gl_lights");
+		if(gl==1){
+			for(int time = 0; time<=34; time++){
+				For(i=0; i<=150; i++){
+					Light_LowerByValue(i,3);
+					}
+				Delay(1);
+				}//end for
+			}//end if
+		if(gl==0){
+			for(time = 0; time<=34; time++){
+				For(i=0; i<=150; i++){
+					Light_RaiseByValue(i,3);
+					}
+				Delay(1);
+				}//end for
+			}//end if
+		}
+	Delay(1);
+	setlights = GetCvar("halloween_lights");
+	}
+}

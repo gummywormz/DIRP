@@ -1,0 +1,136 @@
+#include "zcommon.acs"
+#library "global2"
+
+Script 601 (void) //glueshot
+{
+GiveInventory("GlueEffects",1);
+SetPlayerProperty(0,1,4);
+Delay(35 * 3);
+SetPlayerProperty(0,0,4);
+GiveInventory("GlueUnEffects",1);
+}
+
+Script 602 ENTER
+{
+if(GetCvar("possession")!=1 || GetCvar("teampossession")!=1){terminate;}
+While(CheckInventory("PossessionStone")==0){Delay(35);}
+GiveInventory("PossesionReset",1);
+}
+
+Script 603 RESPAWN
+{
+Acs_ExecuteAlways(602,0,0);
+}
+
+//604 taken by wephelp
+//605 taken by scramble mode (it's in WEPACS btw)
+//606 taken by scramble mode
+//607 taken by scramble mode
+//608 taken by scramble mode
+Script 680 (int notrans)
+{
+if(notrans == 0)
+{
+CreateTranslation (988, 192:192=0:0, 198:198=0:0);
+Thing_setTranslation(ActivatorTID(),988);
+}
+
+Fadeto(0, 0, 0, 0.94, 0.5);
+Delay(35 * 4);
+Fadeto(0, 0, 0, 0.0, 0.5);
+}
+
+Script 690 (void)
+{
+SetPlayerProperty(0,1,0);
+Delay(53);
+SetPlayerProperty(0,0,0);
+}
+
+Script 691 (void)
+{
+ThrustThing(Random(0,224), 1, 0, 0);
+}
+
+script 692 (void)
+{
+SetActorProperty(ActivatorTID(), APROP_Gravity, 0.8);
+Delay(3);
+SetActorProperty(ActivatorTID(), APROP_Gravity, 0.25);
+}
+
+script 694 (void)
+{
+if(GetCvar("dirp_scramble") == 1)
+{
+SetResultValue(1);
+//PrintBold(s:"All weapons on");
+}
+
+if(GetCvar("dirp_scramble") == 0)
+{
+SetResultValue(0);
+//PrintBold(s:"All weapons off");
+}
+}
+
+Script 695 RESPAWN
+{
+If(GetCvar("SV_MaxLives") > 1)
+{
+GiveInventory("UndoLMS",1);
+}
+}
+
+Script 696 (void)
+{
+if(GetCvar("dirp_AllWeps") == 1)
+{
+SetResultValue(1);
+//PrintBold(s:"All weapons on");
+}
+
+if(GetCvar("dirp_AllWeps") == 0)
+{
+SetResultValue(0);
+//PrintBold(s:"All weapons off");
+}
+}
+
+SCRIPT 697 (void)
+{
+if (CheckInventory("Darked")==1)
+{
+Fadeto(0, 0, 0, 1.0, 1);
+Delay(35 * 2);
+Fadeto(0, 0, 0, 0.98, 0.5);
+Delay(35 * 2);
+Fadeto(0, 0, 0, 0.97, 0.5);
+Delay(35 * 2);
+Fadeto(0, 0, 0, 0.94, 0.5);
+Delay(35 * 2);
+Fadeto(0, 0, 0, 0.88, 0.5);
+Delay(35 * 2);
+Fadeto(0, 0, 0, 0.0, 0.5);
+}
+}
+
+Script 698 (void)
+{
+DamageThing(30);
+}
+
+
+script 699 (void)
+{
+if(CheckActorFloorTexture(0, "SLAWATL") || CheckActorFloorTexture(0, "SLAWATR")
+|| CheckActorFloorTexture(0, "SLAWATO") || CheckActorFloorTexture(0, "IWATER")
+|| CheckActorFloorTexture(0, "TOADFXX") || CheckActorFloorTexture(0, "PWATER")
+|| CheckActorFloorTexture(0, "WAVWAT") || CheckActorFloorTexture(0, "GWATER")
+|| CheckActorFloorTexture(0, "DWATER") || CheckActorFloorTexture(0, "WWATER")
+|| CheckActorFloorTexture(0, "CWATER") || CheckActorFloorTexture(0, "AQWATER")
+|| CheckActorFloorTexture(0, "BSTWAT") || CheckActorFloorTexture(0, "WOODFAL")
+|| CheckActorFloorTexture(0, "YAMFALLX")){
+SetResultValue(1);
+}
+}

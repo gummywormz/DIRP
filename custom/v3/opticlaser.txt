@@ -1,0 +1,70 @@
+//3 part projectile that does 10 damage each
+
+actor OpticLaserWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 40
+Weapon.SlotNumber 2
+Obituary "%o was stared at by %k's Optic Laser."
+Inventory.Pickupmessage "Power up! Optic Laser!"
+weapon.ammotype "OpticLaserAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "OPTLICO"
+Scale 2.0
+States
+{
+Spawn:
+OPTL A -1
+stop
+Ready:
+RSHC A 0 ACS_ExecuteAlways(998,0,227)
+RSHC A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RSHC A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RSHC A 1 A_Raise
+Loop
+Fire:
+RSHC A 0 A_JumpIfNoAmmo("NoAmmo")
+RSHC A 0 A_PlaySoundEx("weapon/gemini","Weapon")
+RSHC BCA 3
+RSHC A 1 A_FireCustomMissile("OpticLaser",0,1,8,0)
+RSHC A 1 A_FireCustomMissile("OpticLaser",0,0,8,0)
+RSHC A 1 A_FireCustomMissile("OpticLaser",0,0,8,0)
+RSHC A 15
+RSHC A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+RSHC A 1
+Goto Ready+1
+}
+}
+
+actor OpticLaserAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 40
+}
+
+actor OpticLaser
+{
+PROJECTILE
+Radius 12
+Height 12
+Obituary "%o was stared at by %k's Optic Laser."
+DamageType "GeminiLaser"
+scale 2.5
+damage (10)
+speed 45
+States
+{
+Spawn:
+OPTL BCD 4
+loop
+}
+}

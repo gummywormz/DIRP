@@ -1,0 +1,79 @@
+ClearTeams
+
+Team "Dr. Light Team"
+{
+   PlayerColor "DD DD DD"
+   TextColor "Blue"
+   RailColor "00 FF 00"
+   FlagItem "MegaBlueFlag"
+   SkullItem "BlueSkullST"
+   PlayerStartThingNumber 0
+   SmallFlagHUDIcon "LFLG"
+   SmallSkullHUDIcon "STKEYS3"
+   LargeFlagHUDIcon "BFLASMAL"
+   LargeSkullHUDIcon "BSKUA0"
+   WinnerPic "winerpic"
+   LoserPic "loserpic"
+   AllowCustomPlayerColor
+   PlayerStartThingNumber 5080
+}
+
+Team "Dr. Wily Team"
+{
+	PlayerColor "BF 00 00"
+	TextColor "Red"
+	RailColor "FF 00 00"
+	FlagItem "MegaRedFlag"
+	SkullItem "RedSkullST"
+	PlayerStartThingNumber 0
+	SmallFlagHUDIcon "WFLG"
+	SmallSkullHUDIcon "STKEYS5"
+	LargeFlagHUDIcon "RFLASMAL"
+	LargeSkullHUDIcon "RSKUA0"
+	WinnerPic "WilyWin"
+	LoserPic "WilyLose"
+	WinnerTheme "BASSWIN"
+	LoserTheme "BASSLOSE"
+	AllowCustomPlayerColor
+	PlayerStartThingNumber 5081
+}
+
+Team "Dr. Cossack Team"
+{
+	PlayerColor "FF A5 00"
+	TextColor "Orange"
+	RailColor "FF A5 00"
+	FlagItem "MegaOrangeFlag"
+	SkullItem "OrangeSkullST"
+	PlayerStartThingNumber 0
+	SmallFlagHUDIcon "CFLG"
+	SmallSkullHUDIcon "STKEYS5"
+	LargeFlagHUDIcon "YFLASMAL"
+	LargeSkullHUDIcon "YSKUA0"
+	WinnerPic "CosWin"
+	LoserPic "CosLose"
+	WinnerTheme "COSSVIC"
+	LoserTheme "COSSLOSE"
+	AllowCustomPlayerColor
+	PlayerStartThingNumber 5082
+}
+
+Team "King Team"
+{
+	PlayerColor "80 00 80"
+	TextColor "Purple"
+	RailColor "80 00 80"
+	FlagItem "MegaPurpleFlag"
+	SkullItem "PurpleSkullST"
+	PlayerStartThingNumber 0
+	SmallFlagHUDIcon "KFLG"
+	SmallSkullHUDIcon "STKEYS5"
+	LargeFlagHUDIcon "BFLASMAL"
+	LargeSkullHUDIcon "BSKUA0"
+	WinnerPic "KNGWIN"
+	LoserPic "KNGLOSE"
+	WinnerTheme "MRXWIN"
+	LoserTheme "MRXLOSE"
+	AllowCustomPlayerColor
+	PlayerStartThingNumber 5083
+}

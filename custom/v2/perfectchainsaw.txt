@@ -1,0 +1,138 @@
+//hold down for chainsaw. on release if ammo left, rapid fire danmaku
+
+Actor PerfectChainsaw1
+{
+PROJECTILE
++Ripper
++DONTBLAST
+Obituary "%o was perfectly cut up by %k's Perfect Chainsaw."
++FORCEXYBILLBOARD
+Scale 2.5
+Radius 40
+Height 40
+DamageType "QuickBoomerang"
+Speed 5
+Damage (4)
+States
+{
+Spawn:
+PCHS A 0
+PCHS AB 3
+stop
+Death:
+TNT1 A 1
+stop
+}
+}
+
+Actor IHeldIt : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor PerfectChainsawAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 120
+}
+
+actor PerfectChainsaw2 : FastProjectile
+{
+PROJECTILE
+Obituary "%o was perfectly pelted by %k's Perfect Chainsaw."
+damagetype "Sniper"
+Speed 170
+Damage (4)
+radius 2
+height 2
+scale 2.5
+States
+{
+Spawn:
+PCHS C -1
+stop
+Death:
+MMFX BCDE 3
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}
+
+actor PerfectChainsawWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 120
+Weapon.SlotNumber 4
+Inventory.Pickupmessage "Power up! Perfect Chainsaw!"
+weapon.ammotype "PerfectChainsawAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "PCHSICO"
+Scale 2.0
+States
+{
+Spawn:
+PCHS H -1
+stop
+Ready:
+PCHS D 0 ACS_ExecuteAlways(998,0,221)
+PCHS D 1 A_JumpIfInventory("IHeldIt",1,"Pelt")
+PCHS D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PCHS D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PCHS D 1 A_Raise
+Loop
+Fire:
+PCHS D 0 A_JumpIfNoAmmo("NoAmmo")
+PCHS D 0 A_JumpIfInventory("IHeldIt",1,"Hold")
+PCHS D 1 A_PlaySoundEx("weapon/perfectchainsaw","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw1",0,1,8,0)
+PCHS EFG 5
+PCHS D 3
+Goto Hold
+Hold:
+PCHS G 0 A_JumpIfNoAmmo("NoAmmo")
+PCHS G 0 A_GiveInventory("IHeldIt",1)
+PCHS G 4
+PCHS G 1 A_PlaySoundEx("weapon/perfectchainsaw","Weapon")
+PCHS G 0 A_FireCustomMissile("PerfectChainsaw1",0,1,8,0)
+Goto Ready+2
+Pelt:
+PCHS D 0 A_TakeInventory("IHeldIt",1)
+PCHS D 0 A_JumpIfInventory("PerfectChainsawAmmo",60,"ActualPelt")
+goto Ready+1
+ActualPelt:
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+PCHS D 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+PCHS D 0 A_FireCustomMissile("PerfectChainsaw2",0,0,random(0,10),0)
+goto Ready+1
+NoAmmo:
+PCHS D 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

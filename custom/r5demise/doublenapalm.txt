@@ -1,0 +1,187 @@
+actor DoubleNapalmL
+{
+PROJECTILE
+Radius 6
+Height 7
+scale 2.5
+Obituary "%o made %k's head asplode with Double Napalm."
+damage (5)
+damagetype "NapalmBomb"
+speed 30
+States
+{
+Spawn:
+NAPA A 1
+NAPA A 14
+NAPA A 0 A_SpawnItemEx("DoubleNapalmL2",0,0,0,0,-50,0,0)
+goto No
+Death:
+NAPA A 0 A_Stop
+NAPA A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+NAPA A 0 A_ChangeFlag("NOGRAVITY",1)
+NAPA A 1 A_Explode(40,128,0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+No:
+NAPA A 1
+stop
+}
+}
+
+actor GoNow : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor BombCount : inventory
+{
+inventory.amount 1
+inventory.maxamount 2
+}
+
+actor INapalmd : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor DoubleNapalmR
+{
+PROJECTILE
+Radius 6
+Height 7
+Obituary "%k made %o's head asplode with Double Napalm."
+scale 2.5
+damage (5)
+damagetype "NapalmBomb"
+speed 30
+States
+{
+Spawn:
+NAPA A 1
+NAPA A 14
+
+NAPA A 0 A_SpawnItemEx("DoubleNapalmR2",0,0,0,0,50,0,0)
+goto No
+Death:
+NAPA A 0 A_Stop
+NAPA A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+NAPA A 0 A_ChangeFlag("NOGRAVITY",1)
+NAPA A 1 A_Explode(40,128,0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+No:
+NAPA A 1
+stop
+}
+}
+
+actor DoubleNapalmR2
+{
+PROJECTILE
+Radius 6
+Height 7
+scale 2.5
+Obituary "%o made %k's head asplode with Double Napalm."
+damage (1)
+damagetype "NapalmBomb"
+speed 50
+States
+{
+Spawn:
+NAPA A -1
+stop
+Crash: //for when hitting another projectile (hopefully the other one...)
+NAPA A 1 A_PlaySoundEx("weapon/hyperbomb","Voice")
+NAPA A 0 A_ChangeFlag("NOGRAVITY",1)
+NAPA A 1 A_Explode(40,350,0)
+TNT1 A 0 A_SpawnItemEx("NapalmEffect")
+stop
+Death:
+NAPA A 0 A_ChangeFlag("NOGRAVITY",1)
+NAPA A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+NAPA A 1 A_Explode(40,128,0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+XDeath:
+NAPA A 0 A_ChangeFlag("NOGRAVITY",1)
+NAPA A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+NAPA A 1 A_Explode(40,128,0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor DoubleNapalmL2 : DoubleNapalmR2
+{
+}
+
+actor NapalmEffect
+{
++NOINTERACTION
++CLIENTSIDEONLY
++FORCEXYBILLBOARD
+Radius 8
+Height 8
+scale 5.0
+States
+{
+Spawn:
+BOMB BCDEFGHIJKLMNOPQR 5
+stop
+}
+}
+
+actor DoubleNapalmWep : MegaBuster
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 30
+Weapon.SlotNumber 5
+Obituary "%o made %k's head asplode with Double Napalm."
+Inventory.Pickupmessage "Power up! Double Napalm!"
+weapon.ammotype "DoubleNapalmAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "DNAPAICO"
+Scale 2.0
+States
+{
+Spawn:
+DNAP A -1
+stop
+Ready:
+NAPA T 0 ACS_ExecuteAlways(998,0,5)
+NAPA T 1 A_WeaponReady
+NAPA T 1 A_JumpIfInventory("BombCount",2,"TakeIt")
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+NAPA T 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+NAPA T 1 A_Raise
+Loop
+Fire:
+NAPA T 1 A_JumpIfNoAmmo("NoAmmo")
+NAPA T 1 A_PlaySoundEx("weapon/DrillFly","Weapon")
+NAPA T 1 A_FireCustomMissile("DoubleNapalmR",0,1,-100,0)
+NAPA T 1 A_FireCustomMissile("DoubleNapalmL",0,0,8,0)
+NAPA UV 6
+NAPA T 16
+Goto Ready+1
+NoAmmo:
+NAPA T 1 ACS_Execute(979,0)
+Goto Ready+1
+TakeIt:
+NAPA T 1 A_TakeInventory("BombCount",2)
+goto Ready+1
+}
+}
+
+actor DoubleNapalmAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}

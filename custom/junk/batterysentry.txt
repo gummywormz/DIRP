@@ -1,0 +1,152 @@
+actor BatterySentry : CustomInventory
+{
+//Inventory.RespawnTics 300
+inventory.amount 1
+inventory.maxamount 1
+inventory.pickupmessage "Support Item! Battery Sentry!"
+inventory.icon "BATRICO"
+Inventory.PickupSound "item/1up"
+scale 2.0
++COUNTITEM
++INVBAR
+states
+{
+Spawn:
+TRBI A 1
+PRTB A 0 A_JumpIf(ACS_ExecuteWithResult(975,0)==3,"Null")
+TRBI A 1
+goto Spawn+2 //no spam today
+Use:
+TRBI A 0 A_PlaySoundEx("item/refill","Voice")
+TRBI A 0 A_SpawnItemEx("BatteryTeleport", 40, 0, 256, 0, 0, -24, 0, SXF_NOCHECKPOSITION, 0)
+stop
+Null:
+TNT1 A 0 
+stop
+}
+}
+
+actor BatterySentryActual
+{
+- SOLID
++NOGRAVITY
+MONSTER
+//+MISSILE
++NOCLIP
++DONTBLAST
++SKYEXPLODE
+-SOLID
+-COUNTKILL
++FRIENDLY
+-SHOOTABLE
+speed 0
+scale 2.5
++MISSILEMORE
++MISSILEEVENMORE
+Radius 12
+Height 32
+reactiontime 224
+meleerange 20
+states
+{
+Spawn:
+TRBL F 0 A_Jump(256,"Death")
+TRBL F 1 A_ChangeFlag("MISSILE",0)
+TRBL F 1 
+TRBL F 1 //A_PlaySound("support/rushsummon")
+TRBL F 1 A_JumpIf(z-floorz<=0, "Look")
+Goto Spawn+4
+Look:
+TRBL F 0 A_ChangeFlag("NOGRAVITY",0)
+TRBL F 0 A_ChangeFlag("NOCLIP",0)
+TRBL F 0 A_ClearTarget
+TRBL GH 2
+
+Goto See
+TeamTreble:
+TRBL A 0 A_JumpIfInventory("CutterFlag",35,"Death")
+TRBL A 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),2)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),2)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),2)
+TRBL A 0 A_GiveInventory("CutterFlag",1)
+TRBL A 0 A_JumpIfInventory("CutterFlag",35,"Death")
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),2)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),2)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),2)
+TRBL A 0 A_GiveInventory("CutterFlag",1)
+TRBL A 8
+loop
+See:
+TRBL A 0 //A_ClearTarget
+TRBL A 1 A_JumpIf(ACS_ExecuteWithResult(975, 1)==1,"TeamTreble")
+TRBL A 1
+TRBL AAAAAAAA 1 A_Chase
+TRBL BCBCBC 4 A_Chase
+TRBL A 0 A_JumpIfTargetInLOS ("Missile", 0, 0)
+TRBL A 0 A_GiveInventory("CutterFlag",2)
+TRBL A 0 A_JumpIfInventory("CutterFlag",35,"Death")
+loop
+Missile:
+TRBL A 1 A_FaceTarget
+TRBL A 0 A_JumpIfInventory("CutterFlag",35,"Death")
+TRBL A 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),0)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),0)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),0)
+TRBL A 0 A_GiveInventory("CutterFlag",2)
+TRBL A 0 A_JumpIfInventory("CutterFlag",35,"Death")
+TRBL A 0 A_FaceTarget
+TRBL A 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),0)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),0)
+TRBL I 0 A_PlaySoundEx("misc/devilfire","Voice")
+TRBL I 5 A_CustomMissile("TrebleShot",8,0,random(-3,3),0)
+TRBL A 0 A_GiveInventory("CutterFlag",2)
+TRBL A 4 A_Jump(96,2) 
+TRBL A 0 A_JumpIfTargetInLOS ("Missile", 0, 0)
+TRBL A 2 A_ClearTarget
+Goto See 
+Death:
+TNT1 A 1
+TNT1 A 1
+TNT1 A 1
+stop
+}
+}
+
+actor BatteryTeleport
+{
+Radius 12
+Height 32
+scale 2.5
++NOINTERACTION
+PROJECTILE
++DONTBLAST
+ReactionTime 70
+states
+{
+Spawn:
+TRBL F 0
+TRBL F 7
+TRBL F 0 A_ChangeFlag("NOCLIP", 1)
+TRBL F 0 A_ChangeFlag("NOINTERACTION", 0)
+Goto Spawn2
+Spawn2:
+TRBL F 1 A_CountDown
+TRBL F 0 A_JumpIf(z-floorz > 32, "Spawn2")
+TRBL F 0 A_SpawnItemEx("Treble",0,0,0,0,0,momz,0,SXF_ABSOLUTEMOMENTUM,0)
+stop
+Death:
+TNT1 A 0
+stop
+}
+}

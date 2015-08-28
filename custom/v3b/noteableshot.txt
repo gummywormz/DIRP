@@ -1,0 +1,84 @@
+//Shoot a music note that's slow and has an extremely low arc. Upon hitting a
+//player, it explodes 3 times.
+
+actor NoteableShot
+{
+PROJECTILE
+Radius 5
+Height 5
+Obituary "%o couldn't groove to %k's Noteable Shot."
+DamageType "CentaurFlash"
+scale 2.5
+damage (2)
+speed 20
+States
+{
+Spawn:
+NTSH D 0
+NTSH D 1 A_Recoil(-4)
+NTSH D 1 ThrustThingZ(0,32,1,0)
+Next:
+NTSH DE 4
+loop
+Death:
+TNT1 A 1
+stop
+XDeath:
+NTSH D 1 A_Stop
+NTSH F 2 A_Explode(10,128,0)
+NTSH D 2 A_PlaySoundEx("weapon/centaurflash","Voice")
+NTSH F 2 A_Explode(10,128,0)
+NTSH D 2 A_PlaySoundEx("weapon/centaurflash","Voice")
+NTSH F 2 A_Explode(10,128,0)
+stop
+}
+}
+
+actor NoteableShotWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 4
+Obituary "%o couldn't groove to %k's Noteable Shot."
+Inventory.Pickupmessage "Power up! Noteable Shot!"
+weapon.ammotype "NoteableShotAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "NTSHICO"
+Scale 2.0
+States
+{
+Spawn:
+NTSH G -1
+stop
+Ready:
+NTSH A 0 ACS_ExecuteAlways(998,0,238)
+NTSH A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+NTSH A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+NTSH A 1 A_Raise
+Loop
+Fire:
+NTSH A 0 A_JumpIfNoAmmo("NoAmmo")
+NTSH A 0 A_PlaySoundEx("weapon/mbuster", "Weapon")
+NTSH A 0 A_FireCustomMissile("NoteableShot",0,1,8,0)
+NTSH BCA 3
+NTSH A 14
+NTSH A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+NTSH A 1
+Goto Ready+1
+}
+}
+
+actor NoteableShotAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

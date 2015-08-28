@@ -1,0 +1,2935 @@
+flickerlight PHARAOHEFFECTS
+{
+color 1.0 1.0 0.0
+size 80
+secondarySize 75
+chance 0.5
+}
+
+flickerlight BLUELIGHT
+{
+color 0.0 0.0 1.0
+size 800
+secondarySize 750
+chance 0.5
+}
+
+flickerlight BLUELIGHT2
+{
+color 0.0 0.0 1.0
+size 80
+secondarySize 75
+chance 0.5
+}
+
+flickerlight BLUELIGHT3
+{
+color 0.0 0.0 1.0
+size 350
+secondarySize 300
+chance 0.5
+}
+
+flickerlight PURPLELIGHT
+{
+color 1.0 0.0 1.0
+size 800
+secondarySize 750
+chance 0.5
+}
+
+flickerlight PURPLELIGHT2
+{
+color 1.0 0.0 1.0
+size 80
+secondarySize 75
+chance 0.5
+}
+
+flickerlight PURPLELIGHT3
+{
+color 1.0 0.0 1.0
+size 50
+secondarySize 35
+chance 0.5
+}
+
+flickerlight PURPLELIGHT4
+{
+color 1.0 0.0 1.0
+size 25
+secondarySize 10
+chance 0.5
+}
+
+flickerlight GREENLIGHT2
+{
+color 0.0 1.0 0.0
+size 80
+secondarySize 75
+dontlightself 1
+chance 0.5
+}
+
+flickerlight GREENLIGHT
+{
+color 0.0 1.0 0.0
+size 60
+secondarySize 55
+dontlightself 1
+chance 0.5
+}
+
+flickerlight GREENLIGHT3
+{
+color 0.0 1.0 0.0
+size 40
+secondarySize 35
+dontlightself 1
+chance 0.5
+}
+
+flickerlight GREENLIGHT4
+{
+color 0.0 1.0 0.0
+size 20
+secondarySize 15
+dontlightself 1
+chance 0.5
+}
+
+flickerlight WHITELIGHT
+{
+color 1.0 1.0 1.0
+size 800
+secondarySize 750
+chance 0.5
+}
+
+flickerlight PHARAOHEFFECTSSMALL
+{
+color 1.0 1.0 0.0
+size 20
+secondarySize 40
+chance 0.5
+}
+
+object PharaohShot3
+{
+frame PHASJ { light NAPAEXPLO6 }
+frame PHASK { light NAPAEXPLO7 }
+}
+
+object PharaohShot2
+{
+frame PHASH { light NAPAEXPLO5 }
+}
+
+object PharaohShot1
+{
+frame PHASA { light NAPAEXPLO4 }
+}
+
+object ScorchWheel
+{
+frame SWHEA { light FIRELIGHT }
+frame SWHEB { light FIRELIGHT }
+frame SWHEC { light FIRELIGHT }
+frame SWHED { light FIRELIGHT }
+frame SWHEE { light FIRELIGHT }
+frame SWHEF { light FIRELIGHT }
+}
+
+object ScorchWheel2
+{
+frame SWHEA { light FIRELIGHT }
+frame SWHEB { light FIRELIGHT }
+frame SWHEC { light FIRELIGHT }
+frame SWHED { light FIRELIGHT }
+frame SWHEE { light FIRELIGHT }
+frame SWHEF { light FIRELIGHT }
+}
+
+object ScorchBit
+{
+frame SWHEO { light FIRELIGHT }
+frame TNT1A { light FIRELIGHT }
+}
+
+flickerlight GREENLIGHT3
+{
+color 0.0 1.0 0.0
+size 60
+secondarySize 55
+chance 0.5
+}
+
+flickerlight GREENLIGHT4
+{
+color 0.0 1.0 0.0
+size 40
+secondarySize 35
+chance 0.5
+}
+
+flickerlight BLUELIGHTX
+{
+color 0.25 0.25 1.0
+size 40
+secondarySize 55
+chance 0.5
+dontlightself 1
+}
+
+object ThunderClaw
+{
+frame TCLAWB { light BLUELIGHTX }
+frame TCLAWC { light BLUELIGHTX }
+}
+
+object ThunderClawDamager
+{
+frame TCLAWD { light BLUELIGHTX }
+frame TCLAWE { light BLUELIGHTX }
+frame TCLAWF { light BLUELIGHTX }
+}
+
+object MegaShot
+{
+	frame BUSTA { light YellowLight  }
+}
+
+Pointlight YellowLight
+{
+    color 10.0 5.0 1.0
+    size 20
+}
+
+flickerlight NAPAEXPLO1
+{
+color 1.0 1.0 0.0
+size 10
+secondarySize 5
+chance 0.5
+dontlightself 1
+}
+
+flickerlight NAPAEXPLO2
+{
+color 1.0 1.0 0.0
+size 20
+secondarySize 15
+chance 0.5
+dontlightself 1
+}
+
+flickerlight NAPAEXPLO3
+{
+color 1.0 1.0 0.0
+size 30
+secondarySize 25
+chance 0.5
+dontlightself 1
+}
+
+flickerlight NAPAEXPLO4
+{
+color 1.0 1.0 0.0
+size 40
+secondarySize 35
+chance 0.5
+dontlightself 1
+}
+
+flickerlight NAPAEXPLO5
+{
+color 1.0 1.0 0.0
+size 50
+secondarySize 45
+chance 0.5
+dontlightself 1
+}
+
+flickerlight NAPAEXPLO6
+{
+color 1.0 1.0 0.0
+size 60
+secondarySize 45
+chance 0.5
+dontlightself 1
+}
+
+flickerlight NAPAEXPLO7
+{
+color 1.0 1.0 0.0
+size 70
+secondarySize 65
+chance 0.5
+dontlightself 1
+}
+
+object WrapExplosion
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DangerWrapMine
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object BalladeCracker
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DrillExplode
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object NapalmBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object OilCanisterDamager
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object CrashBomb
+{
+frame CRASK { light NAPAEXPLO7 }
+frame CRASL { light NAPAEXPLO5 }
+frame CRASM { light NAPAEXPLO3 }
+frame CRASN { light NAPAEXPLO7 }
+frame CRASO { light NAPAEXPLO5 }
+frame CRASP { light NAPAEXPLO3 }
+frame CRASQ { light NAPAEXPLO7 }
+frame CRASR { light NAPAEXPLO5 }
+frame CRASS { light NAPAEXPLO3 }
+frame CRAST { light NAPAEXPLO7 }
+frame CRASV { light NAPAEXPLO5 }
+frame CRASW { light NAPAEXPLO3 }
+}
+
+object MegaLaser
+{
+frame LASHA { light NAPAEXPLO5 }
+frame LASHB { light BLUELIGHTX }
+}
+
+object LaserTrail
+{
+frame LASHA { light NAPAEXPLO5 }
+frame LASHB { light BLUELIGHTX }
+}
+
+object MidShot
+{
+frame MBUSA { light NAPAEXPLO4 }
+frame MBUSB { light NAPAEXPLO3 }
+}
+
+object ArrowShot
+{
+frame ARRSA { light NAPAEXPLO5 }
+frame ARRSB { light NAPAEXPLO4 }
+frame ARRSC { light NAPAEXPLO3 }
+}
+
+object ArrowFrag1
+{
+frame ARRSG { light NAPAEXPLO3 }
+}
+
+object ArrowFrag2
+{
+frame ARRSG { light NAPAEXPLO3 }
+frame ARRSH { light NAPAEXPLO4 }
+}
+
+object OilFlame
+{
+frame OILFA { light TORCHLIGHT1 }
+frame OILFB { light TORCHLIGHT2 }
+}
+
+object GeminiLaser
+{
+frame GEMIA { light BLUELIGHTR }
+}
+
+object OilBlobFlame
+{
+frame OILFA { light TORCHLIGHT1 }
+frame OILFB { light TORCHLIGHT2 }
+}
+
+pointlight HCAPSULE1
+{
+color 1.0 0.9 0.5
+size 8
+dontlightself 1
+}
+
+pointlight HCAPSULE2
+{
+color 1.0 1.0 1.0
+size 8
+subtractive 1
+dontlightself 1
+}
+
+object SmallHealth2
+{
+frame HBALA {light HCAPSULE1}
+frame HBALB {light HCAPSULE1}
+}
+
+flickerlight FLASHBOMB1
+{
+	color 1.0 1.0 0.0
+	size 240
+	secondarySize 200
+	chance 1.0
+}
+
+flickerlight FLASHBOMBX
+{
+	color 1.0 1.0 0.0
+	size 400
+	secondarySize 300
+	chance 1.0
+}
+
+flickerlight FLASHBOMB2
+{
+	color 1.0 1.0 0.0
+	size 60
+	secondarySize 50
+	chance 1.0
+}
+
+flickerlight FLASHBOMB3
+{
+	color 1.0 1.0 0.0
+	size 40
+	secondarySize 30
+	chance 1.0
+}
+
+object FlashBombExplosion//More why not?
+{
+frame FLEXA {light FLASHBOMBX}
+frame FLEXB {light FLASHBOMBX}
+frame FLEXC {light FLASHBOMB1}
+frame FLEXD {light FLASHBOMBX}
+frame FLEXE {light FLASHBOMB1}
+frame FLEXF {light FLASHBOMBX}
+}
+
+object ThunderBolt
+{
+frame TBOL {light FLASHBOMB2}
+}
+
+object ThunderBoltSplit
+{
+frame TBOL {light FLASHBOMB3}
+}
+
+pointlight NOISECRUSH1
+{
+color 0.5 0.0 1.0
+size 16
+}
+
+pointlight NOISECRUSH2
+{
+color 0.5 0.0 1.0
+size 20
+}
+
+pointlight NOISECRUSH3
+{
+color 0.5 0.0 1.0
+size 32
+}
+
+pointlight NOISECRUSH4
+{
+color 0.5 0.0 1.0
+size 40
+}
+
+pointlight NOISECRUSH5
+{
+color 0.5 0.0 1.0
+size 48
+}
+
+pointlight NOISECRUSH6
+{
+color 0.5 0.0 1.0
+size 56
+}
+
+pointlight NOISECRUSH7
+{
+color 0.5 0.0 1.0
+size 64
+}
+
+pointlight NOISECRUSH8
+{
+color 0.5 0.0 1.0
+size 72
+}
+
+object NoiseCrushTrail1
+{
+frame NCRUD { light NOICECRUSH4 }
+}
+
+object NoiseCrushTrail2
+{
+frame NCRUD { light NOICECRUSH3 }
+}
+
+object NoiseCrushTrail3
+{
+frame NCRUD { light NOICECRUSH2 }
+}
+
+object NoiseCrushTrail4
+{
+frame NCRUD { light NOICECRUSH1 }
+}
+
+object NoiseCrushTrail5
+{
+frame NCRUD { light NOICECRUSH8 }
+}
+
+object NoiseCrushTrail6
+{
+frame NCRUD { light NOICECRUSH7 }
+}
+
+object NoiseCrushTrail7
+{
+frame NCRUD { light NOICECRUSH6 }
+}
+
+object NoiseCrushTrail8
+{
+frame NCRUD { light NOICECRUSH5 }
+}
+
+object NoiseCrush
+{
+frame TNT1A { light NOISECRUSH4 }
+}
+
+object NoiseCrush2
+{
+frame TNT1A { light NOISECRUSH8 }
+}
+
+flickerlight TORCHLIGHT1
+{
+color 1.0 0.0 0.0
+size 40
+secondarySize 30
+chance 0.5
+offset 0 25 0
+}
+
+flickerlight TORCHLIGHT2
+{
+color 1.0 0.0 0.0
+size 60
+secondarySize 50
+chance 0.5
+offset 0 25 0
+}
+
+flickerlight TORCHLIGHT3
+{
+color 1.0 0.0 0.0
+size 70
+secondarySize 50
+chance 0.5
+offset 0 25 0
+}
+
+object KnightTorch
+{
+frame KTORA { light TORCHLIGHT1 }
+frame KTORB { light TORCHLIGHT2 }
+frame KTORC { light TORCHLIGHT3 }
+}
+
+object 300Watt
+{
+frame WATTA { light WHITELIGHT }
+frame WATTC { light WHITELIGHT }
+}
+
+pointlight forcebeam
+{
+color 1.0 1.0 0.0
+size 140
+}
+
+object quickbeam
+{
+frame QBEAA { light forcebeam }
+}
+
+
+
+object flameoily
+{
+frame OFLMA { light TORCHLIGHT2 }
+frame OFLMB { light TORCHLIGHT2 }
+frame OFLMC { light TORCHLIGHT2 }
+}
+
+flickerlight ELECBEAM
+{
+color 1.0 1.0 1.0
+size 90
+secondarySize 80
+chance 0.5
+}
+
+object ThunderBeam
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+flickerlight TELEPORT
+{
+color 1.0 1.0 1.0
+size 90
+secondarySize 80
+chance 0.5
+}
+
+object TeleportFog2
+{
+frame TFOGA { light TELEPORT }
+frame TFOGB { light ELECBEAM }
+frame TFOGC { light WHITELIGHT }
+}
+
+flickerlight SPARKSHOCK
+{
+color 1.0 0.5 0.5
+size 60
+secondarySize 55
+chance 0.5
+dontlightself 1
+}
+
+flickerlight SPARKSHOCK2
+{
+color 1.0 0.5 0.5
+size 60
+secondarySize 55
+chance 0.2
+dontlightself 1
+}
+
+object SparkShock
+{
+frame SPASA { light SPARKSHOCK }
+frame SPASB { light SPARKSHOCK }
+}
+
+flickerlight GRENADE_X1
+{
+    color 1.0 1.0 0.0
+    size 80
+    secondarySize 75
+    chance 0.9
+}
+
+flickerlight GRENADE_X2
+{
+    color 1.0 1.0 0.0
+    size 75
+    secondarySize 65
+    chance 0.9
+}
+
+flickerlight GRENADE_X3
+{
+    color 1.0 1.0 0.0
+    size 65
+    secondarySize 60
+    chance 0.9
+}
+
+flickerlight GRENADE_X4
+{
+    color 1.0 1.0 0.0
+    size 60
+    secondarySize 55
+    chance 0.9
+}
+
+flickerlight GRENADE_X5
+{
+    color 1.0 1.0 0.0
+    size 55
+    secondarySize 50
+    chance 0.9
+}
+
+
+flickerlight GRENADE_X6
+{
+    color 1.0 1.0 0.0
+    size 50
+    secondarySize 45
+    chance 0.9
+}
+
+
+flickerlight GRENADE_X7
+{
+    color 1.0 1.0 0.0
+    size 45
+    secondarySize 40
+    chance 0.9
+}
+
+flickerlight GRENADE_X8
+{
+    color 1.0 1.0 0.0
+    size 40
+    secondarySize 35
+    chance 0.9
+}
+
+flickerlight GRENADE_X9
+{
+    color 1.0 1.0 0.0
+    size 35
+    secondarySize 30
+    chance 0.9
+}
+
+flickerlight GRENADE_X10
+{
+    color 1.0 1.0 0.0
+    size 30
+    secondarySize 25
+    chance 0.9
+}
+
+flickerlight GRENADE_X11
+{
+    color 1.0 1.0 0.0
+    size 25
+    secondarySize 20
+    chance 0.9
+}
+
+flickerlight GRENADE_X12
+{
+    color 1.0 1.0 0.0
+    size 20
+    secondarySize 15
+    chance 0.9
+}
+
+flickerlight GRENADE_X13
+{
+    color 1.0 1.0 0.0
+    size 15
+    secondarySize 10
+    chance 0.9
+}
+
+flickerlight GRENADE_X14
+{
+    color 1.0 1.0 0.0
+    size 10
+    secondarySize 5
+    chance 0.9
+}
+
+flickerlight GRENADE_X15
+{
+    color 1.0 1.0 0.0
+    size 8
+    chance 0.9
+}
+
+flickerlight GRENADE_X15
+{
+    color 1.0 1.0 0.0
+    size 6
+    chance 0.9
+}
+
+object HyperBomb
+{
+    frame BOMBC { light GRENADE_X16 }
+	frame BOMBD { light GRENADE_X15 }
+	frame BOMBE { light GRENADE_X14 }
+	frame BOMBF { light GRENADE_X13 }
+	frame BOMBG { light GRENADE_X12 }
+	frame BOMBH { light GRENADE_X11 }
+	frame BOMBI { light GRENADE_X10 }
+	frame BOMBJ { light GRENADE_X9 }
+	frame BOMBK { light GRENADE_X8 }
+	frame BOMBL { light GRENADE_X7 }
+	frame BOMBM { light GRENADE_X6 }
+	frame BOMBN { light GRENADE_X5 }
+	frame BOMBO { light GRENADE_X4 }
+	frame BOMBP { light GRENADE_X3 }
+	frame BOMBQ { light GRENADE_X2 }
+	frame BOMBR { light GRENADE_X1 }
+}
+
+flickerlight PTORCHI
+{
+color 0.5 0.5 1.0
+size 60
+secondarySize 50
+chance 0.5
+offset 0 25 0
+dontlightself 1
+}
+
+object CopyShot
+{
+frame COPY {light GREENLIGHT}
+}
+
+object CopyVision
+{
+frame COPY {light GREENLIGHT}
+}
+
+object Torch
+{
+frame PTORA { light PTORCHI }
+frame PTORB { light PTORCHI }
+frame PTORC { light PTORCHI }
+}
+
+object MidFist
+{
+frame GIGFC { light BLUELIGHTX }
+frame GIGFD { light BLUELIGHTX }
+}
+
+object GigaFist
+{
+frame GIGFF { light BLUELIGHTX }
+frame GIGFG { light BLUELIGHTX }
+}
+
+object GigaFistFX
+{
+frame GIGFH { light BLUELIGHTX }
+frame GIGFI { light BLUELIGHTX }
+}
+
+object BassShot
+{
+frame BASBA { light YellowLight }
+}
+
+object ProtoShot
+{
+frame BUSTA { light YellowLight }
+}
+
+object ProtoShot2
+{
+frame MMFXD { light GRENADE_X8 }
+}
+
+object LightningStartFX1
+{
+frame LBFXB {light ELECBEAM}
+frame LBFXC {light ELECBEAM}
+frame LBFXD {light YELLOWLIGHT}
+}
+
+object LightningBoltFX
+{
+frame LBFXK {light YELLOWLIGHT}
+frame LBFXL {light YELLOWLIGHT}
+frame LBFXM {light YELLOWLIGHT}
+}
+
+object LightningStartFX2
+{
+frame LBFX {light YELLOWLIGHT}
+}
+
+object LightningBolt
+{
+frame LIBO {light ELECBEAM}
+}
+
+object LightningExtend
+{
+frame LIBO {light ELECBEAM}
+}
+
+object BoosterFX
+{
+frame MMFXB { light GRENADE_X8 }
+frame MMFXC { light GRENADE_X8 }
+frame MMFXD { light GRENADE_X8 }
+frame MMFXE { light GRENADE_X8 }
+}
+
+
+flickerlight PROTOSHOT
+{
+color 1.0 0.5 0.0
+size 60
+secondarySize 70
+chance 0.5
+offset 0 25 0
+}
+
+object ProtoShot3
+{
+frame PROCA { light PROTOSHOT }
+frame PROCB { light PROTOSHOT }
+frame PROCC { light PROTOSHOT }
+}
+
+pointlight HCAPSULE3
+{
+color 1.0 0.9 0.5
+size 16
+dontlightself 1
+}
+
+pointlight HCAPSULE4
+{
+color 1.0 1.0 1.0
+size 16
+subtractive 1
+dontlightself 1
+}
+
+object WeaponEnergy
+{
+frame EBALA {light HCAPSULE1}
+frame EBALB {light HCAPSULE1}
+}
+
+object BigWeaponEnergy
+{
+frame EBALC {light HCAPSULE3}
+frame EBALD {light HCAPSULE3}
+}
+
+object BigHealth2
+{
+frame HBALC {light HCAPSULE3}
+frame HBALD {light HCAPSULE3}
+}
+
+object AstroCrush
+{
+frame ASTRB { light FLASHBOMB1 }
+frame ASTRC { light FLASHBOMB1 }
+frame ASTRD { light FLASHBOMB1 }
+
+frame ASEXA { light FLASHBOMBX }
+frame ASEXB { light FLASHBOMBX }
+frame ASEXC { light FLASHBOMB1 }
+frame ASEXD { light FLASHBOMB1 }
+frame ASEXE { light FLASHBOMB2 }
+frame ASEXF { light FLASHBOMB3 }
+}
+
+//begin dirp defs
+flickerlight BLUELIGHTR
+{
+color 0.0 0.0 1.0
+size 80
+secondarySize 75
+dontlightself 1
+chance 0.5
+}
+
+flickerlight PINKLIGHTR
+{
+color 0.94 0.45 0.9
+size 80
+secondarySize 75
+dontlightself 1
+chance 0.5
+}
+
+flickerlight PINKLIGHTR2
+{
+color 0.94 0.45 0.9
+size 800
+secondarySize 750
+dontlightself 1
+chance 0.5
+}
+
+flickerlight ELECBEAM2
+{
+color 1.0 1.0 1.0
+size 800
+secondarySize 750
+chance 0.5
+}
+
+flickerlight REDLIGHTR
+{
+color 1.0 0.0 0.0
+size 80
+secondarySize 75
+dontlightself 1
+chance 0.5
+}
+
+flickerlight FIRELIGHT
+{
+color 1.0 0.00 0.0
+size 80
+secondarySize 75
+dontlightself 1
+chance 0.5
+}
+
+flickerlight FIRELIGHT2
+{
+color 1.0 0.08 0.5
+size 375
+secondarySize 350
+dontlightself 1
+chance 0.5
+}
+
+OBJECT FireMet
+{
+frame METFA {light FIRELIGHT}
+frame METFB {light FIRELIGHT}
+
+frame METFC {light FIRELIGHT2}
+frame METFD {light FIRELIGHT2}
+}
+
+object FireSnakeyHead
+{
+frame SNKYG {light FIRELIGHT}
+}
+
+object BurnWave
+{
+frame BRNF {light FIRELIGHT}
+}
+
+object BurnWaveFading
+{
+frame BRNF {light FIRELIGHT}
+}
+
+object Cubelectro
+{
+frame CUBEB {light SPARKSHOCK}
+}
+
+object Plasma±
+{
+frame PLAS {Light ELECBEAM}
+}
+
+object CometLaunched
+{
+frame ASEXA { light FLASHBOMBX }
+frame ASEXB { light FLASHBOMBX }
+frame ASEXC { light FLASHBOMB1 }
+frame ASEXD { light FLASHBOMB1 }
+frame ASEXE { light FLASHBOMB2 }
+frame ASEXF { light FLASHBOMB3 }
+}
+
+object WaveBurn
+{
+frame WABU { light FIRELIGHT }
+}
+
+object PharaohShotGun3
+{
+frame PHASJ { light NAPAEXPLO6 }
+frame PHASK { light NAPAEXPLO7 }
+}
+
+object PharaohShotGun2
+{
+frame PHASH { light NAPAEXPLO5 }
+}
+
+object PharaohShotGun1
+{
+frame PHASA { light NAPAEXPLO4 }
+}
+
+object LaserMissileTrail
+{
+frame GEMIA { light BLUELIGHTR }
+}
+
+object WaterCutter
+{
+frame WATCB { light BLUELIGHTR }
+}
+
+object FractalLaser1
+{
+frame GEMIA { light BLUELIGHTR }
+}
+
+object FractalLaser3
+{
+frame GEMIA { light BLUELIGHTR }
+}
+
+object FractalLaser2
+{
+frame GEMIA { light BLUELIGHTR }
+}
+
+object TwistLaser
+{
+frame GEMIA { light BLUELIGHTR }
+}
+
+object OpticLaser
+{
+frame OPTLB { light REDLIGHTR }
+frame OPTLC { light REDLIGHTR }
+frame OPTLD { light REDLIGHTR }
+}
+
+object PharaohSac
+{
+frame PHASJ { light NAPAEXPLO6 }
+frame PHASK { light NAPAEXPLO7 }
+}
+
+object RushCannonActual
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object NitroExplode
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DumplingBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object TankGrenade
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DoubleNapalmL
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DoubleNapalmR
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DoubleNapalmR2
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DoubleNapalmL2
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object FallBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object ShockMineTest
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object SniperBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object Bigplosion
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object MagHomer
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object ThunderFang
+{
+frame FANGD { light ELECBEAM }
+}
+
+object ThunderChainMain
+{
+frame CLOFA { light ELECBEAM }
+frame CLOFB { light ELECBEAM }
+frame CLOFD { light ELECBEAM }
+frame CLOFE { light ELECBEAM }
+}
+
+object ThunderTrail2
+{
+frame CLOFA { light ELECBEAM }
+frame CLOFB { light ELECBEAM }
+frame CLOFD { light ELECBEAM }
+frame CLOFE { light ELECBEAM }
+}
+
+object SparkShockMini
+{
+frame SPASA { light SPARKSHOCK }
+frame SPASB { light SPARKSHOCK }
+}
+
+object CrossLightProj1
+{
+frame CRLGA { light SPARKSHOCK }
+frame CRLGB { light ELECBEAM }
+}
+
+object CrossLightProj2
+{
+frame CRLGA { light SPARKSHOCK }
+frame CRLGB { light ELECBEAM }
+}
+
+object ThunderWoolBall
+{
+frame RDTBA { light ELECBEAM }
+frame RDTBB { light ELECBEAM }
+}
+
+object TBolt1
+{
+frame TWTHA { light ELECBEAM }
+frame TWTHB { light ELECBEAM }
+}
+
+object TBolt2
+{
+frame TWTHA { light ELECBEAM }
+frame TWTHB { light ELECBEAM }
+}
+
+object LightChainBase
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+object LightChain2
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+object LightChain3
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+object LightChain4
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+object LightChain5
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+object LightChainThun
+{
+frame WCPJP { light ELECBEAM }
+frame WCPJQ { light BLUELIGHTR }
+}
+
+object FizzBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object PopCorn2
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object FireStorm
+{
+frame FIREA { light FIRELIGHT }
+frame FIREB { light FIRELIGHT }
+frame FIREC { light FIRELIGHT }
+}
+
+object SpoutUp
+{
+frame FMSPA { light FIRELIGHT }
+}
+
+object SpoutDown
+{
+frame FMSPC { light FIRELIGHT }
+}
+
+object AtomicFire1
+{
+frame HEATA { light FIRELIGHT }
+frame HEATB { light FIRELIGHT }
+}
+
+object AtomicFire2
+{
+frame HEATC { light FIRELIGHT }
+frame HEATD { light FIRELIGHT }
+}
+
+object AtomicFire3
+{
+frame HEATE { light FIRELIGHT }
+frame HEATF { light FIRELIGHT }
+}
+
+object FlameSwordTrail
+{
+frame FSWDD { light REDLIGHTR }
+frame FSWDE { light REDLIGHTR }
+frame FSWDF { light REDLIGHTR }
+}
+
+object FlameSwordTrail2
+{
+frame FSWDD { light REDLIGHTR }
+frame FSWDE { light REDLIGHTR }
+frame FSWDF { light REDLIGHTR }
+}
+
+flickerlight HOLYFLAM1
+{
+color 1.0 0.08 0.5
+size 30
+secondarySize 15
+chance 0.5
+offset 0 25 0
+}
+
+flickerlight HOLYFLAM2
+{
+color 1.0 0.08 0.5
+size 50
+secondarySize 25
+chance 0.5
+offset 0 25 0
+}
+
+flickerlight HOLYFLAM3
+{
+color 1.0 0.08 0.5
+size 60
+secondarySize 30
+chance 0.5
+offset 0 25 0
+}
+
+object flameblast
+{
+frame FLMBH { light HOLYFLAM1 }
+}
+
+object flamepillar
+{
+frame FLMBH { light HOLYFLAM1 }
+frame FLMBA { light HOLYFLAM1 }
+frame FLMBB { light HOLYFLAM1 }
+frame FLMBC { light HOLYFLAM1 }
+frame FLMBD { light HOLYFLAM2 }
+frame FLMBE { light HOLYFLAM3 }
+frame FLMBF { light HOLYFLAM2 }
+frame FLMBG { light HOLYFLAM3 }
+}
+
+object CrossFlame
+{
+frame COFAG { light REDLIGHTR }
+}
+
+object CrossProjectile
+{
+frame FIREB { light FIRELIGHT }
+}
+
+object SniperShot
+{
+frame BASBA { light YellowLight }
+}
+
+object GravityHoleShot
+{
+frame BASBA { light YellowLight }
+}
+
+object DizzyBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object TackleShieldProjectile
+{
+frame HOTHC { light HOLYFLAM1 }
+frame HOTHD { light HOLYFLAM1 }
+}
+
+object TackleFire
+{
+frame HOTHC { light HOLYFLAM1 }
+frame HOTHD { light HOLYFLAM1 }
+}
+
+object PhoenixShot
+{
+frame FX04A { light REDLIGHTR }
+frame FX08A { light REDLIGHTR }
+frame FX08B { light REDLIGHTR }
+frame FX08C { light REDLIGHTR }
+frame FX08D { light REDLIGHTR }
+frame FX08E { light REDLIGHTR }
+frame FX08F { light REDLIGHTR }
+frame FX08G { light REDLIGHTR }
+frame FX08H { light REDLIGHTR }
+}
+
+object QuadMissile
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object DangerField
+{
+frame DANFA { light GREENLIGHT }
+frame DANFB { light GREENLIGHT }
+frame DANFC { light GREENLIGHT }
+frame DANFD { light GREENLIGHT }
+frame DANFE { light GREENLIGHT }
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object CharadeClone
+{
+frame COPY {light GREENLIGHT}
+}
+
+object CharadeCloneProj
+{
+frame COPY {light GREENLIGHT}
+}
+
+object CometUp
+{
+frame CMDHB { light GREENLIGHT4 }
+}
+
+object CometDown
+{
+frame CMDHA { light GREENLIGHT4 }
+}
+
+object DelayBuster1
+{
+frame MMFXD { light GRENADE_X8 }
+}
+
+object DelayBuster2
+{
+frame MMFXD { light GRENADE_X8 }
+}
+
+object DelayBuster3
+{
+frame MMFXD { light GRENADE_X8 }
+}
+
+object HandShot
+{
+frame FIREA { light FIRELIGHT }
+frame FIREB { light FIRELIGHT }
+frame FIREC { light FIRELIGHT }
+}
+
+object TBoltNM1
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+object TBoltNM2
+{
+frame THUNA { light ELECBEAM }
+frame THUNB { light ELECBEAM }
+frame THUNC { light ELECBEAM }
+frame THUND { light ELECBEAM }
+frame THUNE { light ELECBEAM }
+frame THUNF { light ELECBEAM }
+frame THUNG { light ELECBEAM }
+}
+
+object GimmickStar
+{
+frame NSTAA { light ELECBEAM }
+frame NSTAB { light ELECBEAM }
+}
+
+object CometLaunched
+{
+frame COMTC { light ELECBEAM }
+frame COMTD { light ELECBEAM }
+}
+
+object SunSpark
+{
+frame SUNSD { light SPARKSHOCK }
+frame SUNSE { light SPARKSHOCK }
+}
+
+object SunSparkEx1
+{
+frame SUNSC { light NAPAEXPLO4 }
+}
+
+object SunSparkEx2
+{
+frame SUNSA { light NAPAEXPLO4 }
+}
+
+object SunSparkEx3
+{
+frame SUNSB { light NAPAEXPLO4 }
+}
+
+object ApexLaser
+{
+frame APXLE { light PURPLELIGHT2 }
+}
+
+object CoalShot1
+{
+frame COALA { light FIRELIGHT }
+frame COALB { light FIRELIGHT }
+frame COALC { light FIRELIGHT }
+}
+
+object CoalShot2
+{
+frame COALA { light FIRELIGHT }
+frame COALB { light FIRELIGHT }
+frame COALC { light FIRELIGHT }
+}
+
+object CoalShot3
+{
+frame COALA { light FIRELIGHT }
+frame COALB { light FIRELIGHT }
+frame COALC { light FIRELIGHT }
+}
+
+object CoalShot4
+{
+frame COALA { light FIRELIGHT }
+frame COALB { light FIRELIGHT }
+frame COALC { light FIRELIGHT }
+}
+
+object SoulHoming
+{
+frame BZSUA { light SPARKSHOCK }
+}
+
+object SoulBounce
+{
+frame BZSUA { light SPARKSHOCK }
+}
+
+object SmallWeaponProjectile
+{
+frame EBALA {light HCAPSULE1}
+frame EBALB {light HCAPSULE1}
+}
+
+object BigWeaponProjectile
+{
+frame EBALC {light HCAPSULE3}
+frame EBALD {light HCAPSULE3}
+}
+
+object BigHealthProjectile
+{
+frame HBALC {light HCAPSULE3}
+frame HBALD {light HCAPSULE3}
+}
+
+object SmallHealthProjectile
+{
+frame HBALA {light HCAPSULE1}
+frame HBALB {light HCAPSULE1}
+}
+
+object ActualFridgeWeaponEnergy
+{
+frame EBALA {light HCAPSULE1}
+frame EBALB {light HCAPSULE1}
+}
+
+object ActualFridgeBigWeaponEnergy
+{
+frame EBALC {light HCAPSULE3}
+frame EBALD {light HCAPSULE3}
+}
+
+object FridgeBigHealthGiver
+{
+frame HBALC {light HCAPSULE3}
+frame HBALD {light HCAPSULE3}
+}
+
+object FridgeSmallHealthGiver
+{
+frame HBALA {light HCAPSULE1}
+frame HBALB {light HCAPSULE1}
+}
+
+object FridgeSmallWeaponGiver
+{
+frame EBALA {light HCAPSULE1}
+frame EBALB {light HCAPSULE1}
+}
+
+object FridgeBigWeaponGiver
+{
+frame EBALC {light HCAPSULE3}
+frame EBALD {light HCAPSULE3}
+}
+
+object SparkManBowProjectile
+{
+frame SPMBD { light ELECBEAM }
+frame SPMBE { light ELECBEAM }
+}
+
+object SparkManBowTemp
+{
+frame SPMBD { light ELECBEAM }
+frame SPMBE { light ELECBEAM }
+}
+
+object SparkManBowExplosion
+{
+    frame BOMBC { light GRENADE_X16 }
+	frame BOMBD { light GRENADE_X15 }
+	frame BOMBE { light GRENADE_X14 }
+	frame BOMBF { light GRENADE_X13 }
+	frame BOMBG { light GRENADE_X12 }
+	frame BOMBH { light GRENADE_X11 }
+	frame BOMBI { light GRENADE_X10 }
+	frame BOMBJ { light GRENADE_X9 }
+	frame BOMBK { light GRENADE_X8 }
+	frame BOMBL { light GRENADE_X7 }
+	frame BOMBM { light GRENADE_X6 }
+	frame BOMBN { light GRENADE_X5 }
+	frame BOMBO { light GRENADE_X4 }
+	frame BOMBP { light GRENADE_X3 }
+	frame BOMBQ { light GRENADE_X2 }
+	frame BOMBR { light GRENADE_X1 }
+}
+
+object NapalmEffect
+{
+    frame BOMBC { light GRENADE_X16 }
+	frame BOMBD { light GRENADE_X15 }
+	frame BOMBE { light GRENADE_X14 }
+	frame BOMBF { light GRENADE_X13 }
+	frame BOMBG { light GRENADE_X12 }
+	frame BOMBH { light GRENADE_X11 }
+	frame BOMBI { light GRENADE_X10 }
+	frame BOMBJ { light GRENADE_X9 }
+	frame BOMBK { light GRENADE_X8 }
+	frame BOMBL { light GRENADE_X7 }
+	frame BOMBM { light GRENADE_X6 }
+	frame BOMBN { light GRENADE_X5 }
+	frame BOMBO { light GRENADE_X4 }
+	frame BOMBP { light GRENADE_X3 }
+	frame BOMBQ { light GRENADE_X2 }
+	frame BOMBR { light GRENADE_X1 }
+}
+
+flickerlight OBLIVION
+{
+    color 1.0 1.0 1.0
+    size 800
+    secondarySize 750
+    chance 0.9
+}
+
+object GravityHole
+{
+	frame GBALB { light PURPLELIGHT3 }
+    frame GBALC { light PURPLELIGHT3 }
+	frame GBALD { light PURPLELIGHT3 }
+	frame GBALE { light PURPLELIGHT3 }
+	frame GBALF { light PURPLELIGHT3 }
+	frame GBALG { light PURPLELIGHT3 }
+	frame GBALH { light PURPLELIGHT3 }
+	frame GBALI { light PURPLELIGHT3 }
+}
+
+object OblivionEffect
+{
+    frame BOMBC { light OBLIVION }
+	frame BOMBD { light OBLIVION }
+	frame BOMBE { light OBLIVION }
+	frame BOMBF { light OBLIVION }
+	frame BOMBG { light OBLIVION }
+	frame BOMBH { light OBLIVION }
+	frame BOMBI { light OBLIVION }
+	frame BOMBJ { light OBLIVION }
+	frame BOMBK { light OBLIVION }
+	frame BOMBL { light OBLIVION }
+	frame BOMBM { light OBLIVION }
+	frame BOMBN { light OBLIVION }
+	frame BOMBO { light OBLIVION }
+	frame BOMBP { light OBLIVION }
+	frame BOMBQ { light OBLIVION }
+	frame BOMBR { light OBLIVION }
+}
+
+object RakuShot1
+{
+	frame BUSTA { light YellowLight  }
+}
+
+object RakuShot2
+{
+frame ARRSD { light NAPAEXPLO3 }
+}
+
+object SizzleRocket
+{
+    frame BOMBC { light GRENADE_X16 }
+	frame BOMBD { light GRENADE_X15 }
+	frame BOMBE { light GRENADE_X14 }
+	frame BOMBF { light GRENADE_X13 }
+	frame BOMBG { light GRENADE_X12 }
+	frame BOMBH { light GRENADE_X11 }
+	frame BOMBI { light GRENADE_X10 }
+	frame BOMBJ { light GRENADE_X9 }
+	frame BOMBK { light GRENADE_X8 }
+	frame BOMBL { light GRENADE_X7 }
+	frame BOMBM { light GRENADE_X6 }
+	frame BOMBN { light GRENADE_X5 }
+	frame BOMBO { light GRENADE_X4 }
+	frame BOMBP { light GRENADE_X3 }
+	frame BOMBQ { light GRENADE_X2 }
+	frame BOMBR { light GRENADE_X1 }
+}
+
+object CRocket
+{
+    frame BOMBC { light GRENADE_X16 }
+	frame BOMBD { light GRENADE_X15 }
+	frame BOMBE { light GRENADE_X14 }
+	frame BOMBF { light GRENADE_X13 }
+	frame BOMBG { light GRENADE_X12 }
+	frame BOMBH { light GRENADE_X11 }
+	frame BOMBI { light GRENADE_X10 }
+	frame BOMBJ { light GRENADE_X9 }
+	frame BOMBK { light GRENADE_X8 }
+	frame BOMBL { light GRENADE_X7 }
+	frame BOMBM { light GRENADE_X6 }
+	frame BOMBN { light GRENADE_X5 }
+	frame BOMBO { light GRENADE_X4 }
+	frame BOMBP { light GRENADE_X3 }
+	frame BOMBQ { light GRENADE_X2 }
+	frame BOMBR { light GRENADE_X1 }
+}
+
+object BrightFireWorkExp
+{
+frame DOMPG { light SPARKSHOCK }
+frame DOMPH { light SPARKSHOCK }
+frame DOMPI { light SPARKSHOCK }
+frame DOMPJ { light SPARKSHOCK }
+frame DOMPK { light SPARKSHOCK }
+frame DOMPL { light GREENLIGHT }
+frame DOMPM { light GREENLIGHT }
+}
+
+object GemExplode2
+{
+frame DOMPI { light SPARKSHOCK }
+frame DOMPJ { light SPARKSHOCK }
+frame DOMPK { light SPARKSHOCK }
+frame DOMPL { light GREENLIGHT }
+frame DOMPM { light GREENLIGHT }
+}
+
+object RainbowBeamMega
+{
+frame RNBWA { light PINKLIGHTR }
+}
+
+object RainbowAsplode
+{
+frame RNBWC { light PINKLIGHTR2 }
+frame RNBWB { light ELECBEAM2 }
+}
+
+object AdaptorFist
+{
+frame SAPTJ { light ELECBEAM }
+}
+
+object WildCoil2
+{
+frame WCOIN { light PINKLIGHTR }
+frame WCOIO { light PINKLIGHTR }
+frame WCOIP { light PINKLIGHTR }
+frame WCOIQ { light PINKLIGHTR }
+}
+
+object MirrorShotWeak
+{
+frame MIRRC { light SPARKSHOCK }
+}
+
+object MirrorShotWeaker
+{
+frame MIRRC { light SPARKSHOCK }
+}
+
+object MirrorShotStrong
+{
+frame MIRRD { light SPARKSHOCK }
+frame MIRRE { light SPARKSHOCK }
+}
+
+object ETank
+{
+frame EBALF {light HCAPSULE3}
+frame EBALE {light HCAPSULE3}
+}
+
+object MTank
+{
+frame EBALG {light HCAPSULE3}
+frame EBALE {light HCAPSULE3}
+}
+
+object WTank
+{
+frame EBALH {light HCAPSULE3}
+frame EBALE {light HCAPSULE3}
+}
+
+object AstroPlatform
+{
+frame APLTA {light ELECBEAM}
+frame APLTB {light ELECBEAM}
+}
+
+object AstroSun
+{
+frame ASUNA {light GREENLIGHT}
+frame ASUNB {light GREENLIGHT}
+frame ASUNC {light GREENLIGHT}
+frame ASUND {light SPARKSHOCK}
+frame ASUNE {light REDLIGHT}
+frame ASUNF {light REDLIGHT}
+frame ASUNG {light REDLIGHT}
+}
+
+object SwordOrb
+{
+frame SORBB {light PINKLIGHTR}
+frame SORBD {light PINKLIGHTR}
+frame SORBC {light ELECBEAM}
+}
+
+object ProtoMachineThing
+{
+frame GESPD {light REDLIGHT}
+frame GESPE {light REDLIGHT}
+frame GESPF {light REDLIGHT}
+frame GESPG {light REDLIGHT}
+}
+
+object EvilEyes
+{
+frame EVILA {light FIRELIGHT}
+frame EVILB {light FIRELIGHT}
+}
+
+object GhostsnGoblinsThing
+{
+frame DOMPI { light SPARKSHOCK }
+frame DOMPJ { light SPARKSHOCK }
+frame DOMPK { light SPARKSHOCK }
+frame DOMPL { light GREENLIGHT }
+frame DOMPM { light GREENLIGHT }
+}
+
+object GhostsnGoblinsThing2
+{
+frame DOMPI { light SPARKSHOCK }
+frame DOMPJ { light SPARKSHOCK }
+frame DOMPK { light SPARKSHOCK }
+frame DOMPL { light GREENLIGHT }
+frame DOMPM { light GREENLIGHT }
+}
+
+object KyorownBullet
+{
+frame BASBA { light YellowLight }
+}
+
+object BoostShot
+{
+frame BASBA { light YellowLight }
+}
+
+object RemoteMine
+{
+frame REME {Light GRENADE_X9}
+}
+
+object SnowBoardFinish
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object Flask1
+{
+frame CHEMC { light BLUELIGHTR }
+frame CHEMD { light BLUELIGHTR }
+}
+
+object Flask2
+{
+frame CHEMG { light GREENLIGHT }
+frame CHEMH { light GREENLIGHT }
+}
+
+object Flask3
+{
+frame CHEMJ { light GREENLIGHT }
+frame CHEMK { light GREENLIGHT }
+}
+
+object HotHead
+{
+frame HOTHA { light FIRELIGHT }
+frame HOTHB { light FIRELIGHT }
+}
+
+object CountBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object VBlock
+{
+frame VBLKB { light SPARKSHOCK }
+frame VBLKC { light SPARKSHOCK }
+frame VBLKD { light SPARKSHOCK }
+frame VBLKE { light SPARKSHOCK }
+}
+
+object PartyBall
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object FireWave
+{
+frame FIRTB { light FIRELIGHT }
+frame FIRTC { light FIRELIGHT }
+frame FIRTA { light FIRELIGHT }
+}
+
+object TrebleShot
+{
+frame BASBA { light YellowLight }
+}
+
+object GravityHoleShot2
+{
+frame BASBA { light YellowLight }
+}
+
+object PursuitProj
+{
+frame BASBA { light YellowLight }
+}
+
+object CrashBombBack
+{
+frame CRASK { light NAPAEXPLO7 }
+frame CRASL { light NAPAEXPLO5 }
+frame CRASM { light NAPAEXPLO3 }
+frame CRASN { light NAPAEXPLO7 }
+frame CRASO { light NAPAEXPLO5 }
+frame CRASP { light NAPAEXPLO3 }
+frame CRASQ { light NAPAEXPLO7 }
+frame CRASR { light NAPAEXPLO5 }
+frame CRASS { light NAPAEXPLO3 }
+frame CRAST { light NAPAEXPLO7 }
+frame CRASV { light NAPAEXPLO5 }
+frame CRASW { light NAPAEXPLO3 }
+}
+
+object CrashBombCeiling
+{
+frame CRASK { light NAPAEXPLO7 }
+frame CRASL { light NAPAEXPLO5 }
+frame CRASM { light NAPAEXPLO3 }
+frame CRASN { light NAPAEXPLO7 }
+frame CRASO { light NAPAEXPLO5 }
+frame CRASP { light NAPAEXPLO3 }
+frame CRASQ { light NAPAEXPLO7 }
+frame CRASR { light NAPAEXPLO5 }
+frame CRASS { light NAPAEXPLO3 }
+frame CRAST { light NAPAEXPLO7 }
+frame CRASV { light NAPAEXPLO5 }
+frame CRASW { light NAPAEXPLO3 }
+}
+
+object CrashBombFloor
+{
+frame CRASK { light NAPAEXPLO7 }
+frame CRASL { light NAPAEXPLO5 }
+frame CRASM { light NAPAEXPLO3 }
+frame CRASN { light NAPAEXPLO7 }
+frame CRASO { light NAPAEXPLO5 }
+frame CRASP { light NAPAEXPLO3 }
+frame CRASQ { light NAPAEXPLO7 }
+frame CRASR { light NAPAEXPLO5 }
+frame CRASS { light NAPAEXPLO3 }
+frame CRAST { light NAPAEXPLO7 }
+frame CRASV { light NAPAEXPLO5 }
+frame CRASW { light NAPAEXPLO3 }
+}
+
+object GenericExplosion
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+
+object CircuitBreaker
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object CircuitBreakerBack
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object EggBomb
+{
+frame NAPAE { light NAPAEXPLO1 }
+frame NAPAF { light NAPAEXPLO2 }
+frame NAPAG { light NAPAEXPLO3 }
+frame NAPAH { light NAPAEXPLO4 }
+frame NAPAI { light NAPAEXPLO5 }
+frame NAPAJ { light NAPAEXPLO6 }
+frame NAPAK { light NAPAEXPLO7 }
+frame NAPAL { light NAPAEXPLO7 }
+frame NAPAM { light NAPAEXPLO7 }
+frame NAPAN { light NAPAEXPLO6 }
+frame NAPAO { light NAPAEXPLO5 }
+frame NAPAP { light NAPAEXPLO4 }
+frame NAPAQ { light NAPAEXPLO3 }
+frame NAPAR { light NAPAEXPLO2 }
+frame NAPAS { light NAPAEXPLO1 }
+}
+
+object PKFireTower
+{
+frame FLMBH { light FIRELIGHT }
+frame FLMBA { light FIRELIGHT }
+frame FLMBB { light FIRELIGHT }
+frame FLMBC { light FIRELIGHT }
+frame FLMBD { light FIRELIGHT }
+frame FLMBE { light FIRELIGHT }
+frame FLMBF { light FIRELIGHT }
+frame FLMBG { light FIRELIGHT }
+}
+
+object PKFire
+{
+frame FLMBH { light FIRELIGHT }
+}
+
+object FireTrailX
+{
+frame GFBLB { light FIRELIGHT }
+}
+
+object TriAttackF
+{
+frame TRIAC { light FIRELIGHT }
+}
+
+object FireBallX
+{
+frame FIREA { light FIRELIGHT }
+frame FIREB { light FIRELIGHT }
+frame FIREC { light FIRELIGHT }
+}
+
+object ChargeKickb
+{
+frame BKIKD { light FIRELIGHT }
+frame BKIKE { light FIRELIGHT }
+frame BKIKF { light FIRELIGHT }
+}
+
+object FairyMoonBlast
+{
+frame ASEXA { light FLASHBOMBX }
+frame ASEXB { light FLASHBOMBX }
+frame ASEXC { light FLASHBOMB1 }
+frame ASEXD { light FLASHBOMB1 }
+frame ASEXE { light FLASHBOMB2 }
+frame ASEXF { light FLASHBOMB3 }
+}
+
+object FairyMoonBlast2
+{
+frame ASEXA { light FLASHBOMBX }
+frame ASEXB { light FLASHBOMBX }
+frame ASEXC { light FLASHBOMB1 }
+frame ASEXD { light FLASHBOMB1 }
+frame ASEXE { light FLASHBOMB2 }
+frame ASEXF { light FLASHBOMB3 }
+}
+
+object TheMoon
+{
+frame MNBLA { light WHITELIGHT }
+}
+
+object TriAttackT
+{
+frame TRIAA {Light SPARKSHOCK}
+}
+
+object willowisp
+{
+frame WOWSE {Light PURPLELIGHT3}
+frame WOWSF {Light PURPLELIGHT3}
+frame WOWSG {Light PURPLELIGHT3}
+}
+
+object Hadouken
+{
+frame HADOA {Light PURPLELIGHT3}
+}
+
+object ChargeBeam
+{
+frame TBOL {light FLASHBOMB2}
+}
+
+object FireFly
+{
+frame FLUXA { light FIRELIGHT }
+frame FLUXB { light FIRELIGHT }
+frame FLUXC { light FIRELIGHT }
+}
+
+object PulseStopper
+{
+frame PLSRA {light BLUELIGHT2}
+}
+
+object PulseShield
+{
+frame PLSRA {light BLUELIGHT3}
+}
+
+object SuguriRing1
+{
+frame PLSRA {light BLUELIGHT3}
+}
+
+object SuguriRing2
+{
+frame PLSRA {light BLUELIGHT3}
+}
+
+object SuguriRing3
+{
+frame PLSRA {light BLUELIGHT3}
+}
+
+object SuguriRing4
+{
+frame PLSRA {light BLUELIGHT3}
+}
+
+object SuguriRing5
+{
+frame PLSRA {light BLUELIGHT3}
+}
+
+object SuguriRing6
+{
+frame PLSRA {light BLUELIGHT3}
+}
+
+object SeedFlare
+{
+frame SEEFA {Light GREENLIGHT3}
+}
+
+object SolarFlare
+{
+frame SFLRB {light FLASHBOMB2}
+}
+
+object SolarFlareFX
+{
+frame SFLRA {light FLASHBOMB1}
+}
+
+object PhantomFuseBit
+{
+frame FSXPE {light FLASHBOMB2}
+}
+
+object PhantomFX
+{
+frame FSXPA {light FLASHBOMB1}
+frame FSXPB {light FLASHBOMB1}
+frame FSXPC {light FLASHBOMB1}
+frame FSXPD {light FLASHBOMB1}
+}
+
+object FlameShield1
+{
+frame FBLAA {light FIRELIGHT2}
+}
+
+object FlameShield2
+{
+frame FBLAB {light FIRELIGHT2}
+}
+
+object FlameShield3
+{
+frame FBLAC {light FIRELIGHT2}
+}
+
+object FlameShield4
+{
+frame FBLAD {light FIRELIGHT2}
+}
+
+object FireBlast
+{
+frame FBLAE {light FIRELIGHT2}
+frame FBLAF {light FIRELIGHT2}
+}
+
+object QuakeSkull
+{
+    frame BOMBC { light GRENADE_X16 }
+	frame BOMBD { light GRENADE_X15 }
+	frame BOMBE { light GRENADE_X14 }
+	frame BOMBF { light GRENADE_X13 }
+	frame BOMBG { light GRENADE_X12 }
+	frame BOMBH { light GRENADE_X11 }
+	frame BOMBI { light GRENADE_X10 }
+	frame BOMBJ { light GRENADE_X9 }
+	frame BOMBK { light GRENADE_X8 }
+	frame BOMBL { light GRENADE_X7 }
+	frame BOMBM { light GRENADE_X6 }
+	frame BOMBN { light GRENADE_X5 }
+	frame BOMBO { light GRENADE_X4 }
+	frame BOMBP { light GRENADE_X3 }
+	frame BOMBQ { light GRENADE_X2 }
+	frame BOMBR { light GRENADE_X1 }
+}
+
+object FirePillar
+{
+frame FIRP {Light FIRELIGHT}
+}
+
+//end dirp defs
+Glow
+{
+Flats
+{
+FIRELAV
+FIRE19
+FIRE20
+
+WT1LAVAX
+WT1LAVA1
+WT1LAVA2
+WT1LAVA3
+
+YELLOW
+
+JLAVA1
+JLAVA2
+JLAVA3
+JLAVA4
+
+FLASH8
+FLASH9
+FLASH10
+FLASH11
+FLASH12
+FLASH13
+FLASH14
+FLASH15
+FLASH16
+FLASH17
+FLASH18
+FLASH19
+FLASH20
+FLASH21
+FLASHBZ
+FLASHB2Z
+FLASHB3Z
+FLASHB4Z
+FLASHB5Z
+FLASHB6Z
+FLASHLZ
+FLASHFLZ
+FLASHFL1
+FLASHFL2
+FLASHL1
+FLASHL2
+FLASHB1
+FLASHB2
+FLASHB3
+FLASHB4
+FLASHB5
+FLASHB6
+FLASHB1X
+FLASHB2X
+FLASHB3X
+FLASHB4X
+FLASHB5X
+FLASHB6X
+
+HFALL
+HTUBE
+HEAT8
+HEAT8A
+HEAT9
+HEAT9A
+HEAT10A
+HEAT10
+HEAT11A
+HEAT11
+HEAT12
+HEAT12A
+HEAT13
+HEAT13A
+
+SWORLAVX
+SWORLAV1
+SWORLAV2
+SWORLAV3
+SWORLAV4
+SWORLAV5
+SWORLAV6
+SWORLAVY
+SWORD37
+SWORD38
+SWORD39
+
+SHADOW23
+SHADOW24
+SHADOW25
+SHADOW14
+SHADOW15
+SHADOW16
+SHALAVAX
+SHAWATX1
+SHAWATX2
+SHAWATX3
+SHALAV1
+SHALAV2
+SHALAV3
+SHAWATR1
+SHAWATR2
+SHAWATR3
+SHAWATR4
+SHAWATR5
+SHAWATR6
+SHAWATR7
+SHAWATR8
+SHAWATR9
+SHAFALL1
+SHAFALL2
+SHAFALL3
+SHAFALL4
+
+CLOWN17B
+CLOWN18B
+CLOWN19B
+CLOWN20B
+CLOWN21B
+CLNTRB2L
+CLNTRB5
+CLNTRB4
+CLNTRB3
+CLNTRB2R
+CLNTRB2L
+CLNTRB1
+
+METAAC1
+METALC1
+METALC2
+METAAC2
+METALC3
+METAAC3
+METALC4
+METALC5
+METAAC4
+METALC7
+METALC8
+METALM32
+METALM33
+METALM7
+METALM8
+METALM9
+METALM10
+
+CRYSRCRY
+CRYSM53
+CRYSM54
+CRYSM81
+CRYSM82
+CRYSCRY1
+CRYSCRY2
+
+GEMCEL1X
+GEMCEL4X
+GEMCEL1
+GEMCEL2
+GEMCEL3
+GEMCEL4
+GEMCEL5
+GEMCEL6
+GEMINI1
+GEMINI2
+GEMINI3
+GEMINI4
+GEMINI5
+GEMINI6
+}
+}

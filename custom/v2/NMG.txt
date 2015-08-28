@@ -1,0 +1,75 @@
+actor MachineAmmo : Ammo
+{
+Inventory.amount 1
+Inventory.Maxamount 100
+}
+
+actor MachineGunNeedle
+{
+PROJECTILE
+Radius 6
+Height 7
+Obituary "%o was spun around by %k's NMG."
+damagetype "NeedleCannon"
+scale 2.5
+damage 4
++Randomize
+speed 25
+States
+{
+Spawn:
+NEDC A 0
+NEDC A 1 A_Weave(2, 2, 2.0, 1.0)
+NEDC A 1 A_Weave(2, 2, 2.0, 1.0)
+NEDC A 1 A_Weave(2, 2, 2.0, 1.0)
+NEDC A 1 A_Weave(2, 2, 2.0, 1.0)
+loop
+Death:
+NEDC A 0
+stop
+}
+}
+
+actor NMGWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 100
+Weapon.SlotNumber 3
+Obituary "%o was spun around by %k's NMG."
+Inventory.Pickupmessage "Power Up! NMG!"
+Weapon.AmmoType "MachineAmmo"
+Inventory.Icon "NMGICO"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
++WEAPON.DONTBOB
+Scale 2.0
+States
+{
+Spawn:
+GNMG A -1
+stop
+Ready:
+NEDC B 0 ACS_ExecuteAlways(998,0,10)
+NEDC B 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+NEDC B 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+NEDC B 1 A_Raise
+Loop
+Fire:
+NEDC B 1 A_JumpIfNoAmmo("NoAmmo")
+NEDC B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+NEDC B 0 A_FireCustomMissile("MachineGunNeedle",0,1,8,0)
+NEDC CDB 2
+NEDC B 2 A_TakeInventory("MachineAmmo",3)
+NEDC B 1 A_Refire
+Goto Ready+1
+NoAmmo:
+NEDC B 1
+Goto Ready+1
+}
+}

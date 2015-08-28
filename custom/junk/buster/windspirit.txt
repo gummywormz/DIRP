@@ -1,0 +1,2 @@
+//allows floating when in air. fires fast tornadoes.
+//replace treble boost

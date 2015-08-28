@@ -1,0 +1,1 @@
+//seeker adaptor, fires your fist as a homing shot that rips. fire to have it return

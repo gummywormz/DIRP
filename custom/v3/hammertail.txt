@@ -1,0 +1,87 @@
+actor TailAmmo : Ammo
+{
+Inventory.Amount 1
+Inventory.MaxAmount 28
+}
+
+actor SpikeRock
+{
+PROJECTILE
+-NOGRAVITY
+Damagetype "PowerStone"
+Damage (20)
+Obituary "%o was jacked by %k's Hammer Tail."
+Height 12
+Radius 12
+scale 2.5
+Speed 20
+States
+{
+Spawn:
+POWS A -1
+stop
+}
+}
+
+actor HammerTailWep : MegaBuster
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 28
+Weapon.SlotNumber 4
++WEAPON.MELEEWEAPON
++WEAPON.DONTBOB
+Obituary "%o was jacked by %k's Hammer Tail."
+Inventory.Pickupmessage "Power Up! Hammer Tail!"
+weapon.ammotype "TailAmmo"
+inventory.icon "SPBSICO"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+SPBS D -1
+stop
+Ready:
+SPBS A 0 ACS_ExecuteAlways(998,0,232)
+SPBS A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SPBS A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SPBS A 1 A_Raise
+Loop
+Fire:
+SPBS A 0 A_JumpIf(z-floorz>0, "NoAmmo")
+SPBS A 1 A_JumpIfNoAmmo("NoAmmo")
+goto Fire2
+Fire2:
+SPBS A 0 A_TakeInventory("TailAmmo",6)
+SPBS A 1 A_PlaySoundEx("weapon/sakugarne","Weapon")
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,0)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,90)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,180)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,70)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,35)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,45)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,105)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,135)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-90)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-180)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-70)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-35)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-45)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-105)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-135)
+SPBS BCCB 2
+SPBS A 5
+SPBS A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+SPBS A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

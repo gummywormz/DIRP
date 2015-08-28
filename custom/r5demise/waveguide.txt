@@ -1,0 +1,84 @@
+actor WaveGuideWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 112
+Weapon.SlotNumber 3
+Obituary "%o was surprised by %k's Wave Guide."
+Inventory.Pickupmessage "Power up! Wave Guide!"
+weapon.ammotype "WaveGuideAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "GWVGICO"
+Scale 2.0
+States
+{
+Spawn:
+GWVG A -1
+stop
+Ready:
+WWAV E 0 ACS_ExecuteAlways(998,0,32)
+WWAV E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+WWAV E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+WWAV E 1 A_Raise
+Loop
+Fire:
+WWAV E 0 A_JumpIfNoAmmo("NoAmmo")
+WWAV E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+WWAV E 0 A_FireCustomMissile("WaveGuide",0,1,8,0)
+WWAV FG 2
+WWAV E 8
+WWAV E 0 A_Refire
+Goto Ready+1
+NoAmmo:
+WWAV E 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor WaveGuideAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+Actor WaterWave2 : WaterWave
+{
+Obituary "%o was surprised by %k's Wave Guide."
+}
+
+actor WaveGuide
+{
+PROJECTILE
+Obituary "%o was surprised by %k's Wave Guide."
+Radius 7
+DamageType "WaterWave"
+Height 7
+scale 2.5
+damage (20)
++FORCEXYBILLBOARD
++DONTBLAST
+speed 30
+States
+{
+Spawn:
+HARP A -1
+stop
+Death:
+TNT1 A 1 A_PlaySoundEx("weapon/waterwave","Voice")
+TNT1 A 1 A_SpawnItemEx("WaterWave2",0,0,0,40,0,0,180)
+TNT1 A 2
+TNT1 A 1 A_SpawnItemEx("WaterWave2",0,0,0,40,0,0,180)
+TNT1 A 2
+TNT1 A 1 A_SpawnItemEx("WaterWave2",0,0,0,40,0,0,180)
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}

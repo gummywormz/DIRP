@@ -1,0 +1,81 @@
+Actor QuadMissile
+{
+PROJECTILE
+Damagetype "HomingSniper"
+Radius 5
+Obituary "%o was totally asploded by %k's Quad Missile."
+Height 5
+scale 3.5
+damage (5)
+speed 20
+States
+{
+Spawn:
+HSNM B 0
+HSNM B 1
+HSNM C 1
+loop
+Death:
+TNT1 A 0 A_Explode(30, 128, 0)
+NAPA E 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+NAPA EFGHIJKLMNOPQRS 2
+Stop
+}
+}
+
+actor QuadMissileWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Obituary "%o was totally asploded by %k's Quad Missile."
+Inventory.Pickupmessage "Power up! Quad Missile!"
+weapon.ammotype "QuadMissileAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "QDMIICO"
+Scale 2.0
+States
+{
+Spawn:
+QDMI C -1
+stop
+Ready:
+QDMI A 0 ACS_ExecuteAlways(998,0,0)
+QDMI A 0 A_JumpIfInventory("IsDead",1,"ImDead")
+QDMI A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+QDMI A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+QDMI A 1 A_Raise
+Loop
+Fire:
+QDMI A 0 A_JumpIfNoAmmo("NoAmmo")
+QDMI A 0 A_PlaySoundEx("weapon/drillfly","Weapon")
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,1,8,0)
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,0,-100,0)
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,0,8,100)
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,0,-100,100)
+QDMI A 0 A_Recoil(15)
+QDMI B 3
+QDMI A 16
+QDMI A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+QDMI A 1 ACS_Execute(979,0)
+Goto Ready+1
+ImDead:
+TNT1 A 1
+loop
+}
+}
+
+actor QuadMissileAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

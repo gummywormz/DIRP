@@ -1,0 +1,119 @@
+actor SuguriRing1 //A_SetScale is broken online so...
+{
+Scale 2.5
++NOINTERACTION
++NOGRAVITY
+RenderStyle Add
+States
+{
+Spawn:
+PLSR A 0
+PLSR A 3
+stop
+}
+}
+
+actor SuguriRing2 : SuguriRing1
+{
+Scale 3.0
+}
+
+actor SuguriRing3 : SuguriRing1
+{
+Scale 3.5
+}
+
+actor SuguriRing4 : SuguriRing1
+{
+Scale 4.0
+}
+
+actor SuguriRing5 : SuguriRing1
+{
+Scale 4.5
+}
+
+actor SuguriRing6 : SuguriRing1
+{
+Scale 5.0
+}
+
+actor SuguriSpawner : SuguriRing1
+{
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 3 A_SpawnItemEx("SuguriRing1")
+TNT1 A 3 A_SpawnItemEx("SuguriRing2")
+TNT1 A 3 A_SpawnItemEx("SuguriRing3")
+TNT1 A 3 A_SpawnItemEx("SuguriRing4")
+TNT1 A 3 A_SpawnItemEx("SuguriRing5")
+TNT1 A 3 A_SpawnItemEx("SuguriRing6")
+stop
+}
+}
+
+actor SuguriDashWep : MegaBuster
+{
+Weapon.AmmoUse 9
+Weapon.AmmoGive 36
+Weapon.SlotNumber 7
+Obituary "%o was too KAWAII DES~ for %k's Suguri Dash."
+Inventory.Pickupmessage "Power up! Suguri Dash!"
+weapon.ammotype "SuguriDashAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SUGDICO"
+Scale 2.0
+States
+{
+Spawn:
+SUGD D 1
+loop
+Ready:
+SUGD A 0 ACS_ExecuteAlways(998,0,38)
+SUGD A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SUGD A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SUGD A 1 A_Raise
+Loop
+Fire:
+SUGD A 0 A_JumpIfNoAmmo("NoAmmo")
+SUGD A 0 A_CheckFloor("ActualFire")
+goto NoAmmo
+ActualFire:
+SUGD A 0 A_PlaySoundEx("weapon/cometdash","Weapon")
+SUGD A 0 A_TakeInventory("SuguriDashAmmo",9)
+SUGD ABC 3
+TNT1 A 0 SetPlayerProperty(0,1,4)
+//TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 1 A_Stop
+TNT1 A 1 A_ChangeFlag("SOLID",0)
+TNT1 A 2 A_ChangeVelocity(75,0,momz,CVF_RELATIVE|CVF_REPLACE)
+
+TNT1 A 1 A_GiveInventory("Repulsion",1)
+TNT1 A 1 A_SpawnItemEx("SuguriSpawner",0,0,64)
+
+TNT1 A 0 SetPlayerProperty(0,0,4)
+TNT1 A 1 A_ChangeFlag("SOLID",1)
+//TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+SUGD A 13
+SUGD A 1 A_Refire
+Goto Ready+1
+NoAmmo:
+SUGD A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor SuguriDashAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 36
+}

@@ -1,0 +1,138 @@
+//hax
+actor SuperArrow
+{
+PROJECTILE
++RIPPER
+Radius 18
+Height 5
+scale 2.5
+damage (15)
+Obituary "%o was targeted by %k's Super Arrow."
+damagetype "Buster"
+speed 30
+States
+{
+Spawn:
+SARR A 0
+SARR A 1 A_Stop
+SARR A 2 A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+SARR A 0 A_ChangeVelocity(25, 0, 0, CVF_RELATIVE | CVF_REPLACE)
+goto SpeedDone
+SpeedDone:
+SARR A 2 //A_SpawnItemEx("ArrowHolder",0,0,-7,0,0,0,0)
+loop
+XDeath:
+TNT1 A 1
+stop
+Death:
+TNT1 A 0 A_SpawnItemEx("ArrowTemp")
+stop
+}
+}
+
+actor ArrowHolder
+{
+height 5
+radius 18
+scale 2.5
++FORCEYBILLBOARD
++NOGRAVITY
++SOLID
++MISSILE
++DONTRIP
+damage (0)
+damagetype "Buster"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 2 ACS_ExecuteAlways(253,0,18,5)
+TNT1 A 36
+goto Next
+Next:
+TNT1 A 1 A_ChangeVelocity(25, 0, 0, CVF_RELATIVE | CVF_REPLACE)
+loop
+Death:
+TNT1 A 1
+stop
+}
+}
+
+actor ArrowTemp : ArrowHolder
+{
+States
+{
+Spawn:
+SARR B 0
+SARR B 35
+SARR B 20
+MMFX BCDE 3
+stop
+}
+}
+
+actor SuperArrowWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was targeted by %k's Super Arrow."
+Inventory.Pickupmessage "Power up! Super Arrow!"
+weapon.ammotype "SuperArrowAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SARRICO"
+Scale 2.0
+States
+{
+Spawn:
+SARR C -1
+stop
+Ready:
+BUST B 0 ACS_ExecuteAlways(998,0,0)
+BUST B 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BUST B 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BUST B 1 A_Raise
+Loop
+Fire:
+BUST B 0 A_JumpIfNoAmmo("NoAmmo")
+BUST B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+BUST B 0 A_FireCustomMissile("SuperArrow",0,1,8,0)
+BUST CD 3
+BUST B 9
+BUST B 0 A_Refire
+Goto Ready+1
+NoAmmo:
+BUST B 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor SuperArrowAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

@@ -1,0 +1,98 @@
+actor CrossFlameAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor CrossFlame
+{
+PROJECTILE
+Radius 5
+Obituary "%o was cut and dried by %k's Cross Flame."
+Height 5
++DONTBLAST
+scale 2.5
+damage (40)
+damagetype "AtomicFire1"
+speed 17
+States
+{
+Spawn:
+COFA G 3
+stop
+Death:
+TNT1 A 1 A_SpawnItemEx("CrossProjectile",50,0,8,25,0,0,0)
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+}
+}
+
+actor CrossProjectile
+{
+PROJECTILE
+Radius 6
+Height 7
+Obituary "%o was cut and dried by %k's Cross Flame."
+scale 2.5
+damage (10)
++RIPPER
++DONTBLAST
+damagetype "AtomicFire1"
+speed 25
+States
+{
+Spawn:
+FIRE B -1
+stop
+Death:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+}
+}
+
+actor CrossFlameWep : MegaBuster
+{
+Weapon.AmmoUse 3
+Weapon.AmmoGive 28
+Weapon.SlotNumber 4
+Obituary "%o was cut and dried by %k's Cross Flame."
+Inventory.Pickupmessage "Power up! Cross Flame!"
+weapon.ammotype "CrossFlameAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "CRFLICO"
+Scale 2.0
+States
+{
+Spawn:
+COFA H 1
+loop
+Ready:
+COFA A 0 ACS_ExecuteAlways(998,0,214)
+COFA A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+COFA A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+COFA A 1 A_Raise
+Loop
+Fire:
+COFA A 0 A_JumpIfNoAmmo("NoAmmo")
+COFA BC 1
+COFA A 0 A_PlaySoundEx("weapon/crossflame","Weapon")
+COFA A 0 A_FireCustomMissile("CrossFlame",0,1,11,8)
+COFA A 0 A_FireCustomMissile("CrossFlame",0,0,-11,-8)
+COFA DE 2
+COFA F 4
+COFA A 15
+COFA A 1 A_WeaponReady
+Goto Ready+1
+NoAmmo:
+COFA A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

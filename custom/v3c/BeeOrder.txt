@@ -1,0 +1,202 @@
+actor BeeOrderWep : MegaBuster
+{
+Weapon.AmmoGive 28
+Weapon.SlotNumber 7
+Obituary "%o was stung by %k's Bee Order."
+Inventory.Pickupmessage "Power up! Bee Order!"
+weapon.ammotype "BeeOrderAmmo"
+weapon.ammouse 4
+inventory.pickupsound "weapon/weaponup"
+inventory.icon "HORNICO"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+HORN A 1
+loop
+Ready:
+BEEH A 0 ACS_ExecuteAlways(998,0,240)
+BEEH A 0 A_ClearRefire
+BEEH A 1 A_WeaponReady
+Goto Ready+2
+Deselect:
+BEEH A 0 A_TakeInventory("PowerBee",1)
+BEEH A 0 A_TakeInventory("ShieldCheck",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BEEH A 1 A_Lower
+Goto Deselect+1
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BEEH A 1 A_Raise
+Loop
+Fire:
+BEEH A 0 A_JumpIfInventory("ShieldCheck",1,"ShieldThrow")
+BEEH A 0 A_JumpIfNoAmmo("NoAmmo")
+BEEH A 0 A_GiveInventory("PowerBee",1)
+BEEH A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+BEEH A 0 A_TakeInventory("BeeOrderAmmo",4)
+BEEH A 1 A_GiveInventory("ShieldCheck",1)
+BEEH BCDEF 2
+goto ShieldActive
+Hold:
+BEEH A 1
+goto Ready+1
+ShieldActive:
+BEEH A 0 A_PlayWeaponSound("weapon/leafshield")
+BEEH G 1 A_SpawnItemEx("BeeShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH G 1 A_SpawnItemEx("BeeShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH H 1 A_SpawnItemEx("BeeShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH H 1 A_SpawnItemEx("BeeShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 0 A_PlayWeaponSound("weapon/leafshield")
+BEEH A 1 A_SpawnItemEx("BeeShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_SpawnItemEx("BeeShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_SpawnItemEx("BeeShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_SpawnItemEx("BeeShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+Goto Shield
+Shield:
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_PlayWeaponSound("weapon/leafshield")
+BEEH A 0 A_SpawnItemEx("BeeShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_SpawnItemEx("BeeShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_SpawnItemEx("BeeShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_SpawnItemEx("BeeShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_PlayWeaponSound("weapon/leafshield")
+BEEH A 0 A_SpawnItemEx("BeeShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_SpawnItemEx("BeeShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_SpawnItemEx("BeeShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+BEEH A 1 A_WeaponReady
+BEEH A 0 A_SpawnItemEx("BeeShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+loop
+ShieldThrow:
+BEEH A 0 A_TakeInventory("ShieldCheck",999)
+BEEH A 0 A_TakeInventory("PowerBee",1)
+BEEH A 0 A_JumpIfHealthLower(51,"Heal")
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,30,8,0)
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,-15,8,0)
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,15,8,0)
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,-30,8,0)
+BEEH IJ 3
+BEEH K 27
+BEEH I 3
+goto Ready+1
+Heal:
+BEEH A 1 A_PlaySoundEx("item/refill","Weapon")
+BEEH A 1 A_TakeInventory("BeeOrderAmmo",16)
+BEEH A 1 HealThing(15)
+BEEH IJ 3
+BEEH K 27
+BEEH I 3
+goto Ready+1
+NoAmmo:
+BEEH A 1 ACS_Execute(979,0)
+goto Ready+1
+}
+}
+
+actor BeeShield1
+{
+scale 2.5
+-SOLID
++NOGRAVITY
++CLIENTSIDEONLY
+States
+{
+Spawn:
+BEES A 1
+BEES A 1
+stop
+}
+}
+
+actor BeeShield2 : BeeShield1
+{
+States
+{
+Spawn:
+BEES B 1
+BEES B 1
+stop
+}
+}
+
+actor BeeShield3 : BeeShield1
+{
+States
+{
+Spawn:
+BEES C 1
+BEES C 1
+stop
+}
+}
+
+actor BeeShield4 : BeeShield1
+{
+States
+{
+Spawn:
+BEES D 1
+BEES D 1
+stop
+}
+}
+
+actor NotTheBees
+{
+PROJECTILE
+Radius 5
+Height 5
+scale 2.5
+damagetype "MagnetMissile"
+Obituary "%o was stung by %k's Bee Order."
+damage (7)
+speed 30
++SEEKERMISSILE
+-EXTREMEDEATH
+reactiontime 40
+States
+{
+Spawn:
+HORN B 0
+HORN B 0 A_CountDown
+HORN BCBCBCBC 1 A_SeekerMissile(2,10,SMF_LOOK,88,10)
+loop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor PowerBee : PowerupGiver
+{
++COUNTITEM
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+Inventory.MaxAmount 1
+Powerup.Type "PowerBees"
+States
+{
+Spawn:
+TNT1 A 1
+Loop
+}
+}
+
+actor PowerBees : PowerProtection
+{
+Powerup.Duration 0x7FFFFFFF
+damagefactor "Normal", 0.7
+}
+
+actor BeeOrderAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

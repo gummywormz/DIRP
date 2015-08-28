@@ -1,0 +1,551 @@
+actor Megamandirp : PlayerPawn
+{
+player.displayname "megaman"
+player.soundclass "megaman"
+//DamageFactor "IceBeam", 0.5
+player.damagescreencolor "yellow"
+player.forwardmove 0.8, 0.8
+player.sidemove 0.78, 0.78
+player.jumpz 10
+player.colorrange 0 0
+player.startitem "MegaBuster"
+player.startitem "BusterAmmo", 3
+mass 9999
+gravity 0.8
++NODAMAGETHRUST
+Player.MaxSkinSizeFactor 0, 0
++DONTBLAST
+-NOBLOOD
++NOBLOODDECALS
+BloodType ""
+damagefactor "Dummy", 0.0
+scale 2.5
+States
+{
+Spawn:
+PLAY A 0
+PLAY B 1
+PLAY A 1
+Goto Spawn+2
+See:
+PLAY BCDE 5
+Goto Spawn
+Missile:
+PLAY F 5
+PLAY G 4
+goto Spawn
+Pain.FireSpin:
+Pain.QuickBoomerang:
+Pain.Buster:
+Pain.BassBuster:
+Pain.WildCoil:
+Pain.ChargeKick:
+Pain.YamatoSpear:
+Pain.DiveMissile:
+Pain.StarCrash:
+Pain.CentaurFlash:
+Pain.FreezeCracker:
+Pain.ScrewCrusher:
+Pain.PharaohHold:
+Pain.TornadoHold:
+Pain.TrebleSentry:
+Pain.ScorchWheel:
+Pain.MagnetMissile:
+Pain.JunkShield:
+Pain.OilSlider:
+Pain.BassBuster:
+Pain.WaveBurner:
+Pain.WaveBurnerUW:
+Pain.Misc:
+Pain.Treble:
+Pain.FlameSwordSpark:
+PLAY H 0
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.ShockGauntlet:
+PLAY H 0
+goto Pain.SparkShock
+Pain.LeechSeed:
+PLAY H 0 A_SpawnItemEx("LeechHit")
+PLAY H 0 A_GiveInventory("LeechSeedProtect",1)
+Goto Pain+1
+pain.FreezeDry:
+PAIN H 0 A_GiveInventory("IceSlow",1)
+Goto Pain+1
+Pain.ICEFREEZE:
+PLAY H 0 A_GiveInventory("Shocked",1)
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 0 A_GiveInventory("Shocked",1)
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 1 A_Stop
+PLAY H 0 A_GiveInventory("Shocked",1)
+PLAY H 1 A_Stop
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.Darken:
+PLAY H 0 ACS_ExecuteAlways(680,0)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.Darken2:
+PLAY H 0 ACS_ExecuteAlways(680,0,1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.GigaDrain:
+PLAY H 0 A_GiveToTarget("GigaRestore",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain.QuickBoomerang
+Pain.FellStingerAlways:
+PLAY H 1 A_GiveToTarget("CritFlag",10)
+PLAY H 0
+Goto pain+1
+Pain.SparkManBow:
+PLAY A 1 ACS_ExecuteAlways(690,0)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+2
+Death.RecycleInhaler:
+TNT1 A 1 A_Jump(256,"StuffBWE","StuffBH","StuffWT","StuffET","StuffWT","StuffET")
+loop
+StuffBWE:
+TNT1 A 1 A_SpawnItemEx("StuffBWE")
+goto Death
+StuffBH:
+TNT1 A 1 A_SpawnItemEx("StuffBH")
+goto Death
+StuffWT:
+TNT1 A 1 A_SpawnItemEx("StuffWT")
+goto Death
+StuffET:
+TNT1 A 1 A_SpawnItemEx("StuffET")
+goto Death
+Pain.GlueStun:
+PLAY H 1 A_Jump(64,"GlueStun")
+goto pain+1
+Pain.AlwaysGlue:
+PLAY H 1
+goto GlueStun
+GlueStun:
+PLAY H 1 ACS_ExecuteAlways(601,0)
+PLAY H 8
+PLAY H 1 A_SpawnItemEx("GlueItem")
+PLAY H 95
+goto Spawn+1
+Death.YokuAttack2:
+PLAY H 1 A_SpawnItemEx("ItemDecider")
+goto Death
+Pain.QuakeSkull:
+PLAY H 0 A_SpawnItemEx("ShockFX",4,0,32)
+PLAY H 0 A_GiveInventory("Shocked",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 A_JumpIfInventory("BrightBlind", 1,4)
+PLAY H 0 A_GiveInventory("BrightBlind",125)
+PLAY H 0 ACS_ExecuteAlways(249, 0)
+PLAY H 0 ACS_ExecuteAlways(691, 0)
+Goto pain+1
+PLAY H 0 A_GiveInventory("BrightBlind",55)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.Dizzy:
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 A_Jump(51,"dizzyed")
+PLAY H 1
+Goto Pain+1
+dizzyed:
+PLAY H 0 A_GiveInventory("ConfusedSpeed",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.Paint:
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+PLAY H 1
+Goto Pain+1
+Pain.Chain:
+PLAY H 0 A_SpawnItemEx("LightChainThun",0,0,0,0,0,0)
+PLAY H 1 //A_GiveInventory("ChainDone",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+goto pain+1
+Pain.SpikeShock:
+PLAY H 0 A_JumpIfInventory("ShockGuardForever",1,"ShockSuccess")
+goto Death
+ShockSuccess:
+PLAY H 0
+PLAY H 0
+PLAY H 0 A_GiveInventory("ShockGuardTemp",1)
+PLAY H 1 HealThing(1)
+PLAY H 0 A_TakeInventory("ShockGuardForever",1)
+goto pain+1
+Pain.SkyUppercut:
+PLAY H 1 A_GiveInventory("GoingUp",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.AquaPunch:
+PLAY H 0 ThrustThing(angle*256/360+128, momx + random(40,90), 1, 0)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.DustVaccum:
+PLAY H 0 ThrustThing(angle*256/360, 25, 1, 0)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.HealBlock:
+PLAY H 0 A_GiveInventory("HealBlocker",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.Night:
+PLAY H 2 A_GiveInventory("Darked",1)
+PLAY H 1 ACS_ExecuteAlways(697)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.FizzBomb:
+PLAY H 1 A_GiveInventory("FizzSlowed",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.SparkManBow:
+PLAY A 0 ACS_ExecuteAlways(690,0)
+Goto Pain+2
+Pain.FlameSword:
+PLAY H 0
+PLAY HH 0 A_SpawnItemEx("ScorchBit",0,0,0,random(-10,10),random(-10,10),random(10,15),random(0,360))
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain
+Pain.WindStorm:
+Pain.FlingDamage:
+PLAY H 0 //ThrustThing(random(0,255),50,1,0)
+PLAY H 0 ThrustThing(random(0,255),5,0,0)
+PLAY H 0 ThrustThingZ(0,30,0,0)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.CrashBomb:
+PLAY H 0 A_Stop
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.GravityHold:
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 A_ChangeVelocity(momx, momy, 0, CVF_REPLACE)
+PLAY H 0 A_JumpIf(z-floorz>180,"GravityForce4")
+PLAY H 0 A_JumpIf(z-floorz>128,"GravityForce3")
+PLAY H 0 A_JumpIf(z-floorz>32,"GravityForce2")
+PLAY H 0 A_JumpIf(z-floorz>8,"GravityForce1")
+Goto GravityForceFinish
+GravityForce4:
+PLAY H 2 A_GiveInventory("GravityForce4",1)
+Goto GravityForceFinish
+GravityForce3:
+PLAY H 2 A_GiveInventory("GravityForce3",1)
+Goto GravityForceFinish
+GravityForce2:
+PLAY H 2 A_GiveInventory("GravityForce2",1)
+Goto GravityForceFinish
+GravityForce1:
+PLAY H 2 A_GiveInventory("GravityForce1",1)
+Goto GravityForceFinish
+GravityForceFinish:
+PLAY H 0 A_CheckFloor(2)
+PLAY H 0 ThrustThingZ(0,150,1,0)
+PLAY H 0
+Goto Pain+1
+Pain.SlashClaw:
+PLAY H 0 A_PlaySoundEx("weapon/slashclawhit","SoundSlot5")
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain
+Pain.WaterBalloon:
+Pain.FlashBomb:
+Pain.RemoteMine:
+Pain.IceWall:
+PLAY H 0 A_ScaleVelocity(0.9)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.SpreadDrill:
+Pain.SpreadDrill2:
+Pain.SpreadDrill3:
+PLAY H 0 A_JumpIfInventory("SpreadDrillProtect", 1 ,2)
+PLAY H 0 A_PlaySoundEx("weapon/spreaddrillhit","SoundSlot5")
+PLAY H 0 A_GiveInventory("SpreadDrillProtect", 1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.FlameSword:
+PLAY H 0 A_GiveInventory("FlameSwordProtect", 1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY HH 0 A_SpawnItemEx("ScorchBit",0,0,0,random(-10,10),random(-10,10),random(10,15),random(0,360))
+Goto pain
+Pain.FlashStopper:
+PLAY H 0
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 A_JumpIfInventory("BrightBlind", 1,3)
+PLAY H 0 A_GiveInventory("BrightBlind",125)
+PLAY H 0 ACS_ExecuteAlways(249, 0)
+Goto pain+1
+PLAY H 0 A_GiveInventory("BrightBlind",55)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.TimeSlow:
+PLAY H 0 A_GiveInventory("Slowed",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.SparkShock:
+PLAY H 0 A_SpawnItemEx("ShockFX",4,0,32)
+PLAY H 0 A_GiveInventory("Shocked",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.WilyFire:
+PLAY H 0 //A_ChangeFlag("SHOOTABLE",0)
+PLAY H 0 A_SpawnItemEx("ImOnFire")
+PLAY H 0 A_GiveInventory("FireVision",1)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain
+Pain.WilyIce:
+PLAY H 0 A_ChangeFlag("SHOOTABLE",0)
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 SetPlayerProperty(0,1,4)
+PLAY H 0 A_SpawnItemEx("ImFrozen")
+PLAY H 0 A_GiveInventory("IceVision",1)
+PLAY H 30 A_Stop
+PLAY H 30 A_ChangeFlag("SHOOTABLE",1)
+PLAY H 0 SetPlayerProperty(0,0,0)
+PLAY H 0 A_TakeInventory("IceVision",1)
+Goto Spawn
+Pain.Drowning:
+Pain.Fire:
+Pain.Falling:
+Pain.Slime:
+PLAY H 0
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 A_JumpIfInventory("BeatCallCheck", 1, "BeatAssist")
+Goto Pain+1
+BeatAssist:
+PLAY H 0
+PLAY H 0 HealThing(2)
+PLAY H 0 ThrustThingZ(0,25,0,0)
+PLAY H 0 ACS_ExecuteAlways(205,0)
+Goto Pain+1
+Pain:
+PLAY H 0 A_ScaleVelocity(0.75)
+PLAY H 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb")
+PLAY H 0 A_Pain
+PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLAY H 0 //SetPlayerProperty(0, 1, 4)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 1 A_SpawnItem("PainFX",0,3)
+PLAY H 1 //A_Recoil(1)
+PLAY H 0 //SetPlayerProperty(0, 0, 4)
+PLAY H 0 A_GiveInventory("CharadePainFlag",1) //SetPlayerProperty(0,0,1)
+Goto Spawn
+Death.GravityHold:
+PLAY Z 1 SetPlayerProperty(0, 0, 4)
+PLAY H 0 A_GiveToTarget("KilledMe",1)
+PLAY H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLAY H 0 A_GiveToTarget("KilledMeStock",1)
+PLAY H 0 A_GiveInventory("CutterFlag",999)
+PLAY H 0 A_GiveInventory("IsDead",1)
+PLAY H 0 A_GiveInventory("KillStone",1)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
+PLAY H 0 A_TakeInventory("GimmickCharge",999)
+PLAY Z 0 A_PlayerScream
+PLAY H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 32)
+PLAY Z 1 A_CheckPlayerDone
+wait
+Death.WindStorm:
+Death.GravityHold:
+PLAY H 0 SetPlayerProperty(0, 0, 4)
+PLAY H 0 A_ChangeFlag("NOINTERACTION", 1)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_NoBlocking
+PLAY H 0 A_TakeInventory("CutterFlag",999)
+PLAY H 0 A_GiveInventory("IsDead",1)
+PLAY H 0 A_Stop
+PLAY H 0 A_GiveToTarget("KilledMeStock",1)
+PLAY H 1 A_GiveToTarget("KilledMe",1)
+PLAY H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLAY H 0 A_GiveInventory("KillStone",1)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
+PLAY H 0 A_TakeInventory("GimmickCharge",999)
+PLAY H 0 ACS_ExecuteAlways(999,0,0)
+PLAY H 0 SetPlayerProperty(0, 0, 4)
+RiseMyMegaman:
+PLAY H 1 ThrustThingZ(0,10,0,1)
+PLAY H 0 A_JumpIf(ceilingz-z<64, "ExplodeNow")
+PLAY H 0 A_GiveInventory("Cutterflag", 1)
+PLAY H 0 A_JumpIfInventory("CutterFlag", 35, "ExplodeNow")
+Goto RiseMyMegaman
+ExplodeNow:
+PLAY H 0 A_Stop
+PLAY H 0 A_PlayerScream
+PLAY H 0 A_GiveInventory("CutterFlag",999)
+PLAY H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 0)
+PLAY Z 1 A_CheckPlayerDone
+wait
+Death.Beam:
+//Death.GravityHold:
+Death.instagib:
+Death.Telefrag:
+PLAY Z 1 SetPlayerProperty(0, 0, 4)
+PLAY H 0 A_GiveToTarget("KilledMe",1)
+PLAY H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLAY H 0 A_GiveInventory("KillStone",1)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
+PLAY H 0 A_TakeInventory("GimmickCharge",999)
+PLAY H 0 A_GiveToTarget("KilledMeStock",1)
+PLAY H 0 A_GiveInventory("CutterFlag",999)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_GiveInventory("IsDead",1)
+PLAY Z 0 A_PlayerScream
+PLAY H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 32)
+PLAY Z 1 A_CheckPlayerDone
+wait
+Death:
+PLAY H 0 SetPlayerProperty(0, 0, 4)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
+PLAY H 0 A_TakeInventory("GimmickCharge",999)
+PLAY H 0 A_NoBlocking
+PLAY H 0 A_GiveInventory("CutterFlag",999)
+PLAY H 0 A_GiveInventory("IsDead",1)
+PLAY H 0 A_GiveInventory("KillStone",1)
+PLAY H 0 A_Stop
+PLAY H 0 A_GiveToTarget("KilledMeStock",1)
+PLAY H 1 A_GiveToTarget("KilledMe",1)
+PLAY H 19 ACS_ExecuteAlways(999,0,0)
+PLAY H 0 SetPlayerProperty(0, 0, 4)
+PLAY H 0 A_PlayerScream
+PLAY H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 32)
+PLAY Z 1 A_CheckPlayerDone
+wait
+Death.Falling:
+PLAY H 0 SetPlayerProperty(0, 0, 4)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
+PLAY H 0 A_TakeInventory("GimmickCharge",999)
+PLAY H 0 A_NoBlocking
+PLAY H 0 A_GiveInventory("CutterFlag",999)
+PLAY H 0 A_GiveInventory("IsDead",1)
+PLAY H 0 A_GiveInventory("KillStone",1)
+PLAY Z 1 A_PlayerScream
+PLAY Z 1 A_Stop
+PLAY Z 1 ACS_ExecuteAlways(999,0,0)
+//PLAY Z -1
+PLAY Z 1 A_CheckPlayerDone
+wait
+Death.FellStinger:
+PLAY H 1 A_GiveToTarget("CritFlag",10)
+goto Death
+Ice:
+PLAY H 0 SetPlayerProperty(0, 0, 4)
+PLAY H 1 A_PlayerScream
+PLAY H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLAY H 0 A_TakeInventory("WeaponCharge",999)
+PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
+PLAY H 0 A_TakeInventory("GimmickCharge",999)
+PLAY H 0 A_GiveInventory("CutterFlag",999)
+PLAY H 0 A_GiveInventory("IsDead",1)
+PLAY H 0 A_GiveInventory("KillStone",1)
+PLAY H 0 ACS_ExecuteAlways(998,0,105,1)
+PLAY H 0 A_NoBlocking
+PLAY H 0 A_FreezeDeath
+PLAY H 35
+PLAY H 0 A_SpawnItemEx("FrozenDeathFX", 0, 0, 16)
+PLAY Z 1 A_CheckPlayerDone
+wait
+//stop
+PunkSpin:
+PLAY AVW 3
+PLAY XY 3
+Goto PunkSpin+3
+PunkStop:
+PLAY WV 5
+Goto Spawn
+EnkerRaise:
+PLAY Y 1
+loop
+EnkerAbsorb:
+PLAY Y 0 A_PlaySound("weapon/mirrorabsorb")
+PLAY Y 0 A_GiveInventory("EnkerMirrorCount",1)
+Goto EnkerAbsorb3
+EnkerAbsorb3:
+PLAY Y 3 ACS_ExecuteAlways(998,0,65)
+PLAY Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb2")
+Goto Spawn
+EnkerAbsorb2:
+PLAY Y 3 ACS_ExecuteAlways(998,0,66)
+PLAY Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb3")
+Goto Spawn
+DarkLeap:
+PLAY Y 1 A_SpawnItemEx("DarkDamager")
+PLAY Y 0 A_JumpIf(z-floorz==0,"Spawn")
+loop
+BalladeJump:
+PLAY Y 5 A_SpawnItemEx("BalladeMelee")
+loop
+TheEnd:
+PLAY G 4
+loop
+CreditWalk:
+PLAY BCDE 8
+loop
+CreditRun:
+PLAY BCDE 5
+loop
+}
+}
+
+actor IPained : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor ItemDecider
+{
+-SOLID
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_Jump(100,"BigHealth")
+TNT1 A 1 A_Jump(100,"BigWeaponEnergy")
+TNT1 A 1 A_Jump(128,"SmallHealth")
+TNT1 A 1 A_Jump(128,"SmallWeaponEnergy")
+TNT1 A 1 A_Jump(64,"WTank")
+stop
+BigHealth:
+TNT1 A 1 A_SpawnItemEx("BigHealth")
+stop
+SmallHealth:
+TNT1 A 1 A_SpawnItemEx("SmallHealth")
+stop
+BigWeaponEnergy:
+TNT1 A 1 A_SpawnItemEx("BigWeaponEnergy")
+stop
+SmallWeaponEnergy:
+TNT1 A 1 A_SpawnItemEx("WeaponEnergy")
+stop
+WTank:
+TNT1 A 1 A_SpawnItemEx("WTank")
+stop
+}
+}

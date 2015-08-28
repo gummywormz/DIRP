@@ -1,0 +1,213 @@
+actor PowerNailArmor : PowerProtection
+{
+powerup.duration 10
+DamageFactor "Normal", 0.70
+damagefactor "DrillBomb", 1.2
+damagefactor "FlashBomb", 1.2
+damagefactor "BalladeCracker", 1.2
+damagefactor "TankArsenal", 1.2
+damagefactor "NitroBlast", 1.2
+damagefactor "AstroCrush", 1.2
+damagefactor "DizzyBomb", 1.2
+damagefactor "NapalmBomb", 1.2
+damagefactor "DangerWrap", 1.2
+damagefactor "CrashBomb", 1.2
+damagefactor "HyperBomb", 1.2
+damagefactor "RemoteMine", 1.2
+}
+
+actor NailShieldWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 28
+Weapon.SlotNumber 7
+Obituary "%o was nailed by %k's Nail Shield."
+Inventory.Pickupmessage "Power up! Nail Shield!"
+weapon.ammotype "NailShieldAmmo"
+inventory.pickupsound "weapon/weaponup"
+inventory.icon "NAILICO"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+NASH A 1
+loop
+Ready:
+NSHD A 0 ACS_ExecuteAlways(998,0,512)
+NSHD A 0 A_ClearRefire
+NSHD A 1 A_WeaponReady
+Goto Ready+2
+Deselect:
+NSHD A 0 A_JumpIfInventory("ShieldCheck",1,"Fire")
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+NSHD A 1 A_Lower
+Goto Deselect+1
+NSHD A 0
+NSHD A 0 A_TakeInventory("ShieldCheck",1)
+Goto Deselect+1
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+NSHD A 1 A_Raise
+Loop
+Fire:
+NSHD A 0 A_JumpIfInventory("ShieldCheck",1,"ShieldThrow")
+NSHD A 0 A_JumpIfNoAmmo("NoAmmo")
+NSHD A 0 A_PlaySoundEx("weapon/nailshield","Weapon")
+NSHD A 1 A_GiveInventory("ShieldCheck",1)
+NSHD BCDEF 2
+goto ShieldActive
+Hold:
+NSHD A 1
+goto Ready+1
+ShieldActive:
+NSHD A 1 A_TakeInventory("NailShieldAmmo",1)
+NSHD A 0 A_JumpIfNoAmmo("NoAmmo")
+NSHD G 1 A_SpawnItemEx("NailShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD G 1 A_SpawnItemEx("NailShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD H 1 A_SpawnItemEx("NailShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD H 1 A_SpawnItemEx("NailShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_SpawnItemEx("NailShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_SpawnItemEx("NailShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_SpawnItemEx("NailShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_SpawnItemEx("NailShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 0 A_JumpIfNoAmmo("NoAmmo")
+Goto Shield
+Shield:
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 1 A_TakeInventory("NailShieldAmmo",1)
+NSHD A 0 A_JumpIfNoAmmo("NoAmmo")
+NSHD A 0 A_SpawnItemEx("NailShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 0 A_SpawnItemEx("NailShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 0 A_SpawnItemEx("NailShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 0 A_SpawnItemEx("NailShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 0 A_SpawnItemEx("NailShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 0 A_SpawnItemEx("NailShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 0 A_JumpIfNoAmmo("NoAmmo")
+NSHD A 0 A_SpawnItemEx("NailShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+NSHD A 1 A_WeaponReady(WRF_NOSWITCH)
+NSHD A 0 A_SpawnItemEx("NailShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+NSHD A 0 A_GiveInventory("PowerNailArmor",1)
+loop
+ShieldThrow:
+NSHD A 0 A_TakeInventory("ShieldCheck",999)
+NSHD A 0 A_PlaySoundEx("weapon/nailshieldthrow","Weapon")
+NSHD A 0 A_FireCustomMissile("Nail",12,0,52,0)
+NSHD A 0 A_FireCustomMissile("Nail",-12,0,-52,0)
+NSHD A 0 A_FireCustomMissile("Nail",0,0,32,0)
+NSHD A 0 A_FireCustomMissile("Nail",0,0,-32,0)
+NSHD IJ 3
+NSHD K 27
+NSHD I 3
+goto Ready+1
+NoAmmo:
+NSHD A 0 A_TakeInventory("ShieldCheck",999)
+NSHD A 1 ACS_Execute(979,0)
+goto Ready+1
+}
+}
+
+actor NailShield1
+{
+scale 2.5
+-SOLID
++NOGRAVITY
++CLIENTSIDEONLY
+States
+{
+Spawn:
+NASH D 1
+NASH D 1
+stop
+}
+}
+
+actor NailShield2
+{
+scale 2.5
+-SOLID
++NOGRAVITY
++CLIENTSIDEONLY
+States
+{
+Spawn:
+NASH E 1
+NASH E 1
+stop
+}
+}
+
+actor NailShield3
+{
+scale 2.5
+-SOLID
++NOGRAVITY
++CLIENTSIDEONLY
+States
+{
+Spawn:
+NASH F 1
+NASH F 1
+stop
+}
+}
+
+actor NailShield4
+{
+scale 2.5
+-SOLID
++NOGRAVITY
++CLIENTSIDEONLY
+States
+{
+Spawn:
+NASH G 1
+NASH G 1
+stop
+}
+}
+
+actor Nail
+{
+PROJECTILE
+Height 8
+Obituary "%o was nailed by %k's Nail Shield."
+Radius 8
+Scale 2.5
+DamageType "NailShield"
+Speed 30
+Damage (15)
+States
+{
+Spawn:
+NASH B 1
+loop
+}
+}
+
+actor NailShieldAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

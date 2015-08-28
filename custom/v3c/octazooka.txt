@@ -1,0 +1,77 @@
+actor OctaZookaWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was ink'd by %k's OctaZooka."
+Inventory.Pickupmessage "Power up! OctaZooka!"
+weapon.ammotype "OctaZookaAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "OCTAICO"
+Scale 2.0
+States
+{
+Spawn:
+OCTA B 1
+loop
+Ready:
+OILL A 0 ACS_ExecuteAlways(998,0,95)
+OILL A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+OILL A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+OILL A 1 A_Raise
+Loop
+Fire:
+OILL A 0 A_JumpIfNoAmmo("No")
+OILL A 0 A_PlaySoundEx("weapon/magdrillshoot","Weapon")
+OILL A 0 A_FireCustomMissile("OctaZooka",0,1,8,0)
+OILL CBA 2
+OILL A 18
+OILL A 0 A_Refire
+Goto Ready+1
+No:
+OILL A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor OctaZooka
+{
+PROJECTILE
+-NOGRAVITY
++FORCEXYBILLBOARD
+scale 2.0
+height 7
+radius 6
+damage (30)
+Obituary "%o was ink'd by %k's OctaZooka."
+Gravity 0.60
+speed 30
+damagetype "Darken"
+States
+{
+Spawn:
+OCTA A 2
+OCTA A 0 ThrustThingZ(0, 10, 0, 1)
+OCTA AA 3
+Goto Spawn+2
+Death:
+TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 0 A_Explode(15,128,0)
+TNT1 A 1 A_PlaySoundEx("weapon/napalm","Voice")
+OCTA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor OctaZookaAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

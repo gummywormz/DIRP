@@ -1,0 +1,95 @@
+actor CircuitBreaker
+{
+PROJECTILE
+Damage (15)
+Obituary "%o tried to resist %k's Circuit Breaker"
+Speed 42
+Radius 6
+Height 7
+Scale 2.5
+States
+{
+Spawn:
+CBRK A -1
+stop
+XDeath:
+stop
+Death:
+CBRK A 0 A_Stop
+CBRK A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+CBRK A 0 A_ChangeFlag("NOGRAVITY",1)
+CBRK A 1 A_Explode(20,128,0)
+NAPA FGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor CircuitBreakerBack : CircuitBreaker
+{
+States
+{
+Spawn:
+CBRK A 0
+CBRK A 1 A_ScaleVelocity(-1)
+CBRK A -1
+stop
+XDeath:
+stop
+Death:
+CBRK A 0 A_Stop
+CBRK A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+CBRK A 0 A_ChangeFlag("NOGRAVITY",1)
+CBRK A 1 A_Explode(20,128,0)
+NAPA FGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor CircuitBreakerWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Inventory.Pickupmessage "Power Up! Circuit Breaker"
+Obituary "%o tried to resist %k's Circuit Breaker"
+weapon.ammotype "CircuitBreakerAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "CBRKICO"
+Scale 2.0
+States
+{
+Spawn:
+CBRK B 1
+loop
+Ready:
+CBRK C 0 ACS_ExecuteAlways(998,0,242)
+CBRK C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+CBRK C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+CBRK C 1 A_Raise
+Loop
+Fire:
+CBRK C 0 A_JumpIfNoAmmo("NoAmmo")
+CBRK C 0 A_PlaySoundEx("weapon/circuit","Weapon")
+CBRK C 1 A_FireCustomMissile("CircuitBreaker",0,1,8,0)
+CBRK C 1 A_FireCustomMissile("CircuitBreakerBack",0,0,8,0)
+CBRK EDC 4
+CBRK C 14
+Goto Ready+1
+NoAmmo:
+CBRK C 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor CircuitBreakerAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

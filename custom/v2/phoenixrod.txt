@@ -1,0 +1,79 @@
+actor PhoenixRodAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}
+
+Actor PhoenixRodWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 30
+Weapon.SlotNumber 5
+inventory.icon "PHNXICO"
+-WEAPON.DONTBOB
+Obituary "%o was given the bird by %k's Pheonix Rod."
+Inventory.Pickupmessage "Power up! Phoenix Rod!"
+weapon.ammotype "PhoenixRodAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Weapon.Kickback 150
+Scale 2.0
+States
+{
+Spawn:
+PHNX E -1
+stop
+Ready:
+PHNX A 0 ACS_ExecuteAlways(998,0,21)
+PHNX A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PHNX A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PHNX A 1 A_Raise
+Loop
+Fire:
+PHNX A 0 A_JumpIfNoAmmo("NoAmmo")
+PHNX B 5 BRIGHT
+PHNX C 0 A_Recoil(4)
+PHNX C 1 A_PlaySoundEx("weapon/firestorm","Weapon")
+PHNX C 0 A_FireCustomMissile("PhoenixShot",0,1,0,0)
+PHNX C 7 BRIGHT
+PHNX DB 4
+PHNX B 0 A_Refire
+Goto Ready+1
+NoAmmo:
+PHNX A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor PhoenixShot : PhoenixFX1
+{
+-SPECIALFIREDAMAGE
+Damagetype "FireStorm"
+Scale 2.5
+Damage (0)
+Decal None
+Obituary "%o was given the bird by %k's Pheonix Rod."
+DeathSound "weapon/crackerexplode"
+States
+{
+Death:
+FX08 A 6 Bright A_Explode(50,128,1)
+FX08 BC 5 Bright
+FX08 DEFGH 4 Bright
+TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+Stop
+}
+}
+
+actor PhoenixPuff2 : PhoenixPuff replaces PhoenixPuff
+{
+DECAL None
+Scale 2.5
++CLIENTSIDEONLY
+}

@@ -1,0 +1,71 @@
+actor DumplingBombAmmo : Ammo
+{
+Inventory.Amount 1
+Inventory.MaxAmount 28
+}
+
+actor DumplingBomb
+{
+Height 16
+Radius 16
+Obituary "%o was fattened by %k's Dumpling Bombs."
+Scale 2.5
+DamageType "Dumpling"
+Damage (1)
+Speed 45
+PROJECTILE
+States
+{
+Spawn:
+SPDP A 1
+loop
+Death:
+TNT1 A 1 A_PlaySoundEx("weapon/napalm","Voice")
+TNT1 A 0 A_Explode(15,128,0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor DumplingBombWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was fattened by %k's Dumpling Bombs."
+Inventory.Pickupmessage "Power up! Dumpling Bombs!"
+weapon.ammotype "DumplingBombAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SPDPICO"
+Scale 2.0
+States
+{
+Spawn:
+SPDP B 1
+loop
+Ready:
+SPDP C 0 ACS_ExecuteAlways(998,0,515)
+SPDP C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SPDP C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SPDP C 1 A_Raise
+Loop
+Fire:
+SPDP C 0 A_JumpIfNoAmmo("NoAmmo")
+SPDP C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+SPDP C 0 A_FireCustomMissile("DumplingBomb",0,1,8,0)
+SPDP EDC 3
+SPDP C 6
+SPDP C 1 A_Refire
+Goto Ready+1
+NoAmmo:
+SPDP C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

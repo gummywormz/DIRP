@@ -1,0 +1,70 @@
+actor SteelWingWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Obituary "%o was scratched by %k's steel wing."
+Weapon.SlotNumber 2
+inventory.pickupsound "weapon/weaponup"
+weapon.ammotype "SteelWingAmmo"
+Inventory.Pickupmessage "Power up! Steel Wing!"
+inventory.icon "STLWICO"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+STLW B 1
+loop
+Ready:
+BUBB D 0 ACS_ExecuteAlways(998,0,1)
+BUBB D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BUBB D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BUBB D 1 A_Raise
+Loop
+Fire:
+BUBB E 0 A_JumpIfNoAmmo("NoAmmo")
+BUBB E 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+BUBB E 0 A_FireCustomMissile("SteelWing",-20,1,52,0)
+BUBB E 0 A_FireCustomMissile("SteelWing",20,0,-52,0)
+BUBB FE 6
+BUBB D 19
+Goto Ready+1
+NoAmmo:
+BUBB D 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor SteelWing
+{
+PROJECTILE
+damagetype "MetalBlade"
++RIPPER
+scale 2.5
+Speed 40
+Obituary "%o was scratched by %k's steel wing."
+Radius 25
+Height 16
+Damage (15)
+States
+{
+Spawn:
+STLW A 2 A_FadeIn(0.025)
+loop
+Death:
+TNT1 A 1
+stop
+}
+}
+
+actor SteelWingAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

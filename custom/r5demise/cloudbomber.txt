@@ -1,0 +1,99 @@
+actor CloudBomber
+{
+PROJECTILE
+Radius 7
+Height 7
+Obituary "%o was carpet bombed by %k's Cloud Bomber."
+scale 2.5
+damage (27)
+speed 50
+damagetype "SilverTomahawk"
+States
+{
+Spawn:
+GCLB A 1 ThrustThingZ(0, 14, 0, 1)
+GCLB A 1 A_SpawnItemEx("FallBomb")
+GCLB A 1
+GCLB A 1
+loop
+}
+}
+
+actor FallBomb
+{
+PROJECTILE
+Obituary "%o was carpet bombed by %k's Cloud Bomber."
++FIXMAPTHINGPOS
+Radius 6
+Height 7
+ReactionTime 20
+scale 2.5
+damagetype "NapalmBomb"
+-NOGRAVITY
+States
+{
+Spawn:
+BTLY I 0
+BTLY I 1 A_PlaySoundEx("weapon/bombfall","Voice")
+BTLY I 1
+BTLY I 1 A_CountDown
+BTLY I 1
+Goto Spawn+3
+Death:
+NAPA A 0 A_Stop
+NAPA A 0 A_PlaySoundEx("weapon/drillexplode", "Voice")
+NAPA A 0 A_ChangeFlag("NOGRAVITY",1)
+NAPA A 0 A_Explode(27, 128, 0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor CloudBomberWep : MegaBuster
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was carpet bombed by %k's Cloud Bomber."
+Inventory.Pickupmessage "Power up! Cloud Bomber!"
+weapon.ammotype "CloudBomberAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "CLOBOICO"
+Scale 2.0
+States
+{
+Spawn:
+GCLB B -1
+stop
+Ready:
+GCLB C 0 ACS_ExecuteAlways(998,0,254)
+GCLB C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+GCLB C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+GCLB C 1 A_Raise
+Loop
+Fire:
+GCLB C 0 A_JumpIfNoAmmo("NoAmmo")
+GCLB C 0 A_PlaySoundEx("weapon/twgo","Weapon")
+GCLB C 0 A_FireCustomMissile("CloudBomber",0,1,8,0)
+GCLB DE 4
+GCLB C 16
+GCLB C 0 A_Refire
+Goto Ready+1
+NoAmmo:
+GCLB C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor CloudBomberAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

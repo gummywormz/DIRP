@@ -1,0 +1,146 @@
+actor TankArsenalWep : Megabuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+scale 2.0
+Inventory.Icon "TNKAICO"
+inventory.pickupsound "weapon/weaponup"
+Obituary "%o was annihilated by %k's Tank Arsenal."
+Inventory.Pickupmessage "Power Up! Tank Arsenal!"
+weapon.ammotype "TankArsenalAmmo"
++WEAPON.AMMO_OPTIONAL
++WEAPON.DONTBOB
+States
+{
+Spawn:
+TNKA D 1
+loop
+Ready:
+TNKA E 1 ACS_ExecuteAlways(998,0,503)
+TNKA E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+TNKA E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+TNKA E 1 A_Raise
+Loop
+Fire:
+TNKA E 0 A_JumpIfNoAmmo("NoAmmo")
+TNKA E 1 A_PlaySoundEx("weapon/tankarsenal","Weapon")
+TNKA E 0 A_FireCustomMissile("TankStraight",0,1,8,0)
+TNKA E 0 A_FireCustomMissile("TankGrenade",0,0,8,30)
+TNKA E 0 A_FireCustomMissile("TankFloorSpawner",0,0,8,0)
+TNKA GFE 2
+TNKA E 35
+TNKA E 1 A_Refire
+goto Ready+1
+NoAmmo:
+TNKA E 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor TankArsenalAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor TankFloor
+{
+PROJECTILE
+Damagetype "TankArsenal"
+Damage (12)
+Speed 35
+Obituary "%o was annihilated by %k's Tank Arsenal."
+Height 5
+Radius 5
+Scale 2.5
+States
+{
+Spawn:
+TNKA B 2
+loop
+}
+}
+
+actor TankStraight
+{
+PROJECTILE
+Obituary "%o was annihilated by %k's Tank Arsenal."
+Damagetype "TankArsenal"
+Damage (12)
+Speed 30
+Height 8
+Radius 8
+Scale 2.5
+States
+{
+Spawn:
+TNKA C 2
+loop
+}
+}
+
+actor TankGrenade
+{
+PROJECTILE
+-NOGRAVITY
+Obituary "%o was annihilated by %k's Tank Arsenal."
+Damagetype "TankArsenal"
+Damage (1)
+Speed 47
+Height 7
+Radius 6
+Scale 2.5
+States
+{
+Spawn:
+TNT1 A 0
+TNKA A 2
+goto Spawn+1
+Death:
+TNT1 A 1 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 1 A_PlaySoundEx("weapon/napalm","Voice")
+TNT1 A 0 A_Explode(17,128,0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor TankSpawner
+{
+PROJECTILE
++RIPPER
+Damage (0)
+RADIUS 1
+HEIGHT 1
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("TankStraight",0,0,14,30,0,0,0)
+TNT1 A 0 A_SpawnItemEx("TankGrenade",0,0,64,47,0,0,0)
+TNT1 A 0 A_SpawnItemEx("TankFloorSpawner",0,0,0,0,0,0,0)
+stop
+}
+}
+
+actor TankFloorSpawner
+{
+PROJECTILE
++RIPPER
+Damage (0)
++FLOORHUGGER
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("TankFloor",0,0,1,35,0,0,0)
+stop
+}
+}

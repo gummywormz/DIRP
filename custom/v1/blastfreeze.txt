@@ -1,0 +1,134 @@
+actor BlastFreezeAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 100
+}
+
+Actor BlastFreeze1
+{
+PROJECTILE
+Damage (78)
+-NOGRAVITY
++DONTBLAST
++SOLID
+Obituary "%o was cryogenized by %k's Blast Freeze"
+Damagetype "Ice"
++FLOORHUGGER
+Scale 2.5
+Speed 0
+Radius 20
+Height 60
+States
+{
+Spawn:
+BLFR GHI 5 A_PlaySoundEx("weapon/blastfreeze","Voice")
+BLFR A 35
+BLFR A 35
+Goto Death
+Death:
+TNT1 A 0 A_SpawnItemEx("BlastFreeze2",300,0,1,0,0,0,0)
+Stop
+}
+}
+
+Actor BlastFreeze2 : BlastFreeze1
+{
+States
+{
+Spawn:
+BLFR GHI 5 A_PlaySoundEx("weapon/blastfreeze","Voice")
+BLFR A 35
+BLFR A 35
+Goto Death
+Death:
+TNT1 A 0 A_SpawnItemEx("BlastFreeze3",300,0,1,0,0,0,0)
+Stop
+}
+}
+
+actor BlastFreeze3 : BlastFreeze1
+{
+States
+{
+Spawn:
+BLFR GHI 5 A_PlaySoundEx("weapon/blastfreeze","Voice")
+BLFR A 35
+BLFR A 35
+Goto Death
+Death:
+TNT1 A 0 //A_SpawnItemEx("BlastFreeze3",300,0,1,0,0,0,0)
+Stop
+}
+}
+
+Actor BlastFreezeWep : MegaBuster
+{
+Weapon.AmmoUse 33
+Weapon.AmmoGive 100
+Weapon.SlotNumber 5
+inventory.icon "BLFRICO"
+Obituary "%o was cryogenized by %k's Blast Freeze"
+Inventory.Pickupmessage "Power up! Blast Freeze!"
+weapon.ammotype "BlastFreezeAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+BLFR B -1
+stop
+Ready:
+BLFR C 0 ACS_ExecuteAlways(998,0,212)
+BLFR C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BLFR C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BLFR C 1 A_Raise
+Loop
+Fire:
+BLFR C 0 A_JumpIfNoAmmo("NoAmmo")
+BLFR C 0 A_TakeInventory("BlastFreezeAmmo",33)
+BLFR C 0 A_PlaySoundEx("weapon/blaststart","Weapon")
+BLFR DEF 5
+//BLFR C 0 A_SpawnItemEx("BlastFreeze1", 350, 50, 1, 0, 0, 0, 0)
+//BLFR C 0 A_SpawnItemEx("BlastFreeze1", 425, 0, 1, 0, 0, 0, 0)
+//BLFR C 0 A_SpawnItemEx("BlastFreeze1", 350, -50, 1, 0, 0, 0, 0)
+BLFR C 0 A_FireCustomMissile("BlastFreezeSpawner",0,0,8,0)
+BLFR C 35
+BLFR C 35
+BLFR C 1 A_Refire
+goto Ready+1
+NoAmmo:
+BLFR C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+Actor BlastFreezeSpawner
+{
+Radius 5
+Height 5
+Damage (0)
+Speed 0
+PROJECTILE
+-NOGRAVITY
++FLOORHUGGER
++RIPPER
+states
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("BlastFreeze1", 350, 50, 1, 0, 0, 0, 0)
+TNT1 A 0 A_SpawnItemEx("BlastFreeze1", 425, 0, 1, 0, 0, 0, 0)
+TNT1 A 0 A_SpawnItemEx("BlastFreeze1", 350, -50, 1, 0, 0, 0, 0)
+stop
+Death:
+TNT1 A 0
+stop
+}
+}

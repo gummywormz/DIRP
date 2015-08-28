@@ -1,0 +1,104 @@
+actor BombSniperAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 35
+}
+
+actor SniperShot : FastProjectile
+{
+PROJECTILE
++DONTBLAST
+damagetype "Sniper"
+Speed 170
+Obituary "%o tried to run from %k's Bomb Sniper."
+Damage (7)
+radius 5
+height 5
+scale 2.5
+States
+{
+Spawn:
+BASB A -1
+stop
+Death:
+TNT1 A 1
+stop
+XDeath:
+TNT1 A 1 A_SpawnItemEx("SniperBomb",80,0,35,5,0,0,0)
+TNT1 A 1 A_SpawnItemEx("SniperBomb",80,0,35,5,0,0,180)
+stop
+}
+}
+
+actor SniperBomb
+{
+PROJECTILE
+Obituary "%o tried to run from %k's Bomb Sniper."
+Radius 6
+Height 7
+DamageType "Sniper"
+scale 2.5
+-NOGRAVITY
+speed 10
+States
+{
+Spawn:
+NAPA A 0
+NAPA A 0
+NAPA A 0
+NAPA ABCD 4
+loop
+Death:
+NAPA A 0 A_Stop
+NAPA A 0 A_PlaySoundEx("weapon/napalm", "Weapon")
+NAPA A 0 A_ChangeFlag("NOGRAVITY",1)
+NAPA D 0 A_Explode(20, 120, 1)
+NAPA DEFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+Actor BombSniperWep : MegaBuster
+{
+Weapon.AmmoUse 2
++Weapon.Noautoaim
+Weapon.AmmoGive 35
+Weapon.SlotNumber 3
+inventory.icon "BOSNICO"
+Obituary "%o tried to run from %k's Bomb Sniper."
+Inventory.Pickupmessage "Power up! Bomb Sniper!"
+weapon.ammotype "BombSniperAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+BOSN D -1
+stop
+Ready:
+BOSN A 0 ACS_ExecuteAlways(998,0,213)
+BOSN A 1 A_WeaponReady
+BOSN A 1
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BOSN A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BOSN A 1 A_Raise
+Loop
+Fire:
+BOSN A 0 A_JumpIfNoAmmo("NoAmmo")
+BOSN A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+BOSN A 0 A_FireCustomMissile("SniperShot",0,1,8,0)
+BOSN BC 2
+BOSN A 7
+BOSN A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+BOSN A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

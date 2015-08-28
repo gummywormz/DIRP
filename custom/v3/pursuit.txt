@@ -1,0 +1,122 @@
+actor PursuitProj : FastProjectile
+{
+PROJECTILE
+Obituary "%o was tracked down by %k's Pursuit."
+Damagetype "Pursuit"
++LOOKALLAROUND
++SKYEXPLODE
+Radius 5
+Height 5
+scale 2.5
+damage (20)
+speed 120
++SOLID
++NOTARGETSWITCH
++NOGRAVITY
++DONTSPLASH
+States
+{
+Spawn:
+BASB A -1
+stop
+XDeath:
+TNT1 A 1 A_GiveToTarget("PursueNow",1)
+TNT1 A 1 A_PlaySoundEx("weapon/pursuithit","Voice")
+stop
+Death:
+TNT1 A 1
+stop
+}
+}
+actor PursueNow : Inventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}
+
+actor PursuitWep : MegaBuster
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 30
+Weapon.SlotNumber 2
++WEAPON.DONTBOB
+Obituary "%o was tacked down by %k's Pursuit."
+Inventory.Pickupmessage "Power Up! Pursuit!"
+weapon.ammotype "PursuitAmmo"
+inventory.icon "PSUTICO"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+PSUT A -1
+stop
+Ready:
+SPBS A 0 ACS_ExecuteAlways(998,0,442)
+SPBS A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SPBS A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SPBS A 1 A_Raise
+Loop
+Fire:
+SPBS A 0 A_JumpIfNoAmmo("NoAmmo")
+SPBS A 1 A_PlaySoundEx("weapon/pursuitfire","Voice")
+SPBS A 1 A_FireCustomMissile("PursuitProj",0,1,8,0)
+SPBS BCCB 2
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+SPBS A 1 A_JumpIfInventory("PursueNow",1,"DashMe")
+SPBS A 1
+goto Ready+1
+DashMe:
+SPBS A 1 ThrustThing(angle*256/360, 200, 1, 0)
+SPBS A 1 A_TakeInventory("PursueNow",1)
+SPBS A 19
+Goto Ready+1
+NoAmmo:
+SPBS A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor PursuitAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}

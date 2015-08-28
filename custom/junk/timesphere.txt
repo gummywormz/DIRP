@@ -1,0 +1,2 @@
+//Summons a sphere that when hit by an enemy projectile, summons a large AOE that 
+//freezes everyone around flash man classes style.

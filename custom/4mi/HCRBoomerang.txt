@@ -1,0 +1,103 @@
+actor HCRBoomerangWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was caught up in %k's HCR Boomerang."
+Inventory.Pickupmessage "Power up! HCR Boomerang!"
+weapon.ammotype "HCRAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "HCRICO"
+Scale 2.0
+States
+{
+Spawn:
+HCRB A -1
+stop
+Ready:
+RING E 0 ACS_ExecuteAlways(998,0,27)
+RING E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+RING E 0 A_TakeInventory("IHeldItHCR",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RING E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RING E 1 A_Raise
+Loop
+Fire:
+RING E 0 A_JumpIfNoAmmo("NoAmmo")
+RING E 1 A_Jump(5,"Wat")
+RING E 0 A_JumpIfInventory("IHeldItHCR",1,"Hold")
+RING E 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+RING E 0 A_FireCustomMissile("HCRBoomerang",0,1,8,0)
+RING FG 4
+RING G 1
+Goto Hold
+Wat:
+RING E 0 A_JumpIfInventory("IHeldItHCR",1,"Hold")
+RING E 1 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+RING E 0 A_FireCustomMissile("HCRBoomerangE",0,1,8,0)
+RING FG 4
+RING E 1
+Goto Hold
+Hold:
+RING G 1 A_GiveInventory("IHeldItHCR",1)
+RING G 0 A_Refire
+RING G 5 A_TakeInventory("IHeldItHCR",1)
+RING E 2
+Goto Ready+1
+NoAmmo:
+RING E 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor HCRAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+Actor IHeldItHCR : Inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor HCRBoomerang : RingBoomerang
+{
+Damage (5)
+States
+{
+Spawn:
+RING A 0
+RING AB 2
+RING A 0 A_Stop
+HoldIt:
+RING CDAB 2
+RING A 0 A_JumpIfInTargetInventory("IHeldItHCR",1,"HoldIt")
+RING A 1
+Goto Death
+}
+}
+
+actor HCRBoomerangE : RingBoomerang
+{
+Damage (5)
+States
+{
+Spawn:
+RIN2 A 0
+RIN2 AB 2
+RIN2 A 0 A_Stop
+HoldIt:
+RIN2 CDAB 2
+RIN2 A 0 A_JumpIfInTargetInventory("IHeldItHCR",1,"HoldIt")
+RIN2 A 1
+Goto Death
+}
+}

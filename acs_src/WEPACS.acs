@@ -1,0 +1,2458 @@
+// Scripts file for changing colors based on your weapon
+
+BOOL IsATeamGame = 0;
+
+
+#include "zcommon.acs"
+#library "wcolors"
+
+#DEFINE MEGABUSTER 0
+#DEFINE BUBBLELEAD 1
+#DEFINE LEAFSHIELD 2
+#DEFINE ATOMICFIRE 3
+#DEFINE SHADOWBLADE 4
+#DEFINE NAPALMBOMB 5
+#DEFINE AIRSHOOTER 6
+#DEFINE HYPERBOMB 7
+#DEFINE MAGNETMISSILE 8
+#DEFINE TOPSPIN 9
+#DEFINE NEEDLECANNON 10
+#DEFINE GEMINILASER 11
+#DEFINE SEARCHSNAKE 12
+#DEFINE TIMESTOPPER 13
+#DEFINE SUPERARM 14
+#DEFINE ICESLASHER 15
+#DEFINE THUNDERBEAM 16
+#DEFINE METALBLADE 17
+#DEFINE HARDKNUCKLE 18
+#DEFINE DRILLBOMB 19
+#DEFINE BLIZZARDATTACK 20
+#DEFINE FIRESTORM 21
+#DEFINE QUICKBOOMERANG 22
+#DEFINE CRASHBOMB 23
+#DEFINE CHARGEKICK 24
+#DEFINE ROLLINGCUTTER 25
+#DEFINE SPARKSHOCK 26
+#DEFINE RINGBOOMERANG 27
+#DEFINE GYROATTACK 28
+#DEFINE POWERSTONE 29
+#DEFINE DUSTCRUSHER 30
+#DEFINE PHARAOHSHOT 31
+#DEFINE WATERWAVE 32
+#DEFINE CRYSTALEYE 33
+#DEFINE SKULLBARRIER 34
+#DEFINE FLAMEBLAST 35
+#DEFINE PROTOBUSTER 36
+#DEFINE YAMATOSPEAR 37
+#DEFINE DIVEMISSILE 38
+#DEFINE PLANTBARRIER 39
+#DEFINE SILVERTOMAHAWK 40
+#DEFINE WINDSTORM 41
+#DEFINE KNIGHTCRUSH 42
+#DEFINE STARCRASH 43
+#DEFINE RAINFLUSH 44
+#DEFINE SAKUGARNE 45
+#DEFINE BASSBUSTER 46
+#DEFINE BALLADECRACKER 47
+#DEFINE SCREWCRUSHER 48
+#DEFINE FLASHSTOPPER 49
+#DEFINE GRAVITYHOLD 50
+#DEFINE CENTAURFLASH 51
+#DEFINE MIRRORBUSTER 52
+
+#DEFINE BALLADEREAL 53
+
+#DEFINE ATOMICFIRECRG1 60
+#DEFINE ATOMICFIRECRG2 61
+#DEFINE ATOMICFIRECRG3 62
+
+#DEFINE PROTOCHARGE1 63
+#DEFINE PROTOCHARGE2 64
+
+#DEFINE ENKERCHARGE1 65
+#DEFINE ENKERCHARGE2 66
+
+#DEFINE METALMANREAL 67
+
+#DEFINE BOSSPAIN 68
+
+#DEFINE FREEZECRACKER 54
+#DEFINE NOISECRUSH 55
+#DEFINE THUNDERBOLT 56
+#DEFINE JUNKSHIELD 57
+#DEFINE WILDCOIL 58
+#DEFINE SCORCHWHEEL 59
+#DEFINE SLASHCLAW 69
+#DEFINE DANGERWRAP 70
+
+#DEFINE NOISECRUSHCRG1 71
+#DEFINE NOISECRUSHCRG2 72
+#DEFINE NOISECRUSHCRG3 73
+
+#DEFINE WILDCOILCRG1 74
+#DEFINE WILDCOILCRG2 75
+#DEFINE WILDCOILCRG3 76
+
+#DEFINE SUPERADAPTOR 77
+#DEFINE SUPERADAPTORCRG1 78
+#DEFINE SUPERADAPTORCRG2 79
+#DEFINE SUPERADAPTORCRG3 80
+
+#DEFINE FLAMESWORD 81
+#DEFINE ICEWAVE 82
+#DEFINE THUNDERCLAW 83
+#DEFINE WATERBALLOON 84
+#DEFINE TORNADOHOLD 85
+#DEFINE FLASHBOMB 86
+#DEFINE ASTROCRUSH 87
+#DEFINE HOMINGSNIPER 88
+
+#DEFINE HOMINGCHRG1 89
+#DEFINE HOMINGCHRG2 90
+#DEFINE HOMINGCHRG3 91
+
+#DEFINE MEGACHARGE1 92
+#DEFINE MEGACHARGE2 93
+#DEFINE MEGACHARGE3 94
+
+#DEFINE OILSLIDER 95
+#DEFINE TIMESLOW 96
+
+#DEFINE MEGABALL 100
+
+#DEFINE DUOFIST 101
+#DEFINE DUOCHARGE1 102
+#DEFINE DUOCHARGE2 103
+#DEFINE DUOCHARGE3 104
+
+#DEFINE ICEDEATH 105
+
+#DEFINE LASERCHARGE1 106
+#DEFINE LASERCHARGE2 107
+
+#DEFINE TENGUBLADE 170
+#DEFINE WAVEBURNER 171
+#DEFINE SPREADDRILL 172
+#DEFINE MAGICCARD 173
+#DEFINE REMOTEMINE 174
+#DEFINE COPYVISION 175
+#DEFINE ICEWALL 176
+#DEFINE LIGHTNINGBOLT 177
+#DEFINE TREBLEBOOST 178
+//dirp
+#DEFINE MISTFORM 254
+#DEFINE SHOCKMINE 200
+#DEFINE ETERNALNIGHT 201
+#DEFINE SPEEDGEAR 202
+#DEFINE LEECHSEED 203
+#DEFINE AQUAPUNCH 204
+#DEFINE OBLIVION 205
+#DEFINE SHADOWFORCE 206
+#DEFINE HEALBLOCK 207
+#DEFINE MAGNETDRILL 208
+#DEFINE LIGHTSHIELD 209
+#DEFINE BOULDERCRACKER 210
+#DEFINE BLAZINGSOUL 211
+#DEFINE BLASTFREEZE 212
+#DEFINE BOMBSNIPER 213
+#DEFINE CROSSFLAME 214
+
+#DEFINE DIZZYBOMB 215
+#DEFINE GIMMICK 216
+#DEFINE POPCORN 217
+#DEFINE FIZZ 218
+#DEFINE PAINT 219
+#DEFINE FADE 220
+#DEFINE CHAINSAW 221
+#DEFINE SKYUPPERCUT 222
+#DEFINE DANGERFIELD 223
+#DEFINE EQUALIZER 224
+
+#DEFINE COMET 225
+#DEFINE FRIDGE 226
+#DEFINE RUSH 227
+#DEFINE TFANG 228
+#DEFINE FIREWORKS 229
+#DEFINE APEXLASER 230
+#DEFINE SUNSPARK 231
+#DEFINE HAMMERTAIL 232
+#DEFINE GEMCANNON 233
+#DEFINE SPIKEBALL 234
+#DEFINE PHARCHAR 235
+#DEFINE ROCKETCHAINGUN 236
+#DEFINE RAKUHOUHA 237
+#DEFINE NOTEABLESHOT 238
+#DEFINE WILLOWISP 239
+#DEFINE BEEORDER 240
+#DEFINE CHARGEBEAM 241
+
+#DEFINE CIRCUIT 242
+#DEFINE EGGBOMB 243
+
+#DEFINE GLUED 500
+#DEFINE TSUYOI 501
+#DEFINE GLUESHOT 502
+#DEFINE TANK 503
+#DEFINE JET 504
+#DEFINE YOKUATTACK 506
+#DEFINE YOYO 507
+#DEFINE RAINBOW 508
+#DEFINE NITROBLAST 509
+#DEFINE HAMMER 510
+#DEFINE NAILSHIELD 512
+
+#DEFINE COMETDASH 514
+#DEFINE SHAMPOO 515
+
+#DEFINE SPIRITOMB 442
+//end dirp
+
+//Bass colors
+#DEFINE TENGUBLADEB 179
+#DEFINE WAVEBURNERB 180
+#DEFINE SPREADDRILLB 181
+#DEFINE MAGICCARDB 182
+#DEFINE REMOTEMINEB 183
+#DEFINE COPYVISIONB 184
+#DEFINE ICEWALLB 185
+#DEFINE LIGHTNINGBOLTB 186
+
+//>rejects things based on complexity
+//>has this mess of a weapons system
+//I mean I had to write a Java program to generate the DIRP arrays for me.
+//But then again I have almost 200 weapons so >_>
+#DEFINE MAX_WEAPONS 223 //Maximum number of weapons for the following arrays..yep
+#DEFINE MAX_BUSTERS 6 //Maximum number of non-ammo buster upgrades for the following arrays
+
+str weapons_ammo[MAX_WEAPONS][3] =
+{ //Weapon Name - Weapon Ammo - Weapon Name for Reggae
+{"BubbleLeadWep", "BubbleLeadAmmo", "Bubble Lead"},
+{"ShadowBladeWep", "ShadowBladeAmmo", "Shadow Blade"},
+{"NapalmBombWep", "NapalmBombAmmo", " Napalm Bomb"},
+{"AtomicFireWep", "AtomicFireAmmo", "Atomic Fire"},
+{"LeafShieldWep", "LeafShieldAmmo", "Leaf Shield"},
+{"AirShooterWep", "AirShooterAmmo", "Air Shooter"},
+{"HyperBombWep", "HyperBombAmmo", "Hyper Bomb"},
+{"MagnetMissileWep", "MagnetMissileAmmo", "Magnet Missile"},
+{"TopSpinWep", "TopSpinAmmo", "Top Spin"},
+{"NeedleCannonWep", "NeedleCannonAmmo", "Needle Cannon"},
+
+{"GeminiLaserWep", "GeminiLaserAmmo", "Gemini Laser"},
+{"SearchSnakeWep", "SearchSnakeAmmo", "Search Snake"},
+//{"TimeStopperWep", "TimeStopperAmmo", "Time Stopper"}, //Nope.avi
+{"SuperArmWep", "SuperArmAmmo", "Super Arm"},
+{"IceSlasherWep", "IceSlasherAmmo", "Ice Slasher"},
+{"ThunderBeamWep", "ThunderBeamAmmo", "Thunder Beam"},
+{"MetalBladeWep", "MetalBladeAmmo", "Metal Blade"},
+{"HardKnuckleWep", "HardKnuckleAmmo", "Hard Knuckle"},
+{"DrillBombWep", "DrillBombAmmo", "Drill Bomb"},
+{"BlizzardAttackWep", "BlizzardAttackAmmo", "Blizzard Attack"},
+
+{"FireStormWep", "FireStormAmmo", "Fire Storm"},
+{"QuickBoomerangWep", "QuickBoomerangAmmo", "Quick Boomerang"},
+{"CrashBombWep", "CrashBombAmmo", "Crash Bomb"},
+{"ChargeKickWep", "ChargeKickAmmo", "Charge Kick"},
+{"RollingCutterWep", "RollingCutterAmmo", "Rolling Cutter"},
+{"SparkShockWep", "SparkShockAmmo", "Spark Shock"},
+{"RingBoomerangWep", "RingBoomerangAmmo", "Ring Boomerang"},
+{"GyroAttackWep", "GyroAttackAmmo", "Gyro Attack"},
+{"PowerStoneWep", "PowerStoneAmmo", "Power Stone"},
+{"DustCrusherWep", "DustCrusherAmmo", "Dust Crusher"},
+
+{"PharaohShotWep", "PharaohShotAmmo", "Pharaoh Shot"},
+{"WaterWaveWep", "WaterWaveAmmo", "Water Wave"},
+{"CrystalEyeWep", "CrystalEyeAmmo", "Crystal Eye"},
+{"SkullBarrierWep", "SkullBarrierAmmo", "Skull Barrier"},
+{"FlameBlastWep", "FlameBlastAmmo", "Flame Blast"},
+{"YamatoSpearWep", "YamatoSpearAmmo", "Yamato Spear"},
+{"DiveMissileWep", "DiveMissileAmmo", "Dive Missile"},
+{"PlantBarrierWep", "PlantBarrierAmmo", "Plant Barrier"},
+{"SilverTomahawkWep", "SilverTomahawkAmmo", "Silver Tomahawk"},
+{"WindStormWep", "WindStormAmmo", "Wind Storm"},
+
+{"KnightCrushWep", "KnightCrushAmmo", "Knight Crush"},
+{"StarCrashWep", "StarCrashAmmo", "Star Crash"},
+{"RainFlushWep", "RainFlushAmmo", "Rain Flush"},
+{"SakugarneWep", "SakugarneAmmo", "Sakugarne"},
+{"BalladeCrackerWep", "BalladeCrackerAmmo", "Ballade Cracker"},
+{"ScrewCrusherWep", "ScrewCrusherAmmo", "Screw Crusher"},
+{"FlashStopperWep", "FlashStopperAmmo", "Flash Stopper"},
+{"GravityHoldWep", "GravityHoldAmmo", "Gravity Hold"},
+{"CentaurFlashWep", "CentaurFlashAmmo", "Centaur Flash"},
+{"MirrorBusterWep", "MirrorBusterAmmo", "Mirror Buster"},
+
+{"FreezeCrackerWep", "FreezeCrackerAmmo", "Freeze Cracker"},
+{"NoiseCrushWep", "NoiseCrushAmmo", "Noise Crush"},
+{"WildCoilWep", "WildCoilAmmo", "Wild Coil"},
+{"DangerWrapWep", "DangerWrapAmmo", "Danger Wrap"},
+{"ScorchWheelWep", "ScorchWheelAmmo", "Scorch Wheel"},
+{"JunkShieldWep", "JunkShieldAmmo", "Junk Shield"},
+{"SlashClawWep", "SlashClawAmmo", "Slash Claw"},
+{"ThunderBoltWep", "ThunderBoltAmmo", "Thunder Bolt"},
+{"AstroCrushWep", "AstroCrushAmmo", "Astro Crush"},
+{"FlameSwordWep", "FlameSwordAmmo", "Flame Sword"},
+
+{"ThunderClawWep", "ThunderClawAmmo", "Thunder Claw"},
+{"HomingSniperWep", "HomingSniperAmmo", "Homing Sniper"},
+{"WaterBalloonWep", "WaterBalloonAmmo", "Water Balloon"},
+{"MegaBallWep", "MegaBallAmmo", "Mega Ball"},
+{"FlashBombWep", "FlashBombAmmo", "Flash Bomb"},
+{"IceWaveWep", "IceWaveAmmo", "Ice Wave"},
+{"TornadoHoldWep", "TornadoHoldAmmo", "Tornado Hold"},
+{"TimeSlowWep", "TimeSlowAmmo", "Time Slow"},
+{"OilSliderWep", "OilSliderAmmo", "Oil Slider"},
+
+{"TenguBladeWep", "TenguBladeAmmo", "Tengu Blade"},
+{"WaveBurnerWep", "WaveBurnerAmmo", "Wave Burner"},
+{"SpreadDrillWep", "SpreadDrillAmmo", "Spread Drill"},
+{"MagicCardWep", "MagicCardAmmo", "Magic Card"},
+{"RemoteMineWep", "RemoteMineAmmo", "Remote Mine"},
+{"CopyVisionWep", "CopyVisionAmmo", "Copy Vision"},
+{"IceWallWep", "IceWallAmmo", "Ice Wall"},
+{"LightningBoltWep", "LightningBoltAmmo", "Lightning Bolt"},
+
+{"TrebleBoost", "TrebleBoostAmmo", "Treble Boost"}, //Can't be stolen, but just in case
+
+//dirp
+//generated by decarraygen
+{"ApexLaserWep", "ApexAmmo", "Apex Laser"},
+{"AquaPunchWep", "AquaPunchammo", "Aqua Punch"},
+{"BeeOrderWep", "BeeOrderAmmo", "Bee Order"},
+{"BlastFreezeWep", "BlastFreezeAmmo", "Blast Freeze"},
+{"BlazeKickWep", "BlazeKickAmmo", "Blaze Kick"},
+{"BlazingSoulWep", "SoulAmmo", "Blazing Soul"},
+{"BombSniperWep", "BombSniperAmmo", "Bomb Sniper"},
+{"BoulderCrackerWep", "BoulderAmmo", "Boulder Cracker"},
+{"BulletSeedWep", "BulletSeedAmmo", "Bullet Seed"},
+{"ChargeBeamWep", "chargebeamammo", "ChargeBeam"},
+{"CloudBomberWep", "CloudBomberAmmo", "Cloud Bomber"},
+{"CoalShotWep", "CoalShotAmmo", "Coal Shot"},
+{"CometDashWep", "CometDashAmmo", "Comet Dash"},
+{"CometLauncherWep", "CometLauncherAmmo", "Comet Launcher"},
+{"CrossFlameWep", "CrossFlameAmmo", "Cross Flame"},
+{"CrossLightWep", "CrossAmmo", "Cross Light"},
+{"CrystalMineWep", "CrystalMineAmmo", "Crystal Mine"},
+{"DangerFieldWep", "DangerFieldAmmo", "Danger Field"},
+{"EternalNight", "nightammo", "Eternal Night"},
+{"DelayBusterWep", "DelayBusterAmmo", "Delay Buster"},
+{"DimensionalWaveWep", "DimensionalWaveAmmo", "Dimensional Wave"},
+{"DizzyBombWep", "DizzyAmmo", "Dizzy Bomb"},
+{"DoubleNapalmWep", "DoubleNapalmAmmo", "Double Napalm"},
+{"DrillArmWep", "DrillArmAmmo", "Drill Arm"},
+{"DrillTorpWep", "DrillTorpAmmo", "Drill Torpedo"},
+{"DumplingBombWep", "DumplingBombAmmo", "Dumpling Bomb"},
+{"DustVaccumWep", "DustVaccumAmmo", "Dust Vacuum"},
+{"EqualizerWep", "EqualizerAmmo", "Equalizer"},
+{"FadeLauncherWep", "FadeLauncherAmmo", "Fade Launcher"},
+{"FellStingerWep", "FellStingerAmmo", "Fell Stinger"},
+{"FireBallWep", "FireBallAmmo", "Fire Ball"},
+{"fireblastWep", "FireBlastAmmo", "Fire Blast"},
+{"FireWorksWep", "FireWorksAmmo", "Fire Works"},
+{"FizzBombWep", "FizzBombAmmo", "Fizz Bomb"},
+{"FlameSpoutWep", "FlameSpoutAmmo", "Flame Spout"},
+{"FractalLaserWep", "FractalLaserAmmo", "Fractal Laser"},
+{"FreezeDryWep", "FreezeDryAmmo", "Freeze Dry"},
+{"FrenzyPlantWep", "FrenzyPlantAmmo", "Frenzy Plant"},
+{"FridgeBusterWep", "FridgeAmmo", "Fridge Buster"},
+{"FrostBombWep", "FrostBombAmmo", "Frost Bomb"},
+{"GemCannonWep", "GemCannonAmmo", "Gem Cannon"},
+{"GigaDrainWep", "GigaDrainAmmo", "Giga Drain"},
+{"GimmickStarWep", "GimmickStarAmmo", "Gimmick Star"},
+{"GlueShotWep", "GlueShotAmmo", "Glue Shot"},
+{"GravityHoleWep", "GravityHoleAmmo", "Gravity Hole"},
+{"HailShotgunWep", "HailShotGunAmmo", "Hail Shotgun"},
+{"HammerTailWep", "TailAmmo", "Hammer Tail"},
+{"HammerTossWep", "HammerTossAmmo", "Hammer Toss"},
+{"HCRBoomerangWep", "HCRAmmo", "HCR Boomerang"},
+{"HeadCrashWep", "HeadCrashAmmo", "Head Crash"},
+{"HealBlockWep", "HealAmmo", "Heal Block"},
+{"HellWheelWep", "HellWheelAmmo", "Hell Wheel"},
+{"IceBeamWep", "IceBeamAmmo", "Ice Beam"},
+{"IceShardWep", "IceShardAmmo", "Ice Shard"},
+{"IceShurikensWep", "IceShurikensAmmo", "Ice Shurikens"},
+{"IceSpikeWep", "IceSpikeAmmo", "Ice Spike"},
+{"JetMissileWep", "JetMissileAmmo", "Jet Missile"},
+{"LaserMissileWep", "LaserMissileAmmo", "Laser Missile"},
+{"LeafStormWep", "LeafStormAmmo", "Leaf Storm"},
+{"LeechSeedWep", "LeechAmmo", "Leech Seed"},
+{"LightningChainWep", "ChainAmmo", "Lightning Chain"},
+{"MagnetBombWep", "MagnetBombAmmo", "Magnet Bomb"},
+{"MagnetDrillWep", "MagnetDrillAmmo", "Magnet Drill"},
+{"MistFormWep", "MistAmmo", "Mist Form"},
+{"MoonBlastWep", "MoonBlastAmmo", "Moon Blast"},
+{"NailShieldWep", "NailShieldAmmo", "Nail Shield"},
+{"RecycleInhalerWep", "RecycleInhalerAmmo", "Recycle Inhaler"},
+{"NightDazeWep", "NightDazeAmmo", "Night Daze"},
+{"NitroBlastWep", "NitroBlastAmmo", "Nitro Blast"},
+{"NMGWep", "MachineAmmo", "N M G"},
+{"NoteableShotWep", "NoteableShotAmmo", "Noteable Shot"},
+{"OblivionBusterWep", "NukeAmmo", "Oblivion Buster"},
+{"OctaZookaWep", "OctaZookaAmmo", "Octa Zooka"},
+{"OpticLaserWep", "OpticLaserAmmo", "Optic Laser"},
+{"PaintGunWep", "PaintGunAmmo", "Paint Gun"},
+{"PerfectChainsawWep", "PerfectChainsawAmmo", "Perfect Chainsaw"},
+{"PharaohSacrificeWep", "PharaohSacrificeAmmo", "Pharaoh Sacrifice"},
+{"PharaohShotGunWep", "PharaohShotGunAmmo", "Pharaoh Shot Gun"},
+{"PhoenixRodWep", "PhoenixRodAmmo", "Phoenix Rod"},
+{"PiaofuFengWep", "PiaofuFengAmmo", "Piaofu Feng"},
+{"PinMissileWep", "PinMissileAmmo", "Pin Missile"},
+{"PKFireWep", "PKFireAmmo", "PK Fire"},
+{"PopCornWep", "PopCornAmmo", "Pop Corn"},
+{"PursuitWep", "PursuitAmmo", "Pursuit"},
+{"QuadMissileWep", "QuadMissileAmmo", "Quad Missile"},
+{"RainbowBeamWep", "RainbowBeamAmmo", "Rainbow Beam"},
+{"RainFloodWep", "RainFloodAmmo", "Rain Flood"},
+{"RakuhouhaWep", "RakuhouhaAmmo", "Rakuhouha"},
+{"RingTossWep", "RingTossAmmo", "Ring Toss"},
+{"RocketChaingunWep", "RocketChaingunAmmo", "Rocket Chaingun"},
+{"RushCannonWep", "RushCannonAmmo", "Rush Cannon"},
+{"ScatterBallWep", "ScatterBallAmmo", "Scatter Balls"},
+{"seedflareWep", "SeedFlareAmmo", "Seed Flare"},
+{"SelfDestructWep", "BusterAmmo", "Self Destruct"},
+{"ShadowForceWep", "ShadowForceAmmo", "Shadow Force"},
+{"ShatterStoneWep", "ShatterStoneAmmo", "Shatter Stone"},
+{"ShockMineWep", "MineAmmo", "Shock Mine"},
+{"SideStarWep", "SideStarAmmo", "Side Star"},
+{"SizzleRocketWep", "SizzleRocketAmmo", "Sizzle Rocket"},
+{"SkyUppercutWep", "SkyUppercutAmmo", "Sky Uppercut"},
+{"FlurrySpreadWep", "FlurryAmmo", "Flurry Spread"},
+{"SparkManBowWep", "SparkManbowAmmo", "Spark Manbow"},
+{"SpeedGearWep", "SpeedAmmo", "Speed Gear"},
+{"SpikeBallWep", "SpikeBallAmmo", "Spike Ball"},
+{"StarToadWep", "StarToadAmmo", "Star Toad"},
+{"StealthRockWep", "StealthRockAmmo", "Stealth Rock"},
+{"SteelWingWep", "SteelWingAmmo", "Steel Wing"},
+{"StoneWep", "StoneAmmo", "Stone"},
+{"StoneWallWep", "StoneWallAmmo", "Stone Wall"},
+{"SunSparkWep", "SunSparkAmmo", "Sun Spark"},
+{"SuperArrowWep", "SuperArrowAmmo", "Super Arrow"},
+{"TackleShieldWep", "TackleShieldAmmo", "Tackle Shield"},
+{"TankArsenalWep", "TankArsenalAmmo", "Tank Arsenal"},
+{"TeleportWep", "TeleportAmmo", "Teleport"},
+{"ThunderChainWep", "ThunderChainAmmo", "Thunder Chain"},
+{"ThunderFangWep", "ThunderFangAmmo", "Thunder Fang"},
+{"ThunderCloud", "RainbowAmmo", "Thunder Wool"},
+{"TriAttackWep", "TriAttackAmmo", "Tri Attack"},
+{"TripleZapWep", "zapammo", "Triple Zap"},
+{"TwistLaserWep", "TwistLaserAmmo", "Twist Laser"},
+{"UnDeadArmyWep", "UnDeadArmyAmmo", "Quake Skull"},
+{"VolcanoHandWep", "VolcanoHandAmmo", "Volcano Hand"},
+{"WaterCutterWep", "WaterCutterAmmo", "Water Cutter"},
+{"WaterShurikenWep", "WaterShurikenAmmo", "Water Shuriken"},
+{"WaterSpoutWep", "WaterSpoutAmmo", "Water Spout"},
+{"WaveGuideWep", "WaveGuideAmmo", "Wave Guide"},
+{"WildTornadoWep", "WildTornadoAmmo", "Wild Tornado"},
+{"WillOWispWep", "WillOWispAmmo", "Will O Wisp"},
+{"YokuAttackWep", "YokuAttackAmmo", "Yoku Attack"},
+{"YoyoCutterWep", "YoYoCutterAmmo", "Yoyo Cutter"},
+{"JumpKickWep", "JumpKickAmmo", "Jump Kick"},
+{"FireFlyWep","FireFlyAmmo","Fire Fly"},
+{"CircuitBreakerWep","CircuitBreakerAmmo","Circuit Breaker"},
+{"SolarFlareWep","SolarFlareAmmo","Solar Flare"},
+{"SuguriDashWep","SuguriDashAmmo","Suguri Dash"},
+{"PulseStopperWep","PulseStopperAmmo","Pulse Stopper"},
+{"CryptCloakWep","CryptCloakAmmo","Crypt Cloak"},
+{"PhantomFuseWep","PhantomFuseAmmo","Phantom Fuse"},
+{"VirusOutbreakWep","VirusOutbreakAmmo","Virus Outbreak"},
+{"CharadeCloneWep","CharadeCloneAmmo","Charade Clone"},
+{"ShockGauntletWep","ShockGauntletAmmo","Shock Gauntlet"},
+{"HyperSpaceHoleWep","HyperSpaceHoleAmmo","Hyper Space Hole"},
+{"EggBombWep","EggBombAmmo","Egg Bomb"},
+{"WaterPulseWep","WaterPulseAmmo","Water Pulse"},
+{"BoomerangBombWep","BoomerangBombAmmo","Boomerang Bomb"},
+{"ExplosiveHadoukenWep","HadoukenAmmo","Explosive Hadouken"}
+};
+
+int AmmoMax_Modifier[MAX_WEAPONS][2] =
+{ // Maximum ammo for weapon - Modifier.  0 is the same as 1.0
+{28, 0}, //Bubble Lead
+{28, 0}, //Shadow Blade
+{28, 0}, //Napalm Bomb
+{28, 0}, //Atomic Fire
+{28, 0}, //Leaf Shield
+{28, 0}, //Air Shooter
+{28, 0}, //Hyper Bomb
+{28, 0}, //Magnet Missile
+{28, 0}, //Top Spin
+{28, 0}, //Needle Cannon
+
+{28, 0}, //Gemini Laser
+{56, 1.5}, //Search Snake
+//{28, 0}, //Time Stopper
+{28, 0}, //Super Arm
+{28, 0}, //Ice Slasher
+{28, 0}, //Thunder Beam
+{28, 0}, //Metal Blade
+{28, 0}, //Hard Knuckle
+{28, 0}, //Drill Bomb
+{28, 0}, //Blizzard Attack
+
+{28, 0}, //Fire Storm
+{112, 2.0}, //Quick Boomerang
+{28, 0}, //Crash Bomb
+{28, 0}, //Charge Kick
+{28, 0}, //Rolling Cutter
+{28, 0}, //Spark Shock
+{28, 0}, //Ring Boomerang
+{28, 0}, //Gyro Attack
+{28, 0}, //Power Stone
+{28, 0}, //Dust Crusher
+
+{28, 0}, //Pharaoh Shot
+{28, 0}, //Water Wave
+{28, 0}, //Crystal Eye
+{28, 0}, //Skull Barrier
+{28, 0}, //Flame Blast
+{28, 0}, //Yamato Spear
+{28, 0}, //Dive Missile
+{28, 0}, //Plant Barrier
+{28, 0}, //Silver Tomahawk
+{28, 0}, //Wind Storm
+
+{28, 0}, //Knight Crush
+{28, 0}, //Star Crash
+{28, 0}, //Rain Flush
+{28, 0}, //Sakugarne
+{28, 0}, //Ballade Cracker
+{112, 2.0}, //Screw Crusher
+{28, 0}, //Flash Stopper
+{28, 0}, //Gravity Hold
+{28, 0}, //Centaur Flash
+{28, 0}, //Mirror Buster
+
+{28, 0}, //Freeze Cracker
+{28, 0}, //Noise Crush
+{28, 0}, //Wild Coil
+{28, 0}, //Danger Wrap
+{28, 0}, //Scorch Wheel
+{28, 0}, //Junk Shield
+{28, 0}, //Slash Claw
+{28, 0}, //Thunder Bolt
+{30, 0}, //Astro Crush
+{28, 0}, //Flame Sword
+
+{28, 0}, //Thunder Claw
+{28, 0}, //Homing Sniper
+{42, 0}, //Water Balloon
+{28, 0}, //Mega Ball
+{28, 0}, //Flash Bomb
+{28, 0}, //Ice Wave
+{28, 0}, //Tornado Hold
+{48, 1.5}, //Time Slow
+{28, 0}, //Oil Slider
+
+{28, 0}, //Tengu Blade
+{56, 1.5}, //Wave Burner
+{28, 0}, //Spread Drill
+{28, 0}, //Magic Card
+{28, 0}, //Remote Mine
+{28, 0}, //Copy Vision
+{28, 0}, //Ice Wall
+{28, 0}, //Lightning Bolt
+{28, 0.75}, //TrebleBoost
+//dirp
+//manually done sort of
+{1, 0}, //apex laser
+{75, 0}, //aqua punch
+{28, 0}, //bee order
+{100, 0}, //blast freeze
+{28, 0}, // blaze kick
+{28, 0}, //blazing soul
+{35, 0}, //bomb sniper
+{28, 0}, //boulder cracker
+{65, 0}, //bullet seed
+{30, 0}, // charge beam
+{28, 0}, //cloud bomber
+{56, 0}, //coal shot
+{36, 0}, //comet dash
+{30, 0}, //comet launcher
+{28, 0}, //cross flame
+{50, 0}, //cross light
+{28, 0}, //crystal mine
+{60, 0}, //danger field
+{50, 0}, //eternal night
+{28, 0}, //delay buster
+{48, 0}, //dimensional wave
+{28, 0}, //dizzy bomb
+{30, 0}, //double napalm
+{50, 0}, //drill arm
+{28, 0}, //drill torpedo
+{28, 0}, //dumpling bomb
+{28, 0}, //dust vacuum
+{50, 0}, //equalizer
+{28, 0}, //fade launcher
+{28, 0}, //fell stinger
+{28, 0}, //fire ball
+{32, 0}, //fire blast
+{30, 0}, //fire works
+{28, 0}, //fizz bomb
+{40, 0}, //flame spout
+{28, 0}, //fractal laser
+{56, 0}, //freeze dry
+{60, 0}, //frenzy plant
+{28, 0}, //fridge buster
+{28, 0}, //original frost bomb that doesn't go upwards
+{35, 0}, //gem cannon
+{56, 0}, //giga drain
+{28, 0}, // gimmick star
+{28, 0}, //glue shot
+{50, 0}, //gravity hole
+{28, 0}, // hail shotgun
+{28, 0}, //hammer tail
+{40, 0}, //hammer toss
+{28, 0}, //HCR
+{40, 0}, //head crash
+{100, 0}, // heal block
+{112, 1.5}, // hell wheel
+{28, 0}, //ice beam
+{28, 0}, //ice shard
+{28, 0}, // ice shurikens
+{28, 0}, //ice spikes
+{56, 0}, //jet missile
+{28, 0}, //laser missile
+{65, 0}, // leaf storm
+{30, 0}, // leech seed
+{50, 0}, //lightning chain
+{56, 0}, // magnet bomb
+{60, 0}, //magnet drill
+{60, 0},// mist form
+{28, 0}, // moon blast
+{28, 0}, //nail shield
+{56, 0}, // recycle inhaler
+{56, 0}, // night daze
+{28, 0}, //nitro blast
+{100, 0}, //nmg
+{28, 0}, //noteable shot
+{1, 0}, //my original nuke based weapon
+{28, 0}, // octazooka
+{40, 0}, //optic laser
+{28, 0}, //paint gun
+{120, 0}, //perfect chainsaw
+{28, 0}, // Pharaoh sacrifice
+{28, 0}, //Pharaoh shotgun
+{30, 0}, //phoenix rod
+{56, 0}, // piaofu feng
+{28, 0}, //pin missile
+{28, 0}, // pk fire
+{30, 0}, //popcorn
+{30, 0},// pursuit
+{28, 0}, //quad missile
+{28, 0}, //rainbow beam
+{28, 0}, // rain flood
+{50, 0}, //rakuhouha
+{75, 0}, //ring toss
+{50, 0}, //ROCKET CHAINGUN!!
+{50, 0}, //rush cannon
+{28, 0}, //scatter balls
+{56, 0}, //seed flare
+{1, 0}, //self destruct
+{30, 0}, //shadow force
+{30, 0}, //shatter stone
+{38, 0}, //shock mine
+{28, 0}, //side star
+{30, 0}, //sizzle rocket
+{75, 0}, //sky uppercut
+{45, 0}, //flurry spread
+{28, 0}, //spark manbow
+{40, 0}, //speed gear
+{56, 0}, //spike ball
+{28, 0}, //star toad
+{50, 0}, //stealth rock
+{28, 0}, //steel wing
+{30, 0}, //stone
+{28, 0}, //stone wall
+{28, 0}, //sun spark
+{28, 0}, //now useless super arrow >_>
+{30, 0}, //tackle shield
+{28, 0}, //tank arsenal
+{48, 0}, //teleport
+{100, 0}, //thunder chain
+{30, 0}, //thunder fang
+{30, 0}, //eventually useless thunder wool
+{56, 0}, //tri attack
+{28, 0}, //triple zap
+{28, 0}, //twist laser
+{28, 0}, //quake skull
+{50, 0}, //volcano hand
+{40, 0}, //water cutter
+{28, 0}, //water shurikens
+{42, 0}, //WATER SPOUT
+{28, 0}, //wave guide
+{28, 0}, //wild tornado not top spin'
+{28, 0}, //will-o-wisp
+{28, 0}, //yoku attack
+{28, 0}, //yoyo cutter
+{28,0}, //jump kick
+{28,0}, //fire fly
+{28,0}, //circuit breaker
+{30,0}, //solar flare
+{36,0}, //suguri dash
+{28,0}, //pulse stopper
+{112,0}, //crypt cloak
+{28,0}, //phantom fuse
+{56,0}, //virus
+{56,0}, //clone
+{28,0}, //shock
+{28,0}, //hyperspace
+{28,0}, //egg bomb
+{40,0}, //water pulse
+{28,0}, //boomerang
+{45,0} //hadouken
+};
+
+//Color Translation script
+script 998 (int weap, int nosound)
+{
+if(nosound==0){LocalAmbientSound("menu/cursor",127);} //Play weapon switch noise
+
+If(IsATeamGame==1) //If this is a team game, set team colors and don't use weapon translations
+	{
+	Switch(PlayerTeam())
+		{
+		Case 0:
+		break;
+		Case 1:
+		Thing_SetTranslation(0, 48);
+		break;
+		Case 2:
+		Thing_SetTranslation(0, 43);
+		break;
+		Case 3:
+		Thing_SetTranslation(0, 47);
+		break;
+		}
+	terminate;
+	}
+Thing_SetTranslation(0, weap);
+}
+
+
+//Weapon Energy color script - "cl_NoEnergyColors true" to disable
+Script 255 ENTER CLIENTSIDE
+{
+If(PlayerIsBot(PlayerNumber())){terminate;} //Since this is pointless for bots
+Delay(10);
+If(GetCvar("cl_NoEnergyColors") == 0){ConsoleCommand("set cl_NoEnergyColors 0");ConsoleCommand("ArchiveCvar cl_NoEnergyColors");}
+If(GetCvar("cl_NoEnergyColors") > 0){ConsoleCommand("ArchiveCvar cl_NoEnergyColors 1");terminate;}
+While(PlayerInGame(ConsolePlayerNumber()))
+	{
+	If(PlayerNumber()!=ConsolePlayerNumber())
+		{
+		SetActivator(ConsolePlayerNumber()+1000);
+		restart;
+		}
+	Thing_SetTranslation(999, -1);
+	Delay(1);
+	}
+}
+
+Script 993 OPEN //Defines translations colors
+{
+If(ACS_ExecuteWithResult(975, 1)==1){IsATeamGame = 1;} // If it's a team game, change the variable.
+
+CreateTranslation (BUBBLELEAD, 192:192=4:4, 198:198=93:93);
+CreateTranslation (LEAFSHIELD, 192:192=4:4, 198:198=110:110);
+CreateTranslation (ATOMICFIRE, 192:192=229:229, 198:198=41:41);
+CreateTranslation (ATOMICFIRECRG1, 192:192=229:229, 198:198=41:41, 0:2=201:201, 3:8=201:201, 243:247=201:201);
+CreateTranslation (ATOMICFIRECRG2, 192:192=229:229, 198:198=193:193, 0:2=37:37, 3:8=37:37, 243:247=37:37);
+CreateTranslation (ATOMICFIRECRG3, 192:192=229:229, 198:198=4:4, 0:2=4:4, 3:8=4:4, 243:247=4:4);
+CreateTranslation (SHADOWBLADE, 192:192=34:34, 198:198=239:239);
+CreateTranslation (NAPALMBOMB, 192:192=216:216, 198:198=75:75);
+CreateTranslation (AIRSHOOTER, 192:192=4:4);
+CreateTranslation (HYPERBOMB, 192:192=4:4, 198:198=110:110);
+CreateTranslation (MAGNETMISSILE, 192:192=87:87, 198:198=227:227);
+CreateTranslation (TOPSPIN, 192:192=52:52, 198:198=93:93);
+CreateTranslation (NEEDLECANNON, 192:192=4:4, 198:198=220:220);
+CreateTranslation (GEMINILASER, 192:192=4:4,198:198=197:197);
+CreateTranslation (SEARCHSNAKE, 192:192=4:4, 198:198=110:110);
+CreateTranslation (TIMESTOPPER, 192:192=34:34, 198:198=239:239);
+CreateTranslation (SUPERARM, 192:192=4:4, 198:198=220:220);
+CreateTranslation (ICESLASHER, 192:192=4:4, 198:198=75:75);
+CreateTranslation (THUNDERBEAM, 192:192=215:215, 198:198=94:94);
+CreateTranslation (METALBLADE, 192:192=210:210, 198:198=164:164);
+CreateTranslation (HARDKNUCKLE, 192:192=87:87, 198:198=199:199);
+CreateTranslation (DRILLBOMB, 192:192=87:87, 198:198=227:227);
+CreateTranslation (BLIZZARDATTACK, 192:192=4:4, 198:198=197:197);
+CreateTranslation (FIRESTORM, 192:192=229:229, 198:198=227:227);
+CreateTranslation (QUICKBOOMERANG, 192:192=34:34, 198:198=39:39);
+CreateTranslation (CRASHBOMB, 192:192=4:4, 198:198=225:225);
+CreateTranslation (CHARGEKICK, 192:192=4:4, 198:198=225:225);
+CreateTranslation (ROLLINGCUTTER, 192:192=4:4, 198:198=94:94);
+CreateTranslation (SPARKSHOCK, 192:192=4:4, 198:198=225:225);
+CreateTranslation (RINGBOOMERANG, 192:192=215:215, 198:198=230:230);
+CreateTranslation (GYROATTACK, 192:192=4:4, 198:198=128:128);
+CreateTranslation (POWERSTONE, 192:192=4:4, 198:198=46:46);
+CreateTranslation (DUSTCRUSHER, 192:192=4:4, 198:198=93:93);
+CreateTranslation (PHARAOHSHOT, 192:192=52:52, 198:198=225:225);
+CreateTranslation (WATERWAVE, 192:192=4:4);
+CreateTranslation (CRYSTALEYE, 192:192=4:4, 198:198=193:193);
+CreateTranslation (SKULLBARRIER, 198:198=197:197);
+CreateTranslation (FLAMEBLAST, 192:192=52:52, 198:198=225:225);
+CreateTranslation (PROTOBUSTER, 192:192=87:87, 198:198=42:42);
+CreateTranslation (PROTOCHARGE1, 192:192=87:87, 198:198=227:227, 0:2=253:253, 3:8=253:253, 243:247=253:253);
+CreateTranslation (PROTOCHARGE2, 192:192=160:160, 198:198=148:148, 0:2=166:166, 3:8=204:166, 243:247=166:166);
+CreateTranslation (YAMATOSPEAR, 192:192=4:4, 198:198=236:236);
+CreateTranslation (DIVEMISSILE, 192:192=4:4);
+CreateTranslation (PLANTBARRIER, 192:192=4:4, 198:198=39:39);
+CreateTranslation (SILVERTOMAHAWK, 192:192=52:52, 198:198=220:220);
+CreateTranslation (WINDSTORM, 192:192=4:4, 198:198=93:93);
+CreateTranslation (KNIGHTCRUSH, 192:192=87:87);
+CreateTranslation (STARCRASH, 192:192=229:229, 198:198=220:220);
+CreateTranslation (RAINFLUSH, 192:192=4:4, 198:198=104:104);
+CreateTranslation (SAKUGARNE, 192:192=138:138, 198:198=130:130);
+CreateTranslation (BASSBUSTER, 192:192=217:217, 198:198=95:95);
+CreateTranslation (BALLADECRACKER, 192:192=64:64, 198:198=62:62);
+CreateTranslation (SCREWCRUSHER, 192:192=54:54, 198:198=42:42);
+CreateTranslation (FLASHSTOPPER, 192:192=4:4, 198:198=239:239);
+CreateTranslation (GRAVITYHOLD, 192:192=4:4, 198:198=239:239);
+CreateTranslation (CENTAURFLASH, 192:192=4:4, 198:198=117:117);
+CreateTranslation (MIRRORBUSTER, 192:192=229:229, 198:198=76:76);
+CreateTranslation (ENKERCHARGE1, 192:192=229:229, 198:198=199:199, 0:2=4:4, 3:8=4:4, 243:247=4:4);
+CreateTranslation (ENKERCHARGE2, 192:192=229:229, 198:198=199:199, 0:2=196:204, 3:8=196:204, 243:247=204:204);
+CreateTranslation (BALLADEREAL, 192:192=228:228, 198:198=62:62);
+CreateTranslation (METALMANREAL, 192:192=228:228, 198:198=41:41);
+CreateTranslation (FREEZECRACKER, 192:192=4:4, 198:198=203:203);
+CreateTranslation (NOISECRUSH, 192:192=204:204, 198:198=61:61);
+CreateTranslation (NOISECRUSHCRG1, 192:192=204:204, 198:198=61:61, 0:2=112:112, 3:8=112:112, 243:247=112:112);
+CreateTranslation (NOISECRUSHCRG2, 192:192=0:0, 198:198=204:204, 0:2=61:61, 3:8=61:61, 243:247=61:61);
+CreateTranslation (NOISECRUSHCRG3, 192:192=61:61, 198:198=0:0, 0:2=204:204, 3:8=204:204, 243:247=204:204);
+CreateTranslation (WILDCOIL, 192:192=109:109, 198:198=238:238);
+CreateTranslation (WILDCOILCRG1, 192:192=109:109, 198:198=238:238, 0:2=41:41, 3:8=41:41, 243:247=41:41);
+CreateTranslation (WILDCOILCRG2, 192:192=0:0, 198:198=109:109, 0:2=238:238, 3:8=238:238, 243:247=238:238);
+CreateTranslation (WILDCOILCRG3, 192:192=238:238, 198:198=0:0, 0:2=109:109, 3:8=109:109, 243:247=109:109);
+CreateTranslation (DANGERWRAP, 192:192=4:4, 198:198=232:232);
+CreateTranslation (SCORCHWHEEL, 192:192=93:93, 198:198=42:42);
+CreateTranslation (JUNKSHIELD, 192:192=68:68, 198:198=94:94);
+CreateTranslation (SLASHCLAW, 192:192=228:228, 198:198=111:111);
+CreateTranslation (THUNDERBOLT, 192:192=228:228, 198:198=73:73);
+CreateTranslation (BOSSPAIN, 5:247=4:4,0:3=4:4);
+CreateTranslation (SUPERADAPTOR, 192:192=4:4, 198:198=176:176);
+CreateTranslation (SUPERADAPTORCRG1, 192:192=4:4, 198:198=176:176, 0:2=22:22, 3:8=22:22, 243:247=22:22);
+CreateTranslation (SUPERADAPTORCRG2, 192:192=0:0, 198:198=176:176, 0:2=4:4, 3:8=4:4, 243:247=4:4);
+CreateTranslation (SUPERADAPTORCRG3, 192:192=4:4, 198:198=0:0, 0:2=176:176, 3:8=176:176, 243:247=176:176);
+CreateTranslation (THUNDERCLAW, 198:198=220:220);
+CreateTranslation (HOMINGSNIPER, 198:198=230:230);
+CreateTranslation (HOMINGCHRG1, 198:198=230:230, 244:247=26:26);
+CreateTranslation (HOMINGCHRG2, 192:192=0:0, 198:198=192:192, 244:247=230:230);
+CreateTranslation (HOMINGCHRG3, 192:192=230:230, 198:198=0:0, 244:247=192:192);
+CreateTranslation (WATERBALLOON, 198:198=62:62);
+CreateTranslation (FLAMESWORD, 192:192=248:248, 198:198=41:41);
+CreateTranslation (ICEWAVE, 192:192=229:229, 198:198=205:205);
+CreateTranslation (TORNADOHOLD, 192:192=236:236, 198:198=194:194);
+CreateTranslation (FLASHBOMB, 192:192=229:229, 198:198=77:77);
+CreateTranslation (ASTROCRUSH, 192:192=229:229, 198:198=128:128);
+CreateTranslation (MEGACHARGE1, 0:2=39:39, 3:8=39:39, 243:247=39:39);
+CreateTranslation (MEGACHARGE2, 192:192=198:198, 198:198=247:247, 0:2=192:192, 243:247=192:192);
+CreateTranslation (MEGACHARGE3, 192:192=247:247, 198:198=192:192, 0:2=198:198, 243:247=198:198);
+CreateTranslation (OILSLIDER, 192:192=68:68, 198:198=47:47);
+CreateTranslation (TIMESLOW, 192:192=34:34, 198:198=239:239);
+CreateTranslation (MEGABALL, 192:192=197:197, 198:198=239:239);
+CreateTranslation (DUOFIST, 192:192=220:220, 198:198=195:195);
+CreateTranslation (DUOCHARGE1, 192:192=220:220, 198:198=195:195, 3:8=192:192, 243:247=192:192);
+CreateTranslation (DUOCHARGE2, 192:192=247:247, 198:198=192:192, 3:8=195:195, 243:247=195:195);
+CreateTranslation (DUOCHARGE3, 192:192=195:195, 198:198=4:4, 3:8=192:192, 243:247=192:192);
+CreateTranslation (ICEDEATH, 192:192=4:4, 198:198=201:201, 3:8=72:72, 243:247=72:72, 208:215=4:4);
+CreateTranslation (LASERCHARGE1, 3:8=70:70, 243:247=70:70);
+CreateTranslation (LASERCHARGE2, 192:192=100:100, 198:198=109:109, 3:8=104:104, 243:247=104:104);
+CreateTranslation (TENGUBLADE, 192:192=208:208, 198:198=93:93);
+CreateTranslation (WAVEBURNER, 192:192=218:218, 198:198=40:40);
+CreateTranslation (SPREADDRILL, 192:192=87:87, 198:198=220:220);
+CreateTranslation (MAGICCARD, 192:192=236:236, 198:198=3:3);
+CreateTranslation (REMOTEMINE, 192:192=41:41, 198:198=3:3);
+CreateTranslation (COPYVISION, 192:192=201:201, 198:198=110:110);
+CreateTranslation (ICEWALL, 192:192=200:200, 198:198=75:75);
+CreateTranslation (LIGHTNINGBOLT, 192:192=93:93, 198:198=229:229);
+CreateTranslation (TREBLEBOOST, 192:192=62:62,  198:198=95:95);
+CreateTranslation (TENGUBLADEB, 192:192=93:93, 198:198=3:3);
+CreateTranslation (WAVEBURNERB, 192:192=204:204, 198:198=132:132);
+CreateTranslation (SPREADDRILLB, 192:192=93:93, 198:198=43:43);
+CreateTranslation (MAGICCARDB, 192:192=111:111, 198:198=166:166);
+CreateTranslation (REMOTEMINEB, 192:192=41:41, 198:198=60:60);
+CreateTranslation (COPYVISIONB, 192:192=59:59, 198:198=3:3);
+CreateTranslation (ICEWALLB, 192:192=197:197, 198:198=3:3);
+CreateTranslation (LIGHTNINGBOLTB, 192:192=217:217, 198:198=59:59);
+
+//dirp
+
+CreateTranslation (GLUED, 198:198=215:215, 192:192=213:213);
+CreateTranslation (GLUESHOT, 198:198=245:245, 192:192=171:171);
+CreateTranslation (TANK, 198:198=130:130, 192:192=144:144);
+CreateTranslation (JET, 198:198=176:176, 192:192=84:84);
+CreateTranslation (YOKUATTACK, 198:198=95:95, 192:192=69:69);
+CreateTranslation (YOYO, 198:198=225:225, 192:192=108:108);
+CreateTranslation (RAINBOW, 198:198=239:239, 192:192=107:107);
+CreateTranslation (NITROBLAST, 192:192=176:176, 198:198=246:246);
+CreateTranslation (HAMMER, 192:192=219:219, 198:198=93:93);
+CreateTranslation (NAILSHIELD, 192:192=213:213, 198:198=95:95);
+CreateTranslation (COMETDASH, 192:192=4:4, 198:198=103:103);
+CreateTranslation (SHAMPOO, 192:192=40:40, 198:198=245:245);
+
+CreateTranslation (MISTFORM, 192:192=4:4, 198:198=80:80);
+CreateTranslation (SHOCKMINE, 192:192=228:228, 198:198=172:172);
+CreateTranslation (ETERNALNIGHT, 192:192=90:90, 198:198=0:0);
+CreateTranslation (SPEEDGEAR, 192:192=91:91, 198:198=95:95);
+CreateTranslation (LEECHSEED, 192:192=113:113, 198:198=167:167);
+CreateTranslation (AQUAPUNCH, 198:198=195:195);
+CreateTranslation (OBLIVION, 198:198=176:176, 192:192=186:186);
+CreateTranslation (SHADOWFORCE, 198:198=0:0, 192:192=160:160);
+CreateTranslation (HEALBLOCK, 198:198=253:253, 192:192=250:250);
+CreateTranslation (MAGNETDRILL, 192:192=50:50, 198:198=221:221);
+CreateTranslation (LIGHTSHIELD, 198:198=200:200, 192:192=228:228);
+CreateTranslation (BOULDERCRACKER, 192:192=164:164, 198:198=167:167);
+CreateTranslation (BLAZINGSOUL, 192:192=214:214, 198:198=254:254);
+CreateTranslation (BLASTFREEZE, 198:198=197:197);
+CreateTranslation (BOMBSNIPER, 192:192=163:163, 198:198=182:182);
+CreateTranslation (CROSSFLAME, 192:192=217:217, 198:198=183:183);
+
+CreateTranslation (POPCORN, 192:192=161:161, 198:198=213:213);
+CreateTranslation (DIZZYBOMB, 192:192=161:161, 198:198=225:225);
+CreateTranslation (GIMMICK, 192:192=218:218, 198:198=113:113);
+CreateTranslation (FIZZ, 192:192=42:42, 198:198=47:47);
+CreateTranslation (FADE, 192:192=127:127, 198:198=0:0);
+CreateTranslation (PAINT, 244:247=176:176, 192:192=120:120, 198:198=199:199);
+CreateTranslation (CHAINSAW, 192:192=4:4, 198:198=94:94);
+CreateTranslation (SKYUPPERCUT, 198:198=167:167);
+CreateTranslation (DANGERFIELD, 198:198=129:129, 192:192=117:177);
+CreateTranslation (EQUALIZER, 198:198=46:46, 192:192=95:95);
+CreateTranslation (COMET, 198:198=64:64, 192:192=4:4);
+CreateTranslation (RUSH, 198:198=176:176, 192:192=4:4);
+CreateTranslation (TFANG, 198:198=94:94, 192:192=160:160);
+CreateTranslation (FRIDGE, 198:198=250:250, 192:192=160:160);
+CreateTranslation (FIREWORKS, 198:198=3:3, 192:192=183:183);
+CreateTranslation (APEXLASER, 198:198=246:246, 192:192=237:237);
+CreateTranslation (SUNSPARK, 198:198=216:216, 192:192=161:161);
+CreateTranslation (HAMMERTAIL, 198:198=251:251, 192:192=107:107);
+CreateTranslation (GEMCANNON, 192:192=4:4, 198:198=62:62);
+CreateTranslation (SPIKEBALL, 192:192=172:172, 198:198=120:120);
+CreateTranslation (PHARCHAR, 192:192=4:4, 198:198=225:225);
+CreateTranslation (SPIRITOMB, 192:192=110:110, 198:198=252:252);
+CreateTranslation (ROCKETCHAINGUN, 192:192=92:92, 198:198=95:95);
+CreateTranslation (RAKUHOUHA, 192:192=228:228, 198:198=176:176);
+CreateTranslation (NOTEABLESHOT, 198:198=176:176);
+
+CreateTranslation (WILLOWISP, 192:192=61:61, 198:198=254:254);
+CreateTranslation (BEEORDER, 192:192=4:4, 198:198=228:228);
+CreateTranslation (CHARGEBEAM, 192:192=228:228, 198:198=229:229);
+
+CreateTranslation (TSUYOI, 192:192=160:160, 198:198=162:162);
+CreateTranslation (CIRCUIT, 192:192=4:4, 198:198=105:105);
+CreateTranslation (EGGBOMB, 192:192=160:160, 198:198=4:4);
+//end dirp
+
+}
+
+
+Function int WhichWeapon(void) // Which weapon is the player currently using.  From weapons_ammo array
+{
+For(int i = 0; i < MAX_WEAPONS; i++)
+	{
+	If(CheckWeapon(weapons_ammo[i][0]))
+		{
+		Return i;
+		}
+	}
+Return -1;
+}
+
+Function int EnergyBalancer(void) // Finds out which weapon has the lowest ammo ratio wise from the players inventory
+{
+int CurrentRatio;
+int MinRatio = 255.0;
+int LowestWeapon = -1;
+
+For(int w = 0; w < MAX_WEAPONS; w++)
+	{
+	If(CheckInventory(weapons_ammo[w][0]))
+		{
+		CurrentRatio = FixedDiv(CheckInventory(weapons_ammo[w][1]), AmmoMax_Modifier[w][0]);
+		If(CurrentRatio < MinRatio)
+			{
+			MinRatio = CurrentRatio;
+			LowestWeapon = w;
+			}
+		}
+	}
+return LowestWeapon;
+}
+
+Script 992 (int amount, int IsMtank) // Script to determine which weapon to give ammo to
+{
+If(IsMtank == 1) //If this is an mtank, give exactly the ammo of each weapon and terminate
+	{
+	For(int i = 0; i < MAX_WEAPONS; i++)
+		{
+		If(CheckInventory(weapons_ammo[i][0]) == 1)
+			{
+			GiveInventory(weapons_ammo[i][1], AmmoMax_Modifier[i][0]);
+			}
+		}
+	terminate;
+	}
+
+int ThisWeapon = WhichWeapon(); // Which weapon player currently has equipped.
+If(CheckInventory("EnergyBalancerActive"))
+	{
+	If(CheckInventory(weapons_ammo[ThisWeapon][1]) == AmmoMax_Modifier[ThisWeapon][0] || ThisWeapon < 0)  // If player has the Energy Balancer, then check to see if the currently selected weapon is not at maximum
+		{
+		ThisWeapon = EnergyBalancer(); // Finds the lowest ammo weapon using the Energy Balancer function and sets it as the weapon to fill
+		}
+	}
+
+If(ThisWeapon >= 0) //If this weapon is not a buster
+	{
+	If(AmmoMax_Modifier[ThisWeapon][1] > 0){Amount=FixedMul(Amount, AmmoMax_Modifier[ThisWeapon][1]);}
+	GiveInventory(weapons_ammo[ThisWeapon][1], amount);
+	}
+
+}
+
+
+script 984 (void) // Does the player have the energy balancer or a weapon that is not full? If so, pickup ammo
+{
+If(CheckInventory("EnergyBalancerActive")==1){SetResultValue( TRUE );terminate;}
+int ThisWeapon = WhichWeapon();
+If(CheckInventory(weapons_ammo[ThisWeapon][1]) == AmmoMax_Modifier[ThisWeapon][0] || ThisWeapon < 0)
+		{
+		SetResultValue( FALSE );terminate;
+		}
+SetResultValue( TRUE );
+
+}
+
+// Player Color (alternate, no sound)
+//
+script 991 (int weap)
+{
+ACS_ExecuteAlways(998, 0, weap, 1);
+}
+
+// Rotation scripts
+//
+script 990 (int whichrotate) //Deprecated?
+{
+	// Top Spin
+	if(whichrotate==1){
+	SetActorAngle (ActivatorTID(), GetActorAngle (ActivatorTID()) - 0.06);
+	}
+	// Power Stone
+	if(whichrotate==2){
+	SetActorAngle (ActivatorTID(), GetActorAngle (ActivatorTID()) - 0.05);
+	}
+}
+
+
+// Time Stopper HUD FX
+//
+script 986 (void)
+{
+SetHudSize(256,224,0);
+SetFont("FLASHS1");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS2");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS3");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS4");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS5");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS6");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS7");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS8");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+SetFont("FLASHS9");
+HudMessageBold(s:"A"; HUDMSG_PLAIN,50,CR_UNTRANSLATED,128.0,112.0,0.0);
+Delay(4);
+Restart;
+}
+
+
+// Set up weapon randomization for LMS/TLMS
+//
+str RangedWep[53]={
+"BlizzardAttackWep",
+"SparkShockWep",
+"FireStormWep",
+"DustCrusherWep",
+"ThunderBeamWep",
+"GyroAttackWep",
+"DiveMissileWep",
+"SilverTomahawkWep",
+"MagnetMissileWep",
+"GeminiLaserWep",
+"ThunderBoltWep",
+"FreezeCrackerWep",
+"NoiseCrushWep",
+"GeminiLaserWep",
+"SearchSnakeWep",
+"IceWaveWep",
+"ThunderBoltWep",
+"FreezeCrackerWep",
+//dirp
+"SpeedGearWep",
+"FrenzyPlantWep",
+"LaserMissileWep",
+"DustVaccumWep",
+"RingTossWep",
+"StoneWallWep",
+"PharaohShotGunWep",
+"PinMissileWep",
+"SparkManBowWep",
+"BlazingSoulWep",
+"BoulderCrackerWep",
+"SuperArrowWep",
+"FadeLauncherWep",
+"GlueShotWep",
+"YokuAttackWep",
+"HammerTossWep",
+"DimensionalWaveWep",
+"OpticLaserWep",
+"FractalLaserWep",
+"NoteableShotWep",
+"PiaofuFengWep",
+"OctaZookaWep",
+"FellStingerWep",
+"WillOWispWep",
+"MagnetBombWep",
+"LeafStormWep",
+"IceBeamWep",
+"PKFireWep",
+"HyperSpaceHoleWep",
+"FireFlyWep",
+"WaterPulseWep",
+"CircuitBreakerWep",
+"SolarFlareWep",
+"PulseStopperWep",
+//end
+
+"HomingSniperWep"
+};
+str RapidWep[24]={
+"QuickBoomerangWep",
+"IceSlasherWep",
+"WaterWaveWep",
+"MetalBladeWep",
+"ScrewCrusherWep",
+"YamatoSpearWep",
+"NeedleCannonWep",
+"WaterBalloonWep",
+
+//dirp
+"RocketChaingunWep",
+"JetMissileWep",
+"DelayBusterWep",
+
+"DumplingBombWep",
+"TwistLaserWep",
+"ScatterBallWep",
+
+"WaterCutterWep",
+"VolcanoHandWep",
+"CoalShotWep",
+
+"IceShurikensWep",
+"BombSniperWep",
+"LightningChainWep",
+
+"FlurrySpreadWep",
+"BulletSeedWep",
+"IceShardWep",
+//end
+
+"WaveBurnerWep"
+};
+str CloseWep[56]={
+"BubbleLeadWep",
+"WindStormWep",
+"CrystalEyeWep",
+"PowerStoneWep",
+"RingBoomerangWep",
+"RollingCutterWep",
+"ChargeKickWep",
+"FlameBlastWep",
+"WildCoilWep",
+"ShadowBladeWep",
+"KnightCrushWep",
+"TopSpinWep",
+"AirShooterWep",
+"SlashClawWep",
+"TornadoHoldWep",
+"ThunderClawWep",
+"FlameSwordWep",
+"MegaBallWep",
+"OilSliderWep",
+"TenguBladeWep",
+//dirp
+"TripleZapWep",
+"CloudBomberWep",
+"SunSparkWep",
+
+"HailShotGunWep",
+"HeadCrashWep",
+"HammerTailWep",
+
+"HCRBoomerangWep",
+"ThunderFangWep",
+"StealthRockWep",
+
+"CrossFlameWep",
+"ShockMineWep",
+"FrostBombWep",
+
+"ThunderCloud",
+"IceSpikeWep",
+"LeechSeedWep",
+
+"SideStarWep",
+"PerfectChainsawWep",
+"SkyUppercutWep",
+
+"EqualizerWep",
+"SpikeBallWep",
+"YoyoCutterWep",
+
+"CometDashWep",
+"PursuitWep",
+"RecycleInhalerWep",
+
+"ThunderChainWep",
+"DrillArmWep",
+"BlazeKickWep",
+
+"NightDazeWep",
+"GigaDrainWep",
+"FreezeDryWep",
+
+"WaterSpoutWep",
+"WildTornadoWep",
+"SteelWingWep",
+"ShockGauntletWep",
+"JumpKickWep",
+//end
+
+"MagicCardWep"
+};
+str PowerWep[40]={
+"PharaohShotWep",
+"SuperArmWep",
+"AtomicFireWep",
+"HardKnuckleWep",
+"CrashBombWep",
+"NapalmBombWep",
+"HyperBombWep",
+"DangerWrapWep",
+"DrillBombWep",
+"BalladeCrackerWep",
+"FlashBombWep",
+"RemoteMineWep",
+
+//dirp
+"PharaohSacrificeWep",
+"RakuhouhaWep",
+"RainbowBeamWep",
+
+"TankArsenalWep",
+"SizzleRocketWep",
+"NitroBlastWep",
+
+"UnDeadArmyWep",
+"ShatterStoneWep",
+"CometLauncherWep",
+
+"GravityHoleWep",
+"PhoenixRodWep",
+"PopCornWep",
+
+"DoubleNapalmWep",
+"MagnetDrillWep",
+"AquaPunchWep",
+
+"QuadMissileWep",
+"FlameSpoutWep",
+"DizzyBombWep",
+
+"GemCannonWep",
+"TriAttackWep",
+"ChargeBeamWep",
+
+"MoonBlastWep",
+"FireBallWep",
+"PhantomFuseWep",
+"BoomerangBombWep",
+"ExplosiveHadoukenWep",
+"EggBombWep",
+//end
+
+
+"SpreadDrillWep"
+};
+str ShieldWep[24]={
+"StarCrashWep",
+"LeafShieldWep",
+"MirrorBusterWep",
+"PlantBarrierWep",
+"SkullbarrierWep",
+"JunkShieldWep",
+"ScorchWheelWep",
+"SakuGarneWep",
+"IceWallWep",
+//dirp
+"MistFormWep",
+"EternalNight",
+"HellWheelWep",
+
+"FireWorksWep",
+"StoneWep",
+"NailShieldWep",
+
+"TeleportWep",
+"SeedFlareWep",
+"BeeOrderWep",
+
+"FireBlastWep",
+
+"SuguriDashWep",
+"CryptCloakWep",
+"CharadeCloneWep",
+"VirusOutbreakWep",
+//end
+
+"CopyVisionWep"
+};
+
+str DIRPWep1[127]={
+"SpeedGearWep",
+"RakuhouhaWep",
+"PiaofuFengWep",
+"RocketChaingunWep",
+"NoteableShotWep",
+"PharaohSacrificeWep",
+"RecycleInhalerWep",
+"BlazingSoulWep",
+"FrenzyPlantWep",
+"PerfectChainsawWep",
+"SkyUppercutWep",
+"EqualizerWep",
+"QuadMissileWep",
+"CoalShotWep",
+"DangerFieldWep",
+"GravityHoleWep",
+"StoneWallWep",
+"BoulderCrackerWep",
+"MistFormWep",
+"EternalNight",
+"BombSniperWep",
+"LightningChainWep",
+"FlurrySpreadWep",
+"BulletSeedWep",
+"CrossFlameWep",
+"TwistLaserWep",
+"FadeLauncherWep",
+"CloudBomberWep",
+"IceSpikeWep",
+"PhoenixRodWep",
+"PinMissileWep",
+"PopCornWep",
+"DoubleNapalmWep",
+"ShockMineWep",
+"ThunderCloud",
+"LeechSeedWep",
+"DizzyBombWep",
+"MagnetDrillWep",
+"AquaPunchWep",
+"HellWheelWep",
+"FireWorksWep",
+"UnDeadArmyWep",
+"ShatterStoneWep",
+"CometLauncherWep",
+"GemCannonWep",
+"SideStarWep",
+"FrostBombWep",
+"TripleZapWep",
+"SunSparkWep",
+"HailShotGunWep",
+"HeadCrashWep",
+"HammerTailWep",
+"HCRBoomerangWep",
+"ThunderFangWep",
+"StealthRockWep",
+"IceShurikensWep",
+"ScatterBallWep",
+"WaterCutterWep",
+"VolcanoHandWep",
+"SuperArrowWep",
+"SparkManBowWep",
+"PharaohShotGunWep",
+"LaserMissileWep",
+"DustVaccumWep",
+"RingTossWep",
+"SpikeBallWep",
+"DrillArmWep",
+"PursuitWep",
+"YoyoCutterWep",
+"NailShieldWep",
+"CometDashWep",
+"NitroBlastWep",
+"TankArsenalWep",
+"SizzleRocketWep",
+"RainbowBeamWep",
+"HammerTossWep",
+"DumplingBombWep",
+"DelayBusterWep",
+"GlueShotWep",
+"JetMissileWep",
+"YokuAttackWep",
+"ThunderChainWep",
+"FractalLaserWep",
+"DimensionalWaveWep",
+"OpticLaserWep",
+"StoneWep",
+"WaterShurikenWep",
+"IceShardWep",
+"TriAttackWep",
+"BlazeKickWep",
+"OctaZookaWep",
+"NightDazeWep",
+"GigaDrainWep",
+"MoonBlastWep",
+"FreezeDryWep",
+"IceBeamWep",
+"FellStingerWep",
+"WillOWispWep",
+"MagnetBombWep",
+"LeafStormWep",
+"WildTornadoWep",
+"TeleportWep",
+"ChargeBeamWep",
+"WaterSpoutWep",
+"BeeOrderWep",
+"SteelWingWep",
+"SeedFlareWep",
+"FireBlastWep",
+"PKFireWep",
+"FireBallWep",
+"FlameSpoutWep",
+
+"HyperSpaceHoleWep",
+"EggBombWep",
+"JumpKickWep",
+"FireFlyWep",
+"SuguriDashWep",
+"WaterPulseWep",
+"BoomerangBombWep",
+"ExplosiveHadoukenWep",
+
+"CircuitBreakerWep",
+"SolarFlareWep",
+"PulseStopperWep",
+"CryptCloakWep",
+"CharadeCloneWep",
+"PhantomFuseWep",
+"VirusOutbreakWep",
+"ShockGauntletWep"
+
+};
+str DIRPWep2[127]={
+"SpeedGearWep",
+"WaterShurikenWep",
+"IceShardWep",
+"TriAttackWep",
+"BlazeKickWep",
+"OctaZookaWep",
+"NightDazeWep",
+"GigaDrainWep",
+"MoonBlastWep",
+"FreezeDryWep",
+"IceBeamWep",
+"FellStingerWep",
+"WillOWispWep",
+"MagnetBombWep",
+"LeafStormWep",
+"WildTornadoWep",
+"TeleportWep",
+"ChargeBeamWep",
+"WaterSpoutWep",
+"BeeOrderWep",
+"SteelWingWep",
+"SeedFlareWep",
+"FireBlastWep",
+"PKFireWep",
+"FireBallWep",
+"RakuhouhaWep",
+"PiaofuFengWep",
+"RocketChaingunWep",
+"NoteableShotWep",
+"PharaohSacrificeWep",
+"RecycleInhalerWep",
+"BlazingSoulWep",
+"FrenzyPlantWep",
+"DizzyBombWep",
+"PerfectChainsawWep",
+"SkyUppercutWep",
+"EqualizerWep",
+"QuadMissileWep",
+"CoalShotWep",
+"DangerFieldWep",
+"GravityHoleWep",
+"StoneWallWep",
+"BoulderCrackerWep",
+"TwistLaserWep",
+"FadeLauncherWep",
+"CloudBomberWep",
+"IceSpikeWep",
+"PhoenixRodWep",
+"PinMissileWep",
+"PopCornWep",
+"DoubleNapalmWep",
+"MistFormWep",
+"EternalNight",
+"BombSniperWep",
+"LightningChainWep",
+"FlurrySpreadWep",
+"BulletSeedWep",
+"CrossFlameWep",
+"ShockMineWep",
+"ThunderCloud",
+"LeechSeedWep",
+"MagnetDrillWep",
+"AquaPunchWep",
+"HellWheelWep",
+"FireWorksWep",
+"UnDeadArmyWep",
+"ShatterStoneWep",
+"CometLauncherWep",
+"GemCannonWep",
+"SideStarWep",
+"FrostBombWep",
+"TripleZapWep",
+"SunSparkWep",
+"HailShotGunWep",
+"HeadCrashWep",
+"HammerTailWep",
+"HCRBoomerangWep",
+"ThunderFangWep",
+"StealthRockWep",
+"IceShurikensWep",
+"ScatterBallWep",
+"WaterCutterWep",
+"VolcanoHandWep",
+"SuperArrowWep",
+"SparkManBowWep",
+"PharaohShotGunWep",
+"LaserMissileWep",
+"DustVaccumWep",
+"RingTossWep",
+"SpikeBallWep",
+"DrillArmWep",
+"PursuitWep",
+"YoyoCutterWep",
+"NailShieldWep",
+"CometDashWep",
+"NitroBlastWep",
+"TankArsenalWep",
+"SizzleRocketWep",
+"RainbowBeamWep",
+"HammerTossWep",
+"DumplingBombWep",
+"DelayBusterWep",
+"GlueShotWep",
+"JetMissileWep",
+"YokuAttackWep",
+"ThunderChainWep",
+"FractalLaserWep",
+"DimensionalWaveWep",
+"OpticLaserWep",
+"StoneWep",
+"FlameSpoutWep",
+
+"HyperSpaceHoleWep",
+"EggBombWep",
+"JumpKickWep",
+"FireFlyWep",
+"SuguriDashWep",
+"WaterPulseWep",
+"BoomerangBombWep",
+"ExplosiveHadoukenWep",
+
+"CircuitBreakerWep",
+"SolarFlareWep",
+"PulseStopperWep",
+"CryptCloakWep",
+"CharadeCloneWep",
+"PhantomFuseWep",
+"VirusOutbreakWep",
+"ShockGauntletWep"
+};
+str DIRPWep3[127]={
+"SpeedGearWep",
+"WaterShurikenWep",
+"IceShardWep",
+"TriAttackWep",
+"BlazeKickWep",
+"OctaZookaWep",
+"NightDazeWep",
+"GigaDrainWep",
+"MoonBlastWep",
+"FreezeDryWep",
+"IceBeamWep",
+"FellStingerWep",
+"WillOWispWep",
+"MagnetBombWep",
+"LeafStormWep",
+"WildTornadoWep",
+"TeleportWep",
+"ChargeBeamWep",
+"WaterSpoutWep",
+"BeeOrderWep",
+"SteelWingWep",
+"SeedFlareWep",
+"FireBlastWep",
+"PKFireWep",
+"FireBallWep",
+"RakuhouhaWep",
+"PiaofuFengWep",
+"RocketChaingunWep",
+"NoteableShotWep",
+"PharaohSacrificeWep",
+"RecycleInhalerWep",
+"BlazingSoulWep",
+"FrenzyPlantWep",
+"BoulderCrackerWep",
+"TwistLaserWep",
+"FadeLauncherWep",
+"CloudBomberWep",
+"IceSpikeWep",
+"PhoenixRodWep",
+"PinMissileWep",
+"PopCornWep",
+"DoubleNapalmWep",
+"PerfectChainsawWep",
+"SkyUppercutWep",
+"EqualizerWep",
+"QuadMissileWep",
+"CoalShotWep",
+"DangerFieldWep",
+"GravityHoleWep",
+"StoneWallWep",
+"DizzyBombWep",
+"MistFormWep",
+"EternalNight",
+"BombSniperWep",
+"LightningChainWep",
+"FlurrySpreadWep",
+"BulletSeedWep",
+"CrossFlameWep",
+"ShockMineWep",
+"ThunderCloud",
+"LeechSeedWep",
+"MagnetDrillWep",
+"AquaPunchWep",
+"HellWheelWep",
+"FireWorksWep",
+"UnDeadArmyWep",
+"ShatterStoneWep",
+"CometLauncherWep",
+"GemCannonWep",
+"SideStarWep",
+"FrostBombWep",
+"TripleZapWep",
+"SunSparkWep",
+"HailShotGunWep",
+"HeadCrashWep",
+"HammerTailWep",
+"HCRBoomerangWep",
+"ThunderFangWep",
+"StealthRockWep",
+"IceShurikensWep",
+"ScatterBallWep",
+"WaterCutterWep",
+"VolcanoHandWep",
+"SuperArrowWep",
+"SparkManBowWep",
+"PharaohShotGunWep",
+"LaserMissileWep",
+"DustVaccumWep",
+"RingTossWep",
+"SpikeBallWep",
+"DrillArmWep",
+"PursuitWep",
+"YoyoCutterWep",
+"NailShieldWep",
+"CometDashWep",
+"NitroBlastWep",
+"TankArsenalWep",
+"SizzleRocketWep",
+"RainbowBeamWep",
+"HammerTossWep",
+"DumplingBombWep",
+"DelayBusterWep",
+"GlueShotWep",
+"JetMissileWep",
+"YokuAttackWep",
+"ThunderChainWep",
+"FractalLaserWep",
+"DimensionalWaveWep",
+"OpticLaserWep",
+"StoneWep",
+"FlameSpoutWep",
+
+"HyperSpaceHoleWep",
+"EggBombWep",
+"JumpKickWep",
+"FireFlyWep",
+"SuguriDashWep",
+"WaterPulseWep",
+"BoomerangBombWep",
+"ExplosiveHadoukenWep",
+
+"CircuitBreakerWep",
+"SolarFlareWep",
+"PulseStopperWep",
+"CryptCloakWep",
+"CharadeCloneWep",
+"PhantomFuseWep",
+"VirusOutbreakWep",
+"ShockGauntletWep"
+};
+str DIRPWep4[127]={
+"SpeedGearWep",
+"WaterShurikenWep",
+"IceShardWep",
+"TriAttackWep",
+"BlazeKickWep",
+"OctaZookaWep",
+"NightDazeWep",
+"GigaDrainWep",
+"MoonBlastWep",
+"FreezeDryWep",
+"IceBeamWep",
+"FellStingerWep",
+"WillOWispWep",
+"MagnetBombWep",
+"LeafStormWep",
+"WildTornadoWep",
+"TeleportWep",
+"ChargeBeamWep",
+"WaterSpoutWep",
+"BeeOrderWep",
+"SteelWingWep",
+"SeedFlareWep",
+"FireBlastWep",
+"PKFireWep",
+"FireBallWep",
+"RakuhouhaWep",
+"PiaofuFengWep",
+"RocketChaingunWep",
+"NoteableShotWep",
+"PharaohSacrificeWep",
+"RecycleInhalerWep",
+"BlazingSoulWep",
+"FrenzyPlantWep",
+"BoulderCrackerWep",
+"DizzyBombWep",
+"MistFormWep",
+"TwistLaserWep",
+"FadeLauncherWep",
+"CloudBomberWep",
+"IceSpikeWep",
+"PerfectChainsawWep",
+"SkyUppercutWep",
+"EqualizerWep",
+"QuadMissileWep",
+"CoalShotWep",
+"DangerFieldWep",
+"GravityHoleWep",
+"StoneWallWep",
+"PhoenixRodWep",
+"PinMissileWep",
+"PopCornWep",
+"DoubleNapalmWep",
+"EternalNight",
+"BombSniperWep",
+"LightningChainWep",
+"FlurrySpreadWep",
+"BulletSeedWep",
+"CrossFlameWep",
+"ShockMineWep",
+"ThunderCloud",
+"LeechSeedWep",
+"MagnetDrillWep",
+"AquaPunchWep",
+"HellWheelWep",
+"FireWorksWep",
+"UnDeadArmyWep",
+"ShatterStoneWep",
+"CometLauncherWep",
+"GemCannonWep",
+"SideStarWep",
+"FrostBombWep",
+"TripleZapWep",
+"SunSparkWep",
+"HailShotGunWep",
+"HeadCrashWep",
+"HammerTailWep",
+"HCRBoomerangWep",
+"ThunderFangWep",
+"StealthRockWep",
+"IceShurikensWep",
+"ScatterBallWep",
+"WaterCutterWep",
+"VolcanoHandWep",
+"SuperArrowWep",
+"SparkManBowWep",
+"PharaohShotGunWep",
+"LaserMissileWep",
+"DustVaccumWep",
+"RingTossWep",
+"SpikeBallWep",
+"DrillArmWep",
+"PursuitWep",
+"YoyoCutterWep",
+"NailShieldWep",
+"CometDashWep",
+"NitroBlastWep",
+"TankArsenalWep",
+"SizzleRocketWep",
+"RainbowBeamWep",
+"HammerTossWep",
+"DumplingBombWep",
+"DelayBusterWep",
+"GlueShotWep",
+"JetMissileWep",
+"YokuAttackWep",
+"ThunderChainWep",
+"FractalLaserWep",
+"DimensionalWaveWep",
+"OpticLaserWep",
+"StoneWep",
+"FlameSpoutWep",
+
+"HyperSpaceHoleWep",
+"EggBombWep",
+"JumpKickWep",
+"FireFlyWep",
+"SuguriDashWep",
+"WaterPulseWep",
+"BoomerangBombWep",
+"ExplosiveHadoukenWep",
+
+"CircuitBreakerWep",
+"SolarFlareWep",
+"PulseStopperWep",
+"CryptCloakWep",
+"CharadeCloneWep",
+"PhantomFuseWep",
+"VirusOutbreakWep",
+"ShockGauntletWep"
+};
+str DIRPWep5[127]={
+"SpeedGearWep",
+"RakuhouhaWep",
+"WaterShurikenWep",
+"IceShardWep",
+"TriAttackWep",
+"BlazeKickWep",
+"OctaZookaWep",
+"NightDazeWep",
+"GigaDrainWep",
+"MoonBlastWep",
+"FreezeDryWep",
+"IceBeamWep",
+"FellStingerWep",
+"WillOWispWep",
+"MagnetBombWep",
+"LeafStormWep",
+"WildTornadoWep",
+"TeleportWep",
+"ChargeBeamWep",
+"WaterSpoutWep",
+"BeeOrderWep",
+"SteelWingWep",
+"SeedFlareWep",
+"FireBlastWep",
+"PKFireWep",
+"FireBallWep",
+"PiaofuFengWep",
+"RocketChaingunWep",
+"NoteableShotWep",
+"PharaohSacrificeWep",
+"FrenzyPlantWep",
+"RecycleInhalerWep",
+"BlazingSoulWep",
+"PerfectChainsawWep",
+"SkyUppercutWep",
+"EqualizerWep",
+"QuadMissileWep",
+"CoalShotWep",
+"DangerFieldWep",
+"GravityHoleWep",
+"StoneWallWep",
+"DizzyBombWep",
+"BoulderCrackerWep",
+"MistFormWep",
+"EternalNight",
+"TwistLaserWep",
+"FadeLauncherWep",
+"CloudBomberWep",
+"IceSpikeWep",
+"PhoenixRodWep",
+"PinMissileWep",
+"PopCornWep",
+"DoubleNapalmWep",
+"BombSniperWep",
+"LightningChainWep",
+"FlurrySpreadWep",
+"BulletSeedWep",
+"CrossFlameWep",
+"ShockMineWep",
+"ThunderCloud",
+"LeechSeedWep",
+"MagnetDrillWep",
+"AquaPunchWep",
+"HellWheelWep",
+"FireWorksWep",
+"UnDeadArmyWep",
+"ShatterStoneWep",
+"CometLauncherWep",
+"GemCannonWep",
+"SideStarWep",
+"FrostBombWep",
+"TripleZapWep",
+"SunSparkWep",
+"HailShotGunWep",
+"HeadCrashWep",
+"HammerTailWep",
+"HCRBoomerangWep",
+"ThunderFangWep",
+"StealthRockWep",
+"IceShurikensWep",
+"ScatterBallWep",
+"WaterCutterWep",
+"VolcanoHandWep",
+"SuperArrowWep",
+"SparkManBowWep",
+"PharaohShotGunWep",
+"LaserMissileWep",
+"DustVaccumWep",
+"RingTossWep",
+
+"SpikeBallWep",
+"DrillArmWep",
+"PursuitWep",
+"YoyoCutterWep",
+"NailShieldWep",
+"CometDashWep",
+"NitroBlastWep",
+"TankArsenalWep",
+"SizzleRocketWep",
+"RainbowBeamWep",
+"HammerTossWep",
+"DumplingBombWep",
+"DelayBusterWep",
+"GlueShotWep",
+"JetMissileWep",
+"YokuAttackWep",
+"ThunderChainWep",
+"FractalLaserWep",
+"DimensionalWaveWep",
+"OpticLaserWep",
+"StoneWep",
+"FlameSpoutWep",
+
+"HyperSpaceHoleWep",
+"EggBombWep",
+"JumpKickWep",
+"FireFlyWep",
+"SuguriDashWep",
+"WaterPulseWep",
+"BoomerangBombWep",
+"ExplosiveHadoukenWep",
+
+"CircuitBreakerWep",
+"SolarFlareWep",
+"PulseStopperWep",
+"CryptCloakWep",
+"CharadeCloneWep",
+"PhantomFuseWep",
+"VirusOutbreakWep",
+"ShockGauntletWep"
+};
+
+str DIRPItem[11]={
+"WTank",
+"EddieSummon",
+"GamblingDice",
+"ExitUnit",
+"DuoFist",
+"RushCoil",
+"BassUpgrade",
+"TangoSummon",
+"Item1",
+"SeriousBombItem",
+"TrebleSentry"
+};
+
+str DIRPRune[6]={
+"RageRune",
+"StrengthRune",
+"SpreadRune",
+"HasteRune",
+"HighJumpRune",
+"ReflectionRune",
+};
+
+global int 0:RangedWepRandom;
+global int 1:RapidWepRandom;
+global int 2:CloseWepRandom;
+global int 3:PowerWepRandom;
+global int 4:ShieldWepRandom;
+
+global int 5:DIRPwep1Random;
+global int 6:DIRPwep2Random;
+global int 7:DIRPwep3Random;
+global int 8:DIRPwep4Random;
+global int 9:DIRPwep5Random;
+global int 10:DIRPItemRandom;
+global int 11:DIRPRuneRandom;
+// LMS Weapon Randomization
+//
+script 981 (void)
+{
+// Check if the game is actually LMS
+if(GetCvar("lastmanstanding")==1||GetCvar("teamlms")==1){
+	// Ignore if game is set to instagib
+	if(GetCvar("instagib")==1){terminate;}
+	// Ignore scramble mode
+	if(GetCvar("dirp_scramble" == 1)){terminate;}
+
+	Delay(5);
+
+	// Take bots Mega Buster so they actually use a different weapon (limited to ranged weapon at present)
+	if(PlayerIsBot(PlayerNumber())){
+		TakeInventory("MegaBuster",1);
+	}
+
+	if(GetCVAR("dirp_Allweps") == 0)
+	{
+	GiveInventory(DIRPWep1[DIRPwep1Random],1);
+	GiveInventory(DIRPWep2[DIRPwep2Random],1);
+	GiveInventory(DIRPWep3[DIRPwep3Random],1);
+	GiveInventory(DIRPWep4[DIRPwep4Random],1);
+	GiveInventory(DIRPWep5[DIRPwep5Random],1);
+	GiveInventory(DIRPItem[DIRPItemRandom],1);
+	//GiveInventory(DIRPRune[DIRPRuneRandom],1);
+	}
+
+	if(GetCVAR("dirp_Allweps") == 1)
+	{
+	GiveInventory(ShieldWep[ShieldWepRandom],1);
+	GiveInventory(RapidWep[RapidWepRandom],1);
+	GiveInventory(CloseWep[CloseWepRandom],1);
+	GiveInventory(PowerWep[PowerWepRandom],1);
+	GiveInventory(RangedWep[RangedWepRandom],1);
+	}
+
+	Delay(1);
+
+	// Give the bot the Mega Buster back
+	if(PlayerIsBot(PlayerNumber())){
+		GiveInventory("MegaBuster",1);
+	}
+}
+}
+
+// A script to generate random numbers for LMS weapons
+//
+script 980 OPEN
+{
+Delay(1);
+RangedWepRandom = Random(0,52);
+RapidWepRandom = Random(0,23);
+CloseWepRandom = Random(0,55);
+PowerWepRandom = Random(0,39);
+ShieldWepRandom = Random(0,23);
+
+DIRPwep1Random = Random(0,126);
+DIRPwep2Random = Random(0,126);
+DIRPwep3Random = Random(0,126);
+DIRPwep4Random = Random(0,126);
+DIRPItemRandom = Random(0,10);
+DIRPRuneRandom = Random(0,5);
+DIRPwep5Random = Random(0,126);
+}
+
+// Script that is executed everytime a weapon's NoAmmo state is called.
+script 979 (void)
+{
+If(PlayerIsBot(PlayerNumber()))
+	{
+	if(CheckInventory("TimeStopperWep")>0)
+		{
+		TakeInventory("TimeStopperWep",1);
+		GiveInventory("MegaBuster",1);
+		SetWeapon("MegaBuster");
+		}
+	if(CheckInventory("SkullBarrierWep")>0)
+		{
+		TakeInventory("SkullBarrierWep",1);
+		GiveInventory("MegaBuster",1);
+		SetWeapon("MegaBuster");
+		}
+	if(CheckInventory("PlantBarrierWep")>0)
+		{
+		TakeInventory("PlantBarrierWep",1);
+		GiveInventory("MegaBuster",1);
+		SetWeapon("MegaBuster");
+		}
+	SetPlayerProperty(0,1,4);
+	ACS_Execute(992, 0, 255);
+	Delay(15);
+	SetPlayerProperty(0,0,4);
+	}
+}
+
+
+
+// Check Flame Blast for oil in Flame Man's stage
+// (Legacy, needs to be removed eventually)
+script 202 (void)
+{
+if(CheckActorFloorTexture(0, "FLAMOIL1")){
+ACS_Execute(1,0,0);
+}
+if(CheckActorFloorTexture(0, "FLAMOIL2")){
+ACS_Execute(2,0,0);
+}
+}
+
+// Scorch Wheel speed adjuster (and Instagib)
+//
+script 191 (int speed)
+{
+if(speed==1){
+SetActorProperty(0,APROP_SPEED,1.45);
+}
+if(speed==0){
+SetActorProperty(0,APROP_SPEED,1.0);
+}
+if(speed==3){
+SetActorProperty(0,APROP_SPEED,1.25);
+SetActorProperty(0,APROP_JUMPZ,13.0);
+}
+
+
+
+}
+
+//CMM
+// NOTE it's in WCOLORS because it uses the Energy Balancer weapon script. Feel free to change the script number later (called only by the actor ReggaeEffect)
+
+Script 260 (int AssignTID)
+{
+If(AssignTID == 1)
+	{
+	int ServerMAX = GetCVAR("sv_MaxClients");
+	int Retry=0;
+	For(int a=0; a <= ServerMAX; a++)
+		{
+		If(PlayerInGame(a))
+			{
+			If(CheckActorInventory(a+1000, "ReggaeFlag"))
+				{
+				TakeActorInventory(a+1000, "ReggaeFlag", 1);
+				Thing_ChangeTID(0, a+2064);
+				terminate;
+				}
+			If(a==ServerMAX && Retry < 2)
+				{
+				a=0;
+				Delay(1);
+				Retry++;
+				}
+			}
+		}
+	Thing_Remove(0);
+	}
+str StolenWeapon;
+str StolenName;
+int WeaponSlot;
+
+bool Stolen = false;
+int ReggaeTID = ActivatorTID();
+If(ReggaeTID == 0){terminate;}
+SetActivatorToTarget(0);
+int VictimTID = ActivatorTID();
+If(VictimTID >=1000){GiveActorInventory(VictimTID, "ReggaeBanish", 1);}
+
+WeaponSlot = WhichWeapon();
+Delay(1);
+If(WeaponSlot >= 0)
+	{
+	StolenWeapon = weapons_ammo[WeaponSlot][0];
+	StolenName = weapons_ammo[WeaponSlot][2];
+	If(!(StolenWeapon == "TrebleBoost"))
+		{
+		TakeInventory(StolenWeapon,1);
+		GiveInventory("ResetPlayerStats", 1);
+		Delay(1);
+		GiveActorInventory(ReggaeTID - 1064,StolenWeapon,1);
+		Stolen = TRUE;
+		}
+	}
+
+	LocalAmbientSound("item/reggae",127);
+
+	SetActivator(ReggaeTID - 1064);
+	SetHudSize(600,380,0);
+	if(Stolen == TRUE){HudMessage(s:"You stole \cc", s:StolenName, s:"\c- from ", n:VictimTID - 999, s:"!";HUDMSG_FADEOUT,2,CR_ORANGE,300.4,50.0,2.0,0.5); terminate;}
+	HudMessage(s:"Couldn't steal a weapon from ", n:VictimTID - 999, s:"!";HUDMSG_FADEOUT,2,CR_ORANGE,300.4,50.0,2.0,0.5);
+}
+
+str BusterUpgrades[6] =
+{
+"ProtoUpgrade",
+"ArrowBusterUpgrade",
+"LaserBusterUpgrade",
+"BassUpgrade",
+"DuoFistUpgrade",
+"AdaptorUpgrade"
+};
+
+//Eddie Random Weapon script
+Script 256 (void)
+{
+int i;
+int TotalWeapons = MAX_WEAPONS + MAX_BUSTERS;
+int ThePlayer = ACS_ExecuteWithResult(257);
+
+int RandomSelection = 0;
+
+if(GetCvar("dirp_allweps") == 1)
+{
+RandomSelection = Random(0, TotalWeapons-1);
+}
+else
+{
+RandomSelection = Random(144, TotalWeapons-1); //dirp only
+}
+
+
+int WeaponName;
+If(RandomSelection >= MAX_WEAPONS)
+	{
+	RandomSelection-=MAX_WEAPONS;
+	WeaponName = BusterUpgrades[RandomSelection];
+	}
+Else
+	{
+	WeaponName = Weapons_Ammo[RandomSelection][0];
+	}
+
+If(WeaponName == "TrebleBoost"){WeaponName = "TrebleBoostUpgrade";}
+//printbold(i:RandomSelection, s:" - ", s:WeaponName);
+
+If(CheckActorInventory(ThePlayer, WeaponName) && i < 35)
+	{
+	i++;
+	restart;
+	}
+
+
+SpawnProjectile(0, WeaponName, GetActorAngle(0)>>8, 75, 40, 1.0, 0);
+
+}
+
+#DEFINE RANGEDWEP_MAX 46
+#DEFINE RAPIDWEP_MAX 23
+#DEFINE CLOSEWEP_MAX 53
+#DEFINE POWERWEP_MAX 35
+#DEFINE SHIELDWEP_MAX 19
+
+//Scramble mode! This is lodged in here because all the arrays are already here
+Script 605 OPEN
+{
+
+if(GetCvar("dirp_scramble") == 1){
+
+ACS_ExecuteAlways(980,0);
+AmbientSound("misc/ding",128);
+
+Delay(2);
+
+if(GetCVAR("dirp_Allweps") == 0)
+	{
+
+	for(int i = 1000; i < 1064; i++)
+	{
+	GiveActorInventory(i,"wipeinventory",1);
+	GiveActorInventory(i,"resetplayer",1);
+	Delay(1);
+	GiveActorInventory(i,DIRPWep1[DIRPwep1Random],1);
+	GiveActorInventory(i,DIRPWep2[DIRPwep2Random],1);
+	GiveActorInventory(i,DIRPWep3[DIRPwep3Random],1);
+	GiveActorInventory(i,DIRPRune[DIRPRuneRandom],1);
+	}
+
+	}
+
+if(GetCVAR("dirp_Allweps") == 1)
+	{
+
+	for(int j = 1000; i < 1064; i++)
+	{
+	GiveActorInventory(j,"wipeinventory",1);
+	GiveActorInventory(j,"resetplayer",1);
+	Delay(1);
+	GiveActorInventory(j,RapidWep[RapidWepRandom],1);
+	GiveActorInventory(j,PowerWep[PowerWepRandom],1);
+	GiveActorInventory(j,RangedWep[RangedWepRandom],1);
+	GiveActorInventory(j,DIRPRune[DIRPRuneRandom],1);
+	}
+
+	}
+
+Delay(34 * GetCvar("dirp_scrambletime")); //it's 34 because of the delays above
+restart;
+}
+}
+
+Script 606 (void)
+{
+ClearInventory();
+}
+
+Script 607 RESPAWN
+{
+
+if(GetCvar("dirp_scramble") == 1)
+{
+
+if(GetCVAR("dirp_Allweps") == 0)
+	{
+	GiveInventory("wipeinventory",1);
+	GiveInventory("resetplayer",1);
+	Delay(1);
+	GiveInventory(DIRPWep1[DIRPwep1Random],1);
+	GiveInventory(DIRPWep2[DIRPwep2Random],1);
+	GiveInventory(DIRPWep3[DIRPwep3Random],1);
+	GiveInventory(DIRPRune[DIRPRuneRandom],1);
+	}
+
+if(GetCVAR("dirp_Allweps") == 1)
+	{
+	GiveInventory("resetplayer",1);
+	GiveInventory("wipeinventory",1);
+	Delay(1);
+	GiveInventory(RapidWep[RapidWepRandom],1);
+	GiveInventory(PowerWep[PowerWepRandom],1);
+	GiveInventory(RangedWep[RangedWepRandom],1);
+	GiveInventory(DIRPRune[DIRPRuneRandom],1);
+	}
+
+
+}
+
+}
+
+Script 608 ENTER
+{
+ACS_ExecuteAlways(607,0);
+}
+
+//Prevents bots from standing still and allows them to change weapons / use buster upgrades
+//If Bots have the NoBotFix item, this script is terminated
+
+Script 252 ENTER
+{
+int xPos;
+int yPos;
+int d = 10;
+int BotWeapon;
+if(PlayerIsBot(PlayerNumber()))
+	{
+	Delay(35);
+	if(CheckInventory("NoBotFix")==1){terminate;}
+	While(GetActorProperty(ActivatorTID(), APROP_HEALTH) > 0 && !CheckInventory("IsDead")==1)
+		{
+		xPos = GetActorX(0);
+		yPos = GetActorY(0);
+		Delay(35);
+		BotWeapon = BotWeaponSelect();
+		If(d <= 0 && BotWeapon >= 0)
+			{
+			If(BotWeapon >= MAX_WEAPONS)
+				{
+				UseInventory(BusterUpgrades[BotWeapon-MAX_WEAPONS]);
+				d=Random(15, 25);
+				}
+			Else
+				{
+				If(weapons_ammo[BotWeapon][0] == "TrebleBoost")
+					{
+					UseInventory("TrebleBoostUpgrade");
+					d=Random(15, 25);
+					}
+				Else
+					{
+					SetWeapon(weapons_ammo[BotWeapon][0]);
+					//printbold(s:weapons_ammo[BotWeapon][0]);
+					d=Random(5, 15);
+					}
+				}
+			}
+		Else
+			{
+			If(d > 0){d--;}
+			}
+		if(ACS_ExecuteWithResult(972)==2 || GetActorProperty(ActivatorTID(), APROP_HEALTH) <= 0 || CheckInventory("IsDead")==1){terminate;}
+		if(xPos == GetActorX(0) && yPos == GetActorY(0) && (Abs(GetActorVelX(0)) < 0.25 || Abs(GetActorVelY(0)) < 0.25))
+			{
+			//SetActorAngle (0, GetActorAngle (0) - 0.5);
+			GiveInventory("ForceLook",1);
+			}
+		}
+	}
+}
+
+function int BotWeaponSelect (void)
+{
+int SelectedWeapon;
+int WeaponName;
+int i = 0;
+
+While(i <= 15)
+	{
+	SelectedWeapon = Random(0, MAX_WEAPONS + MAX_BUSTERS-1);
+	If(SelectedWeapon >= MAX_WEAPONS)
+		{
+		WeaponName = BusterUpgrades[SelectedWeapon-MAX_WEAPONS];
+		}
+	Else
+		{
+		WeaponName = weapons_ammo[SelectedWeapon][0];
+		If(WeaponName == "TrebleBoost"){WeaponName = "TrebleBoostUpgrade";}
+		}
+	i++;
+	If(CheckInventory(WeaponName)){Return(SelectedWeapon);}
+	}
+Return(-1);
+}
+
+//Returns absolute value
+function int abs (int x)
+{
+    if (x < 0)
+        return -x;
+
+    return x;
+}

@@ -1,0 +1,96 @@
+actor FellStingerWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was stung by %k's Fell Stinger."
+Inventory.Pickupmessage "Power up! Fell Stinger!"
+weapon.ammotype "FellStingerAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "FSTNICO"
+Scale 2.0
+States
+{
+Spawn:
+FSTN A 1
+loop
+Ready:
+NEDC B 0 ACS_ExecuteAlways(998,0,10)
+NEDC B 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+NEDC B 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+NEDC B 1 A_Raise
+Loop
+Fire:
+Hold:
+NEDC B 0 A_JumpIfNoAmmo("No")
+NEDC B 0 A_JumpIfInventory("CritFlag",1,"Crit1")
+NEDC B 0 A_Jump(28,"Crit2")
+NEDC B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+NEDC B 0 A_FireCustomMissile("FellStinger",0,1,8,0)
+NEDC CDB 2
+NEDC B 8
+NEDC B 0 A_Refire
+Goto Ready+1
+Crit1:
+NEDC B 1 A_TakeInventory("CritFlag",1)
+NEDC B 0 A_PlaySoundEx("weapon/thunderbolt","Weapon")
+NEDC B 0 A_FireCustomMissile("FellStingerCrit1",0,1,8,0)
+NEDC CDB 2
+NEDC B 17
+NEDC B 0 A_Refire
+Goto Ready+1
+Crit2:
+NEDC B 0 A_PlaySoundEx("weapon/thunderbolt","Weapon")
+NEDC B 0 A_FireCustomMissile("FellStingerCrit2",0,1,8,0)
+NEDC CDB 2
+NEDC B 17
+NEDC B 0 A_Refire
+Goto Ready+1
+No:
+NEDC B 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor FellStinger : Needle
+{
+Scale 3.0
+Height 12
+Obituary "%o was stung by %k's Fell Stinger."
+Radius 14
++RIPPER
+Speed 40
+Damage (8)
+DamageType "FellStinger"
+}
+
+actor FellStingerCrit1 : FellStinger
+{
+Translation "220:220=176:176"
+Damage (19)
+DamageType "NeedleCannon"
+}
+
+actor FellStingerCrit2 : FellStingerCrit1
+{
+DamageType "FellStingerAlways"
+}
+
+actor CritFlag : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 10
+}
+
+actor FellStingerAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

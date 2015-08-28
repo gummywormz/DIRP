@@ -1,0 +1,97 @@
+weapon/twgo WOOLGO
+weapon/twshot WOOLSHOT
+weapon/speedgearrev SGREV
+weapon/flurryspread FLURRY
+weapon/mmvshot MMVSH
+weapon/magdrillshoot 9cann
+weapon/aquafist1 aqlau
+weapon/aquafist2 aqlau2
+weapon/magdrillsplit 9exp
+weapon/somelectricattack somele
+weapon/oblivion NUKED
+weapon/teleport DSITMBK
+weapon/lightshield LIGOUT
+weapon/blastfreeze BLAFRE
+weapon/blaststart BLAFRST
+weapon/crossflame CROSFLA
+weapon/skyuppercut SKYCUT
+weapon/frenzydash FDASH
+weapon/starbounce STARBOUN
+weapon/startos STARTOS
+weapon/starout STAROUT
+weapon/coalgun CHUG
+weapon/crosslight WILYBEAM
+weapon/bombfall FALL
+weapon/perfectchainsaw BUZSLICE
+weapon/hailshotgun CHILSHOT
+weapon/laserrocks LASRRCKS
+weapon/flamedash GRAGROAR
+weapon/apexwarn ALARM3
+weapon/frenzyplant wilyats
+weapon/dustvaccum DUSTSHOT
+weapon/rainflood SURF1
+weapon/piaofufeng WIND
+
+weapon/pursuitfire PURS1
+weapon/pursuithit PURSHIT
+
+weapon/starhop STARTOAD
+weapon/watercutter WATERCUT
+weapon/rushexplode  megadeat
+weapon/sparkmanbow  SPMNB
+weapon/recycleinhaler  RECYCIN
+
+misc/freeze	ICEWSTA
+misc/icebreak ACENTF
+
+weapon/glueshot GLUESHT1
+weapon/glueland GLUESHT2
+
+weapon/tankarsenal TANKARS
+weapon/tankram TANKCHRG
+weapon/tanksee TANKSEE
+
+weapon/jetmissiletarget JETTARG
+weapon/jetmanmissile JETMANM
+weapon/jetmissile JETMISS
+weapon/jetbomb JETDRP
+
+yoku/death MEGADEAT
+yoku/regen YOKUREGN
+weapon/yokuprojectile YOKUSHOT
+
+weapon/yoyocutter YOYOCUT
+
+weapon/rainbowbeammega MMRNBM
+weapon/rainbowspread MMRNBS
+weapon/rainbowmanspread RNBMLS
+weapon/rainbowmanbeam RNBMLSR
+weapon/rainbowarrow ARRLND
+
+weapon/nitroblast TRINIT
+
+weapon/hammersmash HAMMER
+
+weapon/nailshield NAILSLD
+weapon/nailshieldthrow NAILSHT
+weapon/nailbuster NAILBST
+
+weapon/cometdash COMDASH
+weapon/cometshot COMETSHT
+weapon/cometwomandash CWDASH
+weapon/cometorbit CMTORB
+
+misc/csidie CSIDEAT
+
+misc/ding ding
+
+weapon/circuit circuit
+weapon/flare flare
+weapon/fuse fuse
+weapon/pulsestopper pulse
+weapon/cloakon telein
+weapon/cloakoff teleout2
+weapon/charadeclone clone
+weapon/virusoutbreak virus
+
+weapon/hyperspacehole TELEPORT

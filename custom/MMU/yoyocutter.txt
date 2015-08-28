@@ -1,0 +1,179 @@
+actor YoYoCutterAmmo : Ammo
+{
+Inventory.Amount 1
+Inventory.MaxAmount 28
+}
+
+actor YoyoCutterWep : MegaBuster 
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was chopped by %k's Yoyo Cutter."
+Inventory.Pickupmessage "Power up! Yoyo Cutter!"
+weapon.ammotype "YoYoCutterAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "YOYOICO"
+Scale 2.0
+States
+{
+Spawn:
+YOYC C 1
+loop
+Ready:
+YOHD A 0 ACS_ExecuteAlways(998,0,507)
+YOHD A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+YOHD A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+YOHD A 1 A_Raise
+Loop
+Fire:
+YOHD A 0 A_JumpIfNoAmmo("NoAmmo")
+YOHD A 0 A_PlaySoundEx("weapon/yoyocutter","Weapon")
+YOHD A 0 A_FireCustomMissile("YoYoCutter",0,1,8,0)
+YOHD BCDEFGHI 3
+YOHD A 13
+YOHD A 1 A_Refire
+Goto Ready+1
+NoAmmo:
+YOHD A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor YoYoReturn : RingBoomerang
+{
++NOINTERACTION
+Scale 2.5
+damagetype "YoYoCutter"
+radius 0
+height 0
+States
+{
+Spawn:
+YOYC A 0
+YOYC A 0 A_JumpIfCloser(32,"Death")
+YOYC AB 1 A_SpawnItemEx("YoYoCutterDamager",0,0,0,2,0,0)
+YOYC B 0 A_JumpIfCloser(32,"Death")
+YOYC AB 1 A_SpawnItemEx("YoYoCutterDamager",0,0,0,2,0,0)
+YOYC A 0 A_JumpIfCloser(32,"Death")
+YOYC AB 1 A_SpawnItemEx("YoYoCutterDamager",0,0,0,2,0,0)
+YOYC B 0 A_JumpIfCloser(32,"Death")
+YOYC AB 1 A_SpawnItemEx("YoYoCutterDamager",0,0,0,2,0,0)
+YOYC A 0 A_Stop
+stop
+Death:
+YOYC B 0
+stop
+}
+}
+
+actor YoYoCutterDamager
+{
+damagetype "YoYoCutter"
+PROJECTILE
++RIPPER
+Obituary "%o was chopped by %k's YoYo Cutter."
+damage (10)
+radius 12
+height 12
+States
+{
+Spawn:
+TNT1 A 2
+stop
+}
+}
+
+actor YoYoCutter
+{
+PROJECTILE
++RIPPER
+Obituary "%o was chopped by %k's YoYo Cutter."
++NOTARGETSWITCH
+Height 12
+Radius 12
+DamageType "YoYoCutter"
+Scale 2.5
+Damage (10)
+Speed 40
+ReactionTime 20
+States
+{
+Spawn:
+YOYC A 1
+YOYC ABAB 2
+YOYC AB 1
+YOYC A 0 A_Stop
+YOYC A 0 A_GiveToTarget("YoYoDone",1)
+YOYC ABAB 2
+YOYC ABAB 2
+goto Death
+Death:
+TNT1 A 1 A_JumpIfInTargetInventory("YoYoDone",1,"RealDeath")
+TNT1 A 0 A_JumpIf(z-floorz<5, "FloorFollow")
+TNT1 A 0 A_JumpIf(z-ceilingz==0-6, "CeilingFollow")
+stop
+RealDeath:
+TNT1 A 0 A_TakeFromTarget("YoYoDone",999)
+TNT1 A 1 A_CustomMissile("YoYoReturn",0,0,0,0)
+stop
+FloorFollow:
+TNT1 A 1 A_SpawnItemEx("YoYoCutterFloor",0,0,0,40,0,0,0)
+stop
+CeilingFollow:
+TNT1 A 1 A_SpawnItemEx("YoYoCutterCeiling",0,0,0,40,0,0,0)
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}
+
+actor YoYoCutterFloor
+{
+PROJECTILE
+Height 12
+Obituary "%o was chopped by %k's YoYo Cutter."
+Radius 12
+DamageType "YoYoCutter"
+Scale 2.5
+Damage (10)
++FLOORHUGGER
++RIPPER
+Speed 40
+States
+{
+Spawn:
+YOYC A 1
+YOYC ABAB 2
+YOYC AB 1
+YOYC A 0 A_Stop
+YOYC ABAB 2
+YOYC ABAB 2
+goto Death
+Death:
+TNT1 A 1 A_CustomMissile("YoYoReturn",0,0,0,0)
+stop
+}
+}
+
+actor YoYoCutterCeiling : YoYoCutterFloor
+{
+-FLOORHUGGER
+Obituary "%o was chopped by %k's YoYo Cutter."
++CEILINGHUGGER
+}
+
+actor YoYoDone : Inventory //for a source port that's advertised as multiplayer
+//zdoom, it sure doesn't keep up with zdoom (needs more DECORATE vars)
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+}

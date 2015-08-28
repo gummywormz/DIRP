@@ -1,0 +1,54 @@
+actor TeleportWep : MegaBuster
+{
+Weapon.AmmoUse 48
+Weapon.AmmoGive 48
+Obituary "%k escaped %o."
+Weapon.SlotNumber 7
+weapon.ammotype "TeleportAmmo"
+Inventory.Pickupmessage "Power up! Teleport!"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "TLPWICO"
+Scale 2.0
+States
+{
+Spawn:
+TLPW A 1
+loop
+Ready:
+SPAS C 0 ACS_ExecuteAlways(998,0,31)
+SPAS C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SPAS C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SPAS C 1 A_Raise
+Loop
+Fire:
+SPAD D 0 A_JumpIfNoAmmo("NoAmmo")
+SPAD D 0 A_TakeInventory("TeleportAmmo",48)
+SPAS D 0 A_Stop
+SPAS D 0 A_ChangeFlag("THRUACTORS",1)
+SPAS D 0 A_FadeOut(0.02)
+SPAS D 0 ThrustThing(angle*256/random(180,360), 400, 1, 0)
+SPAS D 10
+SPAS D 0 A_Stop
+SPAS D 0 A_FadeIn(0.02)
+SPAS D 0 A_ChangeFlag("THRUACTORS",0)
+SPAS ED 5
+SPAS D 20
+goto Ready+1
+NoAmmo:
+SPAS C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor TeleportAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 48
+}

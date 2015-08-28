@@ -1,0 +1,196 @@
+actor ThunderWoolBall
+{
+PROJECTILE
+-SOLID
++PIERCEARMOR
+Obituary "%o was stunned by %k's Thunder Wool."
++NOGRAVITY
++FLOORHUGGER
++DONTBLAST
+Damagetype "SparkShock"
+bouncefactor 0.0
+maxstepheight 0
+gravity 3.0
+Radius 10
+Height 10
+speed 25
+scale 2.5
+damage (20)
+//+FORCEXYBILLBOARD
+speed 28
+States
+{
+Spawn:
+RDTB AB 2
+loop
+}
+}
+
+actor RainbowAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}
+
+actor TBolt2
+{
+PROJECTILE
++NOGRAVITY
++PIERCEARMOR
+Obituary "%o was stunned by %k's Thunder Wool."
+Radius 10
+Height 10
+scale 2.5
+Damagetype "SparkShock"
+damage (15)
+speed 28
+States
+{
+Spawn:
+TWTH ABABAB 3
+loop
+Death:
+TNT1 A 1 A_SpawnItemEx("ThunderWoolBall", 0, 0, 2, 25, 0, 0, 0)
+TNT1 A 1 A_SpawnItemEx("ThunderWoolBall", 0, 0, 2, 25, 0, 0, 90)
+TNT1 A 1 A_SpawnItemEx("ThunderWoolBall", 0, 0, 2, 25, 0, 0, 180)
+TNT1 A 1 A_SpawnItemEx("ThunderWoolBall", 0, 0, 2, 25, 0, 0, 270)
+stop
+}
+}
+
+actor TBolt1
+{
+PROJECTILE
++NOGRAVITY
++PIERCEARMOR
+Obituary "%o was stunned by %k's Thunder Wool."
+Radius 10
+Height 10
+scale 2.5
+damage (15)
+damagetype "SparkShock"
+//+FORCEXYBILLBOARD
+speed 28
+States
+{
+Spawn:
+TWTH ABABAB 3
+loop
+}
+}
+
+//all parts when the thing fires is moved to a new state so it doesn't go away when it enters death state.
+
+actor ThunderStill
+{
+PROJECTILE
++PIERCEARMOR
+Obituary "%o was stunned by %k's Thunder Wool."
++NOGRAVITY
+damagetype "SparkShock"
+Radius 10
+Height 10
+scale 2.5
+damage (15)
+//+FORCEXYBILLBOARD
+speed 28
+States
+{
+Spawn:
+RDCL B 1
+goto Shoot1
+Shoot1:
+RDCL BBBBBBBBBBBBBBBBBBBBBBBB 1 A_SpawnItemEx("TBolt1", 0, 0, 0, 0, 0, -25, 0)
+RDCL B 1 A_SpawnItemEx("TBolt2", 0, 0, 0, 0, 0, -25, 0)
+stop
+Death:
+goto Shoot1
+}
+}
+
+actor TCLOUDPROJECTILE
+{
++Solid
++SKYEXPLODE
+Obituary "%o was stunned by %k's Thunder Wool."
+PROJECTILE
+DamageType "ElecBeam"
++NOGRAVITY
+Radius 10
+Height 10
+scale 2.5
+damage (5)
+//+FORCEXYBILLBOARD
+speed 20
+States
+{
+Spawn:
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+goto Shoot
+Shoot:
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 ThrustThingZ(0, 5, 0, 1)
+RDCL A 2 A_SpawnItemEx("ThunderStill", 0, 0, 0, 0, 0, 0, 0)
+RDCL A 0 A_PlaySoundEx("weapon/twshot","Soundslot5")
+stop
+Death:
+goto Shoot
+}
+}
+
+actor ThunderCloud : MegaBuster
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 30
+Weapon.SlotNumber 4
+inventory.icon "TWICO"
+Obituary "%o was stunned by %k's Thunder Wool."
+Inventory.Pickupmessage "Power up! Thunder Wool!"
+weapon.ammotype "RainbowAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+THWO A -1
+stop
+Ready:
+THUN H 0 ACS_ExecuteAlways(998,0,16)
+THUN H 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+THUN H 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+THUN H 1 A_Raise
+Loop
+Fire:
+THUN H 0 A_JumpIfNoAmmo("NoAmmo")
+THUN H 0 A_PlaySoundEx("weapon/twgo","Weapon")
+//THUN H 0 A_SpawnItemEx("TCLOUDPROJECTILE", 0, 0, 0, 20, 0, 5, 0)
+THUN H 0 A_FireCustomMissile("TCLOUDPROJECTILE",0,0,8,0)
+THUN H 0 A_TakeInventory("RainbowAmmo",6)
+THUN IJJI 2
+THUN H 32
+THUN H 0 A_Refire
+Goto Ready+1
+NoAmmo:
+THUN H 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

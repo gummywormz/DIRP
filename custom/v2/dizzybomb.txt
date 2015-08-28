@@ -1,0 +1,101 @@
+actor ConfusedSpeed : Powerspeed
+{
++INVENTORY.ALWAYSPICKUP
++INVENTORY.AUTOACTIVATE
+powerup.duration -5
+Speed -1.0
+}
+
+actor DizzyAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor DizzyBomb
+{
+PROJECTILE
+Radius 6
+Height 7
+Obituary "%o was confused by %k's Dizzy Bomb."
+damagetype "Dizzy"
+scale 2.5
+damage (1)
+speed 50
+States
+{
+Spawn:
+DIZB A 0
+DIZB A 1 A_Weave(2, 5, 3.0, 3.0)
+DIZB A 1 A_Weave(2, 5, 3.0, 3.0)
+DIZB A 1 A_Weave(2, 5, 3.0, 3.0)
+DIZB A 1 A_Weave(2, 5, 3.0, 3.0)
+loop
+Death:
+NAPA D 0 A_PlaySoundEx("weapon/crackerexplode", "Weapon")
+NAPA D 0 A_Explode(35, 128, 0)
+DIZB A 3 A_JumpIfCloser(60,"RocketJump")
+NAPA EFGHIJKLMNOPQRS 2
+stop
+RocketJump:
+TNT1 A 0 A_GiveToTarget("RocketJumping",1)
+NAPA EFGHIJKLMNOPQRS 1
+stop
+}
+}
+
+actor RocketJumping : CustomInventory
+{
+states
+{
+Pickup:
+TNT1 A 0
+TNT1 A 1 ThrustThing(angle*256/360,momx + 50,1,0)
+TNT1 A 1 ThrustThingZ(0,50,0,1)
+stop
+}
+}
+
+actor DizzyBombWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Obituary "%o was confused by %k's Dizzy Bomb."
+Inventory.Pickupmessage "Power up! Dizzy Bomb!"
+weapon.ammotype "DizzyAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "DIZZICO"
+Scale 2.0
+States
+{
+Spawn:
+DIZB K -1
+stop
+Ready:
+DIZB B 0 ACS_ExecuteAlways(998,0,215)
+DIZB B 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+DIZB B 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+DIZB B 1 A_Raise
+Loop
+Fire:
+DIZB B 0 A_JumpIfNoAmmo("NoAmmo")
+DIZB B 0 A_PlaySoundEx("weapon/crackerthrow","Weapon")
+DIZB B 0 A_FireCustomMissile("DizzyBomb",0,1,8,0)
+DIZB CDEFGH 2
+DIZB IJ 2
+DIZB B 13
+DIZB B 0 A_Refire
+Goto Ready+1
+NoAmmo:
+DIZB B 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

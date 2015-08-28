@@ -1,0 +1,80 @@
+actor EggBomb
+{
+PROJECTILE
+Radius 6
+Height 5
++SEEKERMISSILE
+Damage (1)
+Obituary "%o was cracked open by %k's Egg Bomb"
++FLOORHUGGER
+Speed 35
+Scale 2.5
++SEEKERMISSILE
+-EXTREMEDEATH
+ReactionTime 18
+States
+{
+Spawn:
+EGGB A 8 A_SeekerMissile(2,5,SMF_LOOK,256,3)
+EGGB A 8 A_Stop
+EGGB A 0 A_Countdown
+loop
+Death:
+EGGB A 0 A_Stop
+EGGB A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+EGGB A 0 A_ChangeFlag("NOGRAVITY",1)
+EGGB A 1 A_Explode(40,128,0,0,1)
+NAPA FGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor EggBombAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+
+Actor EggBombWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+inventory.icon "EGGBICO"
+Obituary "%o was cracked open by %k's Egg Bomb"
+Inventory.Pickupmessage "Power up! Egg Bomb!"
+weapon.ammotype "EggBombAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+EGGB B -1
+stop
+Ready:
+EGGB C 0 ACS_ExecuteAlways(998,0,243)
+EGGB C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+EGGB C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+EGGB C 1 A_Raise
+Loop
+Fire:
+EGGB C 0 A_JumpIfNoAmmo("NoAmmo")
+EGGB C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+EGGB DEC 6
+EGGB C 0 A_FireCustomMissile("EggBomb",0,1,8,0)
+EGGB C 26
+EGGB C 1 A_Refire
+goto Ready+1
+NoAmmo:
+EGGB C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

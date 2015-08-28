@@ -1,0 +1,1 @@
+//3 floor grenades that hurt user and go farher with hold. explodes if hold too long

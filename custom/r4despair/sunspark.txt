@@ -1,0 +1,115 @@
+//ripper but explodes into sun when hits wall.
+actor SunSparkWep : MegaBuster
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was dried up by %k's Sun Spark."
+Inventory.Pickupmessage "Power up! Sun Spark!"
+weapon.ammotype "SunSparkAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SUNSICO"
+Scale 2.0
+States
+{
+Spawn:
+SUNS I 1
+loop
+Ready:
+SUNS F 0 ACS_ExecuteAlways(998,0,231)
+SUNS F 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SUNS F 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SUNS F 1 A_Raise
+Loop
+Fire:
+SUNS F 0 A_JumpIfNoAmmo("NoAmmo")
+SUNS F 0 A_PlaySoundEx("weapon/SparkShock","Weapon")
+SUNS F 0 A_FireCustomMissile("SunSpark",0,1,8,0)
+SUNS GH 4
+SUNS F 7
+SUNS F 0 A_Refire
+Goto Ready+1
+NoAmmo:
+SUNS F 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor SunSparkAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor SunSpark
+{
+PROJECTILE
+Radius 3
+Height 3
+Obituary "%o was dried up by %k's Sun Spark."
+DamageType "ThunderBolt"
+scale 2.5
+damage (10)
++RIPPER
+speed 45
+States
+{
+Spawn:
+SUNS DE 3
+loop
+Death:
+TNT1 A 1 A_PlaySoundEx("weapon/pharaoh2","Voice")
+TNT1 A 1 A_SpawnItemEx("SunSparkEx1",0,0,0,40,0,15,180)
+TNT1 A 1 A_SpawnItemEx("SunSparkEx2",0,0,0,40,0,0,180)
+TNT1 A 1 A_SpawnItemEx("SunSparkEx3",0,0,0,40,0,-15,180)
+stop
+XDeath:
+TNT1 A 1
+stop
+}
+}
+
+actor SunSparkEx1
+{
+PROJECTILE
+Radius 6
+Height 15
+Obituary "%o was dried up by %k's Sun Spark."
+DamageType "PharaohShot"
+Scale 2.5
+Damage (15)
+Speed 30
+States
+{
+Spawn:
+SUNS C 1
+loop
+}
+}
+
+actor SunSparkEx2 : SunSparkEx1
+{
+States
+{
+Spawn:
+SUNS A 1
+loop
+}
+}
+
+actor SunSparkEx3 : SunSparkEx1
+{
+States
+{
+Spawn:
+SUNS B 1
+loop
+}
+}

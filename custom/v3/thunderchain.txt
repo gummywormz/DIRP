@@ -1,0 +1,123 @@
+//lightning flame thrower that explodes upon impact with water
+
+actor ThunderChainMain
+{
+PROJECTILE
+damagetype "ThunderBeam"
++PIERCEARMOR
++RIPPER
+Obituary "%o was zapped by %k's Thunder Chain."
+scale 2.5
+Speed 64
+Radius 12
+Height 12
+Damage (6)
+States
+{
+Spawn:
+CLOF A 1
+CLOF A 0 A_SpawnItemEx("ThunderTrail2")
+CLOF B 1
+CLOF A 0 A_SpawnItemEx("ThunderTrail2")
+CLOF C 1
+CLOF A 0 A_SpawnItemEx("ThunderTrail2")
+CLOF F 1
+CLOF A 0 A_SpawnItemEx("ThunderTrail2")
+CLOF A 1 A_JumpIf(z-floorz<5, "FloorCheck")
+stop
+XDeath:
+TNT1 A 1
+stop
+Death:
+CLOF A 1 A_JumpIf(z-floorz<5, "FloorCheck")
+stop
+FloorCheck:
+TNT1 A 1 A_Jump(84,"FloorZap")
+stop
+FloorZap:
+TNT1 A 1 A_PlaySoundEx("weapon/sparkshock","Voice")
+TNT1 A 1 A_SpawnItemEx("SparkShockMini",0,0,10,30,0,0,0)
+TNT1 A 1 A_SpawnItemEx("SparkShockMini",0,0,10,30,0,0,90)
+TNT1 A 1 A_SpawnItemEx("SparkShockMini",0,0,10,30,0,0,180)
+TNT1 A 1 A_SpawnItemEx("SparkShockMini",0,0,10,30,0,0,270)
+stop
+}
+}
+
+Actor SparkShockMini : SparkShock
+{
+Damage (4)
+Scale 1.0
+}
+
+actor ThunderTrail2
+{
+scale 2.5
+-SOLID
+Obituary "%o was zapped by %k's Thunder Chain."
++NOGRAVITY
++CLIENTSIDEONLY
+height 0
+radius 0
+States
+{
+Spawn:
+CLOF ACDF 2
+stop
+}
+}
+
+actor ThunderChainWep : MegaBuster
+{
+Weapon.AmmoUse 5
+Weapon.AmmoGive 100
+Weapon.SlotNumber 3
+Obituary "%o was zapped by %k's Thunder Chain."
+Inventory.Pickupmessage "Power up! Thunder Chain!"
+weapon.ammotype "ThunderChainAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "THCHICO"
+Scale 2.0
+States
+{
+Spawn:
+THCH A -1
+stop
+Ready:
+THUN H 0 ACS_ExecuteAlways(998,0,16)
+THUN H 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+THUN H 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+THUN H 1 A_Raise
+Loop
+Fire:
+THUN H 0 A_JumpIfNoAmmo("NoAmmo")
+THUN H 0 A_PlaySoundEx("weapon/thunderbeam","Weapon")
+THUN H 0 A_FireCustomMissile("ThunderChainMain",0,1,8,0)
+THUN IJ 5
+THUN J 0 A_Refire
+Goto Ready+1
+Hold:
+THUN J 0 A_JumpIfNoAmmo("NoAmmo")
+THUN J 0 A_PlaySoundEx("weapon/thunderbeam","Weapon")
+THUN J 0 A_FireCustomMissile("ThunderChainMain",0,1,8,0)
+THUN J 5
+THUN J 0 A_Refire
+Goto Ready+1
+NoAmmo:
+THUN H 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor ThunderChainAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 100
+}

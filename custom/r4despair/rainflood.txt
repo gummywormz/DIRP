@@ -1,0 +1,171 @@
+//Shoots a rain flush down. Causes a wave that increases jump height and damages
+//players with ripper stuff.
+actor RainFloodStart
+{
+PROJECTILE
++LOOKALLAROUND
++NOTARGETSWITCH
+Obituary "%o drowned in %k's Rain Flood."
+Radius 90
+Height 70
++RIPPER
+scale 2.5
+damagetype "QuickBoomerang"
+damage (2)
+speed 0
+States
+{
+Spawn:
+RNFL A 0
+RNFL A 1 A_PlaySoundEx("weapon/rainflood","Voice",1)
+RNFL A 3 A_JumpIfCloser(32,"GiveIt1")
+RNFL A 1
+Spawn2:
+RNFL B 3 A_JumpIfCloser(32,"GiveIt2")
+RNFL B 1
+Spawn3:
+RNFL C 3 A_JumpIfCloser(32,"GiveIt3")
+RNFL C 1
+Spawn4:
+RNFL D 1
+RNFL D 3 A_JumpIfCloser(32,"GiveIt4")
+Spawn5:
+RNFL E 1
+RNFL E 3 A_JumpIfCloser(32,"GiveIt5")
+Spawn6:
+RNFL D 3 A_JumpIfCloser(32,"GiveIt6")
+RNFL D 1
+Spawn7:
+RNFL C 3 A_JumpIfCloser(32,"GiveIt7")
+RNFL C 1
+Spawn8:
+RNFL B 3 A_JumpIfCloser(32,"GiveIt8")
+RNFL B 1
+Spawn9:
+RNFL A 3 A_JumpIfCloser(32,"GiveIt9")
+RNFL A 1 A_StopSound
+stop
+GiveIt1:
+RNFL A 0 A_GiveToTarget("LowGravity",1)
+RNFL A 3
+goto Spawn2
+GiveIt2:
+RNFL B 0 A_GiveToTarget("LowGravity",1)
+RNFL B 3
+goto Spawn3
+GiveIt3:
+RNFL C 0 A_GiveToTarget("LowGravity",1)
+RNFL C 3
+goto Spawn4
+GiveIt4:
+RNFL D 0 A_GiveToTarget("LowGravity",1)
+RNFL D 3
+goto Spawn5
+GiveIt5:
+RNFL E 0 A_GiveToTarget("LowGravity",1)
+RNFL E 2
+Goto Spawn6
+GiveIt6:
+RNFL D 0 A_GiveToTarget("LowGravity",1)
+RNFL D 2
+Goto Spawn7
+GiveIt7:
+RNFL C 0 A_GiveToTarget("LowGravity",1)
+RNFL C 2
+Goto Spawn8
+GiveIt8:
+RNFL B 0 A_GiveToTarget("LowGravity",1)
+RNFL B 2
+Goto GiveIt9
+GiveIt9:
+RNFL A 0 A_GiveToTarget("LowGravity",1)
+RNFL A 2
+RNFL A 1 A_StopSound
+RNFL A 1 A_GiveToTarget("NormalGravity",1)
+stop
+}
+}
+
+Actor RainFlood
+{
+PROJECTILE
++RIPPER
+Obituary "%o drowned in %k's Rain Flood."
+DAMAGE (0)
+DAMAGETYPE "RainFlush"
+Scale 2.5
+-NOGRAVITY
+Speed 20
+Height 6
+Radius 6
+States
+{
+Spawn:
+RAIN A 1
+loop
+Death:
+RAIN A 1 A_SpawnItemEx("RainFloodStart")
+stop
+}
+}
+
+actor RainFloodWep : MegaBuster
+{
+Weapon.AmmoUse 7
+Weapon.AmmoGive 28
+Weapon.SlotNumber 6
+Obituary "%o drowned in %k's Rain Flood."
+Inventory.Pickupmessage "Power up! Rain Flood!"
+weapon.ammotype "RainFloodAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "RNFLICO"
+Scale 2.0
+States
+{
+Spawn:
+RNFL F 1
+loop
+Ready:
+TOAH A 0 ACS_ExecuteAlways(998,0,44)
+TOAH A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+TOAH A 1 A_Lower
+loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+TOAH A 1 A_Raise
+Loop
+Fire:
+TOAH A 0 A_JumpIfNoAmmo("NoAmmo")
+TOAH A 0 A_FireCustomMissile("RainFlood",0,1,8,0)
+TOAH A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+TOAH BCDEFG 2
+TNT1 A 50
+TOAH HIA 1
+TOAH A 1 A_GiveInventory("NormalGravity",1)
+Goto Ready+1
+NoAmmo:
+TOAH A 1 ACS_Execute(979,0)
+TOAH A 0 A_Refire
+goto Ready+1
+}
+}
+
+actor RainFloodAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor GravityActivator : CustomInventory
+{
+States
+{
+Pickup:
+TNT1 A 1 ACS_ExecuteAlways(692,0,0)
+stop
+}
+}

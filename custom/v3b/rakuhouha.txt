@@ -1,0 +1,145 @@
+//Rakuhouha - Fires 2 shots forward in a v. Charge to do the half centaur shot thing)
+actor RakuShot1 : MegaShot
+{
+Obituary "%o was devastated by %k's Rakuhouha."
+}
+
+actor RakuShot2
+{
+PROJECTILE
+Radius 20
+Height 16
+Obituary "%o was devastated by %k's Rakuhouha."
+scale 2.5
+damagetype "ProtoBuster"
+speed 45
+damage (30)
+States
+{
+Spawn:
+ARRS D -1
+stop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor RakuhouhaWep : Megabuster
+{
+Weapon.AmmoUse 10
+Weapon.AmmoGive 50
+Weapon.SlotNumber 5
+Inventory.Icon "RAKUICO"
+scale 2.0
+inventory.pickupsound "weapon/weaponup"
+Obituary "%o was devastated by %k's Rakuhouha."
+Inventory.Pickupmessage "Power Up! Rakuhouha!"
+weapon.ammotype "RakuhouhaAmmo"
++WEAPON.AMMO_OPTIONAL
++WEAPON.DONTBOB
+States
+{
+Spawn:
+RAKU M -1
+stop
+Ready:
+RAKU A 0 ACS_ExecuteAlways(998,0,237)
+RAKU A 0 A_TakeInventory("rakuhouhacharge",999)
+RAKU A 1 A_WeaponReady
+Goto Ready+2
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RAKU A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RAKU A 1 A_Raise
+Loop
+Fire:
+RAKU A 0 A_JumpIfNoAmmo("NoAmmo")
+RAKU A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+RAKU A 0 A_FireCustomMissile("RakuShot1",-15,0,8,0)
+RAKU A 0 A_FireCustomMissile("RakuShot1",15,0,8,0)
+RAKU CBA 2 A_TakeInventory("rakuhouhacharge",999)
+RAKU A 7
+RAKU A 1 A_Refire
+goto Ready+2
+Fire2:
+RAKU A 0 A_TakeInventory("rakuhouhacharge",999)
+RAKU A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+RAKU A 0 A_FireCustomMissile("RakuShot1",-15,0,8,0)
+RAKU A 0 A_FireCustomMissile("RakuShot1",15,0,8,0)
+RAKU CBA 3
+RAKU A 1 A_Refire
+goto Ready+2
+Fire3:
+RAKU A 0
+RAKU A 0 A_TakeInventory("rakuhouhacharge",999)
+RAKU A 0 A_PlaySoundEx("misc/hugequake2","Weapon")
+RAKU GHIJKL 2 A_Stop
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,0)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,90)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,45)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-45)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,10)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,25)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,30)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-10)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-25)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-30)
+RAKU A 1 A_TakeInventory("RakuhouhaAmmo",25)
+RAKU A 20
+RAKU A 1 A_Refire
+goto Ready+1
+Hold:
+RAKU A 0 A_JumpIfNoAmmo("NoAmmo")
+RAKU A 0 A_JumpIfInventory("rakuhouhacharge",60,"BotCheck")
+RAKU A 0 A_JumpIfInventory("rakuhouhacharge",50,"Charge2")
+RAKU A 0 A_JumpIfInventory("rakuhouhacharge",30,"Charge")
+RAKU B 1 A_GiveInventory("rakuhouhacharge",1)
+RAKU A 0 A_Refire
+Goto Ready+1
+BotCheck:
+RAKU A 0 ACS_ExecuteAlways(974,0)
+Goto Fire3
+Charge:
+RAKU A 0 A_JumpIfInventory("rakuhouhacharge",60,"BotCheck")
+RAKU A 0 A_JumpIfInventory("rakuhouhacharge",50,"Charge2")
+RAKU A 0 A_JumpIfInventory("rakuhouhacharge",31,"Charge1")
+RAKU B 1
+RAKU A 0 A_PlaySoundEx("weapon/coilstart","Weapon")
+Goto Charge1
+Charge1:
+RAKU B 0 A_JumpIfInventory("rakuhouhacharge",60,"BotCheck")
+RAKU B 0 A_JumpIfInventory("rakuhouhacharge",50,"Charge2")
+RAKU B 1 A_GiveInventory("rakuhouhacharge",1)
+RAKU F 2
+RAKU F 0 A_Refire
+Goto Fire2
+Charge2:
+RAKU A 0 A_PlaySoundEx("weapon/coilcharge","Weapon")
+RAKU A 0
+RAKU D 0
+RAKU D 1
+RAKU E 1
+RAKU F 2
+RAKU A 0 A_Refire
+Goto Fire3
+NoAmmo:
+RAKU A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor rakuhouhaCharge : Inventory
+{
+inventory.amount 1
+inventory.maxamount 60
+}
+
+actor RakuhouhaAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 50
+}

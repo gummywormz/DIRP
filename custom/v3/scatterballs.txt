@@ -1,0 +1,85 @@
+//Summons 5 balls in the air that don't move. After a 1 second delay, they will
+//bounce at high speeds everywhere.
+
+actor ScatterBall
+{
+PROJECTILE
++NOGRAVITY
++DOOMBOUNCE
+Obituary "%o was donked by %k's Scatter Balls."
+DamageType "CrystalEye"
+Scale 2.5
+BOUNCECOUNT 10
+WALLBOUNCEFACTOR 0.90
+BOUNCEFACTOR 0.90
+Speed 30
+Damage (12)
+States
+{
+Spawn:
+SCBA E 1
+SCBA E 0 A_Stop
+SCBA E 18
+SCBA E 1 A_PlaySoundEx("weapon/centaurflash","Voice")
+SCBA E 0 A_ChangeFlag("NOGRAVITY",0)
+SCBA E 0 A_ChangeVelocity(40, 0, 0, CVF_RELATIVE | CVF_REPLACE)
+goto ReallyGone
+ReallyGone:
+SCBA E 1
+loop
+}
+}
+
+actor ScatterBallAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor ScatterBallWep : MegaBuster
+{
+Weapon.AmmoUse 7
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Obituary "%o was donked by %k's Scatter Balls."
+Inventory.Pickupmessage "Power up! Scatter Balls!"
+weapon.ammotype "ScatterBallAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SCBAICO"
+Scale 2.0
+States
+{
+Spawn:
+SCBA F -1
+stop
+Ready:
+SCBA A 0 ACS_ExecuteAlways(998,0,19)
+SCBA A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SCBA A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SCBA A 1 A_Raise
+Loop
+Fire:
+SCBA A 0 A_JumpIfNoAmmo("NoAmmo")
+SCBA A 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+SCBA A 0 A_TakeInventory("ScatterBallAmmo",7)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA BCD 5
+SCBA A 14
+SCBA A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+SCBA A 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

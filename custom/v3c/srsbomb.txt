@@ -1,0 +1,68 @@
+actor SeriousBombItem : CustomInventory
+{
+inventory.amount 1
+inventory.maxamount 1
+Inventory.Respawntics 1050
+inventory.pickupmessage "Support Item! Serious Bomb!"
+inventory.icon "SRSBICO"
+Inventory.PickupSound "item/1up"
+scale 2.0
++INVBAR
+states
+{
+Spawn:
+SRSB B 1
+SRSB B 1
+loop
+Use:
+SRSB B 1 A_PlaySoundEx("weapon/mbuster","Voice")
+SRSB B 0 A_GiveInventory("SRSProtection",1)
+SRSB B 0 A_SpawnItemEx("SeriousBomb",32,0,64,30,0,0,0)
+stop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor SRSProtection : PowerProtection
+{
+DamageFactor "SRSBomb", 0.0
+Powerup.duration -5
+Powerup.Color RedMap
+}
+
+actor SeriousBomb
+{
+PROJECTILE
+damagetype "SRSBomb"
+- NOGRAVITY
++RIPPER
++BOUNCEONACTORS
++HEXENBOUNCE
++CANBOUNCEWATER
+Obituary "%o was seriously injured by %k's Serious Bomb."
+Radius 6
+Height 7
+scale 2.5
+speed 13
+reactiontime 85
+bouncefactor 0.7
+States
+{
+Spawn:
+SRSB A 0
+SRSB A 0 ThrustThingZ(0, 12, 0, 1)
+SRSB A 1 A_CountDown
+Goto Spawn+2
+Death:
+SRSB A 0 A_Stop
+SRSB A 1 A_PlaySoundEx("misc/gravitywarn","Voice",0,2)
+SRSB A 35
+SRSB A 1 A_PlaySoundEx("weapon/hyperbomb","Voice",0,2)
+SRSB A 0 A_ChangeFlag("NOGRAVITY",1)
+SRSB A 0 A_Explode(9999, 650, 0)
+SRSB A 0 A_SpawnItemEx("OblivionEffect")
+stop
+}
+}

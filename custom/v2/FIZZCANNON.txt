@@ -1,0 +1,124 @@
+actor FizzBombWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Obituary "%o was glued down by %k's Fizz Bomb."
+Inventory.Pickupmessage "Power up! Fizz Bomb!"
+weapon.ammotype "FizzBombAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "SODAICO"
+Scale 2.0
+States
+{
+Spawn:
+SODA D -1
+stop
+Ready:
+SODA E 0 ACS_ExecuteAlways(998,0,218)
+SODA E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SODA E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SODA E 1 A_Raise
+Loop
+Fire:
+SODA E 0 A_JumpIfNoAmmo("NoAmmo")
+SODA E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+SODA E 0 A_FireCustomMissile("FizzBomb",0,1,8,0)
+SODA FGE 5
+SODA E 10
+SODA E 0 A_Refire
+Goto Ready+1
+NoAmmo:
+SODA E 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor FizzBombAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+
+actor FizzSlowed : PowerupGiver
+{
+Speed 0.75
+powerup.duration -3
+powerup.type "PowerFizzSlow"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 0
+
+TNT1 A 175
+stop
+}
+}
+
+actor PowerFizzSlow : PowerSpeed
+{
+Speed 0.75
+Powerup.Color "77 33 0", 0.4
+}
+
+actor FizzBomb : NapalmBomb
+{
+Obituary "%o was glued down by %k's Fizz Bomb."
+Damage (30)
+States
+{
+Spawn:
+SODA A 0
+SODA A 0 ThrustThingZ(0, 25, 0, 1)
+SODA A 0 A_CountDown
+SODA A 4
+Goto Spawn+2
+Death:
+SODA A 0 A_Stop
+SODA A 1 A_PlaySoundEx("weapon/napalm", "Weapon")
+SODA A 0 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 1 A_SpawnItemEx("SodaBlob")
+NAPA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+Actor SodaBlob
+{
+PROJECTILE
++NODAMAGETHRUST
++NOBLOOD
++DONTSPLASH
+Obituary "%o was glued down by %k's Fizz Bomb."
++NOEXPLODEFLOOR
++NOTARGETSWITCH
+Damage (15)
+damagetype "FizzBomb"
+Height 10
+Radius 8
+scale 2.5
+mass 99999
+reactiontime 300
+states
+{
+Spawn:
+SODA B 0
+SODA B 2
+SODA C 0
+SODA C 1 A_CountDown
+Goto Spawn+2
+Death:
+TNT1 A 0
+stop
+}
+}

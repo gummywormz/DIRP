@@ -1,0 +1,71 @@
+//more frags = summon skeleton joes.
+
+actor UnDeadArmyAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor UnDeadArmyWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Inventory.Pickupmessage "Power up! Quake Skull!"
+weapon.ammotype "UnDeadArmyAmmo"
+Obituary "%o was caught and smashed by %k's quake skull."
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "UDAYICO"
+Scale 2.0
+States
+{
+Spawn:
+UDAY A 1
+loop
+Ready:
+PCHS D 0 ACS_ExecuteAlways(998,0,221)
+PCHS D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PCHS D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PCHS D 1 A_Raise
+Loop
+Fire:
+PCHS D 0 A_JumpIfNoAmmo("NoAmmo")
+PCHS D 1 A_PlaySoundEx("weapon/magnetmissile","Weapon")
+PCHS D 1 A_FireCustomMissile("QuakeSkull",0,1,8,0)
+PCHS EFG 5
+PCHS D 14
+Goto Ready+1
+NoAmmo:
+PCHS D 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor QuakeSkull : HyperBomb
+{
+Obituary "%o was caught and smashed by %k's quake skull."
+seesound "weapon/coilbounce2"
+damagetype "QuakeSkull"
+States
+{
+Spawn:
+UDAY B 0
+UDAY B 0 ThrustThingZ(0, 12, 0, 1)
+UDAY B 1 A_CountDown
+Goto Spawn+2
+Death:
+UDAY B 0 A_Stop
+UDAY B 0 A_PlaySoundEx("misc/hugequake", "Weapon")
+UDAY B 0 A_ChangeFlag("NOGRAVITY",1)
+UDAY B 0 A_Explode(45, 360, 1)
+BOMB BCDEFGHIJKLMNOPQR 1
+stop
+}
+}

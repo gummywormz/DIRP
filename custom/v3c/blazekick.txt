@@ -1,0 +1,95 @@
+actor BlazeKickWep : ChargeKickWep
+{
+weapon.ammotype "BlazeKickAmmo"
+inventory.icon "BKIKICO"//change dis
+Inventory.Pickupmessage "Power up! Blaze Kick!"
+Obituary "%o was kicked and burned by %k's blaze kick."
+States
+{
+Spawn:
+BKIK A 1
+loop
+Ready:
+BKIC C 0 ACS_ExecuteAlways(998,0,227)
+BKIC C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BKIC C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BKIC C 1 A_Raise
+Loop
+Fire:
+BKIC C 0 A_JumpIfNoAmmo("NoAmmo")
+BKIC C 0 A_PlaySoundEx("weapon/chargekick","Weapon")
+BKIC C 0 SetPlayerProperty(0,1,0)
+BKIC C 0 A_ChangeFlag("Solid",0)
+BKIC C 2 A_ChangeVelocity(50,0,momz,CVF_RELATIVE|CVF_REPLACE)
+BKIC B 0 A_FireCustomMissile("ChargeKickB",0,1,0,0)
+BKIC B 1 A_JumpIfInventory("ReboundFlag",1,"Rebound")
+BKIC B 1 A_JumpIfInventory("ReboundFlag",1,"Rebound")
+BKIC B 1 A_JumpIfInventory("ReboundFlag",1,"Rebound")
+BKIC A 8 SetPlayerProperty(0,0,0)
+BKIC C 0 A_ChangeFlag("Solid",1)
+BKIC B 1 A_JumpIfInventory("ReboundFlag",1,"Rebound")
+BKIC B 1 A_JumpIfInventory("ReboundFlag",1,"Rebound")
+BKIC B 1 A_JumpIfInventory("ReboundFlag",1,"Rebound")
+BKIC C 19
+BKIC C 0 A_Refire
+Goto Ready+1
+NoAmmo:
+BKIC C 1 ACS_Execute(979,0)
+Goto Ready+1
+Rebound:
+BKIC C 0 SetPlayerProperty(0,1,0)
+BKIC C 0 A_ChangeFlag("Solid",0)
+BKIC C 2 A_ChangeVelocity(-50,0,momz,CVF_RELATIVE|CVF_REPLACE)
+BKIC A 8 SetPlayerProperty(0,0,0)
+BKIC C 0 A_ChangeFlag("Solid",1)
+BKIC C 0 A_TakeInventory("ReBoundFlag",999)
+BKIC C 19
+goto Ready+1
+}
+}
+
+actor ChargeKickb
+{
+PROJECTILE
++DONTBLAST
+Radius 14
+Height 25
+scale 2.5
+Obituary "%o was kicked and burned by %k's blaze kick."
+damage (8)
+damagetype "FireStorm"
+speed 40
+States
+{
+Spawn:
+BKIK D 0
+BKIK D 0
+BKIK DEF 2
+Death:
+BKIK F 1 A_Explode(20,128,0)
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("OilPitIgnite",0,0,8)
+stop
+XDeath:
+TNT1 A 1 A_GiveToTarget("ReboundFlag",1)
+goto Death
+}
+}
+
+actor ReboundFlag : Inventory
+{
+Inventory.amount 1
+Inventory.maxamount 5
+}
+
+actor BlazeKickAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

@@ -1,0 +1,173 @@
+actor RushCannonTeleport
+{
+Radius 12
+Height 32
+scale 2.5
++NOINTERACTION
++NOTARGETSWITCH
+PROJECTILE
++DONTBLAST
+states
+{
+Spawn:
+RUSH D 0
+RUSH D 6
+RUSH D 0 A_SpawnItemEx("RushCannon",0,0,16,0,0,0,0,SXF_ABSOLUTEMOMENTUM,0)
+stop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+Actor RushCannon
+{
+Projectile
+Scale 2.5
+Radius 12
+Height 32
++DONTBLAST
++NOTARGETSWITCH
+States
+{
+Spawn:
+RUSH G 0
+RUSH G 8
+Goto Primed
+Primed:
+RUSH G 1 A_JumpIfInTargetInventory("KillRushCannon",1,"Death")
+RUSH G 0 A_JumpIfCloser(48,"GoForItSir")
+RUSH GH 3
+loop
+Death:
+RUSH F 0 A_SpawnItemEx("RushDeath",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+stop
+GoForItSir:
+RUSH G 0 A_TakeFromTarget("RushIsOut",1)
+RUSH G 0 A_TakeFROMTARGET("RushCannonAmmo",50)
+RUSH G 0 A_SpawnItemEx("RushCannonActual",5,0,0,65,0,0,0)
+stop
+}
+}
+
+Actor RushCannonActual
+{
+Projectile
+Scale 2.5
+Obituary "%o was tracked by %k's Rush Cannon."
+Radius 12
+Height 32
+DamageType "Buster"
+Damage (999)
+Speed 60
++DONTBLAST
++NOTARGETSWITCH
+States
+{
+Spawn:
+RUSH GH 3
+loop
+Death:
+TNT1 A 1 A_PlaySoundEx("weapon/rushexplode","Voice")
+TNT1 A 1 A_Explode(70,128,0)
+NAPA EFGHIJKLMNOPQRS 2
+stop
+}
+}
+
+actor RushCannonGiver : CustomInventory
+{
+Inventory.Pickupmessage "Power up! Rush Cannon!"
+inventory.pickupsound "item/1up"
+Inventory.RespawnTics 1800
+scale 2.5
+states
+{
+Spawn:
+RSHC D 1
+loop
+Pickup:
+RSHC D 0 A_JumpIfInventory("RushCannonWep",1,"Fale")
+RSHC D 0 A_GiveInventory("RushCannonWep")
+stop
+Fale:
+RSHC D 1
+fail
+}
+}
+
+
+actor KillRushCannon : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor RushIsOut : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor RushCannonWep : Megabuster
+{
+Weapon.AmmoUse 50
+Weapon.AmmoGive 50
+Weapon.SlotNumber 2
+Obituary "%o was tracked by %k's Rush Cannon."
+Inventory.Pickupmessage "Power up! Rush Cannon!"
+weapon.ammotype "RushCannonAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "RSHCICO"
+Scale 2.0
+States
+{
+Spawn:
+RSHC D -1
+stop
+Ready:
+RSHC A 0 ACS_ExecuteAlways(998,0,227)
+RSHC A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+RSHC A 0 A_GiveInventory("KillRushCannon",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RSHC A 1 A_Lower
+Loop
+Select:
+RSHC A 0 A_TakeInventory("KillRushCannon",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RSHC A 1 A_Raise
+Loop
+Fire:
+RSHC A 0 A_JumpIfNoAmmo("NoAmmo")
+RSHC A 0 A_JumpIfInventory("RushIsOut",1,"Respawn")
+RSHC A 0 A_PlaySoundEx("item/refill","Weapon")
+RSHC A 0 A_SpawnItemEx("RushCannonTeleport", 64, 0, 256, 0, 0, -32, 0, SXF_NOCHECKPOSITION, 0)
+RSHC A 1 A_GiveInventory("RushIsOut",1)
+RSHC A 4
+RSHC A 13
+RSHC A 0 A_Refire
+goto Ready+1
+Respawn:
+RSHC A 0 A_GiveInventory("KillRushCannon",1)
+RSHC A 6
+RSHC A 0 A_TakeInventory("KillRushCannon",1)
+RSHC A 6
+RSHC A 0 A_PlaySoundEx("item/refill","Weapon")
+RSHC A 0 A_SpawnItemEx("RushCannonTeleport", 40, 0, 256, 0, 0, -32, 0, SXF_NOCHECKPOSITION, 0)
+RSHC A 4
+RSHC A 13
+goto Ready+1
+NoAmmo:
+RSHC A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor RushCannonAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 50
+}

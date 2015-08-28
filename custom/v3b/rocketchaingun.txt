@@ -1,0 +1,89 @@
+//IT'S A ROCKET THAT'S ALSO A CHAINGUN! ROCKET CHAINGUN!
+
+actor RocketChaingunWep : MegaBuster
+{
+Weapon.AmmoUse 5
+Weapon.AmmoGive 50
+Weapon.SlotNumber 3
+Obituary "%o was bombed by %k's \cgROCKET CHAINGUN."
+Inventory.Pickupmessage "Power up! Rocket Chaingun!"
+weapon.ammotype "RocketChaingunAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "RKTCICO"
+Scale 2.0
+States
+{
+Spawn:
+RKTC D -1
+stop
+Ready:
+RKTC A 0 ACS_ExecuteAlways(998,0,236)
+RKTC A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RKTC A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RKTC A 1 A_Raise
+Loop
+Fire:
+RKTC A 0 A_JumpIfNoAmmo("NoAmmo")
+RKTC A 0 A_PlaySoundEx("weapon/pcharge","Weapon")
+RKTC A 14
+RKTC ABC 3
+goto Hold
+Hold:
+RKTC A 0 A_JumpIfNoAmmo("NoAmmo")
+RKTC C 1 A_FireCustomMissile("CRocket",0,1,8,0)
+RKTC C 2 A_PlaySoundEx("weapon/mbuster","Weapon")
+RKTC C 6
+RKTC C 0 A_Refire
+Goto CoolDown
+CoolDown:
+RKTC C 5
+RKTC B 5
+RKTC A 10
+goto Ready+1
+NoAmmo:
+RKTC A 1
+Goto Ready+1
+}
+}
+
+actor RocketChaingunAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 50
+}
+
+Actor CRocket
+{
+PROJECTILE
+Obituary "%o was blasted by %k's \cgRocket Chaingun"
+Damage (7)
+DamageType "HyperBomb"
+Scale 2.5
+Speed 40
+Height 7
+Radius 7
+States
+{
+Spawn:
+JTMA BC 3
+loop
+Death:
+TNT1 A 0
+BOMB A 0 A_Explode(50, 180, 0)
+BOMB BCDEFGHIJKLMNOPQR 1
+BOMB A 0 A_PlaySoundEx("weapon/hyperbomb", "Weapon")
+TNT1 A 3 A_JumpIfCloser(60,"RocketJump")
+stop
+RocketJump:
+TNT1 A 0 A_GiveToTarget("RocketJumping",1)
+BOMB BCDEFGHIJKLMNOPQR 1
+stop
+}
+}

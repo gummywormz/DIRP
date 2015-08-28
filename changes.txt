@@ -1,0 +1,109 @@
+From v3a to v3b:
+Added 5 new weapons.
+Some weapons were given the wrong name and wouldn't appear during normal play
+Thunder Chain nerf
+Phoenix Rod will no longer OHKO
+Super Arrow is now rideable
+Fixed an exploit with some charging weapons
+Buffed the appearence chance of a few weapons
+Ice Shurikens no longer break when you're out of ammo
+
+v3c:
+All teams have different interscreens and music
+Added CSIGibs for instagib
+Items dont spawn in instagib / buckshot anymore
+Added 25 new weapons and 1 new item.
+Dizzy Bomb no longer displays napalm bomb frames
+Gimmick star's damage is now immediate.
+Volcano hand can longer be used forever.
+Optimized all images
+Changed *toad to turn you into a 4mi frog
+
+v3d:
+Compatibility with v4
+Added some of the visual improvements from unholy classes
+
+v3dHF1:
+Compatibility for Zandronum 2.0 / MM8BDM 4c
+sv_allweps changed to dirp_allweps
+
+v4:
+
+INTERNALS:
+
+All weapons are now in folders
+All obituaries were fixed, projectiles that didn't have obits had them added
+All MageStaffFX projectiles updated to use a_seekermissile
+All A_BishopMissileWeave projectiles updated to use A_Weave
+Split SBARINFO into horizontal / vertical
+Optimized / got rid of some old code
+
+
+-----------------------------
+
+NEW:
+
+Added Scramble mode! This is similar to Lego's old 8 - 10 weapons buckshot mode. You get 3 random weapons and a rune.
+It is compatible with any game mode, enabling it only stops the weapons from appearing. Enable buckshot to disable health and weapon energy.
+Set dirp_scramble to 1 to activate. Set dirp_scrambletime to how often (in seconds) you want the weapons to change.
+
+Added some old OpenGL dynamic light defs I had lying around. (Also added new ones for v4 of MM8BDM.)
+As a result of the above, I stuck the old halloween lights script in. Same CVAR as before. (You have to set halloween_lights to 0 to enable, silly but consistancy is important...)
+Added a weapon help system. Bind "wephelp" to a button to use it.
+Added Rune Icons
+Added MAGICAL MYSTERY MUSIC!!
+
+----------------------------
+
+CHANGES:
+
+Runes are no longer given in LMS.
+Eddie now respects dirp_allweps
+LMS was broken because it tried to use the old cvar. 10/10 go me.
+All weapons have proper slot numbers. Some of them are a bit weird due to the nature of the weapons, though.
+
+WEAPONS:
+Coal Shot's 2nd bar on the horizontal hud isn't off to the side anymore!
+
+Laser Missile - Main Missile 10 from 12
+Trail from 5 > 7.
+Increased trail amount > 3 from 1
+
+Giga Drain - Recovery per hit > 3 from 1, Made projectile more random
+
+Jet Missile - Homing shot damage 15 from 17
+The missile is fast and precise, but only seeks if a target is on your screen.
+Speed nerfed from 65 to 48
+
+Magnet Bomb - Damage 8 from 12
+The missile has less range but has better tracking
+
+Dizzy Bomb - Increased vertical weave. Damage Buff 35 from 30
+
+Aqua Punch - Speed increased to 5 from 3
+
+Danger Field - Reflection no longer outlasts the projectile
+
+Leech Seed - Now with actual draining! Time out halved from 85 to 40. You are protected from leech seed for a bit after being damaged
+
+Steel Wing - Increased horizontal range. Damage from 12 ripper to 15 ripper
+
+Twist Laser - Speed nerf from 30 > 15. Decreased time spent spinning. Trail now spawns properly
+
+Dimensional Wave - Now weaves the way it was intended to. Buff from 6 to 8
+
+Freeze Dry - Now slows enemies down. Range increase to 50 from 40
+
+Fade Launcher - Now properly goes forward
+
+Moon Blast - Damage buff to 35 from 25. Ammo buff from 7 to 4
+
+Magnet Drill - Nerfed time of the homing drills from 60 to 40
+
+Tackle Shield - Increase radius
+
+Paint Gun - Nerf from 10 damage to 8
+
+Thunder Chain - Buff from 3 to 6 ripper, Increase split chance, nerf ammo > 5 from 4
+
+Bee Order - Nerf 7 damage from 12

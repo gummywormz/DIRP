@@ -1,0 +1,96 @@
+//hyper bomb but nail bomb but projectiles
+
+actor FrostBomb
+{
+PROJECTILE
+damagetype "HyperBomb"
+-NOGRAVITY
++RIPPER
++BOUNCEONACTORS
+Obituary "%o was flash frozen by %k's Frost Bomb."
++HEXENBOUNCE
+BounceCount 2
++CANBOUNCEWATER
+Radius 6
+Height 7
+scale 2.5
+speed 13
+reactiontime 85
+bouncefactor 0.7
+States
+{
+Spawn:
+FRSB K 0
+FRSB K 1 A_CountDown
+Goto Spawn+1
+Death:
+FRSB A 0 A_Stop
+FRSB A 0 A_PlaySoundEx("weapon/iceslasher", "Weapon")
+FRSB A 0 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 0)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 45)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 90)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 67)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 123)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 180)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 225)
+TNT1 A 1 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 270)
+stop
+}
+}
+
+actor FrostBombAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+
+actor FrostBombWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Obituary "%o was flash frozen by %k's Frost Bomb."
+Inventory.Pickupmessage "Power up! Frost Bomb!"
+weapon.ammotype "FrostBombAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "FRSBICO"
+Scale 2.0
+States
+{
+Spawn:
+FRSB L -1
+stop
+Ready:
+FRSB A 0 ACS_ExecuteAlways(998,0,15)
+FRSB A 0 A_JumpIfNoAmmo("NoAmmo")
+FRSB A 1 A_WeaponReady
+Goto Ready+2
+ReadyNoAmmo:
+FRSB J 1 A_WeaponReady
+FRSB J 0 A_JumpIfNoAmmo("ReadyNoAmmo")
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FRSB A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FRSB A 1 A_Raise
+Loop
+Fire:
+FRSB A 0 A_JumpIfNoAmmo("NoAmmo")
+FRSB A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FRSB A 0 A_FireCustomMissile("FrostBomb",0,1,8,0)
+FRSB BCDEFG 2
+FRSB HI 2
+FRSB A 7
+FRSB A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+FRSB J 1 ACS_Execute(979,0)
+Goto ReadyNoAmmo
+}
+}

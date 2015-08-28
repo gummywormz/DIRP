@@ -1,0 +1,175 @@
+actor botart1 : custominventory
+{
++INVENTORY.AUTOACTIVATE
+States
+{
+Pickup:
+TNT1 A 1 A_GiveInventory("LMSINVINCIBLE",1)
+TNT1 A 1 A_GiveInventory("NoSpeed",1)
+TNT1 A 1 A_GiveInventory("PerfectChainsawWep",1)
+TNT1 A 1 A_SelectWeapon("PerfectChainsawWep")
+stop
+}
+}
+
+actor botart2 : custominventory
+{
++INVENTORY.AUTOACTIVATE
+States
+{
+Pickup:
+TNT1 A 1 A_GiveInventory("LMSINVINCIBLE",1)
+TNT1 A 1 A_GiveInventory("NoSpeed",1)
+TNT1 A 1 A_GiveInventory("PopCornWep",1)
+TNT1 A 1 A_SelectWeapon("PopCornWep")
+stop
+}
+}
+
+actor botart3 : custominventory
+{
++INVENTORY.AUTOACTIVATE
+States
+{
+Pickup:
+TNT1 A 1 A_GiveInventory("LMSINVINCIBLE",1)
+TNT1 A 1 A_GiveInventory("NoSpeed",1)
+TNT1 A 1 A_GiveInventory("PaintGunWep",1)
+TNT1 A 1 A_SelectWeapon("PaintGunWep")
+stop
+}
+}
+
+actor wipeinventory : custominventory
+{
+//+INVENTORY.AUTOACTIVATE
+States
+{
+Pickup:
+TNT1 A 1 ACS_executeAlways(606,0)
+stop
+}
+}
+
+actor ResetPlayer : customInventory
+{
+States
+{
+Pickup:
+TNT1 A 0
+TNT1 A 0 SetPlayerProperty(0,0,4)
+TNT1 A 0 A_ChangeFlag("SOLID",1)
+TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+TNT1 A 0 A_SetTranslucent(1.0, 0)
+TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
+TNT1 A 0 SetPlayerProperty(0,0,0)
+TNT1 A 0 A_GiveInventory("NormalGravity",1)
+stop
+}
+}
+
+actor NoSpeed : PowerupGiver
+{
+Speed 0.0
+powerup.duration 0x7FFFFFFF
+powerup.type "PowerSuperSlow"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 1
+stop
+}
+}
+
+actor PowerSuperSlow : PowerSpeed
+{
+Speed 0.0
+}
+
+actor PowerNormalSpeed: PowerSpeed
+{
+Speed 0.8
+}
+
+actor NormalSpeed : PowerupGiver
+{
+Speed 0.8
+powerup.duration 4
+powerup.type "PowerNormalSpeed"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 1
+stop
+}
+}
+
+actor IceChunk2 : IceChunk Replaces IceChunk
+{
++CLIENTSIDEONLY
+}
+
+actor IGMetalBladeWep2 : IGMetalBladeWep replaces IGMetalBladeWep
+{
+Weapon.AmmoUse 0
+Weapon.AmmoGive 28
+Weapon.SlotNumber 1
+Obituary "%o sliced by %k's Metal Blade."
+Inventory.Pickupmessage "Power up! Metal Blade"
+weapon.ammotype "MetalBladeAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
++WEAPON.CHEATNOTWEAPON
+Scale 2.5
+States
+{
+Spawn:
+WEAP S 1
+loop
+Ready:
+BUIN A 0 ACS_ExecuteAlways(991,0,67)
+BUIN A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BUIN A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BUIN A 1 A_Raise
+Loop
+Hold:
+Fire:
+BUIN A 0 A_FireCustomMissile("IGGlasses",0,1,8,0)
+BUIN A 0 A_PlayWeaponSound("weapon/metalblade")
+BUIN BCDEF 2
+BUIN GH 3
+BUSH H 0 A_Refire
+Goto Ready+1
+}
+}
+
+actor IGGlasses : FastProjectile
+{
+PROJECTILE
+scale 2.5
++RIPPER
++DONTBLAST
+seesound "weapon/metalblade"
+damagetype "Instagib"
+Obituary "%o was ...shaded by %k's CSI Shades."
+Speed 100
+Radius 3
+Height 4
+Damage (100)
+States
+{
+Spawn:
+SHDS ABCD 4
+loop
+}
+}

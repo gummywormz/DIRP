@@ -1,0 +1,479 @@
+//doesn't spawn correctly online
+
+actor WishStarGiver : CustomInventory
+{
+Inventory.Pickupmessage "Power up! Wish Star!"
+inventory.pickupsound "weapon/weaponup"
+Inventory.RespawnTics 1800
+scale 2.5
+states
+{
+Spawn:
+WHST A 1
+loop
+Pickup:
+WHST A 0 A_JumpIfInventory("WishStarWep",1,"Fale")
+WHST A 0 A_GiveInventory("WishStarWep")
+stop
+Fale:
+WSHT A 1
+fail
+}
+}
+
+actor WishRadius : StarRadius
+{
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_Explode(18,128,0)
+stop
+}
+}
+
+actor WishFX
+{
++NOCLIP
++NOINTERACTION
++CLIENTSIDEONLY
+-SOLID
+States
+{
+Spawn:
+WHST B 0
+WHST B 5
+stop
+}
+}
+
+actor WishStarTeleport
+{
+Radius 12
+Height 32
+scale 2.5
++NOINTERACTION
++NOTARGETSWITCH
+PROJECTILE
++DONTBLAST
+states
+{
+Spawn:
+RUSH D 0
+RUSH D 9
+RUSH D 0 A_SpawnItemEx("WishStar",0,0,0,0,0,momz,0,SXF_ABSOLUTEMOMENTUM,0)
+stop
+Death:
+TNT1 A 0
+RUSH D 0 A_SpawnItemEx("WishStar",0,0,0,0,0,momz,0,SXF_ABSOLUTEMOMENTUM,0)
+stop
+}
+}
+
+Actor WishStar
+{
+Projectile
+Scale 2.5
+Radius 12
+Height 32
++SOLID
+//+NOCLIP
++FIXMAPTHINGPOS
++FLOORHUGGER
++DONTBLAST
++NOTARGETSWITCH
+States
+{
+Spawn:
+RUSH EF 2
+RUSH A 0 A_ChangeFlag("NOCLIP",0)
+goto Spawn2
+Spawn2:
+RUSH A 1 A_JumpIfInTargetInventory("KillWishStar",1,"Death")
+RUSH A 0 A_JumpIfCloser(32,"GoForItSir")
+RUSH A 3 A_JumpIfInTargetInventory("KillWishStar",1,"Death")
+RUSH B 3 A_JumpIfInTargetInventory("KillWishStar",1,"Death")
+loop
+Death:
+RUSH F 0 A_SpawnItemEx("RushDeath",0,0,0,0,0,0,0,SXF_NOCHECKPOSITION)
+stop
+GoForItSir:
+RUSH A 0 A_TakeFromTarget("RushIsOut2",1)
+RUSH A 0 A_TakeFROMTARGET("WishStarAmmo",50)
+RUSH A 0 A_GiveToTarget("DoItLive",1)
+goto Death
+}
+}
+
+
+actor KillWishStar : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor RushIsOut2 : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+actor DoItLive : inventory
+{
+inventory.amount 1
+inventory.maxamount 1
+}
+
+
+actor WishStarWep : Megabuster 
+{
+Weapon.AmmoUse 50
+Weapon.AmmoGive 50
+Weapon.SlotNumber 4
+Obituary "%o wasn't lucky enough to avoid %k's Wish Star Adaptor."
+Inventory.Pickupmessage "Power up! Rush Cannon!"
+weapon.ammotype "WishStarAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "WHSTICO"
+Scale 2.0
+States
+{
+Spawn:
+WHST A 1
+loop
+Ready:
+RSHC A 0 ACS_ExecuteAlways(998,0,227)
+RSHC A 1 A_JumpIfInventory("DoItLive",1,"DoItLive")
+RSHC A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+RSHC A 0 A_GiveInventory("KillWishStar",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RSHC A 1 A_Lower
+Loop
+Select:
+RSHC A 0 A_TakeInventory("KillWishStar",1)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RSHC A 1 A_Raise
+Loop
+Fire:
+RSHC A 0 A_JumpIfNoAmmo("NoAmmo")
+RSHC A 0 A_JumpIfInventory("RushIsOut2",1,"Respawn")
+RSHC A 0 A_PlaySoundEx("item/refill","Weapon")
+RSHC A 0 A_SpawnItemEx("WishStarTeleport", 40, 0, 256, 0, 0, -32, 0, SXF_NOCHECKPOSITION, 0)
+RSHC A 1 A_GiveInventory("RushIsOut2",1)
+RSHC A 4
+RSHC A 13
+RSHC A 0 A_Refire
+goto Ready+1
+Respawn:
+RSHC A 0 A_GiveInventory("KillWishStar",1)
+RSHC A 6
+RSHC A 0 A_TakeInventory("KillWishStar",1)
+RSHC A 6
+RSHC A 0 A_PlaySoundEx("item/refill","Weapon")
+RSHC A 0 A_SpawnItemEx("WishStarTeleport", 40, 0, 256, 0, 0, -32, 0, SXF_NOCHECKPOSITION, 0)
+RSHC A 4
+RSHC A 13
+goto Ready+1
+DoItLive:
+RSHC A 0 ThrustThingZ(0,100,0,1)
+RSHC A 0 ThrustThing(angle*256/360, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,90,0,1)
+RSHC A 0 ThrustThing(angle*256/360+128, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+192, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+64, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,90,0,1)
+RSHC A 0 ThrustThing(angle*256/360+128, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+192, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+64, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,90,0,1)
+RSHC A 0 ThrustThing(angle*256/360+128, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+192, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+64, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,90,0,1)
+RSHC A 0 ThrustThing(angle*256/360+128, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+192, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 ThrustThingZ(0,50,1,1)
+RSHC A 6
+RSHC A 0 ThrustThingZ(0,60,0,1)
+RSHC A 0 ThrustThing(angle*256/360+64, 50, 1, 0)
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 0 A_SpawnItemEx("WishRadius")
+RSHC A 0 A_SpawnItemEx("WishFX")
+RSHC A 1 A_TakeInventory("DoItLive",1)
+Goto Ready+1
+NoAmmo:
+RSHC A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor WishStarAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 50
+}

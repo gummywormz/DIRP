@@ -1,0 +1,1081 @@
+//icons
+graphic SEEFICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SEEFB0, 0, 0
+}
+
+graphic HPSHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HPSHA0, 0, 0
+}
+
+graphic HADOICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HADOB0, 0, 0
+}
+
+graphic EGGBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch EGGBB0, 0, 0
+}
+
+graphic WTRPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WTRPA0, 0, 0
+}
+
+graphic RVCBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RVCBA0, 0, 0
+}
+
+graphic SGHNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SGHNB0, 0, 0
+}
+
+graphic VRUSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch VRUSB0, 0, 0
+}
+
+graphic SRSBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SRSBB0, 0, 0
+}
+
+graphic FSXPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FSXPF0, 0, 0
+}
+
+graphic CHRDICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CHRDA0, 0, 0
+}
+
+graphic CRPTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CRPTD0, 0, 0
+}
+
+graphic FFICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FLUXG0, 0, 0
+}
+
+graphic SUGDICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SUGDD0, 0, 0
+}
+
+graphic CBRKICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CBRKB0, 0, 0
+}
+
+graphic PLSRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PLSRB0, 0, 0
+}
+
+graphic SFLRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SFLRC0, 0, 0
+}
+
+graphic FBLAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FBLAG0, 0, 0
+}
+
+graphic STLWICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch STLWB0, 0, 0
+}
+
+graphic PKFRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PKFRA0, 0, 0
+}
+
+graphic GFBLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GFBLA0, 0, 0
+}
+
+graphic HORNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HORNA0, 0, 0
+}
+
+graphic WTRSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WTRSB0, 0, 0
+}
+
+graphic TLPWICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch TLPWA0, 0, 0
+}
+
+graphic IBEMICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch IBEMA0, 0, 0
+}
+
+graphic SDESICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SDESA0, 0, 0
+}
+
+graphic FSTNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FSTNA0, 0, 0
+}
+
+graphic FDRYICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FDRYD0, 0, 0
+}
+
+graphic OCTAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch OCTAB0, 0, 0
+}
+
+graphic BKIKICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch BKIKA0, 0, 0
+}
+
+graphic GIGDICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GIGDD0, 0, 0
+}
+
+graphic TRIAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch TRIAD0, 0, 0
+}
+
+graphic SHRDICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SHRDB0, 0, 0
+}
+
+graphic CHGBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CHGBG0, 0, 0
+}
+
+graphic NDAZICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch NDAZA0, 0, 0
+}
+
+graphic WSHUICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WSHUA0, 0, 0
+}
+
+graphic MNBLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch MNBLB0, 0, 0
+}
+
+graphic MGNBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch MGNBC0, 0, 0
+}
+
+graphic WTORICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WTORA0, 0, 0
+}
+
+graphic LSTOICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch LSTOA0, 0, 0
+}
+
+graphic WOWSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WOWSD0, 0, 0
+}
+
+graphic SPDKICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SPDKA0, 0, 0
+}
+
+graphic PHSCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PHSCA0, 0, 0
+}
+
+graphic DELBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DELBA0, 0, 0
+}
+
+graphic DRARICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DRARA0, 0, 0
+}
+
+graphic NTSHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch NTSHG0, 0, 0
+}
+
+graphic SARRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SARRC0, 0, 0
+}
+
+graphic THCHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch THCHA0, 0, 0
+}
+
+graphic PSUTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PSUTA0, 0, 0
+}
+
+graphic OPTLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch OPTLA0, 0, 0
+}
+
+graphic KSTOICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch KSTOA0, 0, 0
+}
+
+graphic APXLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch APXLF0, 0, 0
+}
+
+graphic SKBLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SKBLI0, 0, 0
+}
+
+graphic RNFLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RNFLF0, 0, 0
+}
+
+graphic HAILICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HASGA0, 0, 0
+}
+
+graphic FRPLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FRPLD0, 0, 0
+}
+
+graphic RTANK, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RBALB0, 0, 0
+}
+
+graphic STHRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch STHRD0, 0, 0
+}
+
+graphic HWHLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HWHLA0, 0, 0
+}
+
+graphic RCIHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RCIHA0, 0, 0
+}
+
+graphic SPMBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch MIWPA0, 0, 0
+}
+
+graphic LASMICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch LASMA0, 0, 0
+}
+
+graphic FRSBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FRSBL0, 0, 0
+}
+
+graphic SCBAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SCBAF0, 0, 0
+}
+
+graphic SHSTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SHSTA0, 0, 0
+}
+
+graphic WATCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WATCA0, 0, 0
+}
+
+graphic RSHCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RSHCD0, 0, 0
+}
+
+graphic WHSTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WHSTA0, 0, 0
+}
+
+graphic SSTARICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SSTAA0, 0, 0
+}
+
+graphic PFNGICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PFNGA0, 0, 0
+}
+
+graphic PHSGICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PHSGA0, 0, 0
+}
+
+graphic RKTCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RKTCD0, 0, 0
+}
+
+graphic HCRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HCRBA0, 0, 0
+}
+
+graphic STODICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch STODA0, 0, 0
+}
+
+graphic VOLHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch VOLHA0, 0, 0
+}
+
+graphic TRIZICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch TRIZA0, 0, 0
+}
+
+graphic COMTLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch COMTF0, 0, 0
+}
+
+graphic ICESHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch ICSHL0, 0, 0
+}
+
+graphic FRDGICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FRDGD0, 0, 0
+}
+
+graphic COALICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch COALI0, 0, 0
+}
+
+graphic PCHSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PCHSH0, 0, 0
+}
+
+graphic EQUALICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch EQLZH0, 0, 0
+}
+
+graphic GDICEICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DICEG0, 0, 0
+}
+
+graphic CLOBOICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GCLBB0, 0, 0
+}
+
+graphic TWSTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch TWSLA0, 0, 0
+}
+
+graphic PBALICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PBALB0, 0, 0
+}
+
+graphic ICESPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GICED0, 0, 0
+}
+
+graphic PHNXICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PHNXE0, 0, 0
+}
+
+graphic SHOMICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SMICA0, 0, 0
+}
+
+graphic DNAPAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DNAPA0, 0, 0
+}
+
+graphic POPCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch POPCC0, 0, 0
+}
+
+graphic PINMICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PINME0, 0, 0
+}
+
+graphic SODAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SODAD0, 0, 0
+}
+
+graphic CRMNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CRMNC0, 0, 0
+}
+
+graphic NMGICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GNMGA0, 0, 0
+}
+
+graphic TKSHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch TKSHL0, 0, 0
+}
+
+graphic GWVGICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GWVGA0, 0, 0
+}
+
+
+graphic MANCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch MANHD0, 0, 0
+}
+
+graphic GSTAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GSTAZ0, 0, 0
+}
+
+graphic DRTPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DLTPA0, 0, 0
+}
+
+
+graphic DIZZICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DIZBK0, 0, 0
+}
+
+graphic PINKICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PIMSA0, 0, 0
+}
+
+graphic CRLGICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CRLGC0, 0, 0
+}
+
+graphic SEGEICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SEGEM0, 0, 0
+}
+
+graphic FMSPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FMSPB0, 0, 0
+}
+
+graphic TWICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch THWOA0, 0, 0
+}
+
+graphic LISHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch LISHJ0, 0, 0
+}
+
+graphic LESEICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch LESEG0, 0, 0
+}
+
+graphic BSEDICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch BSEDA0, 0, 0
+}
+
+graphic AQICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch AQPNB0, 0, 0
+}
+
+graphic NUKEICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch NUKEA0, 0, 0
+}
+
+graphic CHANICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch LCLGA0, 0, 0
+}
+
+graphic SHFRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SHFRK0, 0, 0
+}
+
+graphic HEALICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HEBHE0, 0, 0
+}
+
+graphic MAGDRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch MGDRB0, 0, 0
+}
+
+graphic BOCRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch BOCRE0, 0, 0
+}
+
+graphic FLSPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FLSPE0, 0, 0
+}
+
+graphic BZSUICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch BZSUF0, 0, 0
+}
+
+graphic BLFRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch BLFRB0, 0, 0
+}
+
+graphic BOSNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch BOSND0, 0, 0
+}
+
+graphic PAINTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PTGBG0, 0, 0
+}
+
+graphic QDMIICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch QDMIC0, 0, 0
+}
+
+graphic CRFLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch COFAH0, 0, 0
+}
+
+graphic FDLUICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FDLUH0, 0, 0
+}
+
+graphic GHOLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GHOLG0, 0, 0
+}
+
+graphic SKUPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SKUPH0, 0, 0
+}
+
+graphic DANFICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DANFF0, 0, 0
+}
+
+graphic DUSVICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DUSVD0, 0, 0
+}
+
+graphic STNWICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch STNWC0, 0, 0
+}
+
+graphic FANGICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FANGH0, 0, 0
+}
+
+graphic FIRWICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FIRWD0, 0, 0
+}
+
+graphic SUNSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SUNSI0, 0, 0
+}
+
+graphic RINTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RINTA0, 0, 0
+}
+
+graphic HCRAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HCRAA0, 0, 0
+}
+
+graphic UDAYICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch UDAYA0, 0, 0
+}
+
+graphic SPBSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SPBSD0, 0, 0
+}
+
+graphic RABSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RABSD0, 0, 0
+}
+
+graphic NBLSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch NBLSD0, 0, 0
+}
+
+graphic GSHTICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GSHTG0, 0, 0
+}
+
+graphic TNKAICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch TNKAD0, 0, 0
+}
+
+graphic JTMSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch JTMSC0, 0, 0
+}
+
+graphic YOKUICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch YATKB0, 0, 0
+}
+
+graphic YOYOICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch YOYCC0, 0, 0
+}
+
+graphic RNBWICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RNBWD0, 0, 0
+}
+
+graphic NBLSICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch NBLSD0, 0, 0
+}
+
+graphic HAMMICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HAMMH0, 0, 0
+}
+
+graphic SPDPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SPDPB0, 0, 0
+}
+
+graphic NAILICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch NASHA0, 0, 0
+}
+
+graphic CMDHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CMDHC0, 0, 0
+}
+
+graphic FLASICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch FLASA0, 0, 0
+}
+
+graphic DMSWICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DMSWB0, 0, 0
+}
+
+graphic SLZRICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SLZRA0, 0, 0
+}
+
+graphic RAKUICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RAKUM0, 0, 0
+}
+
+graphic JKIKICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch JKIKA0, 0, 0
+}
+

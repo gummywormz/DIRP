@@ -1,0 +1,136 @@
+//replace duo fish, a sword attack that has a high speed projectile at the end
+//when charged, make a horn beam thing
+//not done btw
+
+actor SinEraser : Weapon
+{
+Weapon.AmmoUse 1
+Weapon.AmmoGive 3
+Weapon.SlotNumber 1
+scale 2.0
+Obituary "%o was purged from this world by %k's Sin Eraser."
+Inventory.Pickupmessage "You got the Sin Eraser!"
+weapon.ammotype "BusterAmmo"
++WEAPON.AMMO_OPTIONAL
++WEAPON.DONTBOB
+States
+{
+Spawn:
+DUOF A 1
+stop
+Ready:
+DUOF C 0 A_JumpIfInventory("Once",1,"Ready2")
+DUOF C 0 A_GiveInventory("Once",1)
+Goto Ready2+2
+Ready2:
+DUOF C 0 ACS_ExecuteAlways(998,0,101)
+DUOF C 0 ACS_ExecuteAlways(991,0,101)
+DUOF C 0 A_TakeInventory("WeaponCharge",999)
+DUOF C 1 A_WeaponReady
+Goto Ready2+3
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+DUOF C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+DUOF C 1 A_Raise
+Loop
+Fire:
+DUOF C 0 A_JumpIfNoAmmo("Hold")
+DUOF C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+DUOF C 0 A_FireCustomMissile("SinEraser1",0,0,8,0)
+DUOF C 0 A_TakeInventory("WeaponCharge",999)
+goto Ready2+2
+Fire2:
+DUOF B 0 A_TakeInventory("WeaponCharge",999)
+DUOF CD 2
+DUOF B 0 A_PlaySoundEx("weapon/minchrgshot","Weapon")
+DUOF B 0 A_FireCustomMissile("SinEraser2",0,0,8,0)
+DUOF G 20
+DUOF DC 4
+DUOF B 0 A_Refire
+goto Ready2+2
+Fire3:
+DUOF B 0 A_TakeInventory("WeaponCharge",999)
+DUOF B 0
+DUOF B 0 ACS_ExecuteAlways(991,0,101)
+DUOF EF 2
+DUOF B 0 A_PlaySoundEx("weapon/cfire","Weapon")
+DUOF B 0 A_FireCustomMissile("GigaFist",0,0,8,0)
+DUOF G 20
+DUOF DC 4
+DUOF B 0 A_Refire
+goto Ready2+2
+Hold:
+DUOF B 0 A_JumpIfInventory("WeaponCharge",34,"BotCheck")
+DUOF B 0 A_JumpIfInventory("WeaponCharge",18,"Charge")
+DUOF B 1 A_GiveInventory("WeaponCharge",1)
+DUOF B 0 A_Refire
+Goto Ready2+2
+Charge:
+DUOF B 0 A_JumpIfInventory("WeaponCharge",34,"Charge2")
+DUOF B 0 A_JumpIfInventory("WeaponCharge",19,"Charge1")
+DUOF B 0 A_PlaySoundEx("weapon/coilstart","Weapon")
+Goto Charge1
+Charge1:
+DUOF B 0 A_JumpIfInventory("WeaponCharge",34,"Charge2")
+DUOF H 1 ACS_ExecuteAlways(991,0,102)
+DUOF B 1 ACS_ExecuteAlways(991,0,101)
+DUOF B 0 A_GiveInventory("WeaponCharge",1)
+DUOF H 0 A_Refire
+Goto Fire2
+BotCheck:
+DUOF C 0 A_Jump(224, "Charge2")
+DUOF C 0 ACS_ExecuteAlways(974,0)
+Goto Charge2
+Charge2:
+DUOF K 1 ACS_ExecuteAlways(991,0,103)
+DUOF I 1 ACS_ExecuteAlways(991,0,104)
+DUOF J 1 ACS_ExecuteAlways(991,0,101)
+DUOF J 0 A_JumpIfInventory("WeaponCharge", 35, 3)
+DUOF J 0 A_GiveInventory("WeaponCharge",1)
+DUOF J 0 A_GunFlash
+DUOF J 0 ACS_ExecuteAlways(974,0)
+DUOF H 0 A_Refire
+Goto Fire3
+Flash:
+TNT1 H 5 A_PlaySoundEx("weapon/coilcharge", "Weapon")
+TNT1 H 0 A_JumpIfInventory("WeaponCharge",1,"Flash")
+stop
+}
+}
+
+actor SinEraser1 : FastProjectile
+{
+Speed 170
+radius 20
+height 16
+scale 2.5
++DONTBLAST
+Damage (15)
+PROJECTILE
+States
+{
+Spawn:
+ARRS C 1
+loop
+}
+}
+
+actor SinEraser2 : FastProjectile
+{
+Speed 180
+radius 20
+height 16
+scale 2.5
++DONTBLAST
+Damage (25)
+PROJECTILE
+States
+{
+Spawn:
+ARRS D 1
+loop
+}
+}

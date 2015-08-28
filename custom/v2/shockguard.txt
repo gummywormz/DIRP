@@ -1,0 +1,207 @@
+//looks like all the spikes were standardized
+
+actor SpikeDamager2 : SpikeDamager Replaces SpikeDamager
+{
+PROJECTILE
++RIPPER
+-SOLID
++DONTBLAST
++NOGRAVITY
++THRUGHOST
+obituary "AGH"
+Damage (255)
+damagetype "SpikeShock"
+Height 16
+Radius 16
+scale 2.5
+states
+{
+Spawn:
+TNT1 A 0 A_ClearTarget
+TNT1 A 35
+Loop
+Death:
+TNT1 A 35
+TNT1 A 0 A_SpawnItemEx("SpikeDamager")
+stop
+}
+}
+
+
+actor ClownSpike2 replaces ClownSpike //10813
+{
+PROJECTILE
++SOLID
++RIPPER
++NOGRAVITY
++DONTBLAST
+-CLIENTSIDEONLY
+height 10
+radius 10
+scale 2.5
++NOBLOOD
+-SHOOTABLE
+Damage (255)
+Damagetype "SpikeShock"
+States
+{
+Spawn:
+CLSP A -1
+stop
+}
+}
+
+actor BurstmanSpike2 replaces BurstmanSpike //10617
+{
+PROJECTILE
++SOLID
++RIPPER
++NOGRAVITY
++DONTBLAST
+-CLIENTSIDEONLY
+height 10
+radius 10
+scale 2.5
++NOBLOOD
+-SHOOTABLE
+Damage (255)
+Damagetype "SpikeShock"
+States
+{
+Spawn:
+HAZA D -1
+stop
+}
+}
+
+actor BlizzardSpike2 replaces BlizzardSpike //10550
+{
+PROJECTILE
+-CLIENTSIDEONLY
+scale 2.5
+-NOINTERACTION
++RIPPER
++SOLID
++DONTBLAST
++NOBLOOD
+-SHOOTABLE
+Damage (255)
+Damagetype "SpikeShock"
+States
+{
+Spawn:
+HAZA C -1
+stop
+}
+}
+
+actor Spike2 replaces Spike //10513
+{
+PROJECTILE
++SOLID
++RIPPER
++DONTBLAST
++NOBLOOD
+-SHOOTABLE
+Damage (255)
+Damagetype "SpikeShock"
++FORCEYBILLBOARD
+-CLIENTSIDEONLY
+scale 2.5
+States
+{
+Spawn:
+HAZA A -1
+stop
+}
+}
+
+
+actor Spiney2 replaces Spiney //10542
+{
+PROJECTILE
+obituary "AGH"
++RIPPER
+Damage (255)
+damagetype "SpikeShock"
++SOLID
++NOBLOOD
+Height 16
+radius 16
+-SHOOTABLE
++DONTBLAST
+scale 2.5
++NOGRAVITY
+states
+{
+Spawn:
+BUBS D -1
+stop
+}
+}
+
+actor CossackSpike2 replaces CossackSpike //10522
+{
+PROJECTILE
++NOBLOOD
+-SHOOTABLE
+Damage (255)
+Damagetype "SpikeShock"
++DONTBLAST
++RIPPER
++SOLID
++FORCEYBILLBOARD
+-CLIENTSIDEONLY
+-NOLIFTDROP
+scale 2.5
+States
+{
+Spawn:
+COSS A -1
+stop
+}
+}
+
+actor ShockGuardForever : PowerProtection
+{
+damagefactor "SpikeShock", 0.01
+inventory.icon "TNT1A0"
+powerup.duration 0x7FFFFFFF
+}
+
+actor ShockGuardGiver : CustomInventory
+{
+Inventory.Amount 1
+Inventory.MaxAmount 1
+inventory.icon "TNT1A0"
+Scale 2.0
+inventory.pickupmessage "Support Item! Shock Guard!"
+Inventory.PickupSound "item/1up"
+States
+{
+Spawn:
+SHGU A 1
+SHGU A 1
+Goto Spawn+1
+Pickup:
+TNT1 A 1 A_GiveInventory("ShockGuardForever",1)
+stop
+}
+}
+
+ACTOR ShockGuardTemp2 : PowerInvulnerable
+{
+  Powerup.Duration -3
+  inventory.icon "TNT1A0"
+}
+
+actor ShockGuardTemp : PowerProtection
+{
+damagefactor "SpikeShock", 0.0
+damagefactor "Drowning", 0.0
+damagefactor "Mutating", 0.0
+damagefactor "Falling", 0.0
+damagefactor "Unknown", 0.0
+inventory.icon "TNT1A0"
+powerup.duration -3
+}

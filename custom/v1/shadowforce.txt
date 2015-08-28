@@ -1,0 +1,139 @@
+actor ImHit : CustomInventory
+{
+inventory.amount 1
+Inventory.Maxamount 1
+}
+
+actor ShadowForceAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}
+
+actor ShadowExplode
+{
+PROJECTILE
+Obituary "%o was spooked by %k's Shadow Force."
++PIERCEARMOR
++DONTBLAST
++FORCERADIUSDMG
++FORCEXYBILLBOARD
++OLDRADIUSDMG
+Radius 8
+Height 8
+speed 0
+damage (1)
+damagetype "ShadowBlade"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("ShadowExplode2",0,0,0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 0 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("ShadowEffect",Random(0,300),Random(0,300),0,0,0,0,0)
+stop
+}
+}
+
+actor ShadowExplode2
+{
+PROJECTILE
+Obituary "%o was spooked by %k's Shadow Force."
++PIERCEARMOR
++FORCERADIUSDMG
++FORCEXYBILLBOARD
++OLDRADIUSDMG
+Radius 8
+Height 8
+speed 0
+damage (1)
+damagetype "ShadowBlade"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_Explode(60,750,0)
+stop
+}
+}
+
+Actor ShadowEffect
+{
+Scale 2.0
++NOINTERACTION
++CLIENTSIDEONLY
+States
+{
+Spawn:
+SHFR ABCD 1 ThrustThingZ(0,20,0,0)
+loop
+Death:
+TNT1 A 1
+stop
+}
+}
+
+Actor ShadowForceWep : MegaBuster
+{
+Weapon.AmmoUse 10
+Weapon.AmmoGive 30
+Weapon.SlotNumber 7
++WEAPON.NOAUTOAIM
+inventory.icon "SHFRICO"
+Obituary "%o was spooked by %k's Shadow Force"
+Inventory.Pickupmessage "Power up! Shadow Force!"
+weapon.ammotype "ShadowForceAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+SHFR K -1
+stop
+Ready:
+SHFR E 0 ACS_ExecuteAlways(998,0,206)
+SHFR E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 A 0 A_SetTranslucent(1.0, 0)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SHFR E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SHFR E 1 A_Raise
+Loop
+Fire:
+SHFR E 0 A_JumpIfNoAmmo("NoAmmo")
+SHFR FGHIJ 2
+SHFR E 0 A_SetTranslucent(0.5, 2)
+SHFR E 0 A_TakeInventory("ShadowForceAmmo",10)
+SHFR E 1 A_PlaySoundEx("weapon/teleport","Voice")
+SHFR E 35
+SHFR E 35
+SHFR E 35
+SHFR E 35
+SHFR E 1 A_JumpIfInventory("ImHit",1,"NoAmmo")
+SHFR E 0 A_PlayWeaponSound("Weapon/junkend")
+SHFR E 0 A_SpawnItemEx("ShadowExplode",0,0,8,0,0,0,0)
+SHFR E 25 A_SetTranslucent(1.0, 0)
+SHFR E 1 A_Refire
+goto Ready+1
+NoAmmo:
+SHFR E 1 ACS_Execute(979,0)
+SHFR E 1 A_SetTranslucent(1.0, 0)
+Goto Ready+1
+}
+}
+

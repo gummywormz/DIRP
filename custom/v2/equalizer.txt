@@ -1,0 +1,208 @@
+actor EqualProjectile1
+{
+PROJECTILE
+Radius 14
+Height 25
+scale 2.5
+damage (10)
+Obituary "%o was equally slashed by %k's Equalizer."
+damagetype "ChargeKick"
+speed 28
+States
+{
+Spawn:
+CKIC D 0
+CKIC DEF 2
+stop
+Death:
+TNT1 A 1
+stop
+}
+}
+
+actor EqualProjectile2 : EqualProjectile1
+{
+Damage (20)
+}
+
+actor EqualProjectile3 : EqualProjectile1
+{
+Damage (40)
+}
+
+actor EqualProjectile4 : EqualProjectile1
+{
+Damage (80)
+}
+
+actor EqualizerGiver1 : PowerupGiver
+{
+Speed 1.25
+powerup.duration 0x7FFFFFFF
+powerup.type "PowerEqualizer1"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 1
+stop
+}
+}
+
+actor PowerEqualizer1 : PowerSpeed
+{
+Speed 1.25
+}
+
+actor EqualizerGiver2 : PowerupGiver
+{
+Speed 1.50
+powerup.duration 0x7FFFFFFF
+powerup.type "PowerEqualizer2"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 1
+stop
+}
+}
+
+actor PowerEqualizer2 : PowerSpeed
+{
+Speed 1.50
+}
+
+actor EqualizerGiver3 : PowerupGiver
+{
+Speed 2.0
+powerup.duration 0x7FFFFFFF
+powerup.type "PowerEqualizer3"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 1
+stop
+}
+}
+
+actor PowerEqualizer3 : PowerSpeed
+{
+Speed 2.0
+}
+
+actor EqualizerAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 50
+}
+
+actor EqualizerWep : MegaBuster
+{
+Weapon.AmmoUse 5
+Weapon.AmmoGive 50
+Weapon.SlotNumber 4
+Obituary "%o was equally slashed by %k's Equalizer."
+Inventory.Pickupmessage "Power up! Equalizer!"
+weapon.ammotype "EqualizerAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "EQUALICO"
+Scale 2.0
+States
+{
+Spawn:
+EQLZ H -1
+stop
+Ready:
+EQLZ A 0 ACS_ExecuteAlways(998,0,224)
+EQLZ A 0 A_JumpIfHealthLower(25,"GiveMe25")
+EQLZ A 0 A_JumpIfHealthLower(50,"GiveMe50")
+EQLZ A 0 A_JumpIfHealthLower(75,"GiveMe75")
+EQLZ A 0 A_TakeInventory("PowerEqualizer1",999)
+EQLZ A 0 A_TakeInventory("PowerEqualizer2",999)
+EQLZ A 0 A_TakeInventory("PowerEqualizer3",999)
+EQLZ A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+EQLZ A 0 A_TakeInventory("PowerEqualizer1",999)
+EQLZ A 0 A_TakeInventory("PowerEqualizer2",999)
+EQLZ A 0 A_TakeInventory("PowerEqualizer3",999)
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+EQLZ A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+EQLZ A 1 A_Raise
+Loop
+GiveMe25:
+EQLZ A 0 A_TakeInventory("PowerEqualizer1",999)
+EQLZ A 0 A_TakeInventory("PowerEqualizer2",999)
+EQLZ A 0 A_GiveInventory("PowerEqualizer3",1)
+EQLZ A 1 A_WeaponReady
+goto Ready+1
+GiveMe50:
+EQLZ A 0 A_TakeInventory("PowerEqualizer1",999)
+EQLZ A 0 A_GiveInventory("PowerEqualizer2",1)
+EQLZ A 0 A_TakeInventory("PowerEqualizer3",999)
+EQLZ A 1 A_WeaponReady
+goto Ready+1
+GiveMe75:
+EQLZ A 0 A_GiveInventory("PowerEqualizer1",1)
+EQLZ A 0 A_TakeInventory("PowerEqualizer2",999)
+EQLZ A 0 A_TakeInventory("PowerEqualizer3",999)
+EQLZ A 1 A_WeaponReady
+goto Ready+1
+Fire:
+EQLZ A 0 A_JumpIfNoAmmo("NoAmmo")
+EQLZ A 0 A_JumpIfHealthLower(25,"Fire3")
+EQLZ A 0 A_JumpIfHealthLower(50,"Fire2")
+EQLZ A 0 A_JumpIfHealthLower(75,"Fire1")
+EQLZ BC 1
+EQLZ A 0 A_PlaySoundEx("weapon/chargekick","Weapon")
+EQLZ A 0 A_FireCustomMissile("EqualProjectile1",0,1,8,0)
+EQLZ DE 2
+EQLZ F 4
+EQLZ G 15
+EQLZ CBA 2
+EQLZ A 0 A_Refire
+Goto Ready+1
+Fire1:
+EQLZ BC 1
+EQLZ A 0 A_PlaySoundEx("weapon/chargekick","Weapon")
+EQLZ A 0 A_FireCustomMissile("EqualProjectile2",0,1,8,0)
+EQLZ DE 2
+EQLZ F 4
+EQLZ G 15
+EQLZ CBA 2
+EQLZ A 0 A_Refire
+Goto Ready+1
+Fire2:
+EQLZ BC 1
+EQLZ A 0 A_PlaySoundEx("weapon/chargekick","Weapon")
+EQLZ A 0 A_FireCustomMissile("EqualProjectile3",0,1,8,0)
+EQLZ DE 2
+EQLZ F 4
+EQLZ G 15
+EQLZ CBA 2
+EQLZ A 0 A_Refire
+Goto Ready+1
+Fire3:
+EQLZ BC 1
+EQLZ A 0 A_PlaySoundEx("weapon/chargekick","Weapon")
+EQLZ A 0 A_FireCustomMissile("EqualProjectile4",0,1,8,0)
+EQLZ DE 2
+EQLZ F 4
+EQLZ G 15
+EQLZ CBA 2 A_WeaponReady
+EQLZ A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+EQLZ A 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

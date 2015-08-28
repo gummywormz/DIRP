@@ -1,0 +1,195 @@
+actor HealBlocker : PowerProtection
+{
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+inventory.amount 1
+inventory.maxamount 1
+Powerup.Duration -10
+Powerup.Color "55 00 55", 0.7
+}
+
+
+actor SmallHealthReal : SmallHealth
+{
+inventory.amount 15
+}
+
+actor BigHealthReal : BigHealth
+{
+inventory.amount 40
+}
+
+actor PlantBarrierWep2 : PlantBarrierWep replaces PlantBarrierWep
+{
+States
+{
+Shield:
+PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
+PLAA A 0 HealThing(1)
+PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA A 0 A_TakeInventory("PlantBarrierAmmo",1)
+PLAA AA 1 A_WeaponReady
+PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
+PLAA A 0 HealThing(1)
+PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA AA 1 A_WeaponReady
+PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
+PLAA A 0 HealThing(1)
+PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA AA 1 A_WeaponReady
+PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
+PLAA A 0 HealThing(1)
+PLAA A 0 A_JumpIf(health>=100,"Waiting")
+Loop
+}
+}
+
+actor SmallHealth2 : CustomInventory replaces SmallHealth
+{
+inventory.amount 15
+inventory.maxamount 100
+inventory.pickupmessage "Picked up a health capsule."
++COUNTITEM
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+HBAL AB 6
+loop
+Pickup:
+HBAL A 1 A_JumpIfInventory("HealBlocker",1,"Fale")
+HBAL A 1 A_GiveInventory("SmallHealthReal",1)
+stop
+Fale:
+HBAL AB 1
+fail
+}
+}
+
+
+actor BigHealth2 : CustomInventory replaces BigHealth
+{
+inventory.amount 30
+inventory.maxamount 100
+Scale 2.0
+inventory.pickupmessage "Picked up a large health capsule."
+inventory.pickupsound "item/energyup"
++COUNTITEM
+States
+{
+Spawn:
+HBAL CD 6
+loop
+Pickup:
+HBAL C 1 A_JumpIfInventory("HealBlocker",1,"Fale")
+HBAL C 1 A_GiveInventory("BigHealthReal",1)
+stop
+Fale:
+HBAL AB 1
+fail
+}
+}
+
+
+actor HealBurst
+{
+PROJECTILE
+Obituary "%o couldn't stand the fact he couldn't heal and exploded thanks to %k's Heal Block."
++PIERCEARMOR
++FORCERADIUSDMG
++FORCEXYBILLBOARD
++DONTBLAST
+Radius 8
+Height 8
+scale 2.5
+speed 0
+damage (1)
+damagetype "HealBlock"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 1 A_Explode(5, 400, 0)
+TNT1 A 1
+stop
+}
+}
+
+actor HealAmmo : Ammo
+{
+Inventory.amount 1
+Inventory.MaxAmount 100
+}
+
+actor HealGiver : CustomInventory
+{
+Inventory.Pickupmessage "Power up! Heal Block!"
+inventory.pickupsound "weapon/weaponup"
+Inventory.RespawnTics 1800
+scale 2.5
+states
+{
+Spawn:
+HEBH E -1
+stop
+Pickup:
+HEBE E 0 A_JumpIfInventory("HealBlockWep",1,"Fale")
+HEBE E 0 A_GiveInventory("HealBlockWep")
+stop
+Fale:
+HEBE E 0
+fail
+}
+}
+
+
+Actor HealBlockWep : MegaBuster
+{
+Weapon.AmmoUse 50
++Weapon.Noautoaim
+Weapon.AmmoGive 100
+Weapon.SlotNumber 6
+inventory.icon "HEALICO"
+Obituary "%o couldn't stand the fact he couldn't heal and exploded thanks to %k's Heal Block."
+Inventory.Pickupmessage "Power up! Heal Block!"
+weapon.ammotype "HealAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+//Scale 2.0
+States
+{
+Spawn:
+HEBH E -1
+stop
+Ready:
+HEBH A 0 ACS_ExecuteAlways(998,0,207)
+HEBH A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+HEBH A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+HEBH A 1 A_Raise
+Loop
+Fire:
+HEBH A 0 A_JumpIfNoAmmo("NoAmmo")
+HEBH A 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+HEBH A 2 A_FireCustomMissile("HealBurst",0,0,0,0)
+HEBH A 0 A_TakeInventory("HealAmmo", 50)
+HEBH D 2
+HEBH CB 2
+HEBH A 35
+HEBH A 0 A_Refire
+Goto Ready+1
+NoAmmo:
+HEBH A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}

@@ -1,0 +1,313 @@
+#include "zcommon.acs"
+#library "WEPHELP"
+
+Script 604 (void) NET CLIENTSIDE
+{
+HudMessage(s:""; HUDMSG_PLAIN,50,CR_UNTRANSLATED,0.0,0.0,0.1);
+SetHUDSize(640,480,false);
+HudMessage(s:""; HUDMSG_PLAIN,50,CR_UNTRANSLATED,0.0,0.0,0.1);
+//v1
+if(CheckWeapon("MistFormWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Hold down fire to turn into mist, which allows you to pass through players and become invisible. Damage: 5 Ripper."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ShockMineWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Leaves a mine on the ground that shocks anyone who touches it. Damage: 20 Explosive."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ThunderCloud")==1){SetFont("SMALLFONT");
+HudMessage(s:"Shoot a cloud that rises up then shoots lightning and spark balls that hug the floor. Damage: 15 for lightning, 20 for balls"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("EternalNight")==1){SetFont("SMALLFONT");
+HudMessage(s:"Darkens the opponent's screen. Damage: n/a"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("OblivionBusterWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Stops you for a full 2 seconds and then explodes violently, making anyone near you very dead.\n Damage: 99 explosive, 500 radius"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("SpeedGearWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a gear that revs up, then hugs the ceiling and floors. Damage: 10 ripping"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("LeechSeedWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons an area of plants that sap the opponent's health. Damage: N/A"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BulletSeedWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"The rate of fire and projectile speeds up the lower your health is. Damage: 7"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("AquaPunchWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A melee weapon that knocks opponents backwards. Damsge: 35"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ShadowForceWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Makes you invisible for a short period of time, then summons a large AOE around you. Damage: 60 explosive (750 range)"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HealBlockWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Prevents opponents from healing. Damage: N/A"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("LightningChainWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A rapid fire attack that spreads to others around the player you hit. Damage: 3 to 11"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("MagnetDrillWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a drill that splits into 8 homing, floor hugging drills. Damage: 12"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BoulderCrackerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires 2 boulders that split depending on how high the boulders are to the nearest floor. Damage: 6 to 48"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FlurrySpreadWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons 10 snowflakes around you. Damage: 7"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BlazingSoulWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a projectile that bounces, then homes in. Damage: 30 bouncing, 55 homing."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BlastFreezeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons three icicles that move forward slightly. Damage: 78"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FlameSpoutWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons a floor hugging fireball that becomes a volcano after a few seconds. Damage: 20"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BombSniperWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a fast bullet that splits into bombs upon hitting a target. Damage: 7, 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CrossFlameWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A melee attack that fires 2 fireballs upon hitting a surface. Damage: 40 melee, 10 projectile"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+//v2
+if(CheckWeapon("DizzyBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A spinning bomb that can be used to rocket jump. May cause the opponent to be confused.\nDamage: 35 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CrossLightWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires 3 projectiles that spread out slightly. The two side ones go out in a wave pattern. Damage: 10 to 12 per shot"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DrillTorpWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires 3 ripping drills. The side ones hug the floor. Damage: 10 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("NMGWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A rapid fire machine gun of swirling needles. Damage: 4"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("GimmickStarWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Charge it to fire a bouncing projectile. From the NES game Gimmick! Damage: 40 explosive, 5 explosive melee"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TackleShieldWep")==1){SetFont("SMALLFONT");
+HudMessage(s:" A shield weapon that fires a constant stream of tackle fires around you.\nDamage: 25"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("WaveGuideWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a harpoon that upon hitting a wall, fires Water Wave backwards.\nDamage: 20"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CrystalMineWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a mine that explodes after a while and sends fires Crystal Eye bits"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FizzBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a soda can that explodes and leaves residue.Getting hit with the\ncan or residue will slow you down. Damage: 30 can, 15 blob"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PaintGunWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A simple spread weapon that allows you to paint the level AND the town! Damage: 8"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PopCornWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a kernel that explodes into more kernels in a large radius. Damage: 20 base, 5 after"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PinMissileWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a column of needles quickly. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DoubleNapalmWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires 2 Napalm Missiles that go horizontally to opposite ends of the screen.\nDamage: 5 + 40 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PhoenixRodWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a slow, but powerful and explosive phoenix at your enemies.\nYou can hit yourself with it, however. Damage: 50 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("IceSpikeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a spike that shoots 8 icicles after a bit. Damage: 15"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CloudBomberWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires an ascending projectile that drops bombs. Damage: 27"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FadeLauncherWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a projectile that gets stronger and harder to see the farther it goes.\nDamage: 5,10,30,60 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TwistLaserWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a ring of lasers that go off in random directions. Damage: 30"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PerfectChainsawWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A melee weapon that fires a chainsaw when held. If you have enough ammo left,\nyou can release it and fire high speed projectiles. Damage: 4"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SkyUppercutWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Upon hitting an opponent, it will knock you and your enemy to the sky and continue damaging him.\nYou can also use it to combo and reach high places. Damage: 10 + 25 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("QuadMissileWep")==1){SetFont("SMALLFONT");
+HudMessage(s:" Fires four slow, but powerful missiles in a square around you. Damage: 5 + 30 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CoalShotWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A rapid fire weapon that gets more powerful the more you use it.\nUsing it too much will cause an overheat and damage you. Damage: 10 - 40"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DangerFieldWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A fireable shield that reflects players and projectiles. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("GravityHoleWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"When charged, it creates a vortex that fires shots in a circle rapidly. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("EqualizerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Boosts speed and damage depending on your remaining health. Damage: 10,20,40,80"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("StoneWallWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A pushable projectile that can fire 3 bouncing projectiles if you fire again while it is up.\nDamage:30"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+//v3
+
+if(CheckWeapon("ApexLaserWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"After a delay, high speed lasers will fire. Damage: 50"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CometLauncherWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Lobs an explosive comet ahead. Damage: 30 direct, 40 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SideStarWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons 2 Star Crashes that bounce at high speeds and rip. Damage: 5 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("VolcanoHandWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Mid-ranged flame thrower that forces you to stand still. Damage: 5"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("IceShurikensWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Quickly fires shurikens in a v pattern. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TripleZapWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Aim three bolts of lightning ahead. Damage: 5 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FridgeBusterWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires random health and energy capsules. Damage: 13 small, 21 big"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HCRBoomerangWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Hold to keep the boomerang in place. Damage: 5 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("StarToadWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Turns players into weak frogs. You can cancel your weapon on fire."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("WaterCutterWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A fast, high damage laser. Damage: 7 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PharaohShotGunWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires 5 pharaoh shots. Damage: 8,16,24"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("RushCannonWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A high speed, instant kill attack that can only be aimed once.\nDamage: 999 base, 70 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("LaserMissileWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A dive missile with a laser trail. Damage: 10 base, 7 ripper trail"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ShatterStoneWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons a guts block that breaks backwards. Damage: 40 base, 10 debris"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ScatterBallWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons balls that bounce at high speeds after a bit. Damage: 12"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FrostBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A bomb that sends ice around when it explodes."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ThunderFangWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A mid-range ripping attack that stuns at the end. Damage: 7 ripper, 12 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SuperArrowWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"It's from Mega Man 5. Damage: 15"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SparkManBowWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Hold it down for a melee. Hit the floor to stun players,\nor other surfaces for a ripping explosion. Damage: 6 melee, 35, 30 explosive, 6 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("StealthRockWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons a ring of rocks."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("RecycleInhalerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A short range melee attack that can be held down. It turns players into items when they die.\nDamage: 3"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HellWheelWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Go through people at fast speeds. Damage: 13 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HailShotGunWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A mid-range shotgun. Damage: 9"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FrenzyPlantWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A long range attack that travels along the ground. Damage: 4 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FireWorksWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Jumps 3 times, firing fireworks around you. Damage: 30,40,50"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DustVaccumWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A projectile that pulls players towards you. Damage: 35 base, 7 * 3 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("RingTossWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A high speed bouncing projectile. Damage: 6 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HeadCrashWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A melee attack that gets stronger with each boulder. Damage: 5,10,15,20"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SunSparkWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"An attack that splits upon hitting a wall. Damage: 10 ripper, 15 split"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("UnDeadArmyWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Explodes and causes blindness and dizzyness. It can hurt everyone, including yourself.\nDamage: 45 explosive. 360 radius"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("RainFloodWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons a pool of water that boosts jump height. Damage: 2 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HammerTailWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons rocks around you. Damage: 20"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("GemCannonWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Follows the ground after a while and explodes. Damage: 2 base, 21 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SpikeBallWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A boomerang that stops for a bit. Charge it up to send a high speed ripping ball.\nDamage: 6 ripper, 9 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("StoneWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Gives you temporary invinciblity for a few seconds."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("OpticLaserWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A multi-hit laser. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PursuitWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a bullet that on impact with a player, dashes you forward. Damage: 20"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DrillArmWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Pushes you forward. Hitting a wall sends rocks behind you. Damage: 3, 20 rocks"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("RocketChaingunWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"IT'S A ROCKET AND IT'S A CHAINGUN! ROCKET CHAINGUN! Damage: 50 explosive"; HUDMSG_PLAIN, 10, CR_RED, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PiaofuFengWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Hold it to lift yourself up slowly. Release to fire a wind storm. Damage: 2 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("RakuhouhaWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A buster that fires 2 shots at once. Charge it to send 9 powerful shots forward.\n Damage: 10,30"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("NoteableShotWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"An arcing shot that explodes 3 times when a player is hit by it. Damage: 2 base, 10 * 3 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PharaohSacrificeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons Pharaoh Shots that go forward after a short delay. Damage: 35"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TankArsenalWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a missile, a floor hugging object, and a grenade forward. Damage: 12 direct, 17 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("GlueShotWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Stuns players and can be used as a platform. Damage: 22"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("JetMissileWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A rapid fire attack that can lock on to enemies when charged. Damage: 15"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("YokuAttackWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A ripping, homing projectile that causes enemies to turn into items on death.\nDamage: 6 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("YoyoCutterWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A boomerang that can go along the floor. Damage: 10 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("RainbowBeamWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Press fire again after firing to cause a long lasting, large radius explosion.\n Damage: 20 base, 5 ripper explosion"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("NitroBlastWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Sends 3 explosions forwards. Damage: 35 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HammerTossWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"An arcing hammer. Damage: 25"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("NailShieldWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Reduces damage except damage caused by explosions. 1.2 vs explosives, .7 vs normal. Damage: 15"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CometDashWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Dashes you forward. Damage: 16 explosive contact, 10 projectile"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DumplingBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A rapid fire bomb. Damage: 15 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SizzleRocketWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A high speed bouncing rocket that explodes 3 times. Damage: 30 base, 50 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FractalLaserWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A laser that splits upon hitting a wall. Damage: 30"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DimensionalWaveWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons 5 projectiles in a sine wave. Each projectile is aimable and the last one can pierce armor.\nDamage: 8"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ThunderChainWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A short range chain of electricity that splits on the floor. Damage: 6 ripper, 4 shock"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("DelayBusterWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Waits at the beginning and the end. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+//add v3c
+
+if(CheckWeapon("WaterShurikenWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Sends 1 - 5 fast projectiles forward. Damage: 7 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("IceShardWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons random ice shards quickly. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TriAttackWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires fire, ice, and electric attacks in succession. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BlazeKickWepWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Flings you back upon hitting an enemy. Damage: 8 base, 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("OctaZookaWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A powerful cannon that darkens the enemy's screen. Damage: 30 base, 15 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("NightDazeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A radius attack that darkens enemy screens. Damage: 3"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("GigaDrainWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A Melee weapon that drains opponents health. Damage: 10, 3 health restored per hit"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("MoonBlastWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons a moon straight down that explodes. Damage: 35 explosive, 300 radius"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FreezeDryWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A short range freeze thrower. Great for finishing people off. Damage: 1 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("IceBeamWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires an infinite length beam. Damage: 1 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SelfDestructWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Does high damage in a radius at the cost of 30 health. Damage: 50 explosive, 300 radius"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FellStingerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"If a player is hit with a random crit or dies to fell stinger, the player gets 10 critical hits.\nDamage: 8 ripper, 19 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("WillOWispWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Causes burn damage. Damage: 19"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("MagnetBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Waits at the beginning and the end. Damage: 8 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("LeafStormWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires quick, ripping projectiles. Damage: 4 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("WildTornadoWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Spins you around in place while dealing wind storm damage. Damage: 18 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ChargeBeamWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires up to 5 shots at once depending on the charge length. Damage: 15"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("WaterSpoutWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires water up that splashes into a radius on the floor. Damage: 12 base, 5 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BeeOrderWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Increase armor when up, if you have less than 50 health it will heal you,\notherwise it sends homing bees. Damage: 7"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SteelWingWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires two ripping projectiles at large angles. Damage: 5 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SeedFlareWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fires a ring of seeds around you. Damage: 17 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FireBlastWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Becomes a shield for a bit, then summons a high damage projectile that explodes multiple times.\nDamage: 1 explosive, 10 base, 10 * 18 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FireBallWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons a fire ball that shoots random sub shots everywhere. 37 base, 10 trail"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PKFireWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Summons a floor hugging projectile that turns into a ripping flame blast when hitting an opponent.\nDamage: 13 base, 6 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TeleportWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Sends you flying at a random angle."; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+//v4
+
+if(CheckWeapon("CircuitBreakerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"An explosive projectile that fires forwards and backwards. Damage: 15 base, 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ShockGauntletWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Boomerang that stuns opponents in a medium range. Damage: 2 ripper, 10 base"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("VirusOutbreakWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Blocks attacks around you. Fire to expand the shield, leaving you vulnerable for a bit.\nDamage: 10 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CharadeCloneWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Fire once to leave a clone and turn invisible. Getting hit returns you to the clone.\nFiring again causes the clone to come near you and explode. Damage: 60 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PhantomFuseWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A long, explosive projectile that you can guide. Damage: 25 base, 35 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SolarFlareWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A projectile that splits into 3 suns after a bit. Use it in crowds! Damage: 35"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("PulseStopperWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A medium range, slow ripper that turns into a shield when you are near it.\nDamage: 6 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("CryptCloakWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Turns you invisible but causes waves to appear when you jump. Damage: 12"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("JumpKickWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A melee attack that drops you down and stuns enemies. Only works in the air.\nDamage:30 base, 100 explosive + 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("FireFlyWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A homing attack that stops every so often. Damage: 25"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SuguriDashWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Dashes you forwards and repels all projectiles in range"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("HyperSpaceHoleWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Hold it down to fire a projectile. Release to teleport to it.\nDamage: 20"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("EggBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A homing attack that only seeks every few seconds. Hugs the floor.\nDamage: 40 explosive, no radius decay"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("WaterPulseWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A projectile that expands into an AOE when it hits a player Damage: 5 base, 1 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("BoomerangBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A crash bomb that reverses itself. Damage: 4 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ExplosiveHadoukenWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"A ripping projectile that explodes upon hitting a player. Damage: 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+}

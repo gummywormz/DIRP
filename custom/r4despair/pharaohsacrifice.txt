@@ -1,0 +1,170 @@
+//Pharaoh Sacrifice - Forms a cross of pharaoh shots that go in random directions
+//after a bit. Hold more for more shots (up to 6, 1 for level 1, 4 for level 2)
+
+actor PharaohSacrificeWep : MegaBuster
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Obituary "%o was cursed by %k's Pharaoh Sacrifice."
+Inventory.Pickupmessage "Power up! Pharaoh Sacrifice!"
+weapon.ammotype "PharaohSacrificeAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "PHSCICO"
+Scale 2.0
+States
+{
+Spawn:
+PHSC A -1
+stop
+Ready:
+PHAN A 0 ACS_ExecuteAlways(998,0,31)
+PHAN A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PHAN A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PHAN A 1 A_Raise
+Loop
+Fire:
+PHAN A 0 A_JumpIfNoAmmo("NoAmmo")
+PHAN A 0
+Goto Hold
+Hold:
+PHAN A 0 A_JumpIfNoAmmo("NoAmmo")
+PHAN A 0 A_JumpIfInventory("WeaponCharge",78,"Hold3")
+PHAN A 0 A_JumpIfInventory("WeaponCharge",1,"Hold2")
+PHAN A 2 A_GiveInventory("WeaponCharge",1)
+PHAN A 0 A_Refire
+Goto Throw1
+Hold2:
+PHAN A 0 A_JumpIfInventory("WeaponCharge",2,"Hold2a")
+PHAN A 0 A_GiveInventory("WeaponCharge",1)
+PHAN BCDE 2
+PHAN E 0 A_SpawnItemEx("PharaohFX")
+PHAN A 0 A_Refire
+Hold2a:
+TNT1 A 0 A_JumpIfInventory("WeaponCharge",78,"Hold3")
+TNT1 A 1 A_GiveInventory("WeaponCharge",1)
+TNT1 A 0 A_Refire
+TNT1 A 0 A_JumpIfInventory("WeaponCharge",78,"Throw3")
+TNT1 A 0 A_JumpIfInventory("WeaponCharge",33,"Throw2")
+Goto Throw1
+Hold3:
+TNT1 A 1 A_GiveInventory("WeaponCharge",1)
+TNT1 A 0 A_JumpIfInventory("IsBot", 1, "Botfire")
+TNT1 A 0 A_Refire
+TNT1 A 0 A_JumpIfInventory("WeaponCharge",78,"Throw3")
+TNT1 A 0 A_JumpIfInventory("WeaponCharge",33,"Throw2")
+Goto Throw1
+Botfire:
+TNT1 A 0 A_Jump(16, "Throw3")
+TNT1 A 0 A_Refire
+Goto Throw1
+Throw1:
+TNT1 A 0 A_TakeInventory("WeaponCharge",100)
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh1","Weapon")
+PHAN A 0 A_FireCustomMissile("PharaohSac",0,1,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+PHAN A 10
+Goto Ready+1
+Throw2:
+TNT1 A 0 A_TakeInventory("WeaponCharge",100)
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh1","Weapon")
+TNT1 A 0 A_TakeInventory("pharaohsacrificeammo",1)
+PHAN A 0 A_FireCustomMissile("PharaohBuild1",0,1,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+PHAN A 12
+Goto Ready+1
+Throw3:
+TNT1 A 0 A_TakeInventory("WeaponCharge",100)
+TNT1 A 0 A_TakeInventory("pharaohsacrificeammo",3)
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+PHAN A 0 A_FireCustomMissile("PharaohBuild2",0,1,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+PHAN A 20
+Goto Ready+1
+NoAmmo:
+PHAN A 1 ACS_Execute(979,0)
+PHAN A 0 A_Refire
+Goto Ready+1
+}
+}
+
+actor PharaohSacrificeAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor PharaohBuild1
+{
++NOINTERACTION
++NOTARGETSWITCH
+PROJECTILE
+HEIGHT 1
+RADIUS 1
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("PharaohSac",50,0,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",-50,0,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",0,50,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",0,-50,10,0,0,0,0)
+stop
+}
+}
+
+actor PharaohBuild2 : PharaohBuild1
+{
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("PharaohSac",50,0,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",-50,0,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",0,50,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",0,-50,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",0,-100,10,0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("PharaohSac",0,-150,10,0,0,0,0)
+stop
+}
+}
+
+actor PharaohSac
+{
+PROJECTILE
+Obituary "%o was cursed by %k's Pharaoh Sacrifice."
+Height 10
+Speed 0
+Damage (35)
+DamageType "PharaohShot"
+Radius 10
+Scale 2.5
+States
+{
+Spawn:
+PHAS JK 1
+PHAS JK 12
+PHAS J 1 A_ChangeVelocity(55,0,0,CVF_RELATIVE|CVF_REPLACE)
+Done:
+PHAS JK 3
+PHAS JK 3
+PHAS JK 3
+loop
+Death:
+TNT1 A 1
+stop
+}
+}

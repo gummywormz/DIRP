@@ -1,0 +1,100 @@
+actor PaintGunWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Obituary "%o was made beautiful by %k's paint gun."
+Inventory.Pickupmessage "Power up! Paint Gun!"
+weapon.ammotype "PaintGunAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "PAINTICO"
+Scale 2.0
+States
+{
+Spawn:
+PTGB G -1
+stop
+Ready:
+PTGB D 0 ACS_ExecuteAlways(998,0,219)
+PTGB D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PTGB D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PTGB D 1 A_Raise
+Loop
+Fire:
+PTGB D 0 A_JumpIfNoAmmo("NoAmmo")
+PTGB D 0 A_PlaySoundEx("weapon/mmvshot","Weapon")
+PTGB D 0 A_FireCustomMissile("PaintGunRed",0,1,8,0)
+PTGB D 0 A_FireCustomMissile("PaintGunBlue",-15,0,8,0)
+PTGB D 0 A_FireCustomMissile("PaintGunGreen",15,0,8,0)
+PTGB EF 3
+PTGB D 4
+PTGB D 0 A_Refire
+Goto Ready+1
+NoAmmo:
+PTGB D 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor PaintGunAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor PaintGunRed
+{
+Decal RedDecal
+PROJECTILE
+Radius 5
+Height 5
+Obituary "%o was made beautiful by %k's paint gun."
+Speed 40
+scale 2.5
+damagetype "Paint"
+damage (8)
+States
+{
+Spawn:
+PTGB A -1
+stop
+Death:
+TNT1 A 2 //protip: decals don't work if there are no tics here...
+stop
+}
+}
+
+actor PaintGunBlue : PaintGunRed
+{
+Decal BlueDecal
+States
+{
+Spawn:
+PTGB B -1
+stop
+Death:
+TNT1 A 2
+stop
+}
+}
+
+actor PaintGunGreen : PaintGunRed
+{
+Decal GreenDecal
+States
+{
+Spawn:
+PTGB C -1
+stop
+Death:
+TNT1 A 2
+stop
+}
+}

@@ -1,0 +1,101 @@
+actor SnowRegular
+{
+PROJECTILE
+Damage (7)
+damagetype "BlizzardAttack"
+Scale 2.5
+Obituary "%o was swirled by %k's Flurry Spread."
+Height 12
+Radius 12
+Speed 40
+States
+{
+Spawn:
+BLIZ C -1
+stop
+Death:
+BLIZ A 2
+stop
+}
+}
+
+actor FlurryAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 45
+}
+
+Actor FlurrySpreadWep : MegaBuster
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 45
+Weapon.SlotNumber 3
+inventory.icon "FLSPICO"
+Obituary "%o was swirled by %k's Flurry Spread."
+Inventory.Pickupmessage "Power up! Flurry Spread!"
+weapon.ammotype "FlurryAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+FLSP E -1
+stop
+Ready:
+FLSP A 0 ACS_ExecuteAlways(998,0,11)
+FLSP A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FLSP A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FLSP A 1 A_Raise
+Loop
+Fire:
+FLSP A 0 A_JumpIfNoAmmo("NoAmmo")
+FLSP A 0 A_TakeInventory("FlurryAmmo",2)
+FLSP A 0 A_PlaySoundEx("weapon/flurryspread","Weapon")
+FLSP A 0 A_FireCustomMissile("FlurrySpawner",0,0,8,0)
+FLSP BCD 5
+FLSP A 3
+FLSP A 1 A_Refire
+goto Ready+1
+NoAmmo:
+FLSP A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+Actor FlurrySpawner
+{
+Radius 5
+Height 5
+Damage (0)
+Speed 0
+PROJECTILE
+-NOGRAVITY
++FLOORHUGGER
++RIPPER
+states
+{
+Spawn:
+TNT1 A 1
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+TNT1 A 0 A_SpawnItemEx("SnowRegular", 0, 0, 30, 40, 0, 0, random(-360,360))
+stop
+Death:
+TNT1 A 0
+stop
+}
+}

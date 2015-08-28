@@ -1,0 +1,4 @@
+server int dirp_allweps = 0;
+server int dirp_scramble = 0;
+server int dirp_scrambletime = 30;
+user int halloween_lights  = 1;

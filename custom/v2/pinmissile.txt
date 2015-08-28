@@ -1,0 +1,75 @@
+actor PinMissile : Needle
+{
+scale 2.5
+damage (10)
+Obituary "%o was poked by %k's Pin Missile."
+damagetype "NeedleCannon"
+speed 10
+States
+{
+Spawn:
+NEDC A 0
+NEDC A 0 A_Stop
+NEDC A 6
+NEDC A 1 A_ChangeVelocity(50,0,0,CVF_RELATIVE|CVF_REPLACE)
+NEDC A 1
+NEDC A 1
+Goto Spawn+5
+}
+}
+
+actor PinMissileAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+actor PinMissileWep : MegaBuster
+{
+Weapon.AmmoUse 7
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Inventory.Pickupmessage "Power Up! Pin Missile!"
+Obituary "%o was poked by %k's Pin Missile."
+Weapon.AmmoType "PinMissileAmmo"
+Inventory.Icon "PINMICO"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
++WEAPON.DONTBOB
+Scale 2.0
+States
+{
+Spawn:
+PINM E -1
+stop
+Ready:
+PINM A 0 ACS_ExecuteAlways(998,0,10)
+PINM A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PINM A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PINM A 1 A_Raise
+Loop
+Fire:
+PINM A 1 A_JumpIfNoAmmo("NoAmmo")
+PINM A 0 A_PlaySoundEx("weapon/TIMESTOPPER","Weapon")
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,15),0,32,15,0,0)
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,15),0,64,15,random(-16,-16),random(0,0))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,15),0,96,15,random(-16,-16),random(0,0))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,128,15,random(-32,32),random(-32,64))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,100,15,random(-32,32),random(-32,64))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,50,15,random(-64,64),random(-64,48))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,70,15,random(-64,64),random(-64,48))
+PINM A 0 A_TakeInventory("PinMissileAmmo",7)
+PINM BCD 5
+PINM B 1 A_Refire
+Goto Ready+1
+NoAmmo:
+PINM A 1
+Goto Ready+1
+}
+}

@@ -1,0 +1,85 @@
+//sine wave of 5 projectiles, 5th pierces armor + invul
+
+actor DimensionalWaveT
+{
+PROJECTILE
++DONTBLAST
+Radius 5
+Height 5
+DamageType "CentaurFlash"
+scale 2.5
+damage (8)
+Obituary "%o was dizzied by %k's Dimensional Wave."
++FLOATBOB
+speed 40
+WeaveIndexZ 32
+States
+{
+Spawn:
+DMSW A 2 A_Weave(0,3,0.0,2.5)
+loop
+}
+}
+
+actor DimensionalWave2 : DimensionalWaveT
+{
++FOILINVUL
++PIERCEARMOR
+}
+
+actor DimensionalWaveWep : MegaBuster
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 48
+Weapon.SlotNumber 2
+Obituary "%o was dizzied by %k's Dimensional Wave."
+Inventory.Pickupmessage "Power up! Dimensional Wave!"
+weapon.ammotype "DimensionalWaveAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "DMSWICO"
+Scale 2.0
+States
+{
+Spawn:
+DMSW B -1
+stop
+Ready:
+YATK C 0 ACS_ExecuteAlways(998,0,506)
+YATK C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+YATK C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+YATK C 1 A_Raise
+Loop
+Fire:
+YATK C 0 A_JumpIfNoAmmo("NoAmmo")
+YATK C 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+YATK DEC 4
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,1,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,0,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,0,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,0,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWave2",0,0,8,0)
+YATK C 3
+YATK C 1 A_Refire
+Goto Ready+1
+NoAmmo:
+YATK C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor DimensionalWaveAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 48
+}

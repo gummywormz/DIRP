@@ -1,0 +1,117 @@
+//Damage more when the crash is more together
+
+actor HeadCrashWep : MegaBuster
+{
+Weapon.AmmoUse 8
+Weapon.AmmoGive 40
+Weapon.SlotNumber 4
+Obituary "%o was smashed and crashed by %k's Head Crash."
+Inventory.Pickupmessage "Power up! Head Crash!"
+weapon.ammotype "HeadCrashAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "HCRAICO"
+Scale 2.0
+States
+{
+Spawn:
+HCRA A -1
+stop
+Ready:
+POWS E 0 ACS_ExecuteAlways(998,0,29)
+POWS E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+POWS E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+POWS E 1 A_Raise
+Loop
+Fire:
+POWS E 0 A_JumpIfNoAmmo("NoAmmo")
+POWS E 0 A_PlaySoundEx("weapon/powerstone","Weapon")
+POWS FG 2
+POWS H 1 A_FireCustomMissile("HeadCrash1",0,1,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash1",0,0,8,0)
+POWS HH 4
+POWS H 1 A_FireCustomMissile("HeadCrash2",0,0,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash2",0,0,8,0)
+POWS HH 4
+POWS H 1 A_FireCustomMissile("HeadCrash3",0,0,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash3",0,0,8,0)
+POWS HH 4
+POWS H 1 A_FireCustomMissile("HeadCrash4",0,0,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash4",0,0,8,0)
+POWS H 20
+POWS GF 4
+POWS E 30
+POWS E 0 A_Refire
+Goto Ready+1
+NoAmmo:
+POWS E 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor HeadCrashAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 40
+}
+
+actor HeadCrash1
+{
+PROJECTILE
+Radius 38
+Height 10
+Obituary "%o was smashed and crashed by %k's Head Crash."
+scale 2.5
+damage (5)
+damagetype "PowerStone"
+speed 40
+States
+{
+Spawn:
+POWS A 0
+POWS A 2
+stop
+}
+}
+
+actor HeadCrash2 : HeadCrash1
+{
+damage (10)
+States
+{
+Spawn:
+POWS B 0
+POWS B 2
+stop
+}
+}
+
+actor HeadCrash3 : HeadCrash1
+{
+damage (15)
+States
+{
+Spawn:
+POWS C 0
+POWS C 2
+stop
+}
+}
+
+actor HeadCrash4 : HeadCrash1
+{
+damage (20)
+States
+{
+Spawn:
+POWS D 0
+POWS D 2
+stop
+}
+}

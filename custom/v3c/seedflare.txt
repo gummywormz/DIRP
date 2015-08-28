@@ -1,0 +1,125 @@
+Actor seedflareWep : MegaBuster
+{
+Weapon.AmmoUse 8
+Weapon.AmmoGive 56
+Weapon.SlotNumber 6
+inventory.icon "SEEFICO"
+Obituary "%o was prodded by %k's seed flare."
+Inventory.Pickupmessage "Power up! seed flare!"
+weapon.ammotype "SeedFlareAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+SEEF B 1
+loop
+Ready:
+BUSD A 0 ACS_ExecuteAlways(998,0,2)
+BUSD A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BUSD A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BUSD A 1 A_Raise
+Loop
+Fire:
+BUSD A 0 A_JumpIfNoAmmo("NoAmmo")
+BUSD A 0 A_PlaySoundEx("item/refill","Weapon")
+BUSD A 0 A_FireCustomMissile("SeedFlareSpawner",0,1,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 27
+BUSD A 1 A_Refire
+Goto Ready+1
+NoAmmo:
+BUSD A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor SeedFlare
+{
+PROJECTILE
+damagetype "LeafShield"
+Obituary "%o was prodded by %k's seed flare."
++RIPPER
+scale 2.5
+Speed 45
+Radius 2
+Height 2
+Damage (17)
+States
+{
+Spawn:
+SEEF A 1
+loop
+Death:
+MMFX BCDE 3
+stop
+}
+}
+
+actor SeedFlareSpawner
+{
+PROJECTILE
+DAMAGE (0)
++RIPPER
++NOGRAVITY
+-SOLID
++NOTARGETSWITCH
+STATES
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,0)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,30)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,60)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,90)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,120)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,150)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,180)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,210)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,240)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,270)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,300)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,32,45,0,0,330)
+
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,0)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,30)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,60)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,90)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,120)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,150)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,180)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,210)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,240)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,270)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,300)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,8,45,0,0,330)
+
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,0)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,30)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,60)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,90)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,120)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,150)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,180)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,210)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,240)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,270)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,300)
+TNT1 A 0 A_SpawnItemEX("SeedFlare",0,0,48,45,0,0,330)
+stop
+}
+}
+
+actor SeedFlareAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 56
+}

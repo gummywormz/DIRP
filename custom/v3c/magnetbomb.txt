@@ -1,0 +1,89 @@
+actor MagnetBombWep : MegaBuster
+{
+Weapon.AmmoUse 8
+Weapon.AmmoGive 56
+Obituary "%o was magnetized by %k's Magnet Bomb."
+Weapon.SlotNumber 2
+Inventory.Pickupmessage "Power up! Magnet Bomb!"
+inventory.pickupsound "weapon/weaponup"
+weapon.ammotype "MagnetBombAmmo"
+inventory.icon "MGNBICO"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+MGNB C 1
+loop
+Ready:
+BUBB D 0 ACS_ExecuteAlways(998,0,1)
+BUBB D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+BUBB D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+BUBB D 1 A_Raise
+Loop
+Fire:
+BUBB E 0 A_JumpIfNoAmmo("NoAmmo")
+BUBB E 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+BUBB E 0 A_FireCustomMissile("MagnetBomb",0,1,0,0)
+BUBB E 0 A_FireCustomMissile("MagnetBomb",0,0,80,0)
+BUBB E 0 A_FireCustomMissile("MagnetBomb",0,0,-80,0)
+BUBB FE 6
+BUBB D 21
+Goto Ready+1
+NoAmmo:
+BUBB D 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor MagnetBomb
+{
+PROJECTILE
+Radius 4
+Height 4
++RIPPER
+scale 2.5
+Obituary "%o was magnetized by %k's Magnet Bomb."
++SYNCHRONIZED
+damagetype "MagnetMissile"
+damage (8)
+speed 50
++SEEKERMISSILE
+-EXTREMEDEATH
+reactiontime 50
+States
+{
+Spawn:
+MGNB A 2 A_Jump(100,1)
+MGNB A 0 A_SpawnItemEx("MagnetBombTrail")
+MGNB A 00 A_SeekerMissile(4,25,SMF_LOOK,100,8)
+MGNB A 0 A_CountDown
+loop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor MagnetBombTrail : GeminiTrail
+{
+States
+{
+Spawn:
+MGNB A 0
+MGNB B 2
+stop
+}
+}
+
+actor MagnetBombAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 56
+}
