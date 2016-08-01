@@ -2,6 +2,7 @@ actor SteelWingWep : MegaBuster
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
+Tag  "Steel Wing"
 Obituary "%o was scratched by %k's steel wing."
 Weapon.SlotNumber 2
 inventory.pickupsound "weapon/weaponup"

@@ -155,6 +155,7 @@ Weapon.AmmoUse 50
 Weapon.AmmoGive 100
 Weapon.SlotNumber 6
 inventory.icon "HEALICO"
+Tag  "Heal Block"
 Obituary "%o couldn't stand the fact he couldn't heal and exploded thanks to %k's Heal Block."
 Inventory.Pickupmessage "Power up! Heal Block!"
 weapon.ammotype "HealAmmo"

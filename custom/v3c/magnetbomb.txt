@@ -2,6 +2,7 @@ actor MagnetBombWep : MegaBuster
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56
+Tag  "Magnet Bomb"
 Obituary "%o was magnetized by %k's Magnet Bomb."
 Weapon.SlotNumber 2
 Inventory.Pickupmessage "Power up! Magnet Bomb!"

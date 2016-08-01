@@ -138,6 +138,7 @@ actor DoubleNapalmWep : MegaBuster
 Weapon.AmmoUse 6
 Weapon.AmmoGive 30
 Weapon.SlotNumber 5
+Tag  "Double Napalm"
 Obituary "%o made %k's head asplode with Double Napalm."
 Inventory.Pickupmessage "Power up! Double Napalm!"
 weapon.ammotype "DoubleNapalmAmmo"

@@ -3,6 +3,7 @@ actor FizzBombWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Fizz Bomb"
 Obituary "%o was glued down by %k's Fizz Bomb."
 Inventory.Pickupmessage "Power up! Fizz Bomb!"
 weapon.ammotype "FizzBombAmmo"

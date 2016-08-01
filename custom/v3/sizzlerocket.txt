@@ -49,6 +49,7 @@ actor SizzleRocketWep : MegaBuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 5
+Tag  "Sizzle Rocket"
 Obituary "%o was knocked out by %k's Sizzle Rocket."
 Inventory.Pickupmessage "Power up! Sizzle Rocket!"
 weapon.ammotype "SizzleRocketAmmo"

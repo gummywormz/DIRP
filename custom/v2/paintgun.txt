@@ -3,6 +3,7 @@ actor PaintGunWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Paint Gun"
 Obituary "%o was made beautiful by %k's paint gun."
 Inventory.Pickupmessage "Power up! Paint Gun!"
 weapon.ammotype "PaintGunAmmo"

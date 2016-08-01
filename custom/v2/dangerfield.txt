@@ -88,6 +88,7 @@ actor DangerFieldWep : MegaBuster
 Weapon.AmmoUse 20
 Weapon.AmmoGive 60
 Weapon.SlotNumber 6
+Tag  "Danger Field"
 Obituary "%o was tossed aside by %k's Danger Field."
 Inventory.Pickupmessage "Power up! Danger Field!"
 weapon.ammotype "DangerFieldAmmo"

@@ -23,6 +23,7 @@ actor NightDazeWep : MegaBuster
 Weapon.AmmoUse 7
 Weapon.AmmoGive 56
 Weapon.SlotNumber 6
+Tag  "Night Daze"
 Obituary "%o woke up due to %k's Night Daze."
 Inventory.Pickupmessage "Power up! Night Daze!"
 weapon.ammotype "NightDazeAmmo"

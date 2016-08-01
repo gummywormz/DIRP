@@ -37,6 +37,7 @@ Weapon.AmmoGive 75
 Weapon.Kickback 37
 Weapon.SlotNumber 5
 inventory.icon "AQICO"
+Tag  "Aqua Fist"
 Obituary "%o felt the whiplash of %k's Aqua Fist."
 Inventory.Pickupmessage "Power up! Aqua Fist!"
 weapon.ammotype "AquaPunchammo"

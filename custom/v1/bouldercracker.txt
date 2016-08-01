@@ -216,6 +216,7 @@ Weapon.AmmoUse 3
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
 inventory.icon "BOCRICO"
+Tag  "Boulder Cracker"
 Obituary "%o had his head smashed in by %k's Boulder Cracker"
 Inventory.Pickupmessage "Power up! Boulder Cracker!"
 weapon.ammotype "BoulderAmmo"

@@ -78,6 +78,7 @@ Weapon.AmmoUse 6
 Weapon.AmmoGive 30
 Weapon.SlotNumber 6
 inventory.icon "LESEICO"
+Tag  "Leech Seed"
 Obituary "%o was drained by %k's Leech Seed."
 Inventory.Pickupmessage "Power up! Leech Seed!"
 weapon.ammotype "LeechAmmo"

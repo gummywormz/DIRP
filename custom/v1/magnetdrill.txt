@@ -95,6 +95,7 @@ Weapon.AmmoUse 15
 Weapon.AmmoGive 60
 Weapon.SlotNumber 2
 inventory.icon "MAGDRICO"
+Tag  "Magnet Drill"
 Obituary "%o was found by %k's Magnet Drill"
 Inventory.Pickupmessage "Power up! Magnet Drill!"
 weapon.ammotype "MagnetDrillAmmo"

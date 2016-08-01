@@ -29,6 +29,7 @@ Weapon.AmmoUse 6
 Weapon.AmmoGive 28
 Weapon.SlotNumber 4
 +WEAPON.MELEEWEAPON
+Tag  "Hammer Tail"
 +WEAPON.DONTBOB
 Obituary "%o was jacked by %k's Hammer Tail."
 Inventory.Pickupmessage "Power Up! Hammer Tail!"

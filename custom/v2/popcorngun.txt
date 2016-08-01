@@ -4,6 +4,7 @@ Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 5
 inventory.icon "POPCICO"
+Tag  "Pop Corn Cannon"
 Obituary "%o was burnt by %k's PopCorn Cannon."
 Inventory.Pickupmessage "Power up! PopCorn Cannon!"
 weapon.ammotype "PopCornAmmo"

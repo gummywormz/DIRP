@@ -150,6 +150,7 @@ Weapon.AmmoGive 56
 Weapon.SlotNumber 7
 Inventory.Pickupmessage "Power Up! Virus Outbreak!"
 Obituary "%o was grossed out by %k's Virus Outbreak."
+Tag "Virus Outbreak"
 weapon.ammotype "VirusOutbreakAmmo"
 weapon.ammouse 14
 inventory.pickupsound "weapon/weaponup"

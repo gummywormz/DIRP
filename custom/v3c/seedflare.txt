@@ -3,6 +3,7 @@ Actor seedflareWep : MegaBuster
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56
 Weapon.SlotNumber 6
+Tag  "Seed Flare"
 inventory.icon "SEEFICO"
 Obituary "%o was prodded by %k's seed flare."
 Inventory.Pickupmessage "Power up! seed flare!"

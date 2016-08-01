@@ -59,6 +59,7 @@ Weapon.SlotNumber 4
 Obituary "%o was cut and dried by %k's Cross Flame."
 Inventory.Pickupmessage "Power up! Cross Flame!"
 weapon.ammotype "CrossFlameAmmo"
+Tag  "Cross Flame"
 inventory.pickupsound "weapon/weaponup"
 +WEAPON.AMMO_OPTIONAL
 inventory.icon "CRFLICO"

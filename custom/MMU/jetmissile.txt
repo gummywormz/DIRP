@@ -94,6 +94,7 @@ Weapon.AmmoGive 56
 Weapon.SlotNumber 2
 scale 2.0
 Inventory.Icon "JTMSICO"
+Tag  "Jet Missile"
 inventory.pickupsound "weapon/weaponup"
 Obituary "%o was targeted by %k's Jet Missile."
 Inventory.Pickupmessage "Power Up! Jet Missile!"

@@ -7,6 +7,7 @@ actor SparkManBowWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Spark Manbow"
 Inventory.Pickupmessage "Power up! Spark ManBow!"
 weapon.ammotype "SparkManbowAmmo"
 Obituary "%o was tazed by %k's Spark ManBow."

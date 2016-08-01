@@ -58,6 +58,7 @@ actor SuguriDashWep : MegaBuster
 {
 Weapon.AmmoUse 9
 Weapon.AmmoGive 36
+Tag "Suguri Dash"
 Weapon.SlotNumber 7
 Obituary "%o was too KAWAII DES~ for %k's Suguri Dash."
 Inventory.Pickupmessage "Power up! Suguri Dash!"

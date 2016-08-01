@@ -40,6 +40,7 @@ actor SolarFlareWep : MegaBuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4
+Tag "Solar Flare"
 Obituary "%o was blinded by %k's Solar Flare"
 Inventory.Pickupmessage "Power up! Solar Flare!"
 weapon.ammotype "SolarFlareAmmo"

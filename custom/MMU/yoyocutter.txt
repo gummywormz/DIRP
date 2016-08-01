@@ -9,6 +9,7 @@ actor YoyoCutterWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Yoyo Cutter"
 Obituary "%o was chopped by %k's Yoyo Cutter."
 Inventory.Pickupmessage "Power up! Yoyo Cutter!"
 weapon.ammotype "YoYoCutterAmmo"

@@ -3,6 +3,7 @@ actor FadeLauncherWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Fade Launcher"
 Obituary "%o was scared by %k's Fade Launcher."
 Inventory.Pickupmessage "Power up! Fade Launcher!"
 weapon.ammotype "FadeLauncherAmmo"

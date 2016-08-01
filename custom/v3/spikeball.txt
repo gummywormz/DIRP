@@ -108,6 +108,7 @@ Weapon.AmmoGive 56
 Weapon.SlotNumber 2
 Inventory.Icon "SKBLICO"
 scale 2.0
+Tag  "Spike Ball"
 inventory.pickupsound "weapon/weaponup"
 Obituary "%o was prodded by %k's Spike Ball."
 Inventory.Pickupmessage "Power Up! Spike Ball!"

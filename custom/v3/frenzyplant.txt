@@ -3,6 +3,7 @@ actor FrenzyPlantWep : MegaBuster
 Weapon.AmmoUse 15
 Weapon.AmmoGive 60
 Weapon.SlotNumber 2
+Tag  "Frenzy Plant"
 Obituary "%o was sliced by %k's Frenzy Plant."
 Inventory.Pickupmessage "Power up! Frenzy Plant!"
 weapon.ammotype "FrenzyPlantAmmo"

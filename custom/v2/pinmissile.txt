@@ -29,6 +29,7 @@ actor PinMissileWep : MegaBuster
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Pin Missile"
 Inventory.Pickupmessage "Power Up! Pin Missile!"
 Obituary "%o was poked by %k's Pin Missile."
 Weapon.AmmoType "PinMissileAmmo"

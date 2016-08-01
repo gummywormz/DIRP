@@ -63,6 +63,7 @@ Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
 inventory.icon "BZSUICO"
+Tag  "Blazing Soul"
 Obituary "%o was blazed by %k's Blazing Soul"
 Inventory.Pickupmessage "Power up! Blazing Soul!"
 weapon.ammotype "SoulAmmo"

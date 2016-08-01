@@ -77,6 +77,7 @@ actor FractalLaserWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Fractal Laser"
 Obituary "%o was suprised by %k's Fractal Laser."
 Inventory.Pickupmessage "Power up! Fractal Laser!"
 weapon.ammotype "FractalLaserAmmo"

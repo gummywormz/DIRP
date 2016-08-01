@@ -30,6 +30,7 @@ Actor OblivionBusterWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 1
 Weapon.SlotNumber 6
+Tag  "Oblivion Buster"
 +WEAPON.NOAUTOAIM
 inventory.icon "NUKEICO"
 Obituary "%o was utterly decimated by %k's Oblivion Buster."

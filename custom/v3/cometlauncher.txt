@@ -48,6 +48,7 @@ actor CometLauncherWep : MegaBuster
 Weapon.AmmoUse 6
 Weapon.AmmoGive 30
 Weapon.SlotNumber 2
+Tag  "Comet Launcher"
 Obituary "%o was distracted by %k's Comet Launcher."
 Inventory.Pickupmessage "Power up! Comet Launcher!"
 weapon.ammotype "CometLauncherAmmo"

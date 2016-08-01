@@ -157,6 +157,7 @@ Weapon.SlotNumber 5
 inventory.icon "FMSPICO"
 Obituary "%o was cooked by %k's Flame Spout."
 Inventory.Pickupmessage "Power up! Flame Spout!"
+Tag  "Flame Spout"
 weapon.ammotype "FlameSpoutAmmo"
 inventory.pickupsound "weapon/weaponup"
 +WEAPON.AMMO_OPTIONAL

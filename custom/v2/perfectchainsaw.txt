@@ -66,6 +66,7 @@ actor PerfectChainsawWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 120
 Weapon.SlotNumber 4
+Tag  "Perfect Chainsaw"
 Inventory.Pickupmessage "Power up! Perfect Chainsaw!"
 weapon.ammotype "PerfectChainsawAmmo"
 inventory.pickupsound "weapon/weaponup"

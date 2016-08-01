@@ -79,6 +79,7 @@ Weapon.AmmoUse 1
 Weapon.AmmoGive 65
 Weapon.SlotNumber 3
 inventory.icon "BSEDICO"
+Tag  "Bullet Seed"
 Obituary "%o was pelted by %k's Bullet Seed."
 Inventory.Pickupmessage "Power up! Bullet Seed!"
 weapon.ammotype "BulletSeedAmmo"

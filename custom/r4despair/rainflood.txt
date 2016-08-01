@@ -114,6 +114,7 @@ actor RainFloodWep : MegaBuster
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 6
+Tag  "Rain Flood"
 Obituary "%o drowned in %k's Rain Flood."
 Inventory.Pickupmessage "Power up! Rain Flood!"
 weapon.ammotype "RainFloodAmmo"

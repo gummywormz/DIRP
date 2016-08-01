@@ -17,6 +17,7 @@ actor StoneWep : MegaBuster
 Weapon.AmmoUse 10
 Weapon.AmmoGive 30
 Weapon.SlotNumber 7
+Tag  "Stone"
 Obituary "%o was rocked by %k's Stone Ability."
 Inventory.Pickupmessage "Power up! Stone!"
 weapon.ammotype "StoneAmmo"

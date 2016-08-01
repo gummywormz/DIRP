@@ -5,6 +5,7 @@ actor ChargeBeamWep : Megabuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 2
+Tag  "Charge Beam"
 Inventory.Icon "CHGBICO"
 scale 2.0
 inventory.pickupsound "weapon/weaponup"

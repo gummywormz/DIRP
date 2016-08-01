@@ -50,6 +50,7 @@ actor CometDashWep : MegaBuster
 Weapon.AmmoUse 9
 Weapon.AmmoGive 36
 Weapon.SlotNumber 4
+Tag  "Comet Dash"
 Obituary "%o was knocked into the stratosphere by %k's Comet Dash."
 Inventory.Pickupmessage "Power up! Comet Dash!"
 weapon.ammotype "CometDashAmmo"

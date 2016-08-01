@@ -80,6 +80,7 @@ inventory.icon "PINKICO"
 Obituary "%o was mystified by %k's mist form"
 Inventory.Pickupmessage "Power up! Mist Form!"
 weapon.ammotype "MistAmmo"
+Tag  "Mist Form"
 inventory.pickupsound "weapon/weaponup"
 +WEAPON.AMMO_OPTIONAL
 Scale 2.0

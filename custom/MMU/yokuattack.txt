@@ -35,6 +35,7 @@ actor YokuAttackWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Yoku Attack"
 Obituary "%o was distracted by %k's Yoku Attack."
 Inventory.Pickupmessage "Power up! Yoku Attack!"
 weapon.ammotype "YokuAttackAmmo"

@@ -67,6 +67,7 @@ actor RainbowBeamWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 32
 Weapon.SlotNumber 2
+Tag  "Rainbow Beam"
 Obituary "%o was caught in %k's Rainbow Beam."
 Inventory.Pickupmessage "Power up! Rainbow Beam!"
 weapon.ammotype "RainbowBeamAmmo"

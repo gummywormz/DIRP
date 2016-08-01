@@ -56,6 +56,7 @@ actor LaserMissileWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Laser Missile"
 Obituary "%o crossed the path of %k's Laser Missile."
 Inventory.Pickupmessage "Power up! Laser Missile!"
 weapon.ammotype "LaserMissileAmmo"

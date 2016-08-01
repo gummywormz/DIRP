@@ -156,6 +156,7 @@ Weapon.AmmoUse 6
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4
 inventory.icon "TWICO"
+Tag  "Thunder Wool"
 Obituary "%o was stunned by %k's Thunder Wool."
 Inventory.Pickupmessage "Power up! Thunder Wool!"
 weapon.ammotype "RainbowAmmo"

@@ -29,6 +29,7 @@ actor SideStarWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Side Star"
 Obituary "%o was caught by %k's Side Star."
 Inventory.Pickupmessage "Power up! Side Star!"
 weapon.ammotype "SideStarAmmo"

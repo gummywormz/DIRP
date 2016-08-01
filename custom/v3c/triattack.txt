@@ -3,6 +3,7 @@ actor TriAttackWep : MegaBuster
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56
 Weapon.SlotNumber 3
+Tag  "Tri Attack"
 Obituary "%o was defeated thrice by %k's Tri Attack."
 Inventory.Pickupmessage "Power up! Tri Attack!"
 weapon.ammotype "TriAttackAmmo"

@@ -155,6 +155,7 @@ actor StoneWallWep : Megabuster
 Weapon.AmmoUse 28
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Stone Wall"
 Obituary "%o was blocked by %k's Stone Wall."
 Inventory.Pickupmessage "Power up! Stone Wall!"
 weapon.ammotype "StoneWallAmmo"

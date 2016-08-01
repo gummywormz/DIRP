@@ -71,6 +71,7 @@ actor WaterPulseWep : MegaBuster
 Weapon.AmmoUse 8
 Weapon.AmmoGive 40
 Weapon.SlotNumber 5
+Tag "Water Pulse"
 Obituary "%o was pressurized by %k's Water Pulse."
 Inventory.Pickupmessage "Power up! Water Pulse!"
 weapon.ammotype "WaterPulseAmmo"

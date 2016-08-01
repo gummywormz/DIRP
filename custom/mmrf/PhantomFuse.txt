@@ -76,6 +76,7 @@ actor PhantomFuseWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Phantom Fuse"
 Obituary "%o's soul was blown up by %k's phantom fuse"
 Inventory.Pickupmessage "Power up! Phantom Fuse!"
 weapon.ammotype "PhantomFuseAmmo"

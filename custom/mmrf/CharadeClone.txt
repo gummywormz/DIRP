@@ -68,6 +68,7 @@ actor CharadeCloneWep : MegaBuster
 Weapon.AmmoUse 14
 Weapon.AmmoGive 56
 Weapon.SlotNumber 7
+Tag "Charade Clone"
 Inventory.Pickupmessage "Power Up! Charade Clone."
 Obituary "%o was surprised by %k's Charade Clone"
 weapon.ammotype "CharadeCloneAmmo"

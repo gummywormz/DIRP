@@ -4,6 +4,7 @@ Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Obituary "%o was sent to the moon by %k's Moon Blast."
 Weapon.SlotNumber 4
+Tag  "Moon Blast"
 inventory.icon "MNBLICO"
 weapon.ammotype "MoonBlastAmmo"
 Inventory.Pickupmessage "Power up! Moon Blast!"

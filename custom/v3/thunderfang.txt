@@ -52,6 +52,7 @@ actor ThunderFangWep : MegaBuster
 Weapon.AmmoUse 3
 Weapon.AmmoGive 30
 Weapon.SlotNumber 2
+Tag  "Thunder Fang"
 Obituary "%o was chomped by %k's Thunder Fang."
 Inventory.Pickupmessage "Power up! Thunder Fang!"
 weapon.ammotype "ThunderFangAmmo"

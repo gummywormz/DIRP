@@ -5,7 +5,8 @@ actor RocketChaingunWep : MegaBuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 50
 Weapon.SlotNumber 3
-Obituary "%o was bombed by %k's \cgROCKET CHAINGUN."
+Tag  "Rocket Chaingun"
+Obituary "%o was blasted by %k's \cgROCKET CHAINGUN."
 Inventory.Pickupmessage "Power up! Rocket Chaingun!"
 weapon.ammotype "RocketChaingunAmmo"
 inventory.pickupsound "weapon/weaponup"

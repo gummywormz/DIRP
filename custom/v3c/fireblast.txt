@@ -2,6 +2,7 @@ actor fireblastWep : MegaBuster
 {
 Weapon.AmmoUse 16
 Weapon.AmmoGive 32
+Tag  "Fire Blast"
 Obituary "%o was cooked up by %k's Fire Blast."
 Weapon.SlotNumber 2
 Inventory.Pickupmessage "Power up! Fire Blast!"

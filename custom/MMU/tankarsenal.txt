@@ -5,6 +5,7 @@ Weapon.AmmoGive 28
 Weapon.SlotNumber 5
 scale 2.0
 Inventory.Icon "TNKAICO"
+Tag  "Tank Arsenal"
 inventory.pickupsound "weapon/weaponup"
 Obituary "%o was annihilated by %k's Tank Arsenal."
 Inventory.Pickupmessage "Power Up! Tank Arsenal!"

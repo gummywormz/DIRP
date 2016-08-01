@@ -344,6 +344,7 @@ actor SpeedGearWep : MegaBuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 40
 Weapon.SlotNumber 2
+Tag  "Speed Gear"
 Obituary "%o was ran over by %k's Speed Gear."
 Inventory.Pickupmessage "Power up! Speed Gear!"
 weapon.ammotype "SpeedAmmo"

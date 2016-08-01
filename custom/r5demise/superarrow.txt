@@ -63,7 +63,7 @@ States
 {
 Spawn:
 TNT1 A 0
-TNT1 A 2 ACS_ExecuteAlways(253,0,18,5)
+TNT1 A 2 ACS_ExecuteAlways(253,0,18,5,2)
 TNT1 A 36
 goto Next
 Next:
@@ -93,6 +93,7 @@ actor SuperArrowWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Super Arrow"
 Obituary "%o was targeted by %k's Super Arrow."
 Inventory.Pickupmessage "Power up! Super Arrow!"
 weapon.ammotype "SuperArrowAmmo"

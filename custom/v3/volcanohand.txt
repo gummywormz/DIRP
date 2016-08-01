@@ -6,6 +6,7 @@ Weapon.AmmoUse 2
 Weapon.AmmoGive 50
 Weapon.SlotNumber 4
 scale 2.0
+Tag  "Volcano Hand"
 inventory.icon "VOLHICO"
 Obituary "%o was cooked up by %k's Volcano Hand."
 Inventory.Pickupmessage "Power up! Volcano Hand"

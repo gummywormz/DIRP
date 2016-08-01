@@ -149,6 +149,7 @@ actor GravityHoleWep : Megabuster
 Weapon.AmmoUse 10
 Weapon.AmmoGive 50
 Weapon.SlotNumber 6
+Tag  "Gravity Hole"
 Inventory.Icon "GHOLICO"
 scale 2.0
 inventory.pickupsound "weapon/weaponup"

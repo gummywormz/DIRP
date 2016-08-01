@@ -3,6 +3,7 @@ actor HCRBoomerangWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "HCR Boomerang"
 Obituary "%o was caught up in %k's HCR Boomerang."
 Inventory.Pickupmessage "Power up! HCR Boomerang!"
 weapon.ammotype "HCRAmmo"

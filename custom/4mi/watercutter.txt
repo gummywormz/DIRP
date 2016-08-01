@@ -3,6 +3,7 @@ actor WaterCutterWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 40
 Weapon.SlotNumber 3
+Tag  "Water Cutter"
 Obituary "%o was blasted by %k's Water Cutter."
 Inventory.Pickupmessage "Power up! Water Cutter!"
 weapon.ammotype "WaterCutterAmmo"

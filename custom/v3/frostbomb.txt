@@ -51,6 +51,7 @@ actor FrostBombWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Frost Bomb"
 Obituary "%o was flash frozen by %k's Frost Bomb."
 Inventory.Pickupmessage "Power up! Frost Bomb!"
 weapon.ammotype "FrostBombAmmo"

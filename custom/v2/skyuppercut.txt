@@ -72,6 +72,7 @@ actor SkyUppercutWep : MegaBuster
 Weapon.AmmoUse 15
 Weapon.AmmoGive 75
 Weapon.SlotNumber 4
+Tag  "Sky Uppercut"
 Obituary "%o was knocked to the sky by %k's Sky Uppercut."
 Inventory.Pickupmessage "Power up! Sky Uppercut!"
 weapon.ammotype "SkyUppercutAmmo"

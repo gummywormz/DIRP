@@ -2,6 +2,7 @@ actor SelfDestructWep : MegaBuster
 {
 Weapon.AmmoUse 0
 Weapon.AmmoGive 1
+Tag  "Self Destruct"
 Obituary "%o stood in the way of %k's Self-Destruct."
 Weapon.SlotNumber 4
 Inventory.Pickupmessage "Power up! Self Destruct!"

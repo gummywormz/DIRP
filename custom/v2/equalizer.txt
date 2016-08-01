@@ -106,6 +106,7 @@ actor EqualizerWep : MegaBuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 50
 Weapon.SlotNumber 4
+Tag  "Equalizer"
 Obituary "%o was equally slashed by %k's Equalizer."
 Inventory.Pickupmessage "Power up! Equalizer!"
 weapon.ammotype "EqualizerAmmo"

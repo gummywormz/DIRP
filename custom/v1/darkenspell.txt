@@ -66,6 +66,7 @@ Weapon.AmmoUse 50
 Weapon.AmmoGive 50
 Weapon.SlotNumber 6
 inventory.icon "SPDKICO"
+Tag "Spell of Darkness"
 Obituary "%o wandered into %k's Spell of Darkness."
 Inventory.Pickupmessage "Power up! Spell of Darkness!"
 weapon.ammotype "nightammo"

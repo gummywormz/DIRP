@@ -122,6 +122,7 @@ actor FireWorksWep : MegaBuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4
+Tag  "Fire Works"
 Obituary "%o stood in awe of %k's Fire Works."
 Inventory.Pickupmessage "Power up! Fire Works!"
 weapon.ammotype "FireWorksAmmo"

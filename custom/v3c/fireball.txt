@@ -2,6 +2,7 @@ actor FireBallWep : MegaBuster
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
+Tag  "Fire Ball"
 Obituary "%o was burnt by %k's Fire Ball."
 Weapon.SlotNumber 3
 Inventory.Pickupmessage "Power up! Fire Ball!"

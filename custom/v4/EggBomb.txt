@@ -41,6 +41,7 @@ Actor EggBombWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Egg Bomb"
 inventory.icon "EGGBICO"
 Obituary "%o was cracked open by %k's Egg Bomb"
 Inventory.Pickupmessage "Power up! Egg Bomb!"

@@ -8,6 +8,7 @@ actor HammerTossWep : MegaBuster
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 40
+Tag  "Hammer Toss"
 Weapon.SlotNumber 2
 Obituary "%o was smashed by %k's Hammer Toss."
 Inventory.Pickupmessage "Power up! Hammer Toss!"

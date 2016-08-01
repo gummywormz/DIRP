@@ -95,6 +95,7 @@ actor StarToadWep : MegaBuster
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 7
+Tag  "Star Toad"
 Obituary "%o couldn't kiss %k."
 Inventory.Pickupmessage "Power up! *Toad!"
 weapon.ammotype "StarToadAmmo"

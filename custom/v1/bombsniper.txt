@@ -65,6 +65,7 @@ Weapon.AmmoUse 2
 Weapon.AmmoGive 35
 Weapon.SlotNumber 3
 inventory.icon "BOSNICO"
+Tag  "Bomb Sniper"
 Obituary "%o tried to run from %k's Bomb Sniper."
 Inventory.Pickupmessage "Power up! Bomb Sniper!"
 weapon.ammotype "BombSniperAmmo"

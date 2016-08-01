@@ -16,6 +16,7 @@ actor HellWheelWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 112
 Weapon.SlotNumber 7
+Tag  "Hell Wheel"
 Obituary "%o was boned by %k's Hell Wheel."
 Inventory.Pickupmessage "Power up! Hell Wheel!"
 weapon.ammotype "HellWheelAmmo"

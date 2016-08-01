@@ -41,6 +41,7 @@ actor ScatterBallWep : MegaBuster
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Scatter Balls"
 Obituary "%o was donked by %k's Scatter Balls."
 Inventory.Pickupmessage "Power up! Scatter Balls!"
 weapon.ammotype "ScatterBallAmmo"

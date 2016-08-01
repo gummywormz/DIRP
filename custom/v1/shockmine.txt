@@ -79,6 +79,7 @@ Weapon.AmmoGive 38
 +WEAPON.NOAUTOFIRE
 inventory.icon "SHOMICO"
 Weapon.SlotNumber 5
+Tag  "Shock Mine"
 Obituary "%o was tazed by %k's Shock Mines."
 Inventory.Pickupmessage "Power up! Shock Mine!"
 weapon.ammotype "MineAmmo"

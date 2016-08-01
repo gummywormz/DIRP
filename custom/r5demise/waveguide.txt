@@ -3,6 +3,7 @@ actor WaveGuideWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 112
 Weapon.SlotNumber 3
+Tag  "Wave Guide"
 Obituary "%o was surprised by %k's Wave Guide."
 Inventory.Pickupmessage "Power up! Wave Guide!"
 weapon.ammotype "WaveGuideAmmo"

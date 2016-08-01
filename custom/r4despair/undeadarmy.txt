@@ -11,6 +11,7 @@ actor UnDeadArmyWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Quake Skull"
 Inventory.Pickupmessage "Power up! Quake Skull!"
 weapon.ammotype "UnDeadArmyAmmo"
 Obituary "%o was caught and smashed by %k's quake skull."

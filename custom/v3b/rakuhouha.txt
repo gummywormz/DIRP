@@ -31,6 +31,7 @@ Weapon.AmmoUse 10
 Weapon.AmmoGive 50
 Weapon.SlotNumber 5
 Inventory.Icon "RAKUICO"
+Tag  "Rakuhouha"
 scale 2.0
 inventory.pickupsound "weapon/weaponup"
 Obituary "%o was devastated by %k's Rakuhouha."

@@ -3,6 +3,7 @@ actor GlueShotWep : Megabuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Glue Shot"
 Inventory.Icon "GSHTICO"
 scale 2.0
 inventory.pickupsound "weapon/weaponup"

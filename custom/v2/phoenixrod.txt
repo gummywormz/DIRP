@@ -11,6 +11,7 @@ Weapon.AmmoGive 30
 Weapon.SlotNumber 5
 inventory.icon "PHNXICO"
 -WEAPON.DONTBOB
+Tag  "Phoenix Rod"
 Obituary "%o was given the bird by %k's Pheonix Rod."
 Inventory.Pickupmessage "Power up! Phoenix Rod!"
 weapon.ammotype "PhoenixRodAmmo"

@@ -3,6 +3,7 @@ actor IceSpikeWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Ice Spike"
 Obituary "%o was stabbed by %k's Ice Spike."
 Inventory.Pickupmessage "Power up! Ice Spike!"
 weapon.ammotype "IceSpikeAmmo"

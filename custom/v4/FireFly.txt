@@ -94,6 +94,7 @@ actor FireFlyWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Fire Fly"
 Inventory.Pickupmessage "Power Up! Fire Fly"
 Obituary "%o was distracted by %k's Fire Fly"
 weapon.ammotype "FireFlyAmmo"

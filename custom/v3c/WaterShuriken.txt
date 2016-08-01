@@ -3,6 +3,7 @@ actor WaterShurikenWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Water Shuriken"
 Obituary "%o was splashed by %k's Water Shuriken"
 weapon.ammotype "WaterShurikenAmmo"
 Inventory.Pickupmessage "Power up! Water Shuriken!"

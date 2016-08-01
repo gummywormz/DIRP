@@ -61,6 +61,7 @@ actor DizzyBombWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Dizzy Bomb"
 Obituary "%o was confused by %k's Dizzy Bomb."
 Inventory.Pickupmessage "Power up! Dizzy Bomb!"
 weapon.ammotype "DizzyAmmo"

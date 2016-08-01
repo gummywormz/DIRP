@@ -36,6 +36,7 @@ actor RingTossWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 75
 Weapon.SlotNumber 3
+Tag  "Ring Toss"
 Obituary "%o collected %k's Ring Toss."
 Inventory.Pickupmessage "Power up! Ring Toss!"
 weapon.ammotype "RingTossAmmo"

@@ -6,6 +6,7 @@ actor PharaohSacrificeWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Pharaoh Sacrifice"
 Obituary "%o was cursed by %k's Pharaoh Sacrifice."
 Inventory.Pickupmessage "Power up! Pharaoh Sacrifice!"
 weapon.ammotype "PharaohSacrificeAmmo"
@@ -164,7 +165,7 @@ PHAS JK 3
 PHAS JK 3
 loop
 Death:
-TNT1 A 1
+PHAS LMNO 2
 stop
 }
 }

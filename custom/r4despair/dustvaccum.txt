@@ -4,6 +4,7 @@ actor DustVaccumWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Dust Vacuum"
 Obituary "%o couldn't escape the smell of %k's Dust Vaccum."
 Inventory.Pickupmessage "Power up! Dust Vacuum!"
 weapon.ammotype "DustVaccumAmmo"

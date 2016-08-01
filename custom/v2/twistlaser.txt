@@ -3,6 +3,7 @@ actor TwistLaserWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 4
+Tag  "Twist Laser"
 Obituary "%o was thoroughly confused by %k's Twist Laser."
 Inventory.Pickupmessage "Power up! Twist Laser!"
 weapon.ammotype "TwistLaserAmmo"

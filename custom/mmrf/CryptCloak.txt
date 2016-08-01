@@ -95,6 +95,7 @@ actor CryptCloakWep : MegaBuster
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56
 Weapon.SlotNumber 7
+Tag "Crypt Cloak"
 Obituary "%o was spooked by %k's Crypt Cloak."
 Inventory.Pickupmessage "Power up! Crypt Cloak!"
 weapon.ammotype "CryptCloakAmmo"

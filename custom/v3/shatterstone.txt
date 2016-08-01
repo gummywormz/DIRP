@@ -64,6 +64,7 @@ actor ShatterStoneWep : MegaBuster
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 5
+Tag  "Shatter Stone"
 Inventory.Pickupmessage "Power Up! Shatter Stone!"
 Obituary "%o was broken by %k's Shatter Stone."
 Weapon.AmmoType "ShatterStoneAmmo"

@@ -34,6 +34,7 @@ actor HyperSpaceHoleWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Hyper Space Hole"
 Obituary "%o was sucked into Hyper Space by %k's Hyperspace Hole"
 Inventory.Pickupmessage "Power up! Hyper Space Hole!"
 weapon.ammotype "HyperSpaceHoleAmmo"

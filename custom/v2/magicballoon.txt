@@ -5,6 +5,7 @@ inventory.pickupsound "item/1up"
 inventory.amount 1
 inventory.maxamount 1
 inventory.icon "PBALICO"
+Tag "Magic Balloon"
 Inventory.RespawnTics 1800
 scale 2.0
 +COUNTITEM

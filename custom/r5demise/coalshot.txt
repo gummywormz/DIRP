@@ -54,6 +54,7 @@ actor CoalShotWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56
 Weapon.SlotNumber 3
+Tag  "Coal Shot"
 Obituary "%o was burned by %k's Coal Shot."
 Inventory.Pickupmessage "Power up! Coal Shot!"
 weapon.ammotype "CoalShotAmmo"

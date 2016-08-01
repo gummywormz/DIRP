@@ -5,6 +5,7 @@ actor IceShurikensWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Ice Shurikens"
 Obituary "%o was stabbed by %k's Ice Shurikens."
 Inventory.Pickupmessage "Power up! Ice Shurikens!"
 weapon.ammotype "IceShurikensAmmo"

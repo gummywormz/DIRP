@@ -31,6 +31,7 @@ actor GimmickStarWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 112
 Weapon.SlotNumber 2
+Tag  "Gimmick Star"
 Obituary "%o was poked by %k's Gimmick Star."
 Inventory.Pickupmessage "Power up! Gimmick Star!"
 weapon.ammotype "GimmickStarAmmo"

@@ -67,6 +67,7 @@ Weapon.AmmoUse 33
 Weapon.AmmoGive 100
 Weapon.SlotNumber 5
 inventory.icon "BLFRICO"
+Tag  "Blast Freeze"
 Obituary "%o was cryogenized by %k's Blast Freeze"
 Inventory.Pickupmessage "Power up! Blast Freeze!"
 weapon.ammotype "BlastFreezeAmmo"

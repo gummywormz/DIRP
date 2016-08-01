@@ -56,6 +56,7 @@ actor ShockGauntletWep : MegaBuster
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Shock Gauntlet"
 Inventory.Pickupmessage "Power Up! Shock Gauntlet!"
 Obituary "%o was overloaded by %k's shock gauntlet"
 weapon.ammotype "ShockGauntletAmmo"

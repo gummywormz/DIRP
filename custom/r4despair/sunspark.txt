@@ -4,6 +4,7 @@ actor SunSparkWep : MegaBuster
 Weapon.AmmoUse 1
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Sun Spark"
 Obituary "%o was dried up by %k's Sun Spark."
 Inventory.Pickupmessage "Power up! Sun Spark!"
 weapon.ammotype "SunSparkAmmo"

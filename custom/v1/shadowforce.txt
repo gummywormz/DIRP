@@ -90,6 +90,7 @@ Weapon.AmmoGive 30
 Weapon.SlotNumber 7
 +WEAPON.NOAUTOAIM
 inventory.icon "SHFRICO"
+Tag  "Shadow Force"
 Obituary "%o was spooked by %k's Shadow Force"
 Inventory.Pickupmessage "Power up! Shadow Force!"
 weapon.ammotype "ShadowForceAmmo"

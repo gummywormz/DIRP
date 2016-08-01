@@ -11,6 +11,7 @@ actor FridgeBusterWep : MegaBuster
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 7
+Tag  "Fridge Buster"
 Obituary "%o was chilled out by %k's Fridge Buster."
 Inventory.Pickupmessage "Power up! Fridge Buster!"
 weapon.ammotype "FridgeAmmo"
@@ -303,7 +304,7 @@ TNT1 A 1
 TNT1 A 1
 Goto Spawn+2
 Pickup:
-TNT1 A 0 ACS_ExecuteAlways(992,0,2)
+TNT1 A 0 ACS_ExecuteAlways(992,0,30)
 stop
 }
 }
@@ -319,7 +320,7 @@ TNT1 A 1
 TNT1 A 1
 Goto Spawn+2
 Pickup:
-TNT1 A 0 ACS_ExecuteAlways(992,0,5)
+TNT1 A 0 ACS_ExecuteAlways(992,0,72)
 stop
 }
 }
