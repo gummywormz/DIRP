@@ -13,7 +13,8 @@ mass 9999
 gravity 0.8
 +NODAMAGETHRUST
 +DONTBLAST
-+NOBLOOD
+-NOBLOOD
++NOBLOODDECALS
 +QUICKTORETALIATE
 damagefactor "Dummy", 0.0
 Player.MaxSkinSizeFactor 0, 0
