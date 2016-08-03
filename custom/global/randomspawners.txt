@@ -590,6 +590,15 @@ actor RemoteMineSpawn : ActualBaseSpawner 10017 {}
 actor IceWallSpawn : ActualBaseSpawner 10018 {}
 actor LightningBoltSpawn : ActualBaseAOESpawner 10019 {}
 
+actor ConcreteShotSpawn : ActualBaseSpawner 10021 {}
+actor MagmaBazookaSpawn : ActualBaseSpawner 10028 {}
+actor TornadoBlowWepSpawn : ActualBaseAOESpawner 10023 {}
+actor LaserTridentSpawn : ActualBaseSpawner 10024 {}
+actor PlugBallSpawn : ActualBaseSpawner 10025 {}
+actor HornetChaserSpawn : ActualBaseSpawner 10027 {}
+actor BlackHoleBombSpawn : ActualBaseSpawner 10029 {}
+actor JewelSatteliteSpawn : ActualBaseSpawner 10026 {}
+
 actor AllBaseSpawner : RandomSpawner
 {
     DropItem "MistFormWep" 255 3
@@ -780,6 +789,15 @@ actor AllBaseSpawner : RandomSpawner
 	DropItem "WaterWaveWep" 255 4
 	DropItem "WindStormWep" 255 4
 	DropItem "YamatoSpearWep" 255 4
+	
+	DropItem "ConcreteShotWep" 255 4
+	DropItem "LaserTridentWep" 255 4
+	DropItem "PlugBallWep" 255 4
+	DropItem "HornetChaserWep" 255 4
+	DropItem "MagmaBazookaWep" 255 4
+	DropItem "BlackHoleBombWep" 255 4
+	DropItem "JewelSatelliteWep" 255 4
+	
 
 	DropItem "MegaBallWep" 255 4
 	DropItem "FlameSwordWep" 255 4
@@ -901,6 +919,7 @@ actor AllAOESpawner : RandomSpawner
 	DropItem "TimeStopperGiver" 255 5
 	DropItem "AstroCrushWep" 255 5
 	DropItem "LightningBoltWep" 255 5
+	DropItem "TornadoBlowWep" 255 5
 
 	DropItem "HellWheelWep" 255 8
 	DropItem "FireWorksWep" 255 8
