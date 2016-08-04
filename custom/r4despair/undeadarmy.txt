@@ -25,7 +25,7 @@ Spawn:
 UDAY A 1
 loop
 Ready:
-PCHS D 0 ACS_ExecuteAlways(998,0,221)
+PCHS D 0 ACS_ExecuteAlways(998,0,321)
 PCHS D 1 A_WeaponReady
 Goto Ready+1
 Deselect:

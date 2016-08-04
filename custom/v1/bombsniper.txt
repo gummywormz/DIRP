@@ -78,7 +78,7 @@ Spawn:
 BOSN D -1
 stop
 Ready:
-BOSN A 0 ACS_ExecuteAlways(998,0,213)
+BOSN A 0 ACS_ExecuteAlways(998,0,313)
 BOSN A 1 A_WeaponReady
 BOSN A 1
 Goto Ready+1

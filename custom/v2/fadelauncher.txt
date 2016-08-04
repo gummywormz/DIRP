@@ -17,7 +17,7 @@ Spawn:
 FDLU H -1
 stop
 Ready:
-FDLU E 0 ACS_ExecuteAlways(998,0,220)
+FDLU E 0 ACS_ExecuteAlways(998,0,301)
 FDLU E 1 A_WeaponReady
 Goto Ready+1
 Deselect:

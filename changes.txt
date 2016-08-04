@@ -107,3 +107,11 @@ Paint Gun - Nerf from 10 damage to 8
 Thunder Chain - Buff from 3 to 6 ripper, Increase split chance, nerf ammo > 5 from 4
 
 Bee Order - Nerf 7 damage from 12
+
+-------------------------------------------------------------------------------------
+
+v5:
+
+v5a compatibility
+All weapons have name tags
+Added * new weapons

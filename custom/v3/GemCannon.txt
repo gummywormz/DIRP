@@ -75,7 +75,7 @@ Spawn:
 RABS D -1
 stop
 Ready:
-RABS A 0 ACS_ExecuteAlways(998,0,233)
+RABS A 0 ACS_ExecuteAlways(998,0,333)
 RABS A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

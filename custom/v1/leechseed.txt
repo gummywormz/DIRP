@@ -91,7 +91,7 @@ Spawn:
 LESE G -1
 stop
 Ready:
-LESE D 0 ACS_ExecuteAlways(998,0,203)
+LESE D 0 ACS_ExecuteAlways(998,0,303)
 LESE D 1 A_WeaponReady
 Goto Ready+1
 Deselect:

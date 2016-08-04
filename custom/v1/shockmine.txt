@@ -92,7 +92,7 @@ Spawn:
 SMIC A -1
 stop
 Ready:
-SHMI A 0 ACS_ExecuteAlways(998,0,200)
+SHMI A 0 ACS_ExecuteAlways(998,0,300)
 SHMI A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

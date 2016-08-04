@@ -358,7 +358,7 @@ Spawn:
 SEGE M -1
 stop
 Ready:
-SEGE D 0 ACS_ExecuteAlways(998,0,202)
+SEGE D 0 ACS_ExecuteAlways(998,0,302)
 SEGE D 1 A_WeaponReady
 Goto Ready+1
 Deselect:

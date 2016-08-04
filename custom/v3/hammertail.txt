@@ -44,7 +44,7 @@ Spawn:
 SPBS D -1
 stop
 Ready:
-SPBS A 0 ACS_ExecuteAlways(998,0,232)
+SPBS A 0 ACS_ExecuteAlways(998,0,332)
 SPBS A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

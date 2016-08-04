@@ -75,7 +75,7 @@ Spawn:
 DIZB K -1
 stop
 Ready:
-DIZB B 0 ACS_ExecuteAlways(998,0,215)
+DIZB B 0 ACS_ExecuteAlways(998,0,315)
 DIZB B 1 A_WeaponReady
 Goto Ready+1
 Deselect:

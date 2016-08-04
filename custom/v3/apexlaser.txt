@@ -46,7 +46,7 @@ Spawn:
 TNT1 A 1
 stop
 Ready:
-APXL A 0 ACS_ExecuteAlways(998,0,230)
+APXL A 0 ACS_ExecuteAlways(998,0,330)
 APXL A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

@@ -317,7 +317,7 @@ IsSelected CloudBomberWep
 
 IsSelected FadeLauncherWep
 	{
-	DrawBar "BARAMFL", "BAREMPTY", Ammo1, vertical, 16, 8;
+	DrawBar "BARAMMSG", "BAREMPTY", Ammo1, vertical, 16, 8;
 	}
 
 IsSelected TwistLaserWep
@@ -388,7 +388,7 @@ InInventory IHasDevicez, 1
 
 InInventory BalloonCheck, 1
 	{
-	DrawImage "PBALA0", 290,8;
+	DrawImage "PBAMA0", 290,8;
 	}
 
 InInventory ShockGuardTemp, 1
@@ -817,7 +817,7 @@ IsSelected FireFlyWep
 
 IsSelected HyperSpaceHoleWep
 	{
-	DrawBar "BARAMFL", "BAREMPTY", Ammo1, vertical, 16, 8;
+	DrawBar "BARAMMSG", "BAREMPTY", Ammo1, vertical, 16, 8;
 	}
 
 IsSelected BoomerangBombWep
@@ -946,7 +946,7 @@ IsSelected BlizzardAttackWep{Drawbar"BARAMM15", "BAREMPTY", Ammo1, vertical, 16,
 IsSelected CentaurFlashWep{Drawbar"BARAMM26", "BAREMPTY", Ammo1, vertical, 16, 8;}
 IsSelected FlameBlastWep{Drawbar"BARAMM20", "BAREMPTY", Ammo1, vertical, 16, 8;}
 IsSelected KnightCrushWep{Drawbar"BARAMM27", "BAREMPTY", Ammo1, vertical, 16, 8;}
-IsSelected PlantbarrierWep{Drawbar"BARAMM28", "BAREMPTY", Ammo1, vertical, 16, 8;	
+IsSelected PlantbarrierWep2{Drawbar"BARAMM28", "BAREMPTY", Ammo1, vertical, 16, 8;	
 	InInventory ShieldCheck, 1{DrawBar "BARFLS7", "BAREMPTY", Ammo1, vertical, 16, 8;
 							   DrawBar "BARHEALP", "BAREMPTY", Health, vertical, 24, 8;}}
 IsSelected SilverTomahawkWep{Drawbar"BARAMM29", "BAREMPTY", Ammo1, vertical, 16, 8;}	

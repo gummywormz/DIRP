@@ -17,7 +17,7 @@ Spawn:
 SODA D -1
 stop
 Ready:
-SODA E 0 ACS_ExecuteAlways(998,0,218)
+SODA E 0 ACS_ExecuteAlways(998,0,318)
 SODA E 1 A_WeaponReady
 Goto Ready+1
 Deselect:

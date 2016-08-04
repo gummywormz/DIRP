@@ -108,7 +108,7 @@ Spawn:
 MGDR B -1
 stop
 Ready:
-MGDR C 0 ACS_ExecuteAlways(998,0,208)
+MGDR C 0 ACS_ExecuteAlways(998,0,308)
 MGDR C 1 A_WeaponReady
 Goto Ready+1
 Deselect:

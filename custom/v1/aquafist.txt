@@ -50,7 +50,7 @@ Spawn:
 AQPN B -1
 stop
 Ready:
-AQPN C 0 ACS_ExecuteAlways(998,0,204)
+AQPN C 0 ACS_ExecuteAlways(998,0,304)
 AQPN C 1 A_WeaponReady
 Goto Ready+1
 Deselect:

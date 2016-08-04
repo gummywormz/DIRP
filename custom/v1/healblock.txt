@@ -168,7 +168,7 @@ Spawn:
 HEBH E -1
 stop
 Ready:
-HEBH A 0 ACS_ExecuteAlways(998,0,207)
+HEBH A 0 ACS_ExecuteAlways(998,0,307)
 HEBH A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

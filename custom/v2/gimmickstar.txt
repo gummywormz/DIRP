@@ -45,7 +45,7 @@ Spawn:
 GSTA Z -1
 stop
 Ready:
-GSTA H 0 ACS_ExecuteAlways(998,0,216)
+GSTA H 0 ACS_ExecuteAlways(998,0,316)
 GSTA H 1 A_WeaponReady
 Goto Ready+1
 Deselect:

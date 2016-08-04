@@ -80,7 +80,7 @@ Spawn:
 BLFR B -1
 stop
 Ready:
-BLFR C 0 ACS_ExecuteAlways(998,0,212)
+BLFR C 0 ACS_ExecuteAlways(998,0,312)
 BLFR C 1 A_WeaponReady
 Goto Ready+1
 Deselect:

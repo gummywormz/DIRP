@@ -229,7 +229,7 @@ Spawn:
 BOCR E -1
 stop
 Ready:
-BOCR A 0 ACS_ExecuteAlways(998,0,210)
+BOCR A 0 ACS_ExecuteAlways(998,0,310)
 BOCR A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

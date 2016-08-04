@@ -103,7 +103,7 @@ Spawn:
 SHFR K -1
 stop
 Ready:
-SHFR E 0 ACS_ExecuteAlways(998,0,206)
+SHFR E 0 ACS_ExecuteAlways(998,0,306)
 SHFR E 1 A_WeaponReady
 Goto Ready+1
 Deselect:

@@ -70,7 +70,7 @@ Spawn:
 COFA H 1
 loop
 Ready:
-COFA A 0 ACS_ExecuteAlways(998,0,214)
+COFA A 0 ACS_ExecuteAlways(998,0,314)
 COFA A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

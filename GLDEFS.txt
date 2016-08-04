@@ -1141,11 +1141,6 @@ object Cubelectro
 frame CUBEB {light SPARKSHOCK}
 }
 
-object Plasma±
-{
-frame PLAS {Light ELECBEAM}
-}
-
 object CometLaunched
 {
 frame ASEXA { light FLASHBOMBX }
@@ -2209,17 +2204,17 @@ frame WCOIP { light PINKLIGHTR }
 frame WCOIQ { light PINKLIGHTR }
 }
 
-object MirrorShotWeak
+object MirrorShotSmall
 {
 frame MIRRC { light SPARKSHOCK }
 }
 
-object MirrorShotWeaker
+object MirrorShotMedium
 {
 frame MIRRC { light SPARKSHOCK }
 }
 
-object MirrorShotStrong
+object MirrorShotLarge
 {
 frame MIRRD { light SPARKSHOCK }
 frame MIRRE { light SPARKSHOCK }

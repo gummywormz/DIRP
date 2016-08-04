@@ -37,7 +37,7 @@ Spawn:
 NDAZ A 1
 loop
 Ready:
-DRWE A 0 ACS_ExecuteAlways(998,0,201)
+DRWE A 0 ACS_ExecuteAlways(998,0,301)
 DRWE A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

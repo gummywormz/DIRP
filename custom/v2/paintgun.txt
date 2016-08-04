@@ -17,7 +17,7 @@ Spawn:
 PTGB G -1
 stop
 Ready:
-PTGB D 0 ACS_ExecuteAlways(998,0,219)
+PTGB D 0 ACS_ExecuteAlways(998,0,319)
 PTGB D 1 A_WeaponReady
 Goto Ready+1
 Deselect:

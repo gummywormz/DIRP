@@ -79,7 +79,7 @@ Spawn:
 SPDK A -1
 stop
 Ready:
-DRWE A 0 ACS_ExecuteAlways(998,0,201)
+DRWE A 0 ACS_ExecuteAlways(998,0,301)
 DRWE A 1 A_WeaponReady
 DRWE A 1
 Goto Ready+1
