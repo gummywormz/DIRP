@@ -54,7 +54,7 @@ stop
 }
 }
 
-actor SuguriDashWep : MegaBuster
+actor SuguriDashWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 9
 Weapon.AmmoGive 36

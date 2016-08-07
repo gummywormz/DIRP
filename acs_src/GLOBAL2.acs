@@ -23,10 +23,24 @@ Acs_ExecuteAlways(602,0,0);
 }
 
 //604 taken by wephelp
-//605 taken by scramble mode (it's in WEPACS btw)
+//605 taken by scramble mode
 //606 taken by scramble mode
 //607 taken by scramble mode
 //608 taken by scramble mode
+
+//lightning storm
+Script 609 (void)
+{
+if(CheckWeapon("LightningStormWep"))
+{
+SetResultValue(1);
+}
+else
+{
+SetResultValue(0);
+}
+}
+
 Script 680 (int notrans)
 {
 if(notrans == 0)

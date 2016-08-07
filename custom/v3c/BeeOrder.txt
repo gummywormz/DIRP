@@ -1,4 +1,4 @@
-actor BeeOrderWep : MegaBuster
+actor BeeOrderWep : BaseMM8BDMWep
 {
 Weapon.AmmoGive 28
 Weapon.SlotNumber 7

@@ -1,4 +1,4 @@
-actor TriAttackWep : MegaBuster
+actor TriAttackWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56

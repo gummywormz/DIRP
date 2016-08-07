@@ -78,7 +78,7 @@ Goto Super::XDeath
 }
 }
 
-actor BoomerangBombWep : MegaBuster
+actor BoomerangBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 28

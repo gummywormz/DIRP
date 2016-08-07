@@ -1,4 +1,4 @@
-actor OctaZookaWep : MegaBuster
+actor OctaZookaWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

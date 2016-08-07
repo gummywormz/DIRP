@@ -1,4 +1,4 @@
-actor FireBallWep : MegaBuster
+actor FireBallWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

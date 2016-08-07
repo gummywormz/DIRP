@@ -1,4 +1,4 @@
-actor TankArsenalWep : Megabuster
+actor TankArsenalWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

@@ -41,7 +41,7 @@ Damage (6)
 reactiontime 20
 }
 
-actor PKFireWep : MegaBuster
+actor PKFireWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

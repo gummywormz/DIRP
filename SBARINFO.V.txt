@@ -884,6 +884,16 @@ IsSelected VirusOutbreakWep
 	}
 	}
 //end v4 weps
+//begin v5 weps
+IsSelected FriendlyDolphinWep{Drawbar"BARAMM10", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected HereticMaceWep{Drawbar"BARAMM27", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected LightningStormWep{Drawbar"BARAMM34", "BAREMPTY", Ammo1, vertical, 16, 8;
+InInventory StormCharge, 1{DrawBar "BARFLS1", "NOBAR", StormCharge, vertical, 16, 8;}}
+IsSelected IonicSlashWep
+	{
+	DrawBar "BARAMCB", "BAREMPTY", Ammo1, vertical, 16, 8;
+	}
+//end v5 weps
 
 //MM1 Bars
 IsSelected RollingCutterWep{Drawbar"BARAMMO1", "BAREMPTY", Ammo1, vertical, 16, 8;}

@@ -1,4 +1,4 @@
-actor WillOWispWep : MegaBuster
+actor WillOWispWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

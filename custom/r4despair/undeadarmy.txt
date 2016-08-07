@@ -6,7 +6,7 @@ inventory.amount 1
 inventory.maxamount 28
 }
 
-actor UnDeadArmyWep : MegaBuster
+actor UnDeadArmyWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

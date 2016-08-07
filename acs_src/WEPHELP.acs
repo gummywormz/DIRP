@@ -310,4 +310,5 @@ if(CheckWeapon("BoomerangBombWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"A crash bomb that reverses itself. Damage: 4 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
 if(CheckWeapon("ExplosiveHadoukenWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"A ripping projectile that explodes upon hitting a player. Damage: 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+//v5
 }

@@ -45,7 +45,7 @@ stop
 }
 }
 
-actor NitroBlastWep : MegaBuster
+actor NitroBlastWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

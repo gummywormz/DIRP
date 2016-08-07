@@ -1,4 +1,4 @@
-actor SelfDestructWep : MegaBuster
+actor SelfDestructWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 0
 Weapon.AmmoGive 1

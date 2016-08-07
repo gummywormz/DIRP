@@ -63,7 +63,7 @@ stop
 }
 }
 
-actor CharadeCloneWep : MegaBuster
+actor CharadeCloneWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 14
 Weapon.AmmoGive 56

@@ -149,7 +149,7 @@ stop
 }
 }
 
-Actor FlameSpoutWep : MegaBuster
+Actor FlameSpoutWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 13
 Weapon.AmmoGive 40

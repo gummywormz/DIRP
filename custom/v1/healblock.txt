@@ -148,7 +148,7 @@ fail
 }
 
 
-Actor HealBlockWep : MegaBuster
+Actor HealBlockWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 50
 +Weapon.Noautoaim

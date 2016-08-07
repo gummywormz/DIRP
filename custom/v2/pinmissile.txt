@@ -24,7 +24,7 @@ inventory.amount 1
 inventory.maxamount 28
 }
 
-actor PinMissileWep : MegaBuster
+actor PinMissileWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28

@@ -1,4 +1,4 @@
-actor MagicBalloonGiver : CustomInventory replaces RushJet
+actor MagicBalloonGiver : CustomInventory
 {
 Inventory.Pickupmessage "Support Item! Magic Balloon!"
 inventory.pickupsound "item/1up"

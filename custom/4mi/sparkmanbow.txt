@@ -2,7 +2,7 @@
 //when activated. on release, fire a bulb that if it hits something it deals an
 //explosion that travels slightly farther. Holding up gives a radius time freeze.
 
-actor SparkManBowWep : MegaBuster
+actor SparkManBowWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 28

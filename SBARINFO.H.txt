@@ -877,6 +877,18 @@ IsSelected SuguriDashWep
 	{
 	Drawbar"BARAMAQ2", "VAREMPTY", Ammo1, horizontal, 58, 184;
 	}
+	//end v4 weps
+	
+//begin v5 weps
+IsSelected HereticMaceWep{Drawbar"VARAMM27", "VAREMPTY", Ammo1, horizontal, 58, 184;}
+IsSelected FriendlyDolphinWep{Drawbar"VARAMM10", "VAREMPTY", Ammo1, horizontal, 58, 184}
+IsSelected LightningStormWep{Drawbar"VARAMM34", "VAREMPTY", Ammo1, horizontal, 58, 184;
+InInventory StormCharge, 1{DrawBar "VARFLS1", "VNOBAR", StormCharge, horizontal, 58, 184;}}
+IsSelected IonicSlashWep
+	{
+	Drawbar"BARAMCB2", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	}
+//end v5 weps
 
 //MM1 Bars
 IsSelected RollingCutterWep{Drawbar"VARAMMO1", "VAREMPTY", Ammo1, horizontal, 58, 184;}

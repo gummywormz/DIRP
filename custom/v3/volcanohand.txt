@@ -1,6 +1,6 @@
 //rapid fire flamethrower, low distance low damage, and remain still when using.
 
-actor VolcanoHandWep : MegaBuster
+actor VolcanoHandWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 50

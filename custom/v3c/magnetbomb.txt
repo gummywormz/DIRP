@@ -1,4 +1,4 @@
-actor MagnetBombWep : MegaBuster
+actor MagnetBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56

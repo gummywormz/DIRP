@@ -29,7 +29,7 @@ INVENTORY.AMOUNT 1
 INVENTORY.MAXAMOUNT 1
 }
 
-actor HyperSpaceHoleWep : MegaBuster
+actor HyperSpaceHoleWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

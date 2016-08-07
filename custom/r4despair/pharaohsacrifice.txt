@@ -1,7 +1,7 @@
 //Pharaoh Sacrifice - Forms a cross of pharaoh shots that go in random directions
 //after a bit. Hold more for more shots (up to 6, 1 for level 1, 4 for level 2)
 
-actor PharaohSacrificeWep : MegaBuster
+actor PharaohSacrificeWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

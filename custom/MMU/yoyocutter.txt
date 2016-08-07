@@ -4,7 +4,7 @@ Inventory.Amount 1
 Inventory.MaxAmount 28
 }
 
-actor YoyoCutterWep : MegaBuster 
+actor YoyoCutterWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

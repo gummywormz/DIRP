@@ -47,7 +47,7 @@ stop
 }
 }
 
-actor ThunderFangWep : MegaBuster
+actor ThunderFangWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 3
 Weapon.AmmoGive 30

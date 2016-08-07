@@ -1,4 +1,4 @@
-actor FellStingerWep : MegaBuster
+actor FellStingerWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28

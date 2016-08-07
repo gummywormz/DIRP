@@ -4,7 +4,7 @@ inventory.amount 1
 inventory.maxamount 30
 }
 
-Actor PhoenixRodWep : MegaBuster
+Actor PhoenixRodWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 30

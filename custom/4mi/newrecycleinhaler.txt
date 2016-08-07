@@ -41,7 +41,7 @@ stop
 }
 }
 
-actor RecycleInhalerWep : MegaBuster
+actor RecycleInhalerWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56

@@ -83,7 +83,7 @@ inventory.amount 1
 inventory.maxamount 60
 }
 
-actor DangerFieldWep : MegaBuster
+actor DangerFieldWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 20
 Weapon.AmmoGive 60

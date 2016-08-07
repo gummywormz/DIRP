@@ -72,7 +72,7 @@ actor LeechSeedProtect : PowerProtection
 Powerup.Duration 6
 DamageFactor "LeechSeed", 0.0
 }
-Actor LeechSeedWep : MegaBuster
+Actor LeechSeedWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 30

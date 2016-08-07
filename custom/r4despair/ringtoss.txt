@@ -31,7 +31,7 @@ loop
 }
 }
 
-actor RingTossWep : MegaBuster
+actor RingTossWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 75

@@ -56,7 +56,7 @@ stop
 }
 }
 
-actor DizzyBombWep : MegaBuster
+actor DizzyBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

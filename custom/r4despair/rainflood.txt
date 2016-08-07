@@ -109,7 +109,7 @@ stop
 }
 }
 
-actor RainFloodWep : MegaBuster
+actor RainFloodWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28

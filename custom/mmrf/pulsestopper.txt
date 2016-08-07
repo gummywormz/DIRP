@@ -50,7 +50,7 @@ stop
 }
 }
 
-actor PulseStopperWep : MegaBuster
+actor PulseStopperWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28

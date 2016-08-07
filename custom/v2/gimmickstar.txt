@@ -26,7 +26,7 @@ stop
 }
 }
 
-actor GimmickStarWep : MegaBuster
+actor GimmickStarWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 112

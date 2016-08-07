@@ -45,7 +45,7 @@ loop
 }
 }
 
-actor CometDashWep : MegaBuster
+actor CometDashWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 9
 Weapon.AmmoGive 36

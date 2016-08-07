@@ -1,6 +1,6 @@
 //Piaofu Feng - Slowly rise up with a shield under you. Then toss it downward on release
 
-actor PiaofuFengWep : MegaBuster
+actor PiaofuFengWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56

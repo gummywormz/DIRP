@@ -165,6 +165,13 @@
 #INCLUDE "custom/mmrf/VirusOutbreak.txt"
 #INCLUDE "custom/mmrf/ShockGauntlet.txt"
 
+//v5
+#include "custom/v5/HereticMace.txt"
+#include "custom/v5/FriendlyDolphin.txt"
+#include "custom/v5/IonicSlash.txt"
+#include "custom/v5/SugarCube.txt"
+#include "custom/v5/EMP.txt"
+
 #Include "custom/global/extrasupport.txt"
 
 #include "custom/global/giverammofix.txt"

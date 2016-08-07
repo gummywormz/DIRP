@@ -1,6 +1,6 @@
 //3 part projectile that does 10 damage each
 
-actor OpticLaserWep : MegaBuster
+actor OpticLaserWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 40

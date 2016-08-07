@@ -59,7 +59,7 @@ fail
 }
 
 
-Actor EternalNight : MegaBuster
+Actor EternalNight : BaseMM8BDMWep
 {
 Weapon.AmmoUse 50
 +Weapon.Noautoaim

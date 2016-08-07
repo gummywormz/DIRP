@@ -1,5 +1,5 @@
 //triple zap from mlp classes but faster.
-actor TripleZapWep : MegaBuster
+actor TripleZapWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28

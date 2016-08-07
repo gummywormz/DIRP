@@ -240,3 +240,9 @@ Charade Clone - Fire once to leave a clone and turn invisible. Getting hit retur
 Phantom Fuse - A long, explosive projectile that you can guide.
 Virus Outbreak - Blocks attacks around you. Fire to expand the shield, leaving you vulnerable for a bit
 Shock Gauntlet - Boomerang that stuns opponents in a medium range.
+
+Included in Version 5a:
+
+Ionic Slash - A rapid fire, low damage weapon.
+Heretic Mace - Rapid fire weapon that shoots many low damage bouncing maces
+Friendly Dolphin - A ground projectile that jumps occasionally

@@ -1,4 +1,4 @@
-actor FrenzyPlantWep : MegaBuster
+actor FrenzyPlantWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 15
 Weapon.AmmoGive 60

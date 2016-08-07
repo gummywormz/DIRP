@@ -1,0 +1,79 @@
+//short range rapid fire bouncy mace
+
+actor MaceBall
+{
+PROJECTILE
+Radius 8
+Height 8
+scale 1.5
+damage (4)
+damagetype "KnightCrush"
+Obituary "%o was crushed by %k's Heretic Mace"
++HEXENBOUNCE
++NOTARGETSWITCH
++SKYEXPLODE
++CANBOUNCEWATER
++FORCEXYBILLBOARD
+-NOGRAVITY
+BounceCount 4
++BOUNCEONWALLS
++BOUNCEONFLOORS
++BOUNCEONCEILINGS
+//+NOCLIP
+speed 45
+States
+{
+Spawn:
+KNIG A -1
+stop
+Death:
+KNIG A 0
+stop
+}
+}
+
+actor HereticMaceWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Inventory.Pickupmessage "Power Up! Heretic Mace"
+Obituary "%o was crushed by %k's Heretic Mace"
+Tag "Heretic Mace"
+weapon.ammotype "HereticMaceAmmo"
+inventory.icon "HMACICO"//do this
+States
+{
+Spawn:
+HMAC A 1
+loop
+Ready:
+KNIG B 0 ACS_ExecuteAlways(998,0,42)
+KNIG B 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+KNIG B 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+KNIG B 1 A_Raise
+Loop
+Fire:
+KNIG B 0 A_JumpIfNoAmmo("NoAmmo")
+KNIG B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+KNIG B 1 A_FireCustomMissile("MaceBall",0,1,8,0)
+KNIG BCD 4
+Goto Ready+1
+NoAmmo:
+KNIG B 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor HereticMaceAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}

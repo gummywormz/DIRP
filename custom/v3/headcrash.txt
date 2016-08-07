@@ -1,6 +1,6 @@
 //Damage more when the crash is more together
 
-actor HeadCrashWep : MegaBuster
+actor HeadCrashWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 40

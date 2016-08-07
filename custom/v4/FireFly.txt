@@ -89,7 +89,7 @@ stop
 }
 }
 
-actor FireFlyWep : MegaBuster
+actor FireFlyWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

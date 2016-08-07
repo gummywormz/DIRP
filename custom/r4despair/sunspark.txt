@@ -1,5 +1,5 @@
 //ripper but explodes into sun when hits wall.
-actor SunSparkWep : MegaBuster
+actor SunSparkWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 28

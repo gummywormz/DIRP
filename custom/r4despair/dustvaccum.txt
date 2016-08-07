@@ -1,5 +1,5 @@
 //suck enemies in around the projectile
-actor DustVaccumWep : MegaBuster
+actor DustVaccumWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

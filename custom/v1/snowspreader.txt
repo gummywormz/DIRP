@@ -25,7 +25,7 @@ inventory.amount 1
 inventory.maxamount 45
 }
 
-Actor FlurrySpreadWep : MegaBuster
+Actor FlurrySpreadWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 45

@@ -109,7 +109,7 @@ inventory.amount 1
 inventory.maxamount 1
 }
 
-actor RushCannonWep : Megabuster
+actor RushCannonWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 50
 Weapon.AmmoGive 50

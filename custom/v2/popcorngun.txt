@@ -1,4 +1,4 @@
-Actor PopCornWep : MegaBuster
+Actor PopCornWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30

@@ -30,7 +30,7 @@ inventory.maxamount 75
 }
 
 
-Actor AquaPunchWep : MegaBuster
+Actor AquaPunchWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 15
 Weapon.AmmoGive 75

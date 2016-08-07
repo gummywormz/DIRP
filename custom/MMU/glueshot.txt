@@ -1,4 +1,4 @@
-actor GlueShotWep : Megabuster
+actor GlueShotWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

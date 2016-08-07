@@ -65,7 +65,7 @@ stop
 }
 }
 
-actor WaterSpoutWep : MegaBuster
+actor WaterSpoutWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 42

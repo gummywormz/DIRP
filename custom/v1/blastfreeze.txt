@@ -61,7 +61,7 @@ Stop
 }
 }
 
-Actor BlastFreezeWep : MegaBuster
+Actor BlastFreezeWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 33
 Weapon.AmmoGive 100

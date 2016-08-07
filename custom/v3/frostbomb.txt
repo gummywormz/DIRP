@@ -46,7 +46,7 @@ inventory.maxamount 28
 }
 
 
-actor FrostBombWep : MegaBuster
+actor FrostBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

@@ -51,7 +51,7 @@ stop
 }
 
 
-actor LaserMissileWep : MegaBuster
+actor LaserMissileWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

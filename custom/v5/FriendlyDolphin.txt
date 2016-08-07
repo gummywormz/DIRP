@@ -1,0 +1,92 @@
+//search snake that jumps occasionally.
+
+actor FriendlyDolphin
+{
+PROJECTILE
++NOGRAVITY
+Damage (28)
++NOEXPLODEFLOOR
+//+FLOORHUGGER
+damagetype "SearchSnake"
+Obituary "%o met %k's friendly dolphin."
+Height 10
+Radius 12
+Scale 2.5
+Speed 23
+States
+{
+Spawn:
+DOLP A 2
+DOLP A 1 ThrustThingZ(0,20,0,0)
+DOLP A 1 A_PlaySoundEX("misc/splash","Voice")
+DOLP A 12
+loop
+Death:
+TNT1 A 0 
+stop
+}
+}
+
+actor DolphinFloorSpawner
+{
+PROJECTILE
++RIPPER
+Damage (0)
++FLOORHUGGER
+States
+{
+Spawn:
+TNT1 A 1
+TNT1 A 1 A_SpawnItemEx("FriendlyDolphin",0,0,1,23,0,0,0)
+stop
+}
+}
+
+actor FriendlyDolphinWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Inventory.Pickupmessage "Power Up! Friendly Dolphin"
+Obituary "%o met %k's friendly dolphin."
+Tag "Friendly Dolphin"
+weapon.ammotype "FriendlyDolphinAmmo"
+inventory.icon "DOLPICO"
+States
+{
+Spawn:
+DOLP B 1
+loop
+Ready:
+WWAV E 0 ACS_ExecuteAlways(998,0,32)
+WWAV E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+WWAV E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+WWAV E 1 A_Raise
+Loop
+Fire:
+WWAV E 0 A_JumpIfNoAmmo("NoAmmo")
+WWAV E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+WWAV E 1 A_FireCustomMissile("DolphinFloorSpawner",0,1,8,0)
+WWAV FG 2 
+WWAV E 12
+WWAV E 0 A_Refire
+Goto Ready+1
+NoAmmo:
+WWAV E 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+
+actor FriendlyDolphinAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}

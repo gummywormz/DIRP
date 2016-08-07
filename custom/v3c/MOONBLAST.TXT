@@ -1,4 +1,4 @@
-actor MoonBlastWep : MegaBuster
+actor MoonBlastWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

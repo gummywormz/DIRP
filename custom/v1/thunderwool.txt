@@ -150,7 +150,7 @@ goto Shoot
 }
 }
 
-actor ThunderCloud : MegaBuster
+actor ThunderCloud : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 30

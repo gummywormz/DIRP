@@ -27,7 +27,7 @@ actor DimensionalWave2 : DimensionalWaveT
 +PIERCEARMOR
 }
 
-actor DimensionalWaveWep : MegaBuster
+actor DimensionalWaveWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 48

@@ -1,4 +1,4 @@
-Actor seedflareWep : MegaBuster
+Actor seedflareWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56

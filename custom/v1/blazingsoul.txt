@@ -57,7 +57,7 @@ inventory.maxamount 28
 }
 
 
-Actor BlazingSoulWep : MegaBuster
+Actor BlazingSoulWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

@@ -23,7 +23,7 @@ stop
 }
 }
 
-actor HammerTailWep : MegaBuster
+actor HammerTailWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 28

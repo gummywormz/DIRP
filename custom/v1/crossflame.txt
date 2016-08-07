@@ -51,7 +51,7 @@ stop
 }
 }
 
-actor CrossFlameWep : MegaBuster
+actor CrossFlameWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 3
 Weapon.AmmoGive 28

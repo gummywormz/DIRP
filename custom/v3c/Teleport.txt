@@ -1,4 +1,4 @@
-actor TeleportWep : MegaBuster
+actor TeleportWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 48
 Weapon.AmmoGive 48

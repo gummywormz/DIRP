@@ -36,7 +36,7 @@ inventory.maxamount 28
 }
 
 
-Actor EggBombWep : MegaBuster
+Actor EggBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

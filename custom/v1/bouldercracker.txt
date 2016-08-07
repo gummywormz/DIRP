@@ -210,7 +210,7 @@ inventory.amount 1
 inventory.maxamount 28
 }
 
-Actor BoulderCrackerWep : MegaBuster
+Actor BoulderCrackerWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 3
 Weapon.AmmoGive 28

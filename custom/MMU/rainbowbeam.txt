@@ -62,7 +62,7 @@ stop
 }
 }
 
-actor RainbowBeamWep : MegaBuster
+actor RainbowBeamWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 32

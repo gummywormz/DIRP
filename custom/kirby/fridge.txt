@@ -6,7 +6,7 @@ Inventory.Amount 1
 Inventory.MaxAmount 1
 }
 
-actor FridgeBusterWep : MegaBuster
+actor FridgeBusterWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
@@ -304,7 +304,7 @@ TNT1 A 1
 TNT1 A 1
 Goto Spawn+2
 Pickup:
-TNT1 A 0 ACS_ExecuteAlways(992,0,30)
+TNT1 A 0 ACS_ExecuteAlways(992,0,4)
 stop
 }
 }
@@ -320,7 +320,7 @@ TNT1 A 1
 TNT1 A 1
 Goto Spawn+2
 Pickup:
-TNT1 A 0 ACS_ExecuteAlways(992,0,72)
+TNT1 A 0 ACS_ExecuteAlways(992,0,10)
 stop
 }
 }

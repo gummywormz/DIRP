@@ -144,7 +144,7 @@ Inventory.Amount 1
 Inventory.MaxAmount 1
 }
 
-actor VirusOutbreakWep : MegaBuster
+actor VirusOutbreakWep : BaseMM8BDMWep
 {
 Weapon.AmmoGive 56
 Weapon.SlotNumber 7

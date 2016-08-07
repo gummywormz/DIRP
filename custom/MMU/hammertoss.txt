@@ -4,7 +4,7 @@ Inventory.Amount 1
 Inventory.MaxAmount 40
 }
 
-actor HammerTossWep : MegaBuster 
+actor HammerTossWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 40

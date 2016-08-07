@@ -34,7 +34,7 @@ stop
 }
 }
 
-actor NoteableShotWep : MegaBuster
+actor NoteableShotWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28

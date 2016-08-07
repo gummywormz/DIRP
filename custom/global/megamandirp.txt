@@ -28,6 +28,7 @@ PLY1 A 1
 Goto Spawn+2
 See:
 PLY1 BCDE 5
+PLY1 A 0 A_GiveInventory("StormCheck",1)
 Goto Spawn
 Missile:
 PLY1 F 5
@@ -36,6 +37,9 @@ Goto Spawn+2
 Pain.BotSight:
 PLY1 B 5 HealThing(1)
 Goto Spawn+2
+Pain.Escape:
+PLY1 H 1 A_GiveInventory("EscapeUnit",1)
+goto Pain+1
 Pain.FireSpin:
 Pain.QuickBoomerang:
 Pain.Buster:

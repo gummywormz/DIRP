@@ -70,7 +70,7 @@ stop
 
 
 
-Actor MistFormWep : MegaBuster
+Actor MistFormWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 60

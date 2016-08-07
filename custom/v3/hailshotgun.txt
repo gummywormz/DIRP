@@ -1,4 +1,4 @@
-actor HailShotgunWep : MegaBuster
+actor HailShotgunWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28

@@ -150,7 +150,7 @@ inventory.amount 1
 inventory.maxamount 28
 }
 
-actor StoneWallWep : Megabuster
+actor StoneWallWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 28
 Weapon.AmmoGive 28

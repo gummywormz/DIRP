@@ -1,4 +1,4 @@
-actor WaterCutterWep : MegaBuster
+actor WaterCutterWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 40

@@ -1,0 +1,2 @@
+//projectile that grows more powerful, and adds more effects when low on health
+

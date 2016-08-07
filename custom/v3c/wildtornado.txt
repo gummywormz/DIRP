@@ -1,4 +1,4 @@
-actor WildTornadoWep : MegaBuster
+actor WildTornadoWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

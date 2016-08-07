@@ -49,7 +49,7 @@ stop
 }
 }
 
-actor CloudBomberWep : MegaBuster
+actor CloudBomberWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 28

@@ -66,7 +66,7 @@ stop
 }
 }
 
-actor WaterPulseWep : MegaBuster
+actor WaterPulseWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 40

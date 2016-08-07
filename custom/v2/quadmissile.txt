@@ -23,7 +23,7 @@ Stop
 }
 }
 
-actor QuadMissileWep : MegaBuster
+actor QuadMissileWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28

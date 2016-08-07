@@ -1,4 +1,4 @@
-actor JumpKickWep : MegaBuster
+actor JumpKickWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28

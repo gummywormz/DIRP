@@ -263,7 +263,7 @@
 
 
 
-#DEFINE MAX_WEAPONS_GLOBAL 233 // Maximum number of weapons for the following arrays
+#DEFINE MAX_WEAPONS_GLOBAL 237 // Maximum number of weapons for the following arrays
 // v6's weapon total would be 94
 // v7's weapon total would be 103
 #DEFINE MAX_BUSTERS 7 // Maximum number of non-ammo buster upgrades for the following arrays
@@ -544,6 +544,11 @@ str weapons_ammo[MAX_WEAPONS_GLOBAL][7] =
 {"EggBombWep","EggBombAmmo","Egg Bomb","YES", "YES", "YES","SLOT_POWER"},
 {"WaterPulseWep","WaterPulseAmmo","Water Pulse","YES", "YES", "YES","SLOT_RANGED"},
 {"BoomerangBombWep","BoomerangBombAmmo","Boomerang Bomb","YES", "YES", "YES","SLOT_POWER"},
+
+{"FriendlyDolphinWep","FriendlyDolphinAmmo","Friendly Dolphin","YES", "YES", "YES","SLOT_RAPID"},
+{"HereticMaceWep","HereticMaceAmmo","Heretic Mace","YES", "YES", "YES","SLOT_RAPID"},
+{"IonicSlashWep","IonicSlashAmmo","Ionic Slash","YES", "YES", "YES","SLOT_RAPID"},
+{"LightningStormWep","LightningStormAmmo","Lightning Storm","YES", "YES", "YES","SLOT_RANGED"},
 {"ExplosiveHadoukenWep","HadoukenAmmo","Explosive Hadouken","YES", "YES", "YES","SLOT_POWER"}
 
 
@@ -877,14 +882,14 @@ Script 992 (int amount, int AmmoMode) // Script to determine which weapon to giv
 	{
 		// [Lego] Ammo capsules now specify a percentage
 		// This percentage is then converted to fixed, then divided by 100.
-		int percentage = FixedDiv(amount << 16, 100.0);
+		//int percentage = FixedDiv(amount << 16, 100.0);
 		
-		amount = (GetAmmoCapacity(weapons_ammo[ThisWeapon][1]) * percentage) >> 16;
+		//amount = (GetAmmoCapacity(weapons_ammo[ThisWeapon][1]) * percentage) >> 16;
 		//printbold(s:"Percentage is: ", f:percentage, s:"\nAmount is:", i:amount);
 			
 		int AmmoMultiplier = 1.0;
 		
-		Amount = FixedMul(Amount, AmmoMultiplier);
+		//Amount = FixedMul(Amount, AmmoMultiplier);
 		//printbold(i:Amount);
 		GiveInventory(weapons_ammo[ThisWeapon][1], amount);
 	}

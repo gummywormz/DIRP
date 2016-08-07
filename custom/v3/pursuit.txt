@@ -34,7 +34,7 @@ Inventory.Amount 1
 Inventory.MaxAmount 1
 }
 
-actor PursuitWep : MegaBuster
+actor PursuitWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 30

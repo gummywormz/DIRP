@@ -1079,3 +1079,44 @@ graphic JKIKICO, 30, 30
    Patch JKIKA0, 0, 0
 }
 
+graphic HMACICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HMACA0, 0, 0
+}
+
+graphic DOLPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DOLPB0, 0, 0
+}
+
+graphic ISLHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch ISLHA0, 0, 0
+}
+
+graphic PLSMICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PLSMA0, 0, 0
+}
+
+graphic SUGCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SUGCB0, 0, 0
+}
+
+graphic EMPUICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch EMPUA0, 0, 0
+}

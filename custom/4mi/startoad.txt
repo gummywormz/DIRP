@@ -90,7 +90,7 @@ stop
 }
 }
 
-actor StarToadWep : MegaBuster
+actor StarToadWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
@@ -197,13 +197,14 @@ goto Ready+1
 }
 }
 
-actor StarToadWeapon : MegaBuster
+actor StarToadWeapon : BaseMM8BDMWep
 {
 Weapon.AmmoUse 0
 Weapon.SlotNumber 1
 Obituary "%o was disgusted by %k's toad form."
 Inventory.Pickupmessage "Wat"
 +WEAPON.AMMO_OPTIONAL
++Weapon.CHEATNOTWEAPON
 Scale 2.0
 States
 {

@@ -314,7 +314,7 @@ stop
 }
 }
 
-actor LightningChainWep : MegaBuster
+actor LightningChainWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 3
 Weapon.AmmoGive 50
