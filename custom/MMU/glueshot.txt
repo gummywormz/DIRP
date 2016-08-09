@@ -15,8 +15,8 @@ weapon.ammotype "GlueShotAmmo"
 States
 {
 Spawn:
-GSHT G 1
-loop
+GSHT G -1
+stop
 Ready:
 GSHT H 0 ACS_ExecuteAlways(998,0,502)
 GSHT H 1 A_WeaponReady

@@ -34,7 +34,6 @@ actor FireFly
 {
 PROJECTILE
 Damage (25)
-+DONTBLAST
 Obituary "%o was distracted by %k's Fire Fly"
 Speed 30
 Radius 6

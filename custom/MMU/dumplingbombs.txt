@@ -43,8 +43,8 @@ Scale 2.0
 States
 {
 Spawn:
-SPDP B 1
-loop
+SPDP B -1
+stop
 Ready:
 SPDP C 0 ACS_ExecuteAlways(998,0,515)
 SPDP C 1 A_WeaponReady

@@ -75,7 +75,6 @@ Height 7
 Damage (37)
 Scale 2.0
 Speed 25
-+DONTBLAST
 Damagetype "FireStorm"
 STATES
 {

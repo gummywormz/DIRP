@@ -10,7 +10,6 @@ PROJECTILE
 Radius 5
 Obituary "%o was cut and dried by %k's Cross Flame."
 Height 5
-+DONTBLAST
 scale 2.5
 damage (40)
 damagetype "AtomicFire1"
@@ -36,7 +35,6 @@ Obituary "%o was cut and dried by %k's Cross Flame."
 scale 2.5
 damage (10)
 +RIPPER
-+DONTBLAST
 damagetype "AtomicFire1"
 speed 25
 States

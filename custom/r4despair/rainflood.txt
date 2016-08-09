@@ -125,8 +125,8 @@ Scale 2.0
 States
 {
 Spawn:
-RNFL F 1
-loop
+RNFL F -1
+stop
 Ready:
 TOAH A 0 ACS_ExecuteAlways(998,0,44)
 TOAH A 1 A_WeaponReady

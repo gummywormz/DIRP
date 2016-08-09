@@ -20,8 +20,8 @@ Scale 2.0
 States
 {
 Spawn:
-YOYC C 1
-loop
+YOYC C -1
+stop
 Ready:
 YOHD A 0 ACS_ExecuteAlways(998,0,507)
 YOHD A 1 A_WeaponReady

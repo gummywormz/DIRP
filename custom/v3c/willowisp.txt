@@ -51,7 +51,6 @@ Damage (19)
 Obituary "%o was burned by %k's Will-O-Wisp."
 Speed 70
 PoisonDamage 40
-+DONTBLAST
 Translation "210:226=61:61,170:191=254:254"
 Damagetype "FireStorm"
 STATES

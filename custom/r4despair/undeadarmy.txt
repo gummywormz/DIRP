@@ -22,8 +22,8 @@ Scale 2.0
 States
 {
 Spawn:
-UDAY A 1
-loop
+UDAY A -1
+stop
 Ready:
 PCHS D 0 ACS_ExecuteAlways(998,0,321)
 PCHS D 1 A_WeaponReady

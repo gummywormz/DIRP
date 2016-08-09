@@ -147,8 +147,8 @@ Scale 2.0
 States
 {
 Spawn:
-DLTP A 1
-loop
+DLTP A -1
+stop
 Ready:
 DRIL D 0 ACS_ExecuteAlways(998,0,19)
 DRIL D 1 A_WeaponReady

@@ -20,8 +20,8 @@ Scale 2.0
 States
 {
 Spawn:
-HAMM H 1
-loop
+HAMM H -1
+stop
 Ready:
 HMHD A 0 ACS_ExecuteAlways(998,0,510)
 HMHD A 1 A_WeaponReady

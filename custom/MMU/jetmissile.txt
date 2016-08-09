@@ -104,8 +104,8 @@ weapon.ammotype "JetMissileAmmo"
 States
 {
 Spawn:
-JTMS C 1
-loop
+JTMS C -1
+stop
 Ready:
 JTMS D 1 ACS_ExecuteAlways(998,0,504)
 JTMS D 1 A_WeaponReady

@@ -58,7 +58,6 @@ goto Ready+1
 actor ChargeKickb
 {
 PROJECTILE
-+DONTBLAST
 Radius 14
 Height 25
 scale 2.5

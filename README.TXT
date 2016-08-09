@@ -1,14 +1,14 @@
 ===========================================================================
-Update to               : v3E
+Update to               : v5a
 Advanced engine needed  : Zandronum 2.0
 Primary purpose         : Deathmatch
 ===========================================================================
 Title                   : Drown In Robot Parts
-Filename                : dirp-v4a.pk3
-Release date            : 8/20/15
+Filename                : dirp-v5a.pk3
+Release date            : 8/14/16
 Author                  : Gummywormz
 
-Description             : D.I.R.P v4a is a weapon pack for MM8BDM designed
+Description             : D.I.R.P v5a is a weapon pack for MM8BDM designed
                           to be as chaotic as possible. It features 145 new
                           weapons and 5 new items. The weapons are randomly
                           replaced within the maps. The LMS randomizer has
@@ -38,7 +38,7 @@ Graphics                : Yes
 Dehacked/BEX Patch      : No
 Demos                   : No
 Other                   : Weapons
-Other files required    : MM8BDM-v4c, megagame.wad
+Other files required    : MM8BDM-v5a, megagame.wad
 
 
 * Play Information *

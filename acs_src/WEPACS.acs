@@ -263,7 +263,7 @@
 
 
 
-#DEFINE MAX_WEAPONS_GLOBAL 237 // Maximum number of weapons for the following arrays
+#DEFINE MAX_WEAPONS_GLOBAL 241 // Maximum number of weapons for the following arrays
 // v6's weapon total would be 94
 // v7's weapon total would be 103
 #DEFINE MAX_BUSTERS 7 // Maximum number of non-ammo buster upgrades for the following arrays
@@ -549,6 +549,10 @@ str weapons_ammo[MAX_WEAPONS_GLOBAL][7] =
 {"HereticMaceWep","HereticMaceAmmo","Heretic Mace","YES", "YES", "YES","SLOT_RAPID"},
 {"IonicSlashWep","IonicSlashAmmo","Ionic Slash","YES", "YES", "YES","SLOT_RAPID"},
 {"LightningStormWep","LightningStormAmmo","Lightning Storm","YES", "YES", "YES","SLOT_RANGED"},
+{"SugarCubeWep","SugarCubeAmmo","Sugar Cube","YES", "YES", "YES","SLOT_POWER"},
+{"EvilEyeWep","EvilEyeAmmo","Evil Eye","YES", "YES", "YES","SLOT_POWER"},
+{"PowerTreeWep","PowerTreeAmmo","Power Tree","YES", "YES", "YES","SLOT_POWER"},
+{"bmoBhsalFWep","bmoBhsalFAmmo","bmoB hsalF","YES", "YES", "YES","SLOT_POWER"},
 {"ExplosiveHadoukenWep","HadoukenAmmo","Explosive Hadouken","YES", "YES", "YES","SLOT_POWER"}
 
 

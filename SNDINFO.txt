@@ -95,3 +95,5 @@ weapon/charadeclone clone
 weapon/virusoutbreak virus
 
 weapon/hyperspacehole TELEPORT
+
+weapon/reversegrenade RBOMB

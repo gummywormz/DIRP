@@ -114,4 +114,4 @@ v5:
 
 v5a compatibility
 All weapons have name tags
-Added 9 new weapons and 1 new item
+Added 8 new weapons and 1 new item

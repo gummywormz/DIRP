@@ -47,8 +47,8 @@ Scale 2.0
 States
 {
 Spawn:
-RINT A 1
-loop
+RINT A -1
+stop
 Ready:
 RING E 0 ACS_ExecuteAlways(998,0,27)
 RING E 1 A_WeaponReady

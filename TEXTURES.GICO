@@ -1120,3 +1120,24 @@ graphic EMPUICO, 30, 30
    YScale 2.0
    Patch EMPUA0, 0, 0
 }
+
+graphic EVILEICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch EVILD0, 0, 0
+}
+
+graphic DTREICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch DTREB0, 0, 0
+}
+
+graphic RBOMICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch RBOMA0, 0, 0
+}

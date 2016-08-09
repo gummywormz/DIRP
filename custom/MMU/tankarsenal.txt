@@ -15,8 +15,8 @@ weapon.ammotype "TankArsenalAmmo"
 States
 {
 Spawn:
-TNKA D 1
-loop
+TNKA D -1
+stop
 Ready:
 TNKA E 1 ACS_ExecuteAlways(998,0,503)
 TNKA E 1 A_WeaponReady

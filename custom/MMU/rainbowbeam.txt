@@ -78,8 +78,8 @@ Scale 2.0
 States
 {
 Spawn:
-RNBW D 1
-loop
+RNBW D -1
+stop
 Ready:
 RNBW E 0 ACS_ExecuteAlways(998,0,508)
 RNBW E 1 A_WeaponReady

@@ -15,8 +15,8 @@ Scale 2.0
 States
 {
 Spawn:
-SUNS I 1
-loop
+SUNS I -1
+stop
 Ready:
 SUNS F 0 ACS_ExecuteAlways(998,0,331)
 SUNS F 1 A_WeaponReady

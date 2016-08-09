@@ -5,7 +5,7 @@ Primary purpose         : Deathmatch
 ===========================================================================
 Title                   : Drown In Robot Parts
 Filename                : dirp-v5a.pk3
-Release date            : 8/20/15
+Release date            : 8/14/16
 Author                  : Gummywormz
 
 Description             : D.I.R.P v5a is a weapon pack for MM8BDM designed
@@ -74,3 +74,4 @@ content in this file to allow further distribution.
 * Where to get the file that this text file describes *
 
 Web sites: http://cutstuff.net/forum/viewtopic.php?f=31&t=4251
+https://github.com/gummywormz/DIRP/

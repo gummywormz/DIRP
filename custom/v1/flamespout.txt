@@ -10,7 +10,6 @@ PROJECTILE
 Damage (0)
 +RIPPER
 DamageType "AtomicFire1"
-+DONTBLAST
 Height 6
 Speed 26
 Scale 3.5
@@ -130,7 +129,6 @@ Actor SpoutDown
 PROJECTILE
 -NOGRAVITY
 Obituary "%o was cooked by %k's Flame Spout."
-+DONTBLAST
 DamageType "AtomicFire1"
 Speed 25
 Damage (20)

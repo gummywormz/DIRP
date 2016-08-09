@@ -61,8 +61,8 @@ Scale 2.0
 States
 {
 Spawn:
-NBLS D 1
-loop
+NBLS D -1
+stop
 Ready:
 NBLS A 0 ACS_ExecuteAlways(998,0,509)
 NBLS A 1 A_WeaponReady

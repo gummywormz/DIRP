@@ -15,8 +15,8 @@ Scale 2.0
 States
 {
 Spawn:
-DUSV D 1
-loop
+DUSV D -1
+stop
 Ready:
 DSTS B 0 ACS_ExecuteAlways(998,0,30)
 DSTS B 1 A_WeaponReady

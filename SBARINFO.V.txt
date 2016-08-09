@@ -893,6 +893,19 @@ IsSelected IonicSlashWep
 	{
 	DrawBar "BARAMCB", "BAREMPTY", Ammo1, vertical, 16, 8;
 	}
+IsSelected SugarCubeWep
+	{
+	DrawBar "BARAMCB", "BAREMPTY", Ammo1, vertical, 16, 8;
+	}
+IsSelected EvilEyeWep
+	{
+	Drawbar"BARAMWW", "BAREMPTY", Ammo1, vertical, 16, 8;
+	}
+IsSelected PowerTreeWep
+	{
+	Drawbar"BARAMLES", "BAREMPTY", Ammo1, Vertical, 16, 8;
+	}
+IsSelected bmoBhslaFWep{Drawbar"BARAMM46", "BAREMPTY", Ammo1, vertical, 16, 8;}
 //end v5 weps
 
 //MM1 Bars

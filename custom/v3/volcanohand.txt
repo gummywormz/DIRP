@@ -64,7 +64,6 @@ actor HandShot : FastProjectile
 PROJECTILE
 +LOOKALLAROUND
 +SKYEXPLODE
-+DONTBLAST
 Obituary "%o was cooked up by %k's Volcano Hand."
 damagetype "FireStorm"
 Speed 70

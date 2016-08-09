@@ -61,8 +61,8 @@ Scale 2.0
 States
 {
 Spawn:
-CMDH C 1
-loop
+CMDH C -1
+stop
 Ready:
 CDHD G 0 ACS_ExecuteAlways(998,0,514)
 CDHD G 1 A_WeaponReady

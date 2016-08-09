@@ -46,8 +46,8 @@ Scale 2.0
 States
 {
 Spawn:
-YATK B 1
-loop
+YATK B -1
+stop
 Ready:
 YATK C 0 ACS_ExecuteAlways(998,0,506)
 YATK C 1 A_WeaponReady

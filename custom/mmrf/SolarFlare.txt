@@ -7,7 +7,6 @@ Obituary "%o was blinded by %k's Solar Flare"
 Speed 28
 Radius 10
 Height 10
-+DONTBLAST
 Scale 2.5
 States
 {

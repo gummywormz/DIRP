@@ -1,2 +1,131 @@
 //projectile that grows more powerful, and adds more effects when low on health
 
+actor EvilEyeProj1
+{
+PROJECTILE
+Damage (10)
+Radius 8
+Height 3
+Scale 2.5
+damagetype "EvilEye"
+Obituary "%o was spooked by %k's Evil Eyes."
+speed 30
+ReactionTime 10
+States
+{
+Spawn:
+EVIL C 2 A_CountDown
+loop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor EvilEyeProj2
+{
+PROJECTILE
+Damage (35)
+Radius 8
+Height 3
+Scale 2.5
+damagetype "EvilEye"
+Obituary "%o was spooked by %k's Evil Eyes."
+speed 25
+ReactionTime 15
+States
+{
+Spawn:
+EVIL B 2 A_CountDown
+loop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor EvilEyeProj3
+{
+PROJECTILE
+Damage (35)
+Radius 8
+Height 3
+Scale 2.5
+damagetype "EvilEyeSlow"
+Obituary "%o was spooked by %k's Evil Eyes."
+speed 20
+ReactionTime 20
+States
+{
+Spawn:
+EVIL A 2 A_CountDown
+loop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor EvilEyeWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Tag  "Evil Eye"
+Obituary "%o was spooked by %k's Evil Eyes."
+Weapon.SlotNumber 2
+weapon.ammotype "EvilEyeAmmo"
+Inventory.Pickupmessage "Power up! Evil Eye!"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "EVILEICO"
+Scale 2.0
+States
+{
+Spawn:
+EVIL D -1
+stop
+Ready:
+WOWS A 0 ACS_ExecuteAlways(998,0,239)
+WOWS A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+WOWS A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+WOWS A 1 A_Raise
+Loop
+Fire:
+WOWS B 0 A_JumpIfNoAmmo("NoAmmo")
+WOWS B 0 A_JumpIfHealthLower(75,"Fire2")
+WOWS B 0 A_JumpIfHealthLower(40,"Fire3")
+WOWS B 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+WOWS C 0 A_FireCustomMissile("EvilEyeProj1",0,1,8,0)
+WOWS BCA 4
+WOWS B 20
+WOWS A 1 A_Refire
+goto Ready+1
+Fire2:
+WOWS B 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+WOWS C 0 A_FireCustomMissile("EvilEyeProj2",0,1,8,0)
+WOWS BCA 4
+WOWS B 20
+goto Ready+1
+Fire3:
+WOWS B 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+WOWS C 0 A_FireCustomMissile("EvilEyeProj3",0,1,8,0)
+WOWS BCA 4
+WOWS B 20
+goto Ready+1
+NoAmmo:
+WOWS A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor EvilEyeAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

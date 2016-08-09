@@ -67,8 +67,8 @@ Scale 2.0
 States
 {
 Spawn:
-LASM A 1
-loop
+LASM A -1
+stop
 Ready:
 AIRS D 0 ACS_ExecuteAlways(998,0,38)
 AIRS D 1 A_WeaponReady
