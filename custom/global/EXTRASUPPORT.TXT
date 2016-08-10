@@ -36,7 +36,7 @@ stop
 HomingDevice:
 TNT1 A 1 A_SpawnItemEx("HomingDeviceGiver")
 stop
-SeriousBomb:
+SRSBomb:
 TNT1 A 1 A_SpawnItemEx("SeriousBombItem")
 stop
 EMP:
@@ -93,7 +93,7 @@ actor wipeinventory : custominventory
 States
 {
 Pickup:
-TNT1 A 1 ACS_executeAlways(606,0)
+TNT1 A 1 ACS_executeAlways(706,0)
 stop
 }
 }
@@ -110,7 +110,10 @@ TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
 TNT1 A 0 A_SetTranslucent(1.0, 0)
 TNT1 A 0 A_ChangeFlag("SHOOTABLE",1)
 TNT1 A 0 SetPlayerProperty(0,0,0)
+TNT1 A 0 A_JumpIfInventory("IsUnderWater",1,"Skip")
 TNT1 A 0 A_GiveInventory("NormalGravity",1)
+Skip:
+TNT1 A 0
 stop
 }
 }

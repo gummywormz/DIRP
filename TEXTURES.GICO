@@ -1048,7 +1048,7 @@ graphic FLASICO, 30, 30
 {
    XScale 2.0
    YScale 2.0
-   Patch FLASA0, 0, 0
+   Patch FLASG0, 0, 0
 }
 
 graphic DMSWICO, 30, 30
@@ -1090,7 +1090,7 @@ graphic DOLPICO, 30, 30
 {
    XScale 2.0
    YScale 2.0
-   Patch DOLPB0, 0, 0
+   Patch DOLPG0, 0, 0
 }
 
 graphic ISLHICO, 30, 30

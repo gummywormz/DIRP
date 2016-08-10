@@ -88,7 +88,7 @@ Scale 2.0
 States
 {
 Spawn:
-FLAS A -1
+FLAS G -1
 stop
 Ready:
 BLIZ D 0 ACS_ExecuteAlways(998,0,11)

@@ -39,6 +39,9 @@ TOPH A 1 A_Refire
 TOPH A 0 SetPlayerProperty(0,0,0)
 TOPH A 18
 goto Ready+1
+NoAmmo:
+TOPH A 1 ACS_Execute(979,0)
+Goto Ready+1
 }
 }
 

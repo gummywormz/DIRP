@@ -55,8 +55,8 @@ inventory.icon "DOLPICO"
 States
 {
 Spawn:
-DOLP B 1
-loop
+DOLP G -1
+stop
 Ready:
 WWAV E 0 ACS_ExecuteAlways(998,0,32)
 WWAV E 1 A_WeaponReady
