@@ -6,9 +6,9 @@ PROJECTILE
 Radius 8
 Height 8
 scale 1.5
-damage (4)
+damage (12)
 damagetype "KnightCrush"
-Obituary "%o was crushed by %k's Heretic Mace"
+Obituary "%o tripped over %k's Heretic Mace"
 +HEXENBOUNCE
 +NOTARGETSWITCH
 +SKYEXPLODE
@@ -35,10 +35,10 @@ stop
 actor HereticMaceWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
-Weapon.AmmoGive 28
+Weapon.AmmoGive 56
 Weapon.SlotNumber 3
 Inventory.Pickupmessage "Power Up! Heretic Mace"
-Obituary "%o was crushed by %k's Heretic Mace"
+Obituary "%o tripped over %k's Heretic Mace"
 Tag "Heretic Mace"
 weapon.ammotype "HereticMaceAmmo"
 inventory.icon "HMACICO"//do this
@@ -62,7 +62,7 @@ Loop
 Fire:
 KNIG B 0 A_JumpIfNoAmmo("NoAmmo")
 KNIG B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
-KNIG B 1 A_FireCustomMissile("MaceBall",0,1,8,0)
+KNIG B 0 A_FireCustomMissile("MaceBall",0,1,8,0)
 KNIG BCD 4
 Goto Ready+1
 NoAmmo:
@@ -74,6 +74,6 @@ Goto Ready+1
 actor HereticMaceAmmo : Ammo
 {
 inventory.amount 1
-inventory.maxamount 28
+inventory.maxamount 56
 +INVENTORY.IGNORESKILL
 }

@@ -6,7 +6,7 @@ PROJECTILE
 Radius 8
 Height 8
 scale 2.5
-damage (15)
+damage (13)
 damagetype "Sugar"
 Obituary "%o was soured by %k's sugar cube."
 speed 26
@@ -47,7 +47,6 @@ PROJECTILE
 height 1
 -nogravity
 radius 1
-scale 2.5
 damage (5)
 damagetype "Sugar"
 Obituary "%o was soured by %k's sugar cube."

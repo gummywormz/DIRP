@@ -3,8 +3,8 @@
 actor FriendlyDolphin
 {
 PROJECTILE
-+NOGRAVITY
-Damage (28)
+-NOGRAVITY
+Damage (25)
 +NOEXPLODEFLOOR
 //+FLOORHUGGER
 damagetype "SearchSnake"
@@ -17,9 +17,9 @@ States
 {
 Spawn:
 DOLP A 2
-DOLP A 1 ThrustThingZ(0,20,0,0)
+DOLP A 1 ThrustThingZ(0,55,0,0)
 DOLP A 1 A_PlaySoundEX("misc/splash","Voice")
-DOLP A 12
+DOLP A 30
 loop
 Death:
 TNT1 A 0 
@@ -44,7 +44,7 @@ stop
 
 actor FriendlyDolphinWep : BaseMM8BDMWep
 {
-Weapon.AmmoUse 4
+Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
 Inventory.Pickupmessage "Power Up! Friendly Dolphin"

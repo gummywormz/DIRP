@@ -6,7 +6,7 @@ PROJECTILE
 Radius 12
 Height 8
 scale 2.5
-damage (8)
+damage (12)
 damagetype "TenguBlade"
 Obituary "%o was broken by %k's ionic slash."
 speed 80
@@ -25,7 +25,7 @@ stop
 
 actor IonicSlashWep : BaseMM8BDMWep
 {
-Weapon.AmmoUse 6
+Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
 Tag  "Ionic Slash"

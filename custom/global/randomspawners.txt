@@ -6,6 +6,7 @@ DropItem "ShockGuardGiver" 255 5
 DropItem "MagicBalloonGiver" 255 5
 DropItem "GamblingDice" 255 5
 DropItem "SeriousBombItem" 255 5
+DropItem "EMPGiver" 255 5
 }
 
 Actor ActualItemSpawner
@@ -186,6 +187,15 @@ actor BaseSpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 6
 	DropItem "VirusOutbreakWep" 255 2
 	DropItem "ShockGauntletWep" 255 9
+	
+	Dropitem "HereticMaceWep" 255 7
+	Dropitem "PowerTreeWep" 255 3
+	Dropitem "FriendlyDolphinWep" 255 9
+	Dropitem "IonicSlashWep" 255 11
+	Dropitem "LightningStormWep" 255 7
+	Dropitem "SugarCubeWep" 255 6
+	Dropitem "EvilEyeWep" 255 8
+	Dropitem "bmoBhsalFWep" 255 5
 
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
@@ -396,6 +406,15 @@ actor BaseAOESpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 2
 	DropItem "VirusOutbreakWep" 255 8
 	DropItem "ShockGauntletWep" 255 2
+	
+	Dropitem "HereticMaceWep" 255 3
+	Dropitem "PowerTreeWep" 255 8
+	Dropitem "FriendlyDolphinWep" 255 1
+	Dropitem "IonicSlashWep" 255 4
+	Dropitem "LightningStormWep" 255 6
+	Dropitem "SugarCubeWep" 255 7
+	Dropitem "EvilEyeWep" 255 3
+	Dropitem "bmoBhsalFWep" 255 9
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
 	//DropItem "ThunderBoltWep" 255 3
@@ -833,6 +852,15 @@ actor AllBaseSpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 6
 	DropItem "VirusOutbreakWep" 255 2
 	DropItem "ShockGauntletWep" 255 9
+	
+	Dropitem "HereticMaceWep" 255 7
+	Dropitem "PowerTreeWep" 255 3
+	Dropitem "FriendlyDolphinWep" 255 9
+	Dropitem "IonicSlashWep" 255 11
+	Dropitem "LightningStormWep" 255 7
+	Dropitem "SugarCubeWep" 255 6
+	Dropitem "EvilEyeWep" 255 8
+	Dropitem "bmoBhsalFWep" 255 5
 }
 
 actor AllAOESpawner : RandomSpawner
@@ -1003,4 +1031,13 @@ actor AllAOESpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 2
 	DropItem "VirusOutbreakWep" 255 8
 	DropItem "ShockGauntletWep" 255 2
+	
+	Dropitem "HereticMaceWep" 255 3
+	Dropitem "PowerTreeWep" 255 8
+	Dropitem "FriendlyDolphinWep" 255 1
+	Dropitem "IonicSlashWep" 255 4
+	Dropitem "LightningStormWep" 255 6
+	Dropitem "SugarCubeWep" 255 7
+	Dropitem "EvilEyeWep" 255 3
+	Dropitem "bmoBhsalFWep" 255 9
 }

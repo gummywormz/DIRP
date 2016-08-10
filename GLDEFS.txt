@@ -514,6 +514,16 @@ frame FLEXE {light FLASHBOMB1}
 frame FLEXF {light FLASHBOMBX}
 }
 
+object XbmoBhsalF//More why not?
+{
+frame FLEXA {light FLASHBOMBX}
+frame FLEXB {light FLASHBOMBX}
+frame FLEXC {light FLASHBOMB1}
+frame FLEXD {light FLASHBOMBX}
+frame FLEXE {light FLASHBOMB1}
+frame FLEXF {light FLASHBOMBX}
+}
+
 object ThunderBolt
 {
 frame TBOL {light FLASHBOMB2}
@@ -2835,6 +2845,21 @@ object QuakeSkull
 object FirePillar
 {
 frame FIRP {Light FIRELIGHT}
+}
+
+object PlasmaArrow
+{
+frame ARRO {Light GREENLIGHT4}
+}
+
+object PlasmaBlast
+{
+frame ARRO {Light GREENLIGHT2}
+}
+
+object PlasmaLaser
+{
+frame ARRO {Light GREENLIGHT}
 }
 
 //end dirp defs

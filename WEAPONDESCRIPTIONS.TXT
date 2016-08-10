@@ -246,3 +246,9 @@ Included in Version 5a:
 Ionic Slash - A rapid fire, low damage weapon.
 Heretic Mace - Rapid fire weapon that shoots many low damage bouncing maces
 Friendly Dolphin - A ground projectile that jumps occasionally
+EMP Blast - Short Range blast that teleports other players away.
+Lightning Storm - Move to store power. Charge up to 3 levels, resulting in an arrow, blast, and laser
+Sugar Cube - A mid-damage projectile that splits into ripping pieces after hit
+Evil Eye - Gains damage and slows enemies down the less health you have
+Power Tree - A simple tree platform that blocks projectiles and is solid. 
+Reverse Grenade - A reverse flash bomb

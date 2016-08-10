@@ -881,7 +881,7 @@ IsSelected SuguriDashWep
 	
 //begin v5 weps
 IsSelected HereticMaceWep{Drawbar"VARAMM27", "VAREMPTY", Ammo1, horizontal, 58, 184;}
-IsSelected FriendlyDolphinWep{Drawbar"VARAMM10", "VAREMPTY", Ammo1, horizontal, 58, 184}
+IsSelected FriendlyDolphinWep{Drawbar"VARAMM10", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected LightningStormWep{Drawbar"VARAMM34", "VAREMPTY", Ammo1, horizontal, 58, 184;
 InInventory StormCharge, 1{DrawBar "VARFLS1", "VNOBAR", StormCharge, horizontal, 58, 184;}}
 IsSelected IonicSlashWep
@@ -900,7 +900,7 @@ IsSelected PowerTreeWep
 	{
 	Drawbar"BARALE2", "VAREMPTY", Ammo1, horizontal, 58, 184;
 	}
-IsSelected bmoBhslaFWep{Drawbar"VARAMM46", "VAREMPTY", Ammo1, horizontal, 58, 184;}
+IsSelected bmoBhsalFWep{Drawbar"VARAMM46", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 //end v5 weps
 
 //MM1 Bars

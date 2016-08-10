@@ -905,7 +905,7 @@ IsSelected PowerTreeWep
 	{
 	Drawbar"BARAMLES", "BAREMPTY", Ammo1, Vertical, 16, 8;
 	}
-IsSelected bmoBhslaFWep{Drawbar"BARAMM46", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected bmoBhsalFWep{Drawbar"BARAMM46", "BAREMPTY", Ammo1, vertical, 16, 8;}
 //end v5 weps
 
 //MM1 Bars

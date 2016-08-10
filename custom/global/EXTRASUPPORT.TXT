@@ -1,3 +1,50 @@
+actor RandomItem2 : RandomItem replaces RandomItem
+{
+States
+{
+
+AssistWeps:
+TNT1 A 1 A_Jump(96, "GamblingDice")
+TNT1 A 1 A_Jump(96, "SRSBomb")
+TNT1 A 1 A_Jump(128, "EMP")
+TNT1 A 1 A_Jump(128, "TrebleBeat")
+TNT1 A 1 A_Jump(256, "TangoSummon")
+stop
+
+	TrebleBeat:
+	TNT1 A 1 A_Jump(192, "TrebleSentry")
+	TNT1 A 1 A_Jump(192, "BeatSupport")
+	TNT1 A 1 A_Jump(256, "EnergyBalancer")
+	stop
+	
+AssistOther:
+TNT1 A 1 A_Jump(64, "MagicBalloon")
+TNT1 A 1 A_Jump(96, "ShockGuard")
+TNT1 A 1 A_Jump(128, "ReggaeCall")
+TNT1 A 1 A_Jump(192, "HomingDevice")
+TNT1 A 1 A_Jump(256, "EnergyBalancer")
+stop
+MagicBalloon:
+TNT1 A 1 A_SpawnItemEx("MagicBalloonGiver")
+stop
+ShockGuard:
+TNT1 A 1 A_SpawnItemEx("ShockGuardGiver")
+stop
+GamblingDice:
+TNT1 A 1 A_SpawnItemEx("GamblingDice")
+stop
+HomingDevice:
+TNT1 A 1 A_SpawnItemEx("HomingDeviceGiver")
+stop
+SeriousBomb:
+TNT1 A 1 A_SpawnItemEx("SeriousBombItem")
+stop
+EMP:
+TNT1 A 1 A_SpawnItemEx("EMPGiver")
+stop
+}
+}
+
 actor botart1 : custominventory
 {
 +INVENTORY.AUTOACTIVATE

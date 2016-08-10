@@ -15,7 +15,7 @@ Height 32
 States
 {
 Spawn:
-DUOR T 1 A_FadeOut(0.01)
+DUOR T 1 A_FadeOut(0.07)
 loop
 }
 }

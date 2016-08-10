@@ -9,7 +9,7 @@ inventory.maxamount 28
 actor StormCharge : Inventory
 {
 inventory.amount 1
-inventory.maxamount 208
+inventory.maxamount 100
 }
 
 actor StormCheck : custominventory
@@ -18,10 +18,10 @@ States
 {
 Pickup:
 TNT1 A 1 
-TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(608) == 1,"Charge")
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(609) == 1,"Charge")
 stop
 Charge:
-TNT1 A 0 A_GiveInventory("StormCharge",1)
+TNT1 A 0 A_GiveInventory("StormCharge",4)
 stop
 }
 }
@@ -30,7 +30,7 @@ actor PlasmaArrow
 {
 PROJECTILE
 +RIPPER
-Damage (5)
+Damage (14)
 Speed 45
 scale 2.5
 Radius 6
@@ -48,7 +48,7 @@ stop
 actor PlasmaBlast
 {
 PROJECTILE
-Damage (15)
+Damage (30)
 Speed 40
 scale 2.5
 radius 20
@@ -66,7 +66,7 @@ stop
 actor PlasmaLaser
 {
 PROJECTILE
-Damage (40)
+Damage (45)
 Speed 30
 scale 3.0
 radius 20
@@ -85,19 +85,19 @@ actor LightningStormWep : BaseMM8BDMWep
 {
 //$Category MM8BDM-Weapons
 //$Title Thunder Bolt
-Weapon.AmmoUse 4
+Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
 Inventory.Pickupmessage "Power Up! Lightning Storm!"
 Obituary "%o was shocked by %k's lightning arrow."
 Tag "Lightning Storm"
 weapon.ammotype "LightningStormAmmo"
-inventory.icon "TBOLSI"//do
+inventory.icon "PLSMICO"//do
 States
 {
 Spawn:
-PLSM A 1 //do
-loop
+PLSM A -1 //do
+stop
 Ready:
 TBOL S 0 ACS_ExecuteAlways(998,0,56)
 TBOL S 1 A_WeaponReady
@@ -112,14 +112,14 @@ TBOL S 1 A_Raise
 Loop
 Fire:
 TBOL S 0 A_JumpIfNoAmmo("NoAmmo")
-TBOL S 0 A_JumpIfInventory("StormCharge",200,"Laser")
-TBOL S 0 A_JumpIfInventory("StormCharge",100,"Blast")
-TBOL S 0 A_JumpIfInventory("StormCharge",50,"Arrow")
+TBOL S 0 A_JumpIfInventory("StormCharge",40,"Laser")
+TBOL S 0 A_JumpIfInventory("StormCharge",20,"Blast")
+TBOL S 0 A_JumpIfInventory("StormCharge",10,"Arrow")
 goto NoAmmo
 Laser:
 TBOL S 0 A_PlaySoundEx("weapon/pshot","Weapon")
 TBOL S 0 A_FireCustomMissile("PlasmaLaser",0,1,8,0)
-TBOL S 0 A_TakeInventory("StormCharge",999)
+TBOL S 0 A_TakeInventory("StormCharge",60)
 TBOL TU 5
 TBOL S 14
 TBOL S 0 A_Refire
@@ -127,7 +127,7 @@ Goto Ready+1
 Blast:
 TBOL S 0 A_PlaySoundEx("weapon/thunderbolt","Weapon")
 TBOL S 0 A_FireCustomMissile("PlasmaBlast",0,1,8,0)
-TBOL S 0 A_TakeInventory("StormCharge",999)
+TBOL S 0 A_TakeInventory("StormCharge",40)
 TBOL TU 5
 TBOL S 7
 TBOL S 0 A_Refire
@@ -135,7 +135,7 @@ Goto Ready+1
 Arrow:
 TBOL S 0 A_PlaySoundEx("weapon/mbuster","Weapon")
 TBOL S 0 A_FireCustomMissile("PlasmaArrow",0,1,8,0)
-TBOL S 0 A_TakeInventory("StormCharge",999)
+TBOL S 0 A_TakeInventory("StormCharge",20)
 TBOL TU 5
 TBOL S 3
 TBOL S 0 A_Refire
