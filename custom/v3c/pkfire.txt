@@ -36,6 +36,7 @@ stop
 
 actor PKFireTower : FlamePillar
 {
+Obituary "%o was incinerated by %k's PK fire."
 +RIPPER
 Damage (6)
 reactiontime 20
