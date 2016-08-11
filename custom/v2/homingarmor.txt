@@ -2,6 +2,7 @@ actor HomingDeviceGiver : CustomInventory
 {
 Inventory.Pickupmessage "Support Item! Anti-Homing Device!"
 inventory.pickupsound "item/1up"
+Tag "Anti-Homing Device"
 Inventory.RespawnTics 1800
 scale 2.0
 states

@@ -144,12 +144,13 @@ Inventory.Amount 1
 Inventory.MaxAmount 1
 }
 
-actor VirusOutbreakWep : MegaBuster
+actor VirusOutbreakWep : BaseMM8BDMWep
 {
 Weapon.AmmoGive 56
 Weapon.SlotNumber 7
 Inventory.Pickupmessage "Power Up! Virus Outbreak!"
 Obituary "%o was grossed out by %k's Virus Outbreak."
+Tag "Virus Outbreak"
 weapon.ammotype "VirusOutbreakAmmo"
 weapon.ammouse 14
 inventory.pickupsound "weapon/weaponup"
@@ -212,5 +213,8 @@ loop
 NoFlash:
 TNT1 A 0
 Stop
+NoAmmo:
+LEAF A 1 ACS_Execute(979,0)
+Goto Ready+1
 }
 }

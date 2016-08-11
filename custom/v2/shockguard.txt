@@ -175,7 +175,9 @@ Inventory.Amount 1
 Inventory.MaxAmount 1
 inventory.icon "TNT1A0"
 Scale 2.0
+Tag "Shock Guard"
 inventory.pickupmessage "Support Item! Shock Guard!"
+Tag "Shock Guard"
 Inventory.PickupSound "item/1up"
 States
 {

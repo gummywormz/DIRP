@@ -34,11 +34,12 @@ stop
 }
 }
 
-actor NoteableShotWep : MegaBuster
+actor NoteableShotWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 4
+Tag  "Noteable Shot"
 Obituary "%o couldn't groove to %k's Noteable Shot."
 Inventory.Pickupmessage "Power up! Noteable Shot!"
 weapon.ammotype "NoteableShotAmmo"

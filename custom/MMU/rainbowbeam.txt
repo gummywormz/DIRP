@@ -62,11 +62,12 @@ stop
 }
 }
 
-actor RainbowBeamWep : MegaBuster
+actor RainbowBeamWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 32
 Weapon.SlotNumber 2
+Tag  "Rainbow Beam"
 Obituary "%o was caught in %k's Rainbow Beam."
 Inventory.Pickupmessage "Power up! Rainbow Beam!"
 weapon.ammotype "RainbowBeamAmmo"
@@ -77,8 +78,8 @@ Scale 2.0
 States
 {
 Spawn:
-RNBW D 1
-loop
+RNBW D -1
+stop
 Ready:
 RNBW E 0 ACS_ExecuteAlways(998,0,508)
 RNBW E 1 A_WeaponReady

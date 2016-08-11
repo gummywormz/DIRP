@@ -1,7 +1,8 @@
-actor FireBallWep : MegaBuster
+actor FireBallWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
+Tag  "Fire Ball"
 Obituary "%o was burnt by %k's Fire Ball."
 Weapon.SlotNumber 3
 Inventory.Pickupmessage "Power up! Fire Ball!"
@@ -74,7 +75,6 @@ Height 7
 Damage (37)
 Scale 2.0
 Speed 25
-+DONTBLAST
 Damagetype "FireStorm"
 STATES
 {

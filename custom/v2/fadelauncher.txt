@@ -1,8 +1,9 @@
-actor FadeLauncherWep : MegaBuster
+actor FadeLauncherWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Fade Launcher"
 Obituary "%o was scared by %k's Fade Launcher."
 Inventory.Pickupmessage "Power up! Fade Launcher!"
 weapon.ammotype "FadeLauncherAmmo"
@@ -16,7 +17,7 @@ Spawn:
 FDLU H -1
 stop
 Ready:
-FDLU E 0 ACS_ExecuteAlways(998,0,220)
+FDLU E 0 ACS_ExecuteAlways(998,0,301)
 FDLU E 1 A_WeaponReady
 Goto Ready+1
 Deselect:

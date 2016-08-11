@@ -65,11 +65,12 @@ stop
 }
 }
 
-actor WaterSpoutWep : MegaBuster
+actor WaterSpoutWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 42
 Weapon.SlotNumber 4
+Tag  "Water Spout"
 Obituary "%o was soaked by %k's Water Spout."
 Inventory.Pickupmessage "Power up! Water Spout!"
 weapon.ammotype "WaterSpoutAmmo"

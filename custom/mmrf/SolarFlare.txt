@@ -7,7 +7,6 @@ Obituary "%o was blinded by %k's Solar Flare"
 Speed 28
 Radius 10
 Height 10
-+DONTBLAST
 Scale 2.5
 States
 {
@@ -35,11 +34,12 @@ stop
 }
 }
 
-actor SolarFlareWep : MegaBuster
+actor SolarFlareWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 5
 Weapon.AmmoGive 30
 Weapon.SlotNumber 4
+Tag "Solar Flare"
 Obituary "%o was blinded by %k's Solar Flare"
 Inventory.Pickupmessage "Power up! Solar Flare!"
 weapon.ammotype "SolarFlareAmmo"
@@ -53,7 +53,7 @@ Spawn:
 SFLR C 1
 loop
 Ready:
-SUNS F 0 ACS_ExecuteAlways(998,0,231)
+SUNS F 0 ACS_ExecuteAlways(998,0,331)
 SUNS F 1 A_WeaponReady
 Goto Ready+1
 Deselect:

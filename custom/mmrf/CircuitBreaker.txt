@@ -45,11 +45,12 @@ stop
 }
 }
 
-actor CircuitBreakerWep : MegaBuster
+actor CircuitBreakerWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Circuit Breaker"
 Inventory.Pickupmessage "Power Up! Circuit Breaker"
 Obituary "%o tried to resist %k's Circuit Breaker"
 weapon.ammotype "CircuitBreakerAmmo"

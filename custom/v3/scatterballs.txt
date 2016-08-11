@@ -36,11 +36,12 @@ inventory.amount 1
 inventory.maxamount 28
 }
 
-actor ScatterBallWep : MegaBuster
+actor ScatterBallWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Scatter Balls"
 Obituary "%o was donked by %k's Scatter Balls."
 Inventory.Pickupmessage "Power up! Scatter Balls!"
 weapon.ammotype "ScatterBallAmmo"

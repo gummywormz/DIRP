@@ -31,11 +31,12 @@ loop
 }
 }
 
-actor RingTossWep : MegaBuster
+actor RingTossWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 75
 Weapon.SlotNumber 3
+Tag  "Ring Toss"
 Obituary "%o collected %k's Ring Toss."
 Inventory.Pickupmessage "Power up! Ring Toss!"
 weapon.ammotype "RingTossAmmo"
@@ -46,8 +47,8 @@ Scale 2.0
 States
 {
 Spawn:
-RINT A 1
-loop
+RINT A -1
+stop
 Ready:
 RING E 0 ACS_ExecuteAlways(998,0,27)
 RING E 1 A_WeaponReady

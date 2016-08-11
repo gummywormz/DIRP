@@ -30,13 +30,14 @@ inventory.maxamount 75
 }
 
 
-Actor AquaPunchWep : MegaBuster
+Actor AquaPunchWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 15
 Weapon.AmmoGive 75
 Weapon.Kickback 37
 Weapon.SlotNumber 5
 inventory.icon "AQICO"
+Tag  "Aqua Fist"
 Obituary "%o felt the whiplash of %k's Aqua Fist."
 Inventory.Pickupmessage "Power up! Aqua Fist!"
 weapon.ammotype "AquaPunchammo"
@@ -49,7 +50,7 @@ Spawn:
 AQPN B -1
 stop
 Ready:
-AQPN C 0 ACS_ExecuteAlways(998,0,204)
+AQPN C 0 ACS_ExecuteAlways(998,0,304)
 AQPN C 1 A_WeaponReady
 Goto Ready+1
 Deselect:

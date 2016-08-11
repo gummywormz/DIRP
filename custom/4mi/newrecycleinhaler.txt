@@ -41,11 +41,12 @@ stop
 }
 }
 
-actor RecycleInhalerWep : MegaBuster
+actor RecycleInhalerWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56
 Weapon.SlotNumber 4
+Tag  "Recycle Inhaler"
 Obituary "%o was inhaled by %k's Recycle Inhaler."
 Inventory.Pickupmessage "Power up! Recycle Inhaler!"
 weapon.ammotype "RecycleInhalerAmmo"

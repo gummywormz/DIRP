@@ -30,12 +30,13 @@ stop
 
 actor SpikeRock2 : SpikeRock{Obituary "%o was tunneled under by %k's drill arm."}
 
-actor DrillArmWep : MegaBuster
+actor DrillArmWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 inventory.pickupsound "weapon/weaponup"
 Weapon.Ammogive 50
 Weapon.AmmoType "DrillArmAmmo"
+Tag  "Drill Arm"
 Weapon.SlotNumber 4
 Obituary "%o was tunneled under by %k's drill arm."
 Inventory.Pickupmessage "Power Up! Drill Arm!"

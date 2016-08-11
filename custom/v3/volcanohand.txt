@@ -1,11 +1,12 @@
 //rapid fire flamethrower, low distance low damage, and remain still when using.
 
-actor VolcanoHandWep : MegaBuster
+actor VolcanoHandWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 50
 Weapon.SlotNumber 4
 scale 2.0
+Tag  "Volcano Hand"
 inventory.icon "VOLHICO"
 Obituary "%o was cooked up by %k's Volcano Hand."
 Inventory.Pickupmessage "Power up! Volcano Hand"
@@ -63,7 +64,6 @@ actor HandShot : FastProjectile
 PROJECTILE
 +LOOKALLAROUND
 +SKYEXPLODE
-+DONTBLAST
 Obituary "%o was cooked up by %k's Volcano Hand."
 damagetype "FireStorm"
 Speed 70

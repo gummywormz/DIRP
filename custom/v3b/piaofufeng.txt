@@ -1,10 +1,11 @@
 //Piaofu Feng - Slowly rise up with a shield under you. Then toss it downward on release
 
-actor PiaofuFengWep : MegaBuster
+actor PiaofuFengWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56
 Weapon.SlotNumber 7
+Tag  "Piaofu Feng"
 Obituary "%o was blown away by %k's Piaofu Feng."
 Inventory.Pickupmessage "Power up! Piaofu Feng!"
 weapon.ammotype "PiaofuFengAmmo"

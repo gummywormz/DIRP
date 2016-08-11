@@ -50,11 +50,12 @@ stop
 }
 }
 
-actor PulseStopperWep : MegaBuster
+actor PulseStopperWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Pulse Stopper"
 Inventory.Pickupmessage "Power Up! Pulse Stopper."
 Obituary "%o was stopped by %k's Pulse Stopper"
 weapon.ammotype "PulseStopperAmmo"

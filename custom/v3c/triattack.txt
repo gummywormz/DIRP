@@ -1,8 +1,9 @@
-actor TriAttackWep : MegaBuster
+actor TriAttackWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 56
 Weapon.SlotNumber 3
+Tag  "Tri Attack"
 Obituary "%o was defeated thrice by %k's Tri Attack."
 Inventory.Pickupmessage "Power up! Tri Attack!"
 weapon.ammotype "TriAttackAmmo"
@@ -87,7 +88,6 @@ Actor TriAttackF : TriAttackT
 -PIERCEARMOR
 Damage (10)
 PoisonDamage 95
-+DONTBLAST
 Damagetype "FireStorm"
 STATES
 {

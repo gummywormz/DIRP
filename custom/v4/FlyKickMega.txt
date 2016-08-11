@@ -1,8 +1,9 @@
-actor JumpKickWep : MegaBuster
+actor JumpKickWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 4
+Tag  "Jump Kick"
 Obituary "%o was stomped on by %k's Jump Kick."
 Inventory.Pickupmessage "Power up! Jump Kick!"
 weapon.ammotype "JumpKickAmmo"

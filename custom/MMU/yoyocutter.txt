@@ -4,11 +4,12 @@ Inventory.Amount 1
 Inventory.MaxAmount 28
 }
 
-actor YoyoCutterWep : MegaBuster 
+actor YoyoCutterWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Yoyo Cutter"
 Obituary "%o was chopped by %k's Yoyo Cutter."
 Inventory.Pickupmessage "Power up! Yoyo Cutter!"
 weapon.ammotype "YoYoCutterAmmo"
@@ -19,8 +20,8 @@ Scale 2.0
 States
 {
 Spawn:
-YOYC C 1
-loop
+YOYC C -1
+stop
 Ready:
 YOHD A 0 ACS_ExecuteAlways(998,0,507)
 YOHD A 1 A_WeaponReady

@@ -26,11 +26,12 @@ stop
 }
 }
 
-actor GimmickStarWep : MegaBuster
+actor GimmickStarWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 112
 Weapon.SlotNumber 2
+Tag  "Gimmick Star"
 Obituary "%o was poked by %k's Gimmick Star."
 Inventory.Pickupmessage "Power up! Gimmick Star!"
 weapon.ammotype "GimmickStarAmmo"
@@ -44,7 +45,7 @@ Spawn:
 GSTA Z -1
 stop
 Ready:
-GSTA H 0 ACS_ExecuteAlways(998,0,216)
+GSTA H 0 ACS_ExecuteAlways(998,0,316)
 GSTA H 1 A_WeaponReady
 Goto Ready+1
 Deselect:

@@ -30,11 +30,12 @@ stop
 }
 }
 
-actor NMGWep : MegaBuster
+actor NMGWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 100
 Weapon.SlotNumber 3
+Tag  "N M G"
 Obituary "%o was spun around by %k's NMG."
 Inventory.Pickupmessage "Power Up! NMG!"
 Weapon.AmmoType "MachineAmmo"

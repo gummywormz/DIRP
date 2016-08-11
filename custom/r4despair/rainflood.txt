@@ -109,11 +109,12 @@ stop
 }
 }
 
-actor RainFloodWep : MegaBuster
+actor RainFloodWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 6
+Tag  "Rain Flood"
 Obituary "%o drowned in %k's Rain Flood."
 Inventory.Pickupmessage "Power up! Rain Flood!"
 weapon.ammotype "RainFloodAmmo"
@@ -124,8 +125,8 @@ Scale 2.0
 States
 {
 Spawn:
-RNFL F 1
-loop
+RNFL F -1
+stop
 Ready:
 TOAH A 0 ACS_ExecuteAlways(998,0,44)
 TOAH A 1 A_WeaponReady

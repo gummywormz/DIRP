@@ -72,13 +72,14 @@ Inventory.Amount 1
 Inventory.MaxAmount 38
 }
 
-actor ShockMineWep : MegaBuster
+actor ShockMineWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 38
 +WEAPON.NOAUTOFIRE
 inventory.icon "SHOMICO"
 Weapon.SlotNumber 5
+Tag  "Shock Mine"
 Obituary "%o was tazed by %k's Shock Mines."
 Inventory.Pickupmessage "Power up! Shock Mine!"
 weapon.ammotype "MineAmmo"
@@ -91,7 +92,7 @@ Spawn:
 SMIC A -1
 stop
 Ready:
-SHMI A 0 ACS_ExecuteAlways(998,0,200)
+SHMI A 0 ACS_ExecuteAlways(998,0,300)
 SHMI A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

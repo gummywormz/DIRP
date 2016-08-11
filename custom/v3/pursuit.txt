@@ -34,13 +34,14 @@ Inventory.Amount 1
 Inventory.MaxAmount 1
 }
 
-actor PursuitWep : MegaBuster
+actor PursuitWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 30
 Weapon.SlotNumber 2
 +WEAPON.DONTBOB
-Obituary "%o was tacked down by %k's Pursuit."
+Tag  "Pursuit"
+Obituary "%o was tracked down by %k's Pursuit."
 Inventory.Pickupmessage "Power Up! Pursuit!"
 weapon.ammotype "PursuitAmmo"
 inventory.icon "PSUTICO"

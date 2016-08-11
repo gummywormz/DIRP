@@ -1,7 +1,8 @@
-actor GigaDrainWep : MegaBuster
+actor GigaDrainWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 56
+Tag  "Giga Drain"
 Obituary "%o was drained dry by %k's giga drain."
 Weapon.SlotNumber 4
 Inventory.Pickupmessage "Power up! Giga Drain!"

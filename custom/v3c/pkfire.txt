@@ -36,16 +36,18 @@ stop
 
 actor PKFireTower : FlamePillar
 {
+Obituary "%o was incinerated by %k's PK fire."
 +RIPPER
 Damage (6)
 reactiontime 20
 }
 
-actor PKFireWep : MegaBuster
+actor PKFireWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "PK Fire"
 Obituary "%o was incinerated by %k's PK fire."
 Inventory.Pickupmessage "Power up! PK fire!"
 weapon.ammotype "PKFireAmmo"

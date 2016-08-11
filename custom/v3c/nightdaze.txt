@@ -18,11 +18,12 @@ loop
 }
 }
 
-actor NightDazeWep : MegaBuster
+actor NightDazeWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 56
 Weapon.SlotNumber 6
+Tag  "Night Daze"
 Obituary "%o woke up due to %k's Night Daze."
 Inventory.Pickupmessage "Power up! Night Daze!"
 weapon.ammotype "NightDazeAmmo"
@@ -36,7 +37,7 @@ Spawn:
 NDAZ A 1
 loop
 Ready:
-DRWE A 0 ACS_ExecuteAlways(998,0,201)
+DRWE A 0 ACS_ExecuteAlways(998,0,301)
 DRWE A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

@@ -10,10 +10,11 @@ inventory.amount 1
 inventory.maxamount 30
 }
 
-actor TackleShieldWep : MegaBuster
+actor TackleShieldWep : BaseMM8BDMWep
 {
 Weapon.AmmoGive 30
 Weapon.SlotNumber 7
+Tag  "Tackle Shield"
 Obituary "%o was burnt by %k's Tackle Shield."
 Inventory.Pickupmessage "Power up! Tackle Shield!"
 weapon.ammotype "TackleShieldAmmo"

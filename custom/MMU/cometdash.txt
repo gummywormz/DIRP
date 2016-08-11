@@ -45,11 +45,12 @@ loop
 }
 }
 
-actor CometDashWep : MegaBuster
+actor CometDashWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 9
 Weapon.AmmoGive 36
 Weapon.SlotNumber 4
+Tag  "Comet Dash"
 Obituary "%o was knocked into the stratosphere by %k's Comet Dash."
 Inventory.Pickupmessage "Power up! Comet Dash!"
 weapon.ammotype "CometDashAmmo"
@@ -60,8 +61,8 @@ Scale 2.0
 States
 {
 Spawn:
-CMDH C 1
-loop
+CMDH C -1
+stop
 Ready:
 CDHD G 0 ACS_ExecuteAlways(998,0,514)
 CDHD G 1 A_WeaponReady

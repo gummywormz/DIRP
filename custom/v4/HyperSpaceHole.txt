@@ -29,11 +29,12 @@ INVENTORY.AMOUNT 1
 INVENTORY.MAXAMOUNT 1
 }
 
-actor HyperSpaceHoleWep : MegaBuster
+actor HyperSpaceHoleWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Hyper Space Hole"
 Obituary "%o was sucked into Hyper Space by %k's Hyperspace Hole"
 Inventory.Pickupmessage "Power up! Hyper Space Hole!"
 weapon.ammotype "HyperSpaceHoleAmmo"
@@ -47,7 +48,7 @@ Spawn:
 HPSH A -1
 stop
 Ready:
-FDLU E 0 ACS_ExecuteAlways(998,0,220)
+FDLU E 0 ACS_ExecuteAlways(998,0,301)
 FDLU E 1 A_WeaponReady
 Goto Ready+1
 Deselect:

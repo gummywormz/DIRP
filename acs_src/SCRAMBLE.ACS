@@ -1,0 +1,256 @@
+#include "zcommon.acs"
+#library "SCRAMBLE"
+
+global int 0:DIRPwep1Random;
+global int 1:DIRPwep2Random;
+global int 2:DIRPwep3Random;
+global int 3:DIRPRuneRandom;
+
+str DIRPRune[6]={
+"RageRune",
+"StrengthRune",
+"SpreadRune",
+"HasteRune",
+"HighJumpRune",
+"ReflectionRune",
+};
+
+str DIRPWep1[134]={
+"SpeedGearWep",
+"RakuhouhaWep",
+"WaterShurikenWep",
+"IceShardWep",
+"TriAttackWep",
+"BlazeKickWep",
+"OctaZookaWep",
+"NightDazeWep",
+"GigaDrainWep",
+"MoonBlastWep",
+"FreezeDryWep",
+"IceBeamWep",
+"FellStingerWep",
+"WillOWispWep",
+"MagnetBombWep",
+"LeafStormWep",
+"WildTornadoWep",
+"TeleportWep",
+"ChargeBeamWep",
+"WaterSpoutWep",
+"BeeOrderWep",
+"SteelWingWep",
+"SeedFlareWep",
+"FireBlastWep",
+"PKFireWep",
+"FireBallWep",
+"PiaofuFengWep",
+"RocketChaingunWep",
+"NoteableShotWep",
+"PharaohSacrificeWep",
+"FrenzyPlantWep",
+"RecycleInhalerWep",
+"BlazingSoulWep",
+"PerfectChainsawWep",
+"SkyUppercutWep",
+"EqualizerWep",
+"QuadMissileWep",
+"CoalShotWep",
+"DangerFieldWep",
+"GravityHoleWep",
+"StoneWallWep",
+"DizzyBombWep",
+"BoulderCrackerWep",
+"MistFormWep",
+"EternalNight",
+"TwistLaserWep",
+"FadeLauncherWep",
+"CloudBomberWep",
+"IceSpikeWep",
+"PhoenixRodWep",
+"PinMissileWep",
+"PopCornWep",
+"DoubleNapalmWep",
+"BombSniperWep",
+"LightningChainWep",
+"FlurrySpreadWep",
+"BulletSeedWep",
+"CrossFlameWep",
+"ShockMineWep",
+"ThunderCloud",
+"LeechSeedWep",
+"MagnetDrillWep",
+"AquaPunchWep",
+"HellWheelWep",
+"FireWorksWep",
+"UnDeadArmyWep",
+"ShatterStoneWep",
+"CometLauncherWep",
+"GemCannonWep",
+"SideStarWep",
+"FrostBombWep",
+"TripleZapWep",
+"SunSparkWep",
+"HailShotGunWep",
+"HeadCrashWep",
+"HammerTailWep",
+"HCRBoomerangWep",
+"ThunderFangWep",
+"StealthRockWep",
+"IceShurikensWep",
+"ScatterBallWep",
+"WaterCutterWep",
+"VolcanoHandWep",
+"SuperArrowWep",
+"SparkManBowWep",
+"PharaohShotGunWep",
+"LaserMissileWep",
+"DustVaccumWep",
+"RingTossWep",
+
+"SpikeBallWep",
+"DrillArmWep",
+"PursuitWep",
+"YoyoCutterWep",
+"NailShieldWep",
+"CometDashWep",
+"NitroBlastWep",
+"TankArsenalWep",
+"SizzleRocketWep",
+"RainbowBeamWep",
+"HammerTossWep",
+"DumplingBombWep",
+"DelayBusterWep",
+"GlueShotWep",
+"JetMissileWep",
+"YokuAttackWep",
+"ThunderChainWep",
+"FractalLaserWep",
+"DimensionalWaveWep",
+"OpticLaserWep",
+"StoneWep",
+"FlameSpoutWep",
+
+"HyperSpaceHoleWep",
+"EggBombWep",
+"JumpKickWep",
+"FireFlyWep",
+"SuguriDashWep",
+"WaterPulseWep",
+"BoomerangBombWep",
+"ExplosiveHadoukenWep",
+
+"CircuitBreakerWep",
+"SolarFlareWep",
+"PulseStopperWep",
+"CryptCloakWep",
+"CharadeCloneWep",
+"PhantomFuseWep",
+"VirusOutbreakWep",
+"ShockGauntletWep",
+
+"HereticMaceWep",
+"FriendlyDolphinWep",
+"IonicSlashWep",
+"LightningStormWep",
+"SugarCubeWep",
+"EvilEyeWep",
+"bmoBhsalFWep"
+};
+
+Script 709 OPEN
+{
+	DIRPRuneRandom = random(0,5);
+	DIRPwep1Random = Random(0,133);
+	DIRPwep2Random = Random(0,133);
+	DIRPwep3Random = Random(0,133);
+}
+
+//Scramble mode! This is lodged in here because all the arrays are already here
+Script 705 OPEN
+{
+
+if(GetCvar("dirp_scramble") == 1){
+
+ACS_ExecuteAlways(709,0);
+AmbientSound("misc/ding",128);
+
+Delay(2);
+
+if(GetCVAR("dirp_Allweps") == 0)
+	{
+
+	for(int i = 1000; i < 1064; i++)
+	{
+	GiveActorInventory(i,"wipeinventory",1);
+	GiveActorInventory(i,"resetplayer",1);
+	Delay(1);
+	GiveActorInventory(i,DIRPWep1[DIRPwep1Random],1);
+	GiveActorInventory(i,DIRPWep1[DIRPwep2Random],1);
+	GiveActorInventory(i,DIRPWep1[DIRPwep3Random],1);
+	GiveActorInventory(i,DIRPRune[DIRPRuneRandom],1);
+	}
+
+	}
+
+/*if(GetCVAR("dirp_Allweps") == 1)
+	{
+
+	for(int j = 1000; i < 1064; i++)
+	{
+	GiveActorInventory(j,"wipeinventory",1);
+	GiveActorInventory(j,"resetplayer",1);
+	Delay(1);
+	GiveActorInventory(j,RapidWep[RapidWepRandom],1);
+	GiveActorInventory(j,PowerWep[PowerWepRandom],1);
+	GiveActorInventory(j,RangedWep[RangedWepRandom],1);
+	GiveActorInventory(j,DIRPRune[DIRPRuneRandom],1);
+	}
+
+	}*/
+
+Delay(34 * GetCvar("dirp_scrambletime")); //it's 34 because of the delays above
+restart;
+}
+}
+
+Script 706 (void)
+{
+ClearInventory();
+}
+
+Script 707 RESPAWN
+{
+
+if(GetCvar("dirp_scramble") == 1)
+{
+
+if(GetCVAR("dirp_Allweps") == 0)
+	{
+	GiveInventory("wipeinventory",1);
+	GiveInventory("resetplayer",1);
+	Delay(1);
+	GiveInventory(DIRPWep1[DIRPwep1Random],1);
+	GiveInventory(DIRPWep1[DIRPwep2Random],1);
+	GiveInventory(DIRPWep1[DIRPwep3Random],1);
+	GiveInventory(DIRPRune[DIRPRuneRandom],1);
+	}
+
+/*if(GetCVAR("dirp_Allweps") == 1)
+	{
+	GiveInventory("resetplayer",1);
+	GiveInventory("wipeinventory",1);
+	Delay(1);
+	GiveInventory(RapidWep[RapidWepRandom],1);
+	GiveInventory(PowerWep[PowerWepRandom],1);
+	GiveInventory(RangedWep[RangedWepRandom],1);
+	GiveInventory(DIRPRune[DIRPRuneRandom],1);
+	}*/
+
+
+}
+
+}
+
+Script 708 ENTER
+{
+ACS_ExecuteAlways(707,0);
+}

@@ -1,8 +1,9 @@
-actor GlueShotWep : Megabuster
+actor GlueShotWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Glue Shot"
 Inventory.Icon "GSHTICO"
 scale 2.0
 inventory.pickupsound "weapon/weaponup"
@@ -14,8 +15,8 @@ weapon.ammotype "GlueShotAmmo"
 States
 {
 Spawn:
-GSHT G 1
-loop
+GSHT G -1
+stop
 Ready:
 GSHT H 0 ACS_ExecuteAlways(998,0,502)
 GSHT H 1 A_WeaponReady

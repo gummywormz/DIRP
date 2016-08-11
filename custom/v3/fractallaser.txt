@@ -72,11 +72,12 @@ STOP
 }
 }
 
-actor FractalLaserWep : MegaBuster
+actor FractalLaserWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Fractal Laser"
 Obituary "%o was suprised by %k's Fractal Laser."
 Inventory.Pickupmessage "Power up! Fractal Laser!"
 weapon.ammotype "FractalLaserAmmo"
@@ -87,7 +88,7 @@ Scale 2.0
 States
 {
 Spawn:
-FLAS A -1
+FLAS G -1
 stop
 Ready:
 BLIZ D 0 ACS_ExecuteAlways(998,0,11)

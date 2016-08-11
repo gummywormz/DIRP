@@ -71,11 +71,12 @@ Inventory.Amount 1
 Inventory.MaxAmount 1
 }
 
-actor PhantomFuseWep : MegaBuster
+actor PhantomFuseWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Phantom Fuse"
 Obituary "%o's soul was blown up by %k's phantom fuse"
 Inventory.Pickupmessage "Power up! Phantom Fuse!"
 weapon.ammotype "PhantomFuseAmmo"

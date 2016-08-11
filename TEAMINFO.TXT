@@ -2,12 +2,11 @@ ClearTeams
 
 Team "Dr. Light Team"
 {
-   PlayerColor "DD DD DD"
+   PlayerColor "38 B8 F8"
    TextColor "Blue"
    RailColor "00 FF 00"
    FlagItem "MegaBlueFlag"
    SkullItem "BlueSkullST"
-   PlayerStartThingNumber 0
    SmallFlagHUDIcon "LFLG"
    SmallSkullHUDIcon "STKEYS3"
    LargeFlagHUDIcon "BFLASMAL"
@@ -20,12 +19,11 @@ Team "Dr. Light Team"
 
 Team "Dr. Wily Team"
 {
-	PlayerColor "BF 00 00"
+	PlayerColor "FF 9B 9B"
 	TextColor "Red"
 	RailColor "FF 00 00"
 	FlagItem "MegaRedFlag"
 	SkullItem "RedSkullST"
-	PlayerStartThingNumber 0
 	SmallFlagHUDIcon "WFLG"
 	SmallSkullHUDIcon "STKEYS5"
 	LargeFlagHUDIcon "RFLASMAL"
@@ -40,12 +38,11 @@ Team "Dr. Wily Team"
 
 Team "Dr. Cossack Team"
 {
-	PlayerColor "FF A5 00"
-	TextColor "Orange"
+    PlayerColor "B8 F8 18"
+	TextColor "Green"
 	RailColor "FF A5 00"
 	FlagItem "MegaOrangeFlag"
 	SkullItem "OrangeSkullST"
-	PlayerStartThingNumber 0
 	SmallFlagHUDIcon "CFLG"
 	SmallSkullHUDIcon "STKEYS5"
 	LargeFlagHUDIcon "YFLASMAL"
@@ -60,12 +57,11 @@ Team "Dr. Cossack Team"
 
 Team "King Team"
 {
-	PlayerColor "80 00 80"
-	TextColor "Purple"
+	PlayerColor "F8 B8 00"
+	TextColor "Gold"
 	RailColor "80 00 80"
 	FlagItem "MegaPurpleFlag"
 	SkullItem "PurpleSkullST"
-	PlayerStartThingNumber 0
 	SmallFlagHUDIcon "KFLG"
 	SmallSkullHUDIcon "STKEYS5"
 	LargeFlagHUDIcon "BFLASMAL"

@@ -1,8 +1,9 @@
-actor IceShardWep : MegaBuster
+actor IceShardWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Ice Shard"
 Obituary "%o was sprinkled by %k's Ice Shards."
 Inventory.Pickupmessage "Power up! Ice Shard!"
 weapon.ammotype "IceShardAmmo"

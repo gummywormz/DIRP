@@ -23,11 +23,12 @@ Stop
 }
 }
 
-actor QuadMissileWep : MegaBuster
+actor QuadMissileWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag "QuadMissile"
 Obituary "%o was totally asploded by %k's Quad Missile."
 Inventory.Pickupmessage "Power up! Quad Missile!"
 weapon.ammotype "QuadMissileAmmo"

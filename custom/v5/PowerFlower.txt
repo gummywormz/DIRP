@@ -1,0 +1,139 @@
+//grows into flower after a bit, acting as a platform and area denial
+
+actor TreeSolid
+{
+height 64
+radius 32
+scale 2.5
++FORCEYBILLBOARD
++NOGRAVITY
++SOLID
++MISSILE
++FLOORHUGGER
++NOEXPLODEFLOOR
++DONTRIP
+damage (0)
+damagetype "Buster"
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 2
+LESE A 35
+LESE A 35
+DTRE A 0 A_PlaySoundEx("misc/boing","Weapon")
+DTRE A 35
+DTRE A 35
+DTRE A 35
+Stop
+Death:
+TNT1 A 1
+stop
+}
+}
+
+actor TreeDamager
+{
+PROJECTILE
+height 1
+Obituary "%o was oxidized by %k's Power Tree."
+radius 1
++FORCEYBILLBOARD
++NOGRAVITY
++FLOORHUGGER
++NOEXPLODEFLOOR
++RIPPER
+Speed 0
+Damage (1)
+Damagetype "QuickBoomerang"
+ReactionTime 87
+States
+{
+Spawn:
+TNT1 A 1 A_Explode(3,180,0)
+TNT1 A 1 A_Countdown
+loop
+Death:
+TNT1 A 0
+stop
+}
+}
+
+actor SeedStart
+{
+-SOLID
+PROJECTILE
+-NOGRAVITY
++NOTARGETSWITCH
+damagetype "LeafShield"
++LOOKALLAROUND
+Obituary "%o was oxidized by %k's Power Tree."
++FORCEXYBILLBOARD
+Damage (5)
+Speed 10
+Height 6
+Radius 6
+Scale 2.0
+States
+{
+Spawn:
+LESE C 1 ThrustThingZ(0,2,0,1)
+loop
+Death:
+LESE C 0 A_SpawnItemEx("TreeSolid")
+LESE C 0 //A_SpawnItemEx("TreeDamager")
+LESE C 1
+stop
+}
+}
+
+Actor PowerTreeWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 6
+Weapon.AmmoGive 30
+Weapon.SlotNumber 6
+inventory.icon "DTREICO" //change
+Tag  "Power Tree"
+Obituary "%o was oxidized by %k's Power Tree."
+Inventory.Pickupmessage "Power up! Power Tree!"
+weapon.ammotype "PowerTreeAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+DTRE B -1 //change
+stop
+Ready:
+LESE D 0 ACS_ExecuteAlways(998,0,303)
+LESE D 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+LESE D 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+LESE D 1 A_Raise
+Loop
+Fire:
+LESE D 0 A_JumpIfNoAmmo("NoAmmo")
+LESE D 0 A_PlaySoundEx("weapon/crackerthrow","Weapon")
+LESE D 2 A_FireCustomMissile("SeedStart",0,1,8,0)
+LESE D 2
+LESE EF 2
+LESE D 20
+LESE D 1 A_Refire
+Goto Ready+1
+NoAmmo:
+LESE D 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor PowerTreeAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 30
+}

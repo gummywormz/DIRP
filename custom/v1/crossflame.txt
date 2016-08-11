@@ -10,7 +10,6 @@ PROJECTILE
 Radius 5
 Obituary "%o was cut and dried by %k's Cross Flame."
 Height 5
-+DONTBLAST
 scale 2.5
 damage (40)
 damagetype "AtomicFire1"
@@ -36,7 +35,6 @@ Obituary "%o was cut and dried by %k's Cross Flame."
 scale 2.5
 damage (10)
 +RIPPER
-+DONTBLAST
 damagetype "AtomicFire1"
 speed 25
 States
@@ -51,7 +49,7 @@ stop
 }
 }
 
-actor CrossFlameWep : MegaBuster
+actor CrossFlameWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 3
 Weapon.AmmoGive 28
@@ -59,6 +57,7 @@ Weapon.SlotNumber 4
 Obituary "%o was cut and dried by %k's Cross Flame."
 Inventory.Pickupmessage "Power up! Cross Flame!"
 weapon.ammotype "CrossFlameAmmo"
+Tag  "Cross Flame"
 inventory.pickupsound "weapon/weaponup"
 +WEAPON.AMMO_OPTIONAL
 inventory.icon "CRFLICO"
@@ -69,7 +68,7 @@ Spawn:
 COFA H 1
 loop
 Ready:
-COFA A 0 ACS_ExecuteAlways(998,0,214)
+COFA A 0 ACS_ExecuteAlways(998,0,314)
 COFA A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

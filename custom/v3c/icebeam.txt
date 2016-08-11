@@ -1,8 +1,9 @@
-actor IceBeamWep : MegaBuster
+actor IceBeamWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Ice Beam"
 Obituary "%o was frozen by %k's Ice Beam."
 Inventory.Pickupmessage "Power up! Ice Beam!"
 weapon.ammotype "IceBeamAmmo"

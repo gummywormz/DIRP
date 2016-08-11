@@ -61,12 +61,13 @@ Stop
 }
 }
 
-Actor BlastFreezeWep : MegaBuster
+Actor BlastFreezeWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 33
 Weapon.AmmoGive 100
 Weapon.SlotNumber 5
 inventory.icon "BLFRICO"
+Tag  "Blast Freeze"
 Obituary "%o was cryogenized by %k's Blast Freeze"
 Inventory.Pickupmessage "Power up! Blast Freeze!"
 weapon.ammotype "BlastFreezeAmmo"
@@ -79,7 +80,7 @@ Spawn:
 BLFR B -1
 stop
 Ready:
-BLFR C 0 ACS_ExecuteAlways(998,0,212)
+BLFR C 0 ACS_ExecuteAlways(998,0,312)
 BLFR C 1 A_WeaponReady
 Goto Ready+1
 Deselect:

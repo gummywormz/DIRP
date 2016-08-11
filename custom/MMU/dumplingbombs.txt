@@ -27,11 +27,12 @@ stop
 }
 }
 
-actor DumplingBombWep : MegaBuster
+actor DumplingBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Dumpling Bomb"
 Obituary "%o was fattened by %k's Dumpling Bombs."
 Inventory.Pickupmessage "Power up! Dumpling Bombs!"
 weapon.ammotype "DumplingBombAmmo"
@@ -42,8 +43,8 @@ Scale 2.0
 States
 {
 Spawn:
-SPDP B 1
-loop
+SPDP B -1
+stop
 Ready:
 SPDP C 0 ACS_ExecuteAlways(998,0,515)
 SPDP C 1 A_WeaponReady

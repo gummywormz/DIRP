@@ -148,13 +148,14 @@ fail
 }
 
 
-Actor HealBlockWep : MegaBuster
+Actor HealBlockWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 50
 +Weapon.Noautoaim
 Weapon.AmmoGive 100
 Weapon.SlotNumber 6
 inventory.icon "HEALICO"
+Tag  "Heal Block"
 Obituary "%o couldn't stand the fact he couldn't heal and exploded thanks to %k's Heal Block."
 Inventory.Pickupmessage "Power up! Heal Block!"
 weapon.ammotype "HealAmmo"
@@ -167,7 +168,7 @@ Spawn:
 HEBH E -1
 stop
 Ready:
-HEBH A 0 ACS_ExecuteAlways(998,0,207)
+HEBH A 0 ACS_ExecuteAlways(998,0,307)
 HEBH A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

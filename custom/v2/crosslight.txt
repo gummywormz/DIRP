@@ -43,11 +43,12 @@ inventory.amount 1
 inventory.maxamount 50
 }
 
-actor CrossLightWep : MegaBuster
+actor CrossLightWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 50
 Weapon.SlotNumber 2
+Tag  "Cross Light"
 Obituary "%o was enlightened by %k's Cross Light."
 Inventory.Pickupmessage "Power up! Cross Light!"
 weapon.ammotype "CrossAmmo"

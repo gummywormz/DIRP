@@ -6,6 +6,7 @@ DropItem "ShockGuardGiver" 255 5
 DropItem "MagicBalloonGiver" 255 5
 DropItem "GamblingDice" 255 5
 DropItem "SeriousBombItem" 255 5
+DropItem "EMPGiver" 255 5
 }
 
 Actor ActualItemSpawner
@@ -186,6 +187,15 @@ actor BaseSpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 6
 	DropItem "VirusOutbreakWep" 255 2
 	DropItem "ShockGauntletWep" 255 9
+	
+	Dropitem "HereticMaceWep" 255 7
+	Dropitem "PowerTreeWep" 255 3
+	Dropitem "FriendlyDolphinWep" 255 9
+	Dropitem "IonicSlashWep" 255 11
+	Dropitem "LightningStormWep" 255 7
+	Dropitem "SugarCubeWep" 255 6
+	Dropitem "EvilEyeWep" 255 8
+	Dropitem "bmoBhsalFWep" 255 5
 
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
@@ -396,6 +406,15 @@ actor BaseAOESpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 2
 	DropItem "VirusOutbreakWep" 255 8
 	DropItem "ShockGauntletWep" 255 2
+	
+	Dropitem "HereticMaceWep" 255 3
+	Dropitem "PowerTreeWep" 255 8
+	Dropitem "FriendlyDolphinWep" 255 1
+	Dropitem "IonicSlashWep" 255 4
+	Dropitem "LightningStormWep" 255 6
+	Dropitem "SugarCubeWep" 255 7
+	Dropitem "EvilEyeWep" 255 3
+	Dropitem "bmoBhsalFWep" 255 9
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
 	//DropItem "ThunderBoltWep" 255 3
@@ -590,6 +609,15 @@ actor RemoteMineSpawn : ActualBaseSpawner 10017 {}
 actor IceWallSpawn : ActualBaseSpawner 10018 {}
 actor LightningBoltSpawn : ActualBaseAOESpawner 10019 {}
 
+actor ConcreteShotSpawn : ActualBaseSpawner 10021 {}
+actor MagmaBazookaSpawn : ActualBaseSpawner 10028 {}
+actor TornadoBlowWepSpawn : ActualBaseAOESpawner 10023 {}
+actor LaserTridentSpawn : ActualBaseSpawner 10024 {}
+actor PlugBallSpawn : ActualBaseSpawner 10025 {}
+actor HornetChaserSpawn : ActualBaseSpawner 10027 {}
+actor BlackHoleBombSpawn : ActualBaseSpawner 10029 {}
+actor JewelSatteliteSpawn : ActualBaseSpawner 10026 {}
+
 actor AllBaseSpawner : RandomSpawner
 {
     DropItem "MistFormWep" 255 3
@@ -780,6 +808,15 @@ actor AllBaseSpawner : RandomSpawner
 	DropItem "WaterWaveWep" 255 4
 	DropItem "WindStormWep" 255 4
 	DropItem "YamatoSpearWep" 255 4
+	
+	DropItem "ConcreteShotWep" 255 4
+	DropItem "LaserTridentWep" 255 4
+	DropItem "PlugBallWep" 255 4
+	DropItem "HornetChaserWep" 255 4
+	DropItem "MagmaBazookaWep" 255 4
+	DropItem "BlackHoleBombWep" 255 4
+	DropItem "JewelSatelliteWep" 255 4
+	
 
 	DropItem "MegaBallWep" 255 4
 	DropItem "FlameSwordWep" 255 4
@@ -815,6 +852,15 @@ actor AllBaseSpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 6
 	DropItem "VirusOutbreakWep" 255 2
 	DropItem "ShockGauntletWep" 255 9
+	
+	Dropitem "HereticMaceWep" 255 7
+	Dropitem "PowerTreeWep" 255 3
+	Dropitem "FriendlyDolphinWep" 255 9
+	Dropitem "IonicSlashWep" 255 11
+	Dropitem "LightningStormWep" 255 7
+	Dropitem "SugarCubeWep" 255 6
+	Dropitem "EvilEyeWep" 255 8
+	Dropitem "bmoBhsalFWep" 255 5
 }
 
 actor AllAOESpawner : RandomSpawner
@@ -901,6 +947,7 @@ actor AllAOESpawner : RandomSpawner
 	DropItem "TimeStopperGiver" 255 5
 	DropItem "AstroCrushWep" 255 5
 	DropItem "LightningBoltWep" 255 5
+	DropItem "TornadoBlowWep" 255 5
 
 	DropItem "HellWheelWep" 255 8
 	DropItem "FireWorksWep" 255 8
@@ -984,4 +1031,13 @@ actor AllAOESpawner : RandomSpawner
 	DropItem "PhantomFuseWep" 255 2
 	DropItem "VirusOutbreakWep" 255 8
 	DropItem "ShockGauntletWep" 255 2
+	
+	Dropitem "HereticMaceWep" 255 3
+	Dropitem "PowerTreeWep" 255 8
+	Dropitem "FriendlyDolphinWep" 255 1
+	Dropitem "IonicSlashWep" 255 4
+	Dropitem "LightningStormWep" 255 6
+	Dropitem "SugarCubeWep" 255 7
+	Dropitem "EvilEyeWep" 255 3
+	Dropitem "bmoBhsalFWep" 255 9
 }

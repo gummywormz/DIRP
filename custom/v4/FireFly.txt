@@ -34,7 +34,6 @@ actor FireFly
 {
 PROJECTILE
 Damage (25)
-+DONTBLAST
 Obituary "%o was distracted by %k's Fire Fly"
 Speed 30
 Radius 6
@@ -89,11 +88,12 @@ stop
 }
 }
 
-actor FireFlyWep : MegaBuster
+actor FireFlyWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag "Fire Fly"
 Inventory.Pickupmessage "Power Up! Fire Fly"
 Obituary "%o was distracted by %k's Fire Fly"
 weapon.ammotype "FireFlyAmmo"

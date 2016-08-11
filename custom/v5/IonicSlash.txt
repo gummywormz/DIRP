@@ -1,0 +1,74 @@
+//standard rapid fire weapon.
+
+actor IonicSlash : FastProjectile
+{
+PROJECTILE
+Radius 12
+Height 8
+scale 2.5
+damage (12)
+damagetype "TenguBlade"
+Obituary "%o was broken by %k's ionic slash."
+speed 80
+States
+{
+Spawn:
+TNT1 A 3
+TBLA HI 2
+TBLA BCD 3 
+Goto Spawn+3
+Death:
+TNT1 A 0 
+stop
+}
+}
+
+actor IonicSlashWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Tag  "Ionic Slash"
+Obituary "%o was broken by %k's ionic slash."
+Inventory.Pickupmessage "Power up! Ionic Slash!"
+weapon.ammotype "IonicSlashAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "ISLHICO"
+Scale 2.0
+States
+{
+Spawn:
+ISLH A -1
+stop
+Ready:
+GCLB C 0 ACS_ExecuteAlways(998,0,254)
+GCLB C 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+GCLB C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+GCLB C 1 A_Raise
+Loop
+Fire:
+GCLB C 0 A_JumpIfNoAmmo("NoAmmo")
+GCLB C 0 A_PlaySoundEx("weapon/tengushot","Weapon")
+GCLB C 0 A_FireCustomMissile("IonicSlash",0,1,8,0)
+GCLB DE 4
+GCLB C 1
+GCLB C 0 A_Refire
+Goto Ready+1
+NoAmmo:
+GCLB C 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor IonicSlashAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

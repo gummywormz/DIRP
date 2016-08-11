@@ -10,7 +10,6 @@ PROJECTILE
 Damage (0)
 +RIPPER
 DamageType "AtomicFire1"
-+DONTBLAST
 Height 6
 Speed 26
 Scale 3.5
@@ -130,7 +129,6 @@ Actor SpoutDown
 PROJECTILE
 -NOGRAVITY
 Obituary "%o was cooked by %k's Flame Spout."
-+DONTBLAST
 DamageType "AtomicFire1"
 Speed 25
 Damage (20)
@@ -149,7 +147,7 @@ stop
 }
 }
 
-Actor FlameSpoutWep : MegaBuster
+Actor FlameSpoutWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 13
 Weapon.AmmoGive 40
@@ -157,6 +155,7 @@ Weapon.SlotNumber 5
 inventory.icon "FMSPICO"
 Obituary "%o was cooked by %k's Flame Spout."
 Inventory.Pickupmessage "Power up! Flame Spout!"
+Tag  "Flame Spout"
 weapon.ammotype "FlameSpoutAmmo"
 inventory.pickupsound "weapon/weaponup"
 +WEAPON.AMMO_OPTIONAL

@@ -90,11 +90,12 @@ stop
 }
 }
 
-actor StarToadWep : MegaBuster
+actor StarToadWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 7
+Tag  "Star Toad"
 Obituary "%o couldn't kiss %k."
 Inventory.Pickupmessage "Power up! *Toad!"
 weapon.ammotype "StarToadAmmo"
@@ -196,13 +197,14 @@ goto Ready+1
 }
 }
 
-actor StarToadWeapon : MegaBuster
+actor StarToadWeapon : BaseMM8BDMWep
 {
 Weapon.AmmoUse 0
 Weapon.SlotNumber 1
 Obituary "%o was disgusted by %k's toad form."
 Inventory.Pickupmessage "Wat"
 +WEAPON.AMMO_OPTIONAL
++Weapon.CHEATNOTWEAPON
 Scale 2.0
 States
 {
@@ -256,7 +258,8 @@ mass 9999
 gravity 0.8
 +NODAMAGETHRUST
 +DONTBLAST
-+NOBLOOD
+-NOBLOOD
++NOBLOODDECALS
 +NOSKIN
 +QUICKTORETALIATE
 damagefactor "Normal", 1.5
@@ -285,7 +288,10 @@ Goto Spawn
 Missile:
 4ROG F 5
 4ROG G 4
-goto Spawn
+Goto Spawn+2
+Pain.BotSight:
+4ROG B 5 HealThing(1)
+Goto Spawn+2
 Pain.FireSpin:
 Pain.QuickBoomerang:
 Pain.Buster:
@@ -311,58 +317,186 @@ Pain.WaveBurnerUW:
 Pain.Misc:
 Pain.Treble:
 Pain.FlameSwordSpark:
-4ROG H 0
+4ROG H 0 
 Goto pain+1
-Pain.SparkManBow:
-PLAY H 0 A_Jump(256, "TimeStopped")
-Goto TimeStopped
-TimeStopped:
-PLAY A 0 SetPlayerProperty(0,1,4)
-4ROG AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA 1 A_Stop
-PLAY A 0 SetPlayerProperty(0,0,4)
-Goto pain+2
 Pain.WaterBalloon:
 Pain.FlashBomb:
 Pain.RemoteMine:
 Pain.IceWall:
-PLAY H 0 A_ScaleVelocity(0.9)
-Goto Pain+1
-Pain.ShockGauntlet:
-PLAY H 0
-goto Pain.SparkShock
-Pain.LeechSeed:
-PLAY H 0 A_SpawnItemEx("LeechHit")
-Goto Pain+1
-pain.FreezeDry:
-PAIN H 0 A_GiveInventory("IceSlow",1)
+4ROG H 0 A_ScaleVelocity(0.9)
 Goto Pain+1
 Pain.SpreadDrill:
 Pain.SpreadDrill2:
 Pain.SpreadDrill3:
-PLAY H 0 A_JumpIfInventory("SpreadDrillProtect", 1 ,2)
-PLAY H 0 A_PlaySoundEx("weapon/spreaddrillhit","SoundSlot5")
-PLAY H 0 A_GiveInventory("SpreadDrillProtect", 1)
+4ROG H 0 A_JumpIfInventory("SpreadDrillProtect", 1 ,2)
+4ROG H 0 A_PlaySoundEx("weapon/spreaddrillhit","SoundSlot5")
+4ROG H 0 A_GiveInventory("SpreadDrillProtect", 1)
 Goto pain+1
+Pain.ShockGauntlet:
+4ROG H 0
+goto Pain.SparkShock
+Pain.LeechSeed:
+4ROG H 0 A_SpawnItemEx("LeechHit")
+4ROG H 0 A_GiveInventory("LeechSeedProtect",1)
+Goto Pain+1
+pain.FreezeDry:
+PAIN H 0 A_GiveInventory("IceSlow",1)
+Goto Pain+1
+Pain.ICEFREEZE:
+4ROG H 0 A_GiveInventory("Shocked",1)
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 0 A_GiveInventory("Shocked",1)
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 1 A_Stop
+4ROG H 0 A_GiveInventory("Shocked",1)
+4ROG H 1 A_Stop
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.Darken:
+4ROG H 0 ACS_ExecuteAlways(680,0)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.Darken2:
+4ROG H 0 ACS_ExecuteAlways(680,0,1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.GigaDrain:
+4ROG H 0 A_GiveToTarget("GigaRestore",1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain.QuickBoomerang
+Pain.FellStingerAlways:
+4ROG H 1 A_GiveToTarget("CritFlag",10)
+4ROG H 0
+Goto pain+1
+Pain.SparkManBow:
+4ROG A 1 ACS_ExecuteAlways(690,0)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+2
+Death.RecycleInhaler:
+TNT1 A 1 A_Jump(256,"StuffBWE","StuffBH","StuffWT","StuffET","StuffWT","StuffET")
+loop
+StuffBWE:
+TNT1 A 1 A_SpawnItemEx("StuffBWE")
+goto Death
+StuffBH:
+TNT1 A 1 A_SpawnItemEx("StuffBH")
+goto Death
+StuffWT:
+TNT1 A 1 A_SpawnItemEx("StuffWT")
+goto Death
+StuffET:
+TNT1 A 1 A_SpawnItemEx("StuffET")
+goto Death
+Pain.GlueStun:
+4ROG H 1 A_Jump(64,"GlueStun")
+goto pain+1
+Pain.AlwaysGlue:
+4ROG H 1
+goto GlueStun
+GlueStun:
+4ROG H 1 ACS_ExecuteAlways(601,0)
+4ROG H 8
+4ROG H 1 A_SpawnItemEx("GlueItem")
+4ROG H 95
+goto Spawn+1
+Death.YokuAttack2:
+4ROG H 1 A_SpawnItemEx("ItemDecider")
+goto Death
+Pain.QuakeSkull:
+4ROG H 0 A_SpawnItemEx("ShockFX",4,0,32)
+4ROG H 0 A_GiveInventory("Shocked",1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+4ROG H 0 A_JumpIfInventory("BrightBlind", 1,4)
+4ROG H 0 A_GiveInventory("BrightBlind",125)
+4ROG H 0 ACS_ExecuteAlways(249, 0)
+4ROG H 0 ACS_ExecuteAlways(691, 0)
+Goto pain+1
+4ROG H 0 A_GiveInventory("BrightBlind",55)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.Dizzy:
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+4ROG H 0 A_Jump(51,"dizzyed")
+4ROG H 1
+Goto Pain+1
+dizzyed:
+4ROG H 0 A_GiveInventory("ConfusedSpeed",1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.Paint:
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+4ROG H 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+4ROG H 1
+Goto Pain+1
+Pain.Chain:
+4ROG H 0 A_SpawnItemEx("LightChainThun",0,0,0,0,0,0)
+4ROG H 1 //A_GiveInventory("ChainDone",1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+goto pain+1
+Pain.SpikeShock:
+4ROG H 0 A_JumpIfInventory("ShockGuardForever",1,"ShockSuccess")
+goto Death
+ShockSuccess:
+4ROG H 0
+4ROG H 0
+4ROG H 0 A_GiveInventory("ShockGuardTemp",1)
+4ROG H 1 HealThing(1)
+4ROG H 0 A_TakeInventory("ShockGuardForever",1)
+goto pain+1
+Pain.SkyUppercut:
+4ROG H 1 A_GiveInventory("GoingUp",1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.AquaPunch:
+4ROG H 0 ThrustThing(angle*256/360+128, momx + random(40,90), 1, 0)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.DustVaccum:
+4ROG H 0 ThrustThing(angle*256/360, 25, 1, 0)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.HealBlock:
+4ROG H 0 A_GiveInventory("HealBlocker",1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto Pain+1
+Pain.Night:
+4ROG H 2 A_GiveInventory("Darked",1)
+4ROG H 1 ACS_ExecuteAlways(697)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.FizzBomb:
+4ROG H 1 A_GiveInventory("FizzSlowed",1)
+4ROG H 0 A_GiveInventory("BalloonDie",1)
+Goto pain+1
+Pain.SparkManBow:
+4ROG A 0 ACS_ExecuteAlways(690,0)
+Goto Pain+2
 Pain.FlameSword:
-PLAY H 0 A_GiveInventory("FlameSwordProtect", 1)
-PLAY HH 0 A_SpawnItemEx("ScorchBit",0,0,0,random(-10,10),random(-10,10),random(10,15),random(0,360))
+4ROG H 0
+4ROG HH 0 A_SpawnItemEx("ScorchBit",0,0,0,random(-10,10),random(-10,10),random(10,15),random(0,360))
+4ROG H 0 A_GiveInventory("BalloonDie",1)
 Goto pain
+pain.LaserTrident:
+4ROG H 0 A_GiveInventory("LaserTridentProtect", 1)
+goto pain
 Pain.WindStorm:
 Pain.FlingDamage:
-PLAY H 0 //ThrustThing(random(0,255),50,1,0)
-PLAY H 0 ThrustThing(random(0,255),5,0,0)
-PLAY H 0 ThrustThingZ(0,30,0,0)
-Goto pain+1
-Pain.RollSwing:
-Pain.Rage:
-4ROG H 0 ThrustThingZ(0,90,0,0)
-PLAY H 0 ThrustThing(random(0,255),25,1,0)
+4ROG H 0 //ThrustThing(random(0,255),50,1,0)
+4ROG H 0 ThrustThing(random(0,255),5,0,0)
+4ROG H 0 ThrustThingZ(0,30,0,0)
 Goto pain+1
 Pain.SlashClaw:
 4ROG H 0 A_PlaySoundEx("weapon/slashclawhit","SoundSlot5")
 Goto Pain
 Pain.FlashStopper:
-4ROG H 0
+4ROG H 0 
 4ROG H 0 A_JumpIfInventory("BrightBlind", 1,3)
 4ROG H 0 A_GiveInventory("BrightBlind",125)
 4ROG H 0 ACS_ExecuteAlways(249, 0)
@@ -371,165 +505,139 @@ Goto pain+1
 Goto pain+1
 Pain.TimeSlow:
 4ROG H 0 A_GiveInventory("Slowed",1)
-4ROG H 0 ACS_ExecuteAlways(721,0,0)//A_GiveInventory("InfectSlow",1)
 Goto pain+1
 Pain.SparkShock:
 4ROG H 0 A_SpawnItemEx("ShockFX",4,0,32)
 4ROG H 0 A_GiveInventory("Shocked",1)
-4ROG H 0 ACS_ExecuteAlways(721,0,1)
 Goto Pain+1
 Pain.CrashBomb:
-PLAY H 0 A_Stop
+4ROG H 0 A_Stop
 Goto Pain+1
 Pain.GravityHold:
-PLAY H 0 A_ChangeVelocity(momx, momy, 0, CVF_REPLACE)
-PLAY H 0 A_JumpIf(z-floorz>180,"GravityForce4")
-PLAY H 0 A_JumpIf(z-floorz>128,"GravityForce3")
-PLAY H 0 A_JumpIf(z-floorz>32,"GravityForce2")
-PLAY H 0 A_JumpIf(z-floorz>8,"GravityForce1")
+4ROG H 0 A_ChangeVelocity(momx, momy, 0, CVF_REPLACE)
+4ROG H 0 A_JumpIf(z-floorz>180,"GravityForce4")
+4ROG H 0 A_JumpIf(z-floorz>128,"GravityForce3")
+4ROG H 0 A_JumpIf(z-floorz>32,"GravityForce2")
+4ROG H 0 A_JumpIf(z-floorz>8,"GravityForce1")
 Goto GravityForceFinish
 GravityForce4:
-PLAY H 2 A_GiveInventory("GravityForce4",1)
+4ROG H 2 A_GiveInventory("GravityForce4",1)
 Goto GravityForceFinish
 GravityForce3:
-PLAY H 2 A_GiveInventory("GravityForce3",1)
+4ROG H 2 A_GiveInventory("GravityForce3",1)
 Goto GravityForceFinish
 GravityForce2:
-PLAY H 2 A_GiveInventory("GravityForce2",1)
+4ROG H 2 A_GiveInventory("GravityForce2",1)
 Goto GravityForceFinish
 GravityForce1:
-PLAY H 2 A_GiveInventory("GravityForce1",1)
+4ROG H 2 A_GiveInventory("GravityForce1",1)
 Goto GravityForceFinish
 GravityForceFinish:
-PLAY H 0 A_CheckFloor(2)
-PLAY H 0 ThrustThingZ(0,150,1,0)
-PLAY H 0
+4ROG H 0 A_CheckFloor(2)
+4ROG H 0 ThrustThingZ(0,150,1,0)
+4ROG H 0
 Goto Pain+1
+Pain.ConcreteShot:
+4ROG H 0 A_JumpIfInventory("ConcreteVision", 1, "ConcreteReset")
+4ROG H 0 A_GiveInventory("ConcreteVision", 1)
+4ROG H 0 A_GiveInventory("ConcreteTime", 105)
+4ROG H 0 A_SpawnItemEx("ConcreteWatcher")
+goto Pain+1
+ConcreteReset:
+4ROG H 0 A_GiveInventory("ConcreteTime", 105)
+goto Pain+1
+Pain.TornadoBlow:
+4ROG H 0 ThrustThingZ(0, 60, 0, 0)
+goto Pain+1
 Pain.WilyFire:
-4ROG H 0 //A_ChangeFlag("SHOOTABLE",0)
 4ROG H 0 A_SpawnItemEx("ImOnFire")
 4ROG H 0 A_GiveInventory("FireVision",1)
 Goto Pain
 Pain.WilyIce:
-4ROG H 0 A_ChangeFlag("SHOOTABLE",0)
 4ROG H 0 SetPlayerProperty(0,1,4)
 4ROG H 0 A_SpawnItemEx("ImFrozen")
 4ROG H 0 A_GiveInventory("IceVision",1)
 4ROG H 30 A_Stop
-4ROG H 30 A_ChangeFlag("SHOOTABLE",1)
+4ROG H 30
 4ROG H 0 SetPlayerProperty(0,0,0)
 4ROG H 0 A_TakeInventory("IceVision",1)
-Goto Spawn
+Goto Spawn+2
 Pain.Drowning:
 Pain.Fire:
 Pain.Falling:
 Pain.Slime:
-4ROG H 0
+4ROG H 0 
 4ROG H 0 A_JumpIfInventory("BeatCallCheck", 1, "BeatAssist")
 Goto Pain+1
 BeatAssist:
-4ROG H 0
+4ROG H 0 
 4ROG H 0 HealThing(2)
-4ROG H 0 ThrustThingZ(0,25,0,0)
-4ROG H 0 ACS_ExecuteAlways(205,0)
+4ROG H 0 ACS_ExecuteAlways(205, 0)
 Goto Pain+1
 Pain:
-4ROG H 0 A_ScaleVelocity(0.7)
-4ROG H 0 A_Recoil(5)
+4ROG H 1 A_ScaleVelocity(0.75) // I put a tic here. I hope it didn't break anything. Call 555-256-@CutmanMike for details
 4ROG H 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb")
 4ROG H 0 A_Pain
-4ROG H 0 SetPlayerProperty(0,0,4)
-4ROG H 0 A_PlaySound("misc/devilpain")
-4ROG H 0 //A_GiveInventory("TempInvince",1)
-4ROG H 0 //SetPlayerProperty(0, 1, 4)
 4ROG H 1 A_SpawnItem("PainFX",0,3)
 4ROG H 1 A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 1 A_SpawnItem("PainFX",0,3)
-4ROG H 1 //A_Recoil(1)
-4ROG H 0 //SetPlayerProperty(0, 0, 4)
-4ROG H 0//SetPlayerProperty(0,0,1)
+4ROG HHHHHHHHH 2 A_SpawnItem("PainFX",0,3)
+4ROG H 1 
 Goto Spawn
 Death.WindStorm:
 Death.GravityHold:
-PLAY H 0 SetPlayerProperty(0, 0, 4)
-PLAY H 0 A_ChangeFlag("NOINTERACTION", 1)
-PLAY H 0 A_TakeInventory("WeaponCharge",999)
-PLAY H 0 A_NoBlocking
-PLAY H 0 A_TakeInventory("CutterFlag",999)
-PLAY H 0 A_GiveInventory("IsDead",1)
-PLAY H 0 A_Stop
-PLAY H 0 A_GiveToTarget("KilledMeStock",1)
-PLAY H 1 A_GiveToTarget("KilledMe",1)
-PLAY H 0 ACS_ExecuteAlways(999,0,0)
-PLAY H 0 SetPlayerProperty(0, 0, 4)
+Death.TornadoBlow:
+4ROG H 0 SetPlayerProperty(0, 0, 4)
+4ROG H 0 A_ChangeFlag("NOINTERACTION", 1)
+4ROG H 0 A_TakeInventory("WeaponCharge",999)
+4ROG H 0 A_TakeInventory("ConcreteTime", 999)
+4ROG H 0 A_NoBlocking
+4ROG H 0 A_TakeInventory("CutterFlag",999)
+4ROG H 0 A_GiveInventory("IsDead",1)
+4ROG H 0 A_Stop
+4ROG H 0 A_GiveToTarget("KilledMeStock",1)
+4ROG H 1 A_GiveToTarget("KilledMe",1)
+4ROG H 0 SetPlayerProperty(0, 0, 4)
 RiseMyMegaman:
-PLAY H 1 ThrustThingZ(0,10,0,1)
-PLAY H 0 A_JumpIf(ceilingz-z<64, "ExplodeNow")
-PLAY H 0 A_GiveInventory("Cutterflag", 1)
-PLAY H 0 A_JumpIfInventory("CutterFlag", 35, "ExplodeNow")
+4ROG H 1 ThrustThingZ(0,10,0,1)
+4ROG H 0 A_JumpIf(ceilingz-z<64, "ExplodeNow")
+4ROG H 0 A_GiveInventory("Cutterflag", 1)
+4ROG H 0 A_JumpIfInventory("CutterFlag", 35, "ExplodeNow")
 Goto RiseMyMegaman
 ExplodeNow:
-PLAY H 0 A_Stop
-PLAY H 0 A_PlayerScream
-PLAY H 0 A_GiveInventory("CutterFlag",999)
-PLAY H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 0)
-PLAY Z 1 A_CheckPlayerDone
+4ROG H 0 A_Stop
+4ROG H 0 A_PlayerScream
+4ROG H 0 A_GiveInventory("CutterFlag",999)
+4ROG H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 0)
+4ROG Z 1 A_CheckPlayerDone
 wait
 Death.Beam:
+//Death.GravityHold:
 Death.instagib:
 Death.Telefrag:
-PLAY Z 1 SetPlayerProperty(0, 0, 4)
-PLAY H 0 A_GiveToTarget("KilledMe",1)
-PLAY H 0 A_GiveToTarget("KilledMeStock",1)
-PLAY H 0 A_GiveInventory("CutterFlag",999)
-PLAY H 0 A_TakeInventory("WeaponCharge",999)
-PLAY H 0 A_GiveInventory("IsDead",1)
-PLAY Z 0 A_PlayerScream
-PLAY H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 32)
-PLAY Z 1 A_CheckPlayerDone
+4ROG Z 1 SetPlayerProperty(0, 0, 4)
+4ROG H 0 A_GiveToTarget("KilledMe",1)
+4ROG H 0 A_GiveToTarget("KilledMeStock",1)
+4ROG H 0 A_GiveInventory("CutterFlag",999)
+4ROG H 0 A_TakeInventory("WeaponCharge",999)
+4ROG H 0 A_TakeInventory("ConcreteTime", 999)
+4ROG H 0 A_GiveInventory("IsDead",1)
+4ROG Z 0 A_PlayerScream
+4ROG H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 32)
+4ROG Z 1 A_CheckPlayerDone
 wait
-Death.RecycleInhaler:
-TNT1 A 0 SetPlayerProperty(0, 0, 4)
-TNT1 A 0 A_TakeInventory("WeaponCharge",999)
-TNT1 A 0 A_TakeInventory("PharaohShotCharge",999)
-TNT1 A 0 A_NoBlocking
-TNT1 A 0 A_GiveInventory("CutterFlag",999)
-TNT1 A 0 A_GiveInventory("IsDead",1)
-TNT1 A 0 A_Stop
-TNT1 A 0 A_GiveToTarget("KilledMeStock",1)
-TNT1 A 1 A_GiveToTarget("KilledMe",1)
-TNT1 A 19 ACS_ExecuteAlways(999,0,0)
-TNT1 A 0 SetPlayerProperty(0, 0, 4)
-TNT1 A 0 A_GiveToTarget("ToadDuster",1)
-TNT1 Z 1 A_CheckPlayerDone
-wait
+Death.FellStinger:
+4ROG H 1 A_GiveToTarget("CritFlag",10)
+goto Death
 Death:
 4ROG H 0 SetPlayerProperty(0, 0, 4)
 4ROG H 0 A_TakeInventory("WeaponCharge",999)
-PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
+4ROG H 0 A_TakeInventory("ConcreteTime", 999)
 4ROG H 0 A_NoBlocking
 4ROG H 0 A_GiveInventory("CutterFlag",999)
 4ROG H 0 A_GiveInventory("IsDead",1)
 4ROG H 0 A_Stop
 4ROG H 0 A_GiveToTarget("KilledMeStock",1)
-4ROG H 1 A_GiveToTarget("KilledMe",1)
-4ROG H 19 ACS_ExecuteAlways(999,0,0)
+4ROG H 20 A_GiveToTarget("KilledMe",1)
 4ROG H 0 SetPlayerProperty(0, 0, 4)
 4ROG H 0 A_PlayerScream
 4ROG H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 32)
@@ -538,23 +646,23 @@ wait
 Death.Falling:
 4ROG H 0 SetPlayerProperty(0, 0, 4)
 4ROG H 0 A_TakeInventory("WeaponCharge",999)
-PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
 4ROG H 0 A_NoBlocking
 4ROG H 0 A_GiveInventory("CutterFlag",999)
 4ROG H 0 A_GiveInventory("IsDead",1)
 4ROG Z 1 A_PlayerScream
 4ROG Z 1 A_Stop
-4ROG Z 1 ACS_ExecuteAlways(999,0,0)
-//4ROG Z -1
+4ROG Z 0 A_GiveToTarget("KilledMeStock",1)
+4ROG Z 0 A_GiveToTarget("KilledMe",1)
 4ROG Z 1 A_CheckPlayerDone
 wait
 Ice:
 4ROG H 0 SetPlayerProperty(0, 0, 4)
-4ROG H 1 A_PlayerScream
-4ROG H 0 A_TakeInventory("WeaponCharge",999)
-PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
 4ROG H 0 A_GiveInventory("CutterFlag",999)
 4ROG H 0 A_GiveInventory("IsDead",1)
+4ROG H 0 A_TakeInventory("WeaponCharge",999)
+4ROG Z 0 A_GiveToTarget("KilledMeStock",1)
+4ROG Z 0 A_GiveToTarget("KilledMe",1)
+4ROG H 1 A_PlayerScream
 4ROG H 0 ACS_ExecuteAlways(998,0,105,1)
 4ROG H 0 A_NoBlocking
 4ROG H 0 A_FreezeDeath
@@ -562,15 +670,44 @@ PLAY H 0 A_TakeInventory("PharaohShotCharge",999)
 4ROG H 0 A_SpawnItemEx("FrozenDeathFX", 0, 0, 16)
 4ROG Z 1 A_CheckPlayerDone
 wait
+//stop
+PunkSpin:
+4ROG AVW 3
+4ROG XY 3
+Goto PunkSpin+3
+PunkStop:
+4ROG WV 5
+Goto Spawn+2
+EnkerRaise:
+4ROG Y 1
+loop
+EnkerAbsorb:
+4ROG Y 0 A_PlaySound("weapon/mirrorabsorb")
+4ROG Y 0 A_GiveInventory("EnkerMirrorCount",1)
+Goto EnkerAbsorb3
+EnkerAbsorb3:
+4ROG Y 3 ACS_ExecuteAlways(998,0,65)
+4ROG Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb2")
+Goto Spawn+2
+EnkerAbsorb2:
+4ROG Y 3 ACS_ExecuteAlways(998,0,66)
+4ROG Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb3")
+Goto Spawn+2
+DarkLeap:
+4ROG Y 1 A_SpawnItemEx("DarkDamager")
+4ROG Y 0 A_JumpIf(z-floorz==0,"Spawn")
+loop
+BalladeJump:
+4ROG Y 5 A_SpawnItemEx("BalladeMelee")
+loop
 TheEnd:
-PLAY G 4
+4ROG G 4
 loop
 CreditWalk:
-PLAY BCDE 8
+4ROG BCDE 8
 loop
 CreditRun:
-PLAY BCDE 5
+4ROG BCDE 5
 loop
-//stop
 }
 }

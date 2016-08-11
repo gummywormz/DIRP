@@ -1,9 +1,10 @@
 //suck enemies in around the projectile
-actor DustVaccumWep : MegaBuster
+actor DustVaccumWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Dust Vacuum"
 Obituary "%o couldn't escape the smell of %k's Dust Vaccum."
 Inventory.Pickupmessage "Power up! Dust Vacuum!"
 weapon.ammotype "DustVaccumAmmo"
@@ -14,8 +15,8 @@ Scale 2.0
 States
 {
 Spawn:
-DUSV D 1
-loop
+DUSV D -1
+stop
 Ready:
 DSTS B 0 ACS_ExecuteAlways(998,0,30)
 DSTS B 1 A_WeaponReady

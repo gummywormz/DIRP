@@ -1,8 +1,9 @@
-actor FellStingerWep : MegaBuster
+actor FellStingerWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Fell Stinger"
 Obituary "%o was stung by %k's Fell Stinger."
 Inventory.Pickupmessage "Power up! Fell Stinger!"
 weapon.ammotype "FellStingerAmmo"

@@ -3,6 +3,7 @@ actor SeriousBombItem : CustomInventory
 inventory.amount 1
 inventory.maxamount 1
 Inventory.Respawntics 1050
+Tag "Serious Bomb"
 inventory.pickupmessage "Support Item! Serious Bomb!"
 inventory.icon "SRSBICO"
 Inventory.PickupSound "item/1up"

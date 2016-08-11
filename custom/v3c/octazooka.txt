@@ -1,8 +1,9 @@
-actor OctaZookaWep : MegaBuster
+actor OctaZookaWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Octa Zooka"
 Obituary "%o was ink'd by %k's OctaZooka."
 Inventory.Pickupmessage "Power up! OctaZooka!"
 weapon.ammotype "OctaZookaAmmo"

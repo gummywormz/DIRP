@@ -1,9 +1,10 @@
 //triple zap from mlp classes but faster.
-actor TripleZapWep : MegaBuster
+actor TripleZapWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 28
 Weapon.SlotNumber 6
+Tag  "Triple Zap"
 Obituary "%o was stunned by %k's Triple Zap."
 Inventory.Pickupmessage "Power Up! Triple Zap!"
 weapon.ammotype "zapammo"

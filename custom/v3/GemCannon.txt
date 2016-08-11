@@ -56,11 +56,12 @@ Inventory.Amount 1
 Inventory.MaxAmount 35
 }
 
-Actor GemCannonWep : MegaBuster
+Actor GemCannonWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 5
 Weapon.AmmoGive 35
 Weapon.SlotNumber 2
+Tag  "Gem Cannon"
 Obituary "%o got distracted by %k's Gem Cannon."
 Inventory.Pickupmessage "Power Up! Gem Cannon"
 weapon.ammotype "GemCannonAmmo"
@@ -74,7 +75,7 @@ Spawn:
 RABS D -1
 stop
 Ready:
-RABS A 0 ACS_ExecuteAlways(998,0,233)
+RABS A 0 ACS_ExecuteAlways(998,0,333)
 RABS A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

@@ -210,12 +210,13 @@ inventory.amount 1
 inventory.maxamount 28
 }
 
-Actor BoulderCrackerWep : MegaBuster
+Actor BoulderCrackerWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 3
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
 inventory.icon "BOCRICO"
+Tag  "Boulder Cracker"
 Obituary "%o had his head smashed in by %k's Boulder Cracker"
 Inventory.Pickupmessage "Power up! Boulder Cracker!"
 weapon.ammotype "BoulderAmmo"
@@ -228,7 +229,7 @@ Spawn:
 BOCR E -1
 stop
 Ready:
-BOCR A 0 ACS_ExecuteAlways(998,0,210)
+BOCR A 0 ACS_ExecuteAlways(998,0,310)
 BOCR A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

@@ -314,11 +314,12 @@ stop
 }
 }
 
-actor LightningChainWep : MegaBuster
+actor LightningChainWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 3
 Weapon.AmmoGive 50
 Weapon.SlotNumber 3
+Tag  "Lightning Chain"
 Obituary "%o was zapped by %k's Lightning Chain."
 Inventory.Pickupmessage "Power up! Lightning Chain!"
 weapon.ammotype "ChainAmmo"

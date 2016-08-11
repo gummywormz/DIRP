@@ -67,11 +67,12 @@ stop
 }
 }
 
-actor ThunderChainWep : MegaBuster
+actor ThunderChainWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 5
 Weapon.AmmoGive 100
 Weapon.SlotNumber 3
+Tag  "Thunder Chain"
 Obituary "%o was zapped by %k's Thunder Chain."
 Inventory.Pickupmessage "Power up! Thunder Chain!"
 weapon.ammotype "ThunderChainAmmo"

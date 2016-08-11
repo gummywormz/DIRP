@@ -1,6 +1,7 @@
 actor BlazeKickWep : ChargeKickWep
 {
 weapon.ammotype "BlazeKickAmmo"
+Tag  "Blaze Kick"
 inventory.icon "BKIKICO"//change dis
 Inventory.Pickupmessage "Power up! Blaze Kick!"
 Obituary "%o was kicked and burned by %k's blaze kick."
@@ -57,7 +58,6 @@ goto Ready+1
 actor ChargeKickb
 {
 PROJECTILE
-+DONTBLAST
 Radius 14
 Height 25
 scale 2.5

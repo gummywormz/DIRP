@@ -1,3 +1,52 @@
+actor WeaponEnergy2 : CustomInventory replaces WeaponEnergy
+{
+//$Category MM8BDM-Health/Energy
+//Inventory.RespawnTics 210
+inventory.pickupmessage "$PU_SMALLENERGY"
+inventory.amount 1
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+EBAL A 0
+EBAL A 0 Thing_ChangeTID(0,999)
+EBAL AB 6
+Goto Spawn+2
+Pickup:
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(984,0),"Success")
+fail
+Success:
+TNT1 A 0 ACS_ExecuteAlways(992,0,4)
+stop
+}
+}
+
+actor BigWeaponEnergy2 : CustomInventory replaces BigWeaponEnergy
+{
+//$Category MM8BDM-Health/Energy
+//Inventory.RespawnTics 350
+inventory.pickupmessage "$PU_LARGEENERGY"
++COUNTITEM
+inventory.pickupsound "item/energyup"
+Scale 2.0
+States
+{
+Spawn:
+EBAL C 0
+EBAL C 0 Thing_ChangeTID(0,999)
+EBAL CD 6 
+Goto Spawn+2
+Pickup:
+TNT1 A 0 A_JumpIf(ACS_ExecuteWithResult(984,0),"Success")
+fail
+Success:
+TNT1 A 0 ACS_ExecuteAlways(992,0,10)
+stop
+}
+}
+
+
 actor GhostsNGoblinsThing2 : GhostsNGoblinsThing Replaces GhostsNGoblinsThing
 {
 speed 9

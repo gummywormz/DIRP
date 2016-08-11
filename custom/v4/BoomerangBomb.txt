@@ -78,11 +78,12 @@ Goto Super::XDeath
 }
 }
 
-actor BoomerangBombWep : MegaBuster
+actor BoomerangBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag "Boomerang Bomb"
 Inventory.Pickupmessage "Power Up! Boomerang Bomb"
 Obituary "%o did not expect %k's Boomerang Bomb"
 weapon.ammotype "BoomerangBombAmmo"

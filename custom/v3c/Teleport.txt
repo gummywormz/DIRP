@@ -1,9 +1,10 @@
-actor TeleportWep : MegaBuster
+actor TeleportWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 48
 Weapon.AmmoGive 48
 Obituary "%k escaped %o."
 Weapon.SlotNumber 7
+Tag  "Teleport"
 weapon.ammotype "TeleportAmmo"
 Inventory.Pickupmessage "Power up! Teleport!"
 inventory.pickupsound "weapon/weaponup"

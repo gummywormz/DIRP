@@ -88,11 +88,12 @@ stop
 }
 }
 
-actor SuperArrowWep : MegaBuster
+actor SuperArrowWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Super Arrow"
 Obituary "%o was targeted by %k's Super Arrow."
 Inventory.Pickupmessage "Power up! Super Arrow!"
 weapon.ammotype "SuperArrowAmmo"

@@ -1,7 +1,8 @@
-actor BeeOrderWep : MegaBuster
+actor BeeOrderWep : BaseMM8BDMWep
 {
 Weapon.AmmoGive 28
 Weapon.SlotNumber 7
+Tag  "Bee Order"
 Obituary "%o was stung by %k's Bee Order."
 Inventory.Pickupmessage "Power up! Bee Order!"
 weapon.ammotype "BeeOrderAmmo"

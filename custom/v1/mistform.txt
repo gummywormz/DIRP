@@ -70,7 +70,7 @@ stop
 
 
 
-Actor MistFormWep : MegaBuster
+Actor MistFormWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 60
@@ -80,6 +80,7 @@ inventory.icon "PINKICO"
 Obituary "%o was mystified by %k's mist form"
 Inventory.Pickupmessage "Power up! Mist Form!"
 weapon.ammotype "MistAmmo"
+Tag  "Mist Form"
 inventory.pickupsound "weapon/weaponup"
 +WEAPON.AMMO_OPTIONAL
 Scale 2.0

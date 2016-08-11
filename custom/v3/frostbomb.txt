@@ -27,14 +27,14 @@ Death:
 FRSB A 0 A_Stop
 FRSB A 0 A_PlaySoundEx("weapon/iceslasher", "Weapon")
 FRSB A 0 A_ChangeFlag("NOGRAVITY",1)
-TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 0)
-TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 45)
-TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 90)
-TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 67)
-TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 123)
-TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 180)
-TNT1 A 0 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 225)
-TNT1 A 1 A_SpawnItemEx("BlizzardAttack", 0, 0, 8, 150, 0, 0, 270)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 0)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 45)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 90)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 67)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 123)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 180)
+TNT1 A 0 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 225)
+TNT1 A 1 A_SpawnItemEx("BlizzardAttack2", 0, 0, 8, 150, 0, 0, 270)
 stop
 }
 }
@@ -45,12 +45,15 @@ inventory.amount 1
 inventory.maxamount 28
 }
 
+actor BlizzardAttack2 : BlizzardAttack{Obituary "%o was flash frozen by %k's Frost Bomb."}
 
-actor FrostBombWep : MegaBuster
+
+actor FrostBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Frost Bomb"
 Obituary "%o was flash frozen by %k's Frost Bomb."
 Inventory.Pickupmessage "Power up! Frost Bomb!"
 weapon.ammotype "FrostBombAmmo"

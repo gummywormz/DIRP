@@ -109,11 +109,12 @@ inventory.amount 1
 inventory.maxamount 1
 }
 
-actor RushCannonWep : Megabuster
+actor RushCannonWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 50
 Weapon.AmmoGive 50
 Weapon.SlotNumber 2
+Tag  "Rush Cannon"
 Obituary "%o was tracked by %k's Rush Cannon."
 Inventory.Pickupmessage "Power up! Rush Cannon!"
 weapon.ammotype "RushCannonAmmo"

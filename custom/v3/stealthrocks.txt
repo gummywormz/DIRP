@@ -36,11 +36,12 @@ stop
 }
 }
 
-actor StealthRockWep : MegaBuster
+actor StealthRockWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 10
 Weapon.AmmoGive 50
 Weapon.SlotNumber 6
+Tag  "Stealth Rock"
 Obituary "%o entered %k's Stealth Rocks."
 Inventory.Pickupmessage "Power up! Stealth Rock!"
 weapon.ammotype "StealthRockAmmo"

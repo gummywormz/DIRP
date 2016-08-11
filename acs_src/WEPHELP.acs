@@ -310,4 +310,29 @@ if(CheckWeapon("BoomerangBombWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"A crash bomb that reverses itself. Damage: 4 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
 if(CheckWeapon("ExplosiveHadoukenWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"A ripping projectile that explodes upon hitting a player. Damage: 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+//v5
+if(CheckWeapon("HereticMaceWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Heretic Mace - Rapid fire weapon that shoots many low damage bouncing maces. Damage: 12"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("IonicSlashWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Ionic Slash - A rapid fire, low damage weapon. Damage: 12"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("FriendlyDolphinWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Friendly Dolphin - A ground projectile that jumps occasionally. Damage: 25"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("LightningStormWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Lightning Storm - Move to store power. Charge up to 3 levels, resulting in an arrow, blast, and laser. Damage: 14,30,45"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("SugarCubeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Sugar Cube - A mid-damage projectile that splits into ripping pieces after hit. Damage: 13 base, 5 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("EvilEyeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Evil Eye - Gains damage and slows enemies down the less health you have. Damage: 18 or 35"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("PowerTreeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Power Tree - A simple tree platform that blocks projectiles and is solid. Damage: None"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("bmoBhsalFWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Reverse Grenade - A reverse flash bomb. Damage - 40,30,20 explosive with 80 range, 20 base"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
 }

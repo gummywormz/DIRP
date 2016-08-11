@@ -131,11 +131,12 @@ stop
 }
 }
 
-actor DrillTorpWep : MegaBuster
+actor DrillTorpWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Drill Torpedo"
 Obituary "%o was detonated by %k's Drill Torpedo."
 Inventory.Pickupmessage "Power up! Drill Torpedo"
 weapon.ammotype "DrillTorpAmmo"
@@ -146,8 +147,8 @@ Scale 2.0
 States
 {
 Spawn:
-DLTP A 1
-loop
+DLTP A -1
+stop
 Ready:
 DRIL D 0 ACS_ExecuteAlways(998,0,19)
 DRIL D 1 A_WeaponReady

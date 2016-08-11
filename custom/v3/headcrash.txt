@@ -1,10 +1,11 @@
 //Damage more when the crash is more together
 
-actor HeadCrashWep : MegaBuster
+actor HeadCrashWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 8
 Weapon.AmmoGive 40
 Weapon.SlotNumber 4
+Tag  "Head Crash"
 Obituary "%o was smashed and crashed by %k's Head Crash."
 Inventory.Pickupmessage "Power up! Head Crash!"
 weapon.ammotype "HeadCrashAmmo"

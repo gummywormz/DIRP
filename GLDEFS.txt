@@ -514,6 +514,16 @@ frame FLEXE {light FLASHBOMB1}
 frame FLEXF {light FLASHBOMBX}
 }
 
+object XbmoBhsalF//More why not?
+{
+frame FLEXA {light FLASHBOMBX}
+frame FLEXB {light FLASHBOMBX}
+frame FLEXC {light FLASHBOMB1}
+frame FLEXD {light FLASHBOMBX}
+frame FLEXE {light FLASHBOMB1}
+frame FLEXF {light FLASHBOMBX}
+}
+
 object ThunderBolt
 {
 frame TBOL {light FLASHBOMB2}
@@ -1139,11 +1149,6 @@ frame BRNF {light FIRELIGHT}
 object Cubelectro
 {
 frame CUBEB {light SPARKSHOCK}
-}
-
-object Plasma±
-{
-frame PLAS {Light ELECBEAM}
 }
 
 object CometLaunched
@@ -2209,17 +2214,17 @@ frame WCOIP { light PINKLIGHTR }
 frame WCOIQ { light PINKLIGHTR }
 }
 
-object MirrorShotWeak
+object MirrorShotSmall
 {
 frame MIRRC { light SPARKSHOCK }
 }
 
-object MirrorShotWeaker
+object MirrorShotMedium
 {
 frame MIRRC { light SPARKSHOCK }
 }
 
-object MirrorShotStrong
+object MirrorShotLarge
 {
 frame MIRRD { light SPARKSHOCK }
 frame MIRRE { light SPARKSHOCK }
@@ -2424,6 +2429,84 @@ object PursuitProj
 {
 frame BASBA { light YellowLight }
 }
+
+object solarblaze
+{
+FRAME SOLAB { light FIRELIGHT }
+FRAME SOLAC { light FIRELIGHT }
+}
+
+object solarwave
+{
+FRAME SOLAD { light FIRELIGHT }
+FRAME SOLAE { light FIRELIGHT }
+}
+
+object plugball
+{
+frame plugb {light PINKLIGHTR}
+frame plugc {light PINKLIGHTR}
+frame plugd {light PINKLIGHTR}
+frame pluge {light PINKLIGHTR}
+}
+
+object MagmaBeamv1
+{
+frame mgma {light firelight}
+}
+
+object MagmaBeamv2
+{
+frame mgmb {light firelight}
+}
+
+object MagmaBeamv3
+{
+frame mgmc {light firelight}
+}
+
+object MagmaBeamh1
+{
+frame mgmd {light firelight}
+}
+
+object MagmaBeamh2
+{
+frame mgme {light firelight}
+}
+
+object MagmaBeamh3
+{
+frame mgmf {light firelight}
+}
+
+object magmabazooka1
+{
+Frame MGM1B { light FIRELIGHT }
+Frame MGM1C { light FIRELIGHT }
+Frame MGM1D { light FIRELIGHT }
+Frame MGM1E { light FIRELIGHT }
+Frame MGM1F { light FIRELIGHT }
+Frame MGM1G { light FIRELIGHT }
+}
+
+
+object magmabazooka2
+{
+Frame MGM2B { light FIRELIGHT }
+Frame MGM2C { light FIRELIGHT }
+Frame MGM2D { light FIRELIGHT }
+Frame MGM2E { light FIRELIGHT }
+Frame MGM2F { light FIRELIGHT }
+Frame MGM2G { light FIRELIGHT }
+}
+
+object lasertrident
+{
+frame LTRIC {light YellowLight}
+FRAME LTRIB {light YellowLight}
+}
+
 
 object CrashBombBack
 {
@@ -2764,6 +2847,21 @@ object FirePillar
 frame FIRP {Light FIRELIGHT}
 }
 
+object PlasmaArrow
+{
+frame ARRO {Light GREENLIGHT4}
+}
+
+object PlasmaBlast
+{
+frame ARRO {Light GREENLIGHT2}
+}
+
+object PlasmaLaser
+{
+frame ARRO {Light GREENLIGHT}
+}
+
 //end dirp defs
 Glow
 {
@@ -2772,6 +2870,11 @@ Flats
 FIRELAV
 FIRE19
 FIRE20
+
+MGMLAVX
+MGMLAV1
+MGMLAV2
+MGMLAV3
 
 WT1LAVAX
 WT1LAVA1

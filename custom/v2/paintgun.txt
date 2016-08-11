@@ -1,8 +1,9 @@
-actor PaintGunWep : MegaBuster
+actor PaintGunWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 2
+Tag  "Paint Gun"
 Obituary "%o was made beautiful by %k's paint gun."
 Inventory.Pickupmessage "Power up! Paint Gun!"
 weapon.ammotype "PaintGunAmmo"
@@ -16,7 +17,7 @@ Spawn:
 PTGB G -1
 stop
 Ready:
-PTGB D 0 ACS_ExecuteAlways(998,0,219)
+PTGB D 0 ACS_ExecuteAlways(998,0,319)
 PTGB D 1 A_WeaponReady
 Goto Ready+1
 Deselect:

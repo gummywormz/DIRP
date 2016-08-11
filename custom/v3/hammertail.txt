@@ -23,12 +23,13 @@ stop
 }
 }
 
-actor HammerTailWep : MegaBuster
+actor HammerTailWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 6
 Weapon.AmmoGive 28
 Weapon.SlotNumber 4
 +WEAPON.MELEEWEAPON
+Tag  "Hammer Tail"
 +WEAPON.DONTBOB
 Obituary "%o was jacked by %k's Hammer Tail."
 Inventory.Pickupmessage "Power Up! Hammer Tail!"
@@ -43,7 +44,7 @@ Spawn:
 SPBS D -1
 stop
 Ready:
-SPBS A 0 ACS_ExecuteAlways(998,0,232)
+SPBS A 0 ACS_ExecuteAlways(998,0,332)
 SPBS A 1 A_WeaponReady
 Goto Ready+1
 Deselect:

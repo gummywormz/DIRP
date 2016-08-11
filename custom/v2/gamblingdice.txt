@@ -4,6 +4,7 @@ inventory.amount 1
 inventory.maxamount 1
 inventory.pickupmessage "Support Item! Gamble Dice!"
 inventory.icon "GDICEICO"
+Tag "Gambling Dice"
 Inventory.PickupSound "item/1up"
 scale 2.0
 +INVBAR

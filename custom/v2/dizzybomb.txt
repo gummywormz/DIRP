@@ -56,11 +56,12 @@ stop
 }
 }
 
-actor DizzyBombWep : MegaBuster
+actor DizzyBombWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 4
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Dizzy Bomb"
 Obituary "%o was confused by %k's Dizzy Bomb."
 Inventory.Pickupmessage "Power up! Dizzy Bomb!"
 weapon.ammotype "DizzyAmmo"
@@ -74,7 +75,7 @@ Spawn:
 DIZB K -1
 stop
 Ready:
-DIZB B 0 ACS_ExecuteAlways(998,0,215)
+DIZB B 0 ACS_ExecuteAlways(998,0,315)
 DIZB B 1 A_WeaponReady
 Goto Ready+1
 Deselect:

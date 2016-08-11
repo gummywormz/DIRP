@@ -45,10 +45,11 @@ stop
 }
 }
 
-actor ExplosiveHadoukenWep : MegaBuster
+actor ExplosiveHadoukenWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 7
 Weapon.AmmoGive 45
+Tag "Explosive Hadouken"
 Obituary "%o was decimated by %k's explosive hadouken"
 Weapon.SlotNumber 2
 weapon.ammotype "HadoukenAmmo"

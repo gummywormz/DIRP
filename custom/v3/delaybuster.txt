@@ -69,11 +69,12 @@ stop
 }
 }
 
-actor DelayBusterWep : MegaBuster
+actor DelayBusterWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 2
 Weapon.AmmoGive 28
 Weapon.SlotNumber 3
+Tag  "Delay Buster"
 Obituary "%o was too late to avoid %k's Delay Buster."
 Inventory.Pickupmessage "Power up! Delay Buster!"
 weapon.ammotype "DelayBusterAmmo"

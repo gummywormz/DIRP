@@ -1,8 +1,9 @@
-actor PharaohShotGunWep : MegaBuster
+actor PharaohShotGunWep : BaseMM8BDMWep
 {
 Weapon.AmmoUse 1
 Weapon.AmmoGive 28
 Weapon.SlotNumber 5
+Tag  "Pharaoh Shot Gun"
 Obituary "%o was sacrificed thrice by %k's Pharaoh ShotGun."
 Inventory.Pickupmessage "Power up! Pharaoh ShotGun!"
 weapon.ammotype "PharaohShotGunAmmo"
@@ -147,6 +148,7 @@ States
 Death:
 TNT1 A 0
 TNT1 A 1 A_SpawnItemEx("OilPitIgnite",0,0,8)
+PHAS LMNO 2
 stop
 }
 }

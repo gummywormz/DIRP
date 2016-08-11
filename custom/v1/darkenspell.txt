@@ -59,13 +59,14 @@ fail
 }
 
 
-Actor EternalNight : MegaBuster
+Actor EternalNight : BaseMM8BDMWep
 {
 Weapon.AmmoUse 50
 +Weapon.Noautoaim
 Weapon.AmmoGive 50
 Weapon.SlotNumber 6
 inventory.icon "SPDKICO"
+Tag "Spell of Darkness"
 Obituary "%o wandered into %k's Spell of Darkness."
 Inventory.Pickupmessage "Power up! Spell of Darkness!"
 weapon.ammotype "nightammo"
@@ -78,7 +79,7 @@ Spawn:
 SPDK A -1
 stop
 Ready:
-DRWE A 0 ACS_ExecuteAlways(998,0,201)
+DRWE A 0 ACS_ExecuteAlways(998,0,301)
 DRWE A 1 A_WeaponReady
 DRWE A 1
 Goto Ready+1
