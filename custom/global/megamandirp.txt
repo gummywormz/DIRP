@@ -87,51 +87,51 @@ PLY1 H 0 A_PlaySoundEx("weapon/spreaddrillhit","SoundSlot5")
 PLY1 H 0 A_GiveInventory("SpreadDrillProtect", 1)
 Goto pain+1
 Pain.ShockGauntlet:
-PLAY H 0
+PLY1 H 0
 goto Pain.SparkShock
 Pain.LeechSeed:
-PLAY H 0 A_SpawnItemEx("LeechHit")
-PLAY H 0 A_GiveInventory("LeechSeedProtect",1)
+PLY1 H 0 A_SpawnItemEx("LeechHit")
+PLY1 H 0 A_GiveInventory("LeechSeedProtect",1)
 Goto Pain+1
 pain.FreezeDry:
 PAIN H 0 A_GiveInventory("IceSlow",1)
 Goto Pain+1
 Pain.ICEFREEZE:
-PLAY H 0 A_GiveInventory("Shocked",1)
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 0 A_GiveInventory("Shocked",1)
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 1 A_Stop
-PLAY H 0 A_GiveInventory("Shocked",1)
-PLAY H 1 A_Stop
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_GiveInventory("Shocked",1)
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 0 A_GiveInventory("Shocked",1)
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 1 A_Stop
+PLY1 H 0 A_GiveInventory("Shocked",1)
+PLY1 H 1 A_Stop
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto Pain+1
 Pain.Darken:
-PLAY H 0 ACS_ExecuteAlways(680,0)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 ACS_ExecuteAlways(680,0)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.Darken2:
-PLAY H 0 ACS_ExecuteAlways(680,0,1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 ACS_ExecuteAlways(680,0,1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.GigaDrain:
-PLAY H 0 A_GiveToTarget("GigaRestore",1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_GiveToTarget("GigaRestore",1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain.QuickBoomerang
 Pain.FellStingerAlways:
-PLAY H 1 A_GiveToTarget("CritFlag",10)
-PLAY H 0
+PLY1 H 1 A_GiveToTarget("CritFlag",10)
+PLY1 H 0
 Goto pain+1
 Pain.SparkManBow:
-PLAY A 1 ACS_ExecuteAlways(690,0)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 A 1 ACS_ExecuteAlways(690,0)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto Pain+2
 Death.RecycleInhaler:
 TNT1 A 1 A_Jump(256,"StuffBWE","StuffBH","StuffWT","StuffET","StuffWT","StuffET")
@@ -149,93 +149,93 @@ StuffET:
 TNT1 A 1 A_SpawnItemEx("StuffET")
 goto Death
 Pain.GlueStun:
-PLAY H 1 A_Jump(64,"GlueStun")
+PLY1 H 1 A_Jump(64,"GlueStun")
 goto pain+1
 Pain.AlwaysGlue:
-PLAY H 1
+PLY1 H 1
 goto GlueStun
 GlueStun:
-PLAY H 1 ACS_ExecuteAlways(601,0)
-PLAY H 8
-PLAY H 1 A_SpawnItemEx("GlueItem")
-PLAY H 95
+PLY1 H 1 ACS_ExecuteAlways(601,0)
+PLY1 H 8
+PLY1 H 1 A_SpawnItemEx("GlueItem")
+PLY1 H 95
 goto Spawn+1
 Death.YokuAttack2:
-PLAY H 1 A_SpawnItemEx("ItemDecider")
+PLY1 H 1 A_SpawnItemEx("ItemDecider")
 goto Death
 Pain.QuakeSkull:
-PLAY H 0 A_SpawnItemEx("ShockFX",4,0,32)
-PLAY H 0 A_GiveInventory("Shocked",1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
-PLAY H 0 A_JumpIfInventory("BrightBlind", 1,4)
-PLAY H 0 A_GiveInventory("BrightBlind",125)
-PLAY H 0 ACS_ExecuteAlways(249, 0)
-PLAY H 0 ACS_ExecuteAlways(691, 0)
+PLY1 H 0 A_SpawnItemEx("ShockFX",4,0,32)
+PLY1 H 0 A_GiveInventory("Shocked",1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_JumpIfInventory("BrightBlind", 1,4)
+PLY1 H 0 A_GiveInventory("BrightBlind",125)
+PLY1 H 0 ACS_ExecuteAlways(249, 0)
+PLY1 H 0 ACS_ExecuteAlways(691, 0)
 Goto pain+1
-PLAY H 0 A_GiveInventory("BrightBlind",55)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_GiveInventory("BrightBlind",55)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.Dizzy:
-PLAY H 0 A_GiveInventory("BalloonDie",1)
-PLAY H 0 A_Jump(51,"dizzyed")
-PLAY H 1
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_Jump(51,"dizzyed")
+PLY1 H 1
 Goto Pain+1
 dizzyed:
-PLAY H 0 A_GiveInventory("ConfusedSpeed",1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_GiveInventory("ConfusedSpeed",1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto Pain+1
 Pain.Paint:
-PLAY H 0 A_GiveInventory("BalloonDie",1)
-PLAY H 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-PLAY H 1
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+PLY1 H 1
 Goto Pain+1
 Pain.Chain:
-PLAY H 0 A_SpawnItemEx("LightChainThun",0,0,0,0,0,0)
-PLAY H 1 //A_GiveInventory("ChainDone",1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_SpawnItemEx("LightChainThun",0,0,0,0,0,0)
+PLY1 H 1 //A_GiveInventory("ChainDone",1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 goto pain+1
 Pain.SpikeShock:
-PLAY H 0 A_JumpIfInventory("ShockGuardForever",1,"ShockSuccess")
+PLY1 H 0 A_JumpIfInventory("ShockGuardForever",1,"ShockSuccess")
 goto Death
 ShockSuccess:
-PLAY H 0
-PLAY H 0
-PLAY H 0 A_GiveInventory("ShockGuardTemp",1)
-PLAY H 1 HealThing(1)
-PLAY H 0 A_TakeInventory("ShockGuardForever",1)
+PLY1 H 0
+PLY1 H 0
+PLY1 H 0 A_GiveInventory("ShockGuardTemp",1)
+PLY1 H 1 HealThing(1)
+PLY1 H 0 A_TakeInventory("ShockGuardForever",1)
 goto pain+1
 Pain.SkyUppercut:
-PLAY H 1 A_GiveInventory("GoingUp",1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 1 A_GiveInventory("GoingUp",1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.AquaPunch:
-PLAY H 0 ThrustThing(angle*256/360+128, momx + random(40,90), 1, 0)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 ThrustThing(angle*256/360+128, momx + random(40,90), 1, 0)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.DustVaccum:
-PLAY H 0 ThrustThing(angle*256/360, 25, 1, 0)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 ThrustThing(angle*256/360, 25, 1, 0)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.HealBlock:
-PLAY H 0 A_GiveInventory("HealBlocker",1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_GiveInventory("HealBlocker",1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto Pain+1
 Pain.Night:
-PLAY H 2 A_GiveInventory("Darked",1)
-PLAY H 1 ACS_ExecuteAlways(697)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 2 A_GiveInventory("Darked",1)
+PLY1 H 1 ACS_ExecuteAlways(697)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.FizzBomb:
-PLAY H 1 A_GiveInventory("FizzSlowed",1)
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 1 A_GiveInventory("FizzSlowed",1)
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain+1
 Pain.SparkManBow:
-PLAY A 0 ACS_ExecuteAlways(690,0)
+PLY1 A 0 ACS_ExecuteAlways(690,0)
 Goto Pain+2
 Pain.FlameSword:
-PLAY H 0
-PLAY HH 0 A_SpawnItemEx("ScorchBit",0,0,0,random(-10,10),random(-10,10),random(10,15),random(0,360))
-PLAY H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0
+PLY1 HH 0 A_SpawnItemEx("ScorchBit",0,0,0,random(-10,10),random(-10,10),random(10,15),random(0,360))
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
 Goto pain
 pain.LaserTrident:
 PLY1 H 0 A_GiveInventory("LaserTridentProtect", 1)
@@ -332,6 +332,8 @@ Pain:
 PLY1 H 1 A_ScaleVelocity(0.75) // I put a tic here. I hope it didn't break anything. Call 555-256-@CutmanMike for details
 PLY1 H 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb")
 PLY1 H 0 A_Pain
+PLY1 H 0 A_GiveInventory("BalloonDie",1)
+PLY1 H 0 A_GiveInventory("CharadePainFlag",1)
 PLY1 H 1 A_SpawnItem("PainFX",0,3)
 PLY1 H 1 A_Recoil(1)
 PLY1 HHHHHHHHH 2 A_SpawnItem("PainFX",0,3)
@@ -344,9 +346,14 @@ PLY1 H 0 SetPlayerProperty(0, 0, 4)
 PLY1 H 0 A_ChangeFlag("NOINTERACTION", 1)
 PLY1 H 0 A_TakeInventory("WeaponCharge",999)
 PLY1 H 0 A_TakeInventory("ConcreteTime", 999)
+PLY1 H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLY1 H 0 A_GiveInventory("IsDead",1)
+PLY1 H 0 A_GiveInventory("KillStone",1)
+PLY1 H 0 A_TakeInventory("WeaponCharge",999)
+PLY1 H 0 A_TakeInventory("PharaohShotCharge",999)
+PLY1 H 0 A_TakeInventory("GimmickCharge",999)
 PLY1 H 0 A_NoBlocking
 PLY1 H 0 A_TakeInventory("CutterFlag",999)
-PLY1 H 0 A_GiveInventory("IsDead",1)
 PLY1 H 0 A_Stop
 PLY1 H 0 A_GiveToTarget("KilledMeStock",1)
 PLY1 H 1 A_GiveToTarget("KilledMe",1)
@@ -374,13 +381,17 @@ PLY1 H 0 A_GiveToTarget("KilledMeStock",1)
 PLY1 H 0 A_GiveInventory("CutterFlag",999)
 PLY1 H 0 A_TakeInventory("WeaponCharge",999)
 PLY1 H 0 A_TakeInventory("ConcreteTime", 999)
+PLY1 H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLY1 H 0 A_GiveInventory("KillStone",1)
+PLY1 H 0 A_TakeInventory("PharaohShotCharge",999)
+PLY1 H 0 A_TakeInventory("GimmickCharge",999)
 PLY1 H 0 A_GiveInventory("IsDead",1)
 PLY1 Z 0 A_PlayerScream
 PLY1 H 0 A_SpawnItemEx("FakeDeathFX", 0, 0, 32)
 PLY1 Z 1 A_CheckPlayerDone
 wait
 Death.FellStinger:
-PLAY H 1 A_GiveToTarget("CritFlag",10)
+PLY1 H 1 A_GiveToTarget("CritFlag",10)
 goto Death
 Death:
 PLY1 H 0 SetPlayerProperty(0, 0, 4)
@@ -391,6 +402,13 @@ PLY1 H 0 A_GiveInventory("CutterFlag",999)
 PLY1 H 0 A_GiveInventory("IsDead",1)
 PLY1 H 0 A_Stop
 PLY1 H 0 A_GiveToTarget("KilledMeStock",1)
+PLY1 H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLY1 H 0 A_GiveInventory("CutterFlag",999)
+PLY1 H 0 A_GiveInventory("IsDead",1)
+PLY1 H 0 A_GiveInventory("KillStone",1)
+PLY1 H 0 A_TakeInventory("WeaponCharge",999)
+PLY1 H 0 A_TakeInventory("PharaohShotCharge",999)
+PLY1 H 0 A_TakeInventory("GimmickCharge",999)
 PLY1 H 20 A_GiveToTarget("KilledMe",1)
 PLY1 H 0 SetPlayerProperty(0, 0, 4)
 PLY1 H 0 A_PlayerScream
@@ -401,6 +419,13 @@ Death.Falling:
 PLY1 H 0 SetPlayerProperty(0, 0, 4)
 PLY1 H 0 A_TakeInventory("WeaponCharge",999)
 PLY1 H 0 A_NoBlocking
+PLY1 H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLY1 H 0 A_GiveInventory("CutterFlag",999)
+PLY1 H 0 A_GiveInventory("IsDead",1)
+PLY1 H 0 A_GiveInventory("KillStone",1)
+PLY1 H 0 A_TakeInventory("WeaponCharge",999)
+PLY1 H 0 A_TakeInventory("PharaohShotCharge",999)
+PLY1 H 0 A_TakeInventory("GimmickCharge",999)
 PLY1 H 0 A_GiveInventory("CutterFlag",999)
 PLY1 H 0 A_GiveInventory("IsDead",1)
 PLY1 Z 1 A_PlayerScream
@@ -416,6 +441,13 @@ PLY1 H 0 A_GiveInventory("IsDead",1)
 PLY1 H 0 A_TakeInventory("WeaponCharge",999)
 PLY1 Z 0 A_GiveToTarget("KilledMeStock",1)
 PLY1 Z 0 A_GiveToTarget("KilledMe",1)
+PLY1 H 0 A_GiveToTarget("UnDeadArmyAmmo",2)
+PLY1 H 0 A_GiveInventory("CutterFlag",999)
+PLY1 H 0 A_GiveInventory("IsDead",1)
+PLY1 H 0 A_GiveInventory("KillStone",1)
+PLY1 H 0 A_TakeInventory("WeaponCharge",999)
+PLY1 H 0 A_TakeInventory("PharaohShotCharge",999)
+PLY1 H 0 A_TakeInventory("GimmickCharge",999)
 PLY1 H 1 A_PlayerScream
 PLY1 H 0 ACS_ExecuteAlways(998,0,105,1)
 PLY1 H 0 A_NoBlocking
