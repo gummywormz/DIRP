@@ -330,7 +330,7 @@ PLY1 H 0 ACS_ExecuteAlways(205, 0)
 Goto Pain+1
 Pain:
 PLY1 H 1 A_ScaleVelocity(0.75) // I put a tic here. I hope it didn't break anything. Call 555-256-@CutmanMike for details
-PLY1 H 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb")
+PLY1 H 0 //A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb")
 PLY1 H 0 A_Pain
 PLY1 H 0 A_GiveInventory("BalloonDie",1)
 PLY1 H 0 A_GiveInventory("CharadePainFlag",1)
@@ -457,35 +457,6 @@ PLY1 H 0 A_SpawnItemEx("FrozenDeathFX", 0, 0, 16)
 PLY1 Z 1 A_CheckPlayerDone
 wait
 //stop
-PunkSpin:
-PLY1 AVW 3
-PLY1 XY 3
-Goto PunkSpin+3
-PunkStop:
-PLY1 WV 5
-Goto Spawn+2
-EnkerRaise:
-PLY1 Y 1
-loop
-EnkerAbsorb:
-PLY1 Y 0 A_PlaySound("weapon/mirrorabsorb")
-PLY1 Y 0 A_GiveInventory("EnkerMirrorCount",1)
-Goto EnkerAbsorb3
-EnkerAbsorb3:
-PLY1 Y 3 ACS_ExecuteAlways(998,0,65)
-PLY1 Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb2")
-Goto Spawn+2
-EnkerAbsorb2:
-PLY1 Y 3 ACS_ExecuteAlways(998,0,66)
-PLY1 Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb3")
-Goto Spawn+2
-DarkLeap:
-PLY1 Y 1 A_SpawnItemEx("DarkDamager")
-PLY1 Y 0 A_JumpIf(z-floorz==0,"Spawn")
-loop
-BalladeJump:
-PLY1 Y 5 A_SpawnItemEx("BalladeMelee")
-loop
 TheEnd:
 PLY1 G 4
 loop

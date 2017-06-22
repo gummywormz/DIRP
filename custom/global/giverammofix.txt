@@ -1,4 +1,4 @@
-actor WeaponEnergy2 : CustomInventory replaces WeaponEnergy
+/*actor WeaponEnergy2 : CustomInventory replaces WeaponEnergy
 {
 //$Category MM8BDM-Health/Energy
 //Inventory.RespawnTics 210
@@ -44,7 +44,7 @@ Success:
 TNT1 A 0 ACS_ExecuteAlways(992,0,10)
 stop
 }
-}
+}*/
 
 
 actor GhostsNGoblinsThing2 : GhostsNGoblinsThing Replaces GhostsNGoblinsThing

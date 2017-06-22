@@ -289,7 +289,12 @@ texture BARAMCG2, 56, 8
 patch BARAMCG, 0, 0 {rotate 90}
 }
 
-texture BARAMTY2, 56, 8 // Give it a different name as the graphic you're using. In this case I just put 2 on the end.
+texture BARAMTY2, 56, 8
 {
-patch BARAMTY, 0, 0 {rotate 90} // The name of the energy bar graphic goes here
+patch BARAMTY, 0, 0 {rotate 90}
+}
+
+texture BARAMPK2, 56, 8
+{
+patch BARAMPK, 0, 0 {rotate 90}
 }

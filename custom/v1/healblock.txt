@@ -23,28 +23,40 @@ actor PlantBarrierWep2 : PlantBarrierWep replaces PlantBarrierWep
 {
 States
 {
+ShieldActive:
+PLAA B 0 A_SpawnItemEx("PlantBarrierWarper")
+PLAA BCDEFGH 2
+PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"Waiting")
+Goto Shield
 Shield:
 PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
-PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
 PLAA A 0 HealThing(1)
 PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"Waiting")
 PLAA A 0 A_TakeInventory("PlantBarrierAmmo",1)
 PLAA AA 1 A_WeaponReady
 PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
-PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
 PLAA A 0 HealThing(1)
 PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"Waiting")
 PLAA AA 1 A_WeaponReady
 PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
-PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
 PLAA A 0 HealThing(1)
 PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"Waiting")
 PLAA AA 1 A_WeaponReady
 PLAA A 0 A_JumpIfNoAmmo("NoAmmo")
-PLAA A 0 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
 PLAA A 0 HealThing(1)
 PLAA A 0 A_JumpIf(health>=100,"Waiting")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"Waiting")
 Loop
+Waiting:
+PLAA A 1 A_WeaponReady
+PLAA A 0 A_JumpIfHealthLower(100, "Shield")
+PLAA A 0 A_JumpIfInventory("ShieldCheck", 1, "Waiting")
+PLAA A 0 A_JumpIfInventory("HealBlocker",1,"Waiting")
+Goto ShieldThrow
 }
 }
 

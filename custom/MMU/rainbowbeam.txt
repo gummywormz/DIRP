@@ -52,7 +52,7 @@ ReactionTime 25
 States
 {
 Spawn:
-RNBW BC 2
+RNBW BC 2 BRIGHT
 TNT1 A 1 A_CountDown
 goto Spawn+1
 Death:

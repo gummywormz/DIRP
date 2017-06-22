@@ -196,6 +196,16 @@ actor BaseSpawner : RandomSpawner
 	Dropitem "SugarCubeWep" 255 6
 	Dropitem "EvilEyeWep" 255 8
 	Dropitem "bmoBhsalFWep" 255 5
+	
+	Dropitem "PorcupineBombWep" 255 5
+	Dropitem "CatapultofDoomGiver" 255 8
+	Dropitem "ArchonCubeWep" 255 5
+	Dropitem "CepheusTowerWep" 255 3
+	
+	Dropitem "WraithRingsWep" 255 7
+	Dropitem "GenoBlastWep" 255 2
+	Dropitem "AnguishCannonWep" 255 4
+	Dropitem "SkullOfThanatosWep" 255 6
 
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
@@ -415,6 +425,16 @@ actor BaseAOESpawner : RandomSpawner
 	Dropitem "SugarCubeWep" 255 7
 	Dropitem "EvilEyeWep" 255 3
 	Dropitem "bmoBhsalFWep" 255 9
+	
+	Dropitem "PorcupineBombWep" 255 8
+	Dropitem "CatapultofDoomGiver" 255 3
+	Dropitem "ArchonCubeWep" 255 4
+	Dropitem "CepheusTowerWep" 255 9
+	
+	Dropitem "WraithRingsWep" 255 2
+	Dropitem "GenoBlastWep" 255 8
+	Dropitem "AnguishCannonWep" 255 6
+	Dropitem "SkullOfThanatosWep" 255 3
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
 	//DropItem "ThunderBoltWep" 255 3
@@ -861,6 +881,16 @@ actor AllBaseSpawner : RandomSpawner
 	Dropitem "SugarCubeWep" 255 6
 	Dropitem "EvilEyeWep" 255 8
 	Dropitem "bmoBhsalFWep" 255 5
+	
+	Dropitem "PorcupineBombWep" 255 5
+	Dropitem "CatapultofDoomGiver" 255 8
+	Dropitem "ArchonCubeWep" 255 5
+	Dropitem "CepheusTowerWep" 255 3
+	
+	Dropitem "WraithRingsWep" 255 7
+	Dropitem "GenoBlastWep" 255 2
+	Dropitem "AnguishCannonWep" 255 4
+	Dropitem "SkullOfThanatosWep" 255 6
 }
 
 actor AllAOESpawner : RandomSpawner
@@ -1040,4 +1070,14 @@ actor AllAOESpawner : RandomSpawner
 	Dropitem "SugarCubeWep" 255 7
 	Dropitem "EvilEyeWep" 255 3
 	Dropitem "bmoBhsalFWep" 255 9
+	
+	Dropitem "PorcupineBombWep" 255 8
+	Dropitem "CatapultofDoomGiver" 255 3
+	Dropitem "ArchonCubeWep" 255 4
+	Dropitem "CepheusTowerWep" 255 9
+	
+	Dropitem "WraithRingsWep" 255 2
+	Dropitem "GenoBlastWep" 255 8
+	Dropitem "AnguishCannonWep" 255 6
+	Dropitem "SkullOfThanatosWep" 255 3
 }

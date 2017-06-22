@@ -176,8 +176,20 @@
 #include "custom/v5/PowerFlower.txt"
 #include "custom/v5/LightningStorm.txt"
 
+//v6
+#include "custom/v6/porcupinebomb.txt"
+#include "custom/v6/wraithrings.txt"
+#include "custom/v6/skullofthanatos.txt"
+#include "custom/v6/catapultofdoom.txt"
+#include "custom/v6/CepheusTower.txt"
+#include "custom/v6/ArchonCube.txt"
+#include "custom/v6/GenoBlast.txt"
+#include "custom/v6/AnguishCannon.txt"
+
 #Include "custom/global/extrasupport.txt"
 
 #include "custom/global/giverammofix.txt"
 
 #include "custom/global/randomspawners.txt" //SAVE FOR LAST
+
+#include "custom/global/theultimateweapon.txt"

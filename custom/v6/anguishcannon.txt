@@ -1,0 +1,82 @@
+Actor AnguishCannon
+{
+PROJECTILE
+Obituary "%o became severely depressed by %k's Anguish Cannon."
++RIPPER
+Damagetype "ThunderBeam"
+Damage (8)
+Speed 30
++NOGRAVITY
++DONTBLAST
+height 64
+radius 64
+scale 2.5
+States
+{
+Spawn:
+ANGC A 0 A_Jump(256,"Img1","Img2","Img3","Img4")
+goto Img1
+Img1:
+ANGC A 4
+goto Spawn
+Img2:
+ANGC B 4
+goto Spawn
+Img3:
+ANGC C 4
+goto Spawn
+Img4:
+ANGC D 4
+goto Spawn
+}
+}
+
+Actor AnguishCannonWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+inventory.icon "ANGCICO"
+Tag  "Anguish Cannon"
+Obituary "%o became severely depressed by %k's Anguish Cannon."
+Inventory.Pickupmessage "Power up! Anguish Cannon!"
+weapon.ammotype "AnguishCannonAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States
+{
+Spawn:
+ANGC E -1
+stop
+Ready:
+FLSP A 0 ACS_ExecuteAlways(998,0,11)
+FLSP A 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FLSP A 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FLSP A 1 A_Raise
+Loop
+Fire:
+FLSP A 0 A_JumpIfNoAmmo("NoAmmo")
+FLSP A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FLSP A 0 A_FireCustomMissile("AnguishCannon",0,1,8,0)
+FLSP BCD 5
+FLSP A 9
+FLSP A 1 A_Refire
+goto Ready+1
+NoAmmo:
+FLSP A 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor AnguishCannonAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

@@ -1,0 +1,1108 @@
+actor TheUltimateWeapon : BaseMM8BDMWep
+{
+Weapon.AmmoUse 0
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Tag  "The Ultimate Weapon"
+Obituary "%o was pwned by %k's Ultimate Weapon."
+Inventory.Pickupmessage "Power up! Ultimate Weapon!"
+weapon.ammotype "BusterAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+Scale 2.0
+States{
+Spawn:
+TNT1 A 0
+stop
+Ready: // This state is for when the weapon is idle, ready to be fired or switched out.
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1) // This calls the color changing script. The last argument defines what colors to change to player to (see WCOLORS for more info)
+RAND B 2 A_WeaponReady // A_WeaponReady is called when you want to allow the player to do something with the weapon, so it must be called repeatedly in the idle state.
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND C 2 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND D 2 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND E 2 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND F 2 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND G 2 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND H 2 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND I 2 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND J 2 A_WeaponReady
+Goto Ready // Go back to ready but skip the ACS_ExecuteAlways function.
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+RAND H 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+RAND H 1 A_Raise
+Loop
+Fire:
+RAND B 0 A_Jump(256,"Fire1","Fire2","Fire3","Fire4","Fire5","Fire6","Fire7","Fire8","Fire9","Fire10","Fire11","Fire12","Fire13","Fire14","Fire15","Fire16","Fire17","Fire18","Fire19","Fire20","Fire21","Fire22","Fire23","Fire24","Fire25","Fire26","Fire27","Fire28","Fire29","Fire30","Fire31","Fire32","Fire33","Fire34","Fire35","Fire36","Fire37","Fire38","Fire39","Fire40","Fire41","Fire42","Fire43","Fire44","Fire45","Fire46","Fire47","Fire48","Fire49","Fire50","Fire51","Fire52","Fire53","Fire54","Fire55","Fire56","Fire57","Fire58","Fire59","Fire60","Fire61","Fire62","Fire63","Fire64","Fire65","Fire66","Fire67","Fire68","Fire69","Fire70","Fire71","Fire72","Fire73","Fire74","Fire75","Fire76","Fire77","Fire78","Fire79","Fire80","Fire81","Fire82","Fire83","Fire84","Fire85","Fire86","Fire87","Fire88","Fire89","Fire90","Fire91","Fire92","Fire93","Fire94","Fire95","Fire96","Fire97","Fire98","Fire99","Fire100","Fire101","Fire102","Fire103","Fire104","Fire105","Fire106","Fire107","Fire108","Fire109","Fire110","Fire111","Fire112","Fire113","Fire114","Fire115","Fire116","Fire117","Fire118","Fire119","Fire120","Fire121")
+RAND B 1
+goto Ready
+//add in v6 weps
+
+Fire1:
+THUN H 0 A_PlaySoundEx("weapon/twgo","Weapon")
+THUN H 0 A_FireCustomMissile("TCLOUDPROJECTILE",0,0,8,0)
+THUN IJJI 2
+THUN H 32
+goto Ready
+Fire2:
+THUN H 0 A_PlaySoundEx("weapon/thunderbeam","Weapon")
+THUN H 0 A_FireCustomMissile("LightChainBase",0,0,8,0)
+THUN IJ 5
+THUN H 0
+goto Ready
+Fire3:
+FLSP A 0 A_PlaySoundEx("weapon/flurryspread","Weapon")
+FLSP A 0 A_FireCustomMissile("FlurrySpawner",0,0,8,0)
+FLSP BCD 5
+FLSP A 3
+goto Ready
+Fire4:
+SEGE D 0 A_PlaySoundEx("weapon/metalblade","Weapon")
+SEGE D 0 A_FireCustomMissile("SpeedGearSpawner",0,0,8,0)
+SEGE EFGHIJKL 2
+SEGE D 10
+goto Ready
+Fire5:
+LESE D 0 A_PlaySoundEx("weapon/crackerthrow","Weapon")
+LESE D 2 A_FireCustomMissile("LeechSeedStart",0,0,8,0)
+LESE D 2
+LESE EF 2
+LESE D 20
+goto Ready
+Fire6:
+BUSD A 0 A_PlaySoundEx("weapon/leafshield","Weapon")
+BUSD A 0 A_FireCustomMissile("BulletSeed25",0,0,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 1
+goto Ready
+Fire7:
+AQPN C 0 A_PlaySoundEx("weapon/aquafist1","Weapon")
+AQPN C 2 A_FireCustomMissile("AquaPunch",0,0,8,0)
+AQPN C 0
+AQPN DE 2
+AQPN C 19
+goto Ready
+Fire8:
+BOCR A 0 A_PlaySoundEx("weapon/powerstone","Weapon")
+BOCR BCD 5
+BOCR A 0 A_FireCustomMissile("BoulderSpawner",0,0,8,0)
+BOCR A 15
+goto Ready
+Fire9:
+OBNK E 0 SetPlayerProperty(0,1,4)
+OBNK E 35 A_PlaySoundEx("misc/gravitywarn","Weapon")
+OBNK E 1
+OBNK E 35 A_PlaySoundEx("misc/gravitywarn","Weapon")
+OBNK E 2 A_JumpIfInventory("IsDead",1,"NoAmmo")
+OBNK E 0
+OBNK DCB 2 A_PlayWeaponSound("weapon/hyperbomb")
+OBNK B 19 A_FireCustomMissile("OblivionExplode",0,0,8,0)
+OBNK B 1 SetPlayerProperty(0,0,4)
+goto Ready
+Fire10:
+SHFR FGHIJ 2
+SHFR E 0 A_SetTranslucent(0.5, 2)
+SHFR E 1 A_PlaySoundEx("weapon/teleport","Voice")
+SHFR E 35
+SHFR E 35
+SHFR E 35
+SHFR E 35
+SHFR E 1 A_JumpIfInventory("ImHit",1,"NoAmmo")
+SHFR E 0 A_PlayWeaponSound("Weapon/junkend")
+SHFR E 0 A_SpawnItemEx("ShadowExplode",0,0,8,0,0,0,0)
+SHFR E 25 A_SetTranslucent(1.0, 0)
+goto Ready
+Fire11:
+BZSU C 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+BZSU DEC 6
+BZSU C 0 A_FireCustomMissile("SoulBounce",0,0,8,0)
+BZSU C 26
+goto Ready
+Fire12:
+BLFR C 0 A_PlaySoundEx("weapon/blaststart","Weapon")
+BLFR DEF 5
+BLFR C 0 A_FireCustomMissile("BlastFreezeSpawner",0,0,8,0)
+BLFR C 35
+BLFR C 35
+goto Ready
+Fire13:
+BOSN A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+BOSN A 0 A_FireCustomMissile("SniperShot",0,0,8,0)
+BOSN BC 2
+BOSN A 7
+goto Ready
+Fire14:
+MGDR C 0 A_PlaySoundEx("weapon/magdrillshoot","Weapon")
+MGDR C 0 A_FireCustomMissile("MagDrillStart",0,0,8,0)
+MGDR DEC 6
+MGDR C 29
+goto Ready
+Fire15:
+FIRE G 0 A_PlaySoundEx("weapon/crashland","Weapon")
+FIRE G 0 A_FireCustomMissile("SpoutUp",0,0,8,0)
+FIRE G 0
+FIRE HI 6
+FIRE G 24
+goto Ready
+Fire16:
+COFA A 0 A_PlaySoundEx("weapon/crossflame","Weapon")
+COFA A 0 A_FireCustomMissile("CrossFlame",0,0,11,8)
+COFA A 0 A_FireCustomMissile("CrossFlame",0,0,-11,-8)
+COFA DE 2
+COFA F 4
+COFA A 15
+Fire17:
+DIZB B 0 A_PlaySoundEx("weapon/crackerthrow","Weapon")
+DIZB B 0 A_FireCustomMissile("DizzyBomb",0,0,8,0)
+DIZB CDEFGH 2
+DIZB IJ 2
+DIZB B 13
+goto Ready
+Fire18:
+GSTA H 0 A_PlaySoundEx("weapon/starout","Weapon")
+GSTA H 0 A_FireCustomMissile("GimmickStar",0,0,8,0)
+GSTA MNOPQR 2
+TNT1 H 4 A_ClearRefire
+GSTA STH 2
+goto Ready
+Fire19:
+MIRR F 0 A_PlaySoundEx("weapon/crosslight","Weapon")
+MIRR FGH 3
+MIRR F 0 A_FireCustomMissile("CrossLightProj1",-3,0,8,0)
+MIRR F 1 A_FireCustomMissile("CrossLightProj1",3,0,8,0)
+MIRR F 1 A_FireCustomMissile("CrossLightProj2",0,0,8,0)
+MIRR F 7
+goto Ready
+Fire20:
+NEDC B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+NEDC B 0 A_FireCustomMissile("MachineGunNeedle",0,0,8,0)
+NEDC CDB 2
+goto Ready
+Fire21:
+SODA E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+SODA E 0 A_FireCustomMissile("FizzBomb",0,0,8,0)
+SODA FGE 5
+SODA E 10
+goto Ready
+Fire22:
+PTGB D 0 A_PlaySoundEx("weapon/mmvshot","Weapon")
+PTGB D 0 A_FireCustomMissile("PaintGunRed",0,0,8,0)
+PTGB D 0 A_FireCustomMissile("PaintGunBlue",-15,0,8,0)
+PTGB D 0 A_FireCustomMissile("PaintGunGreen",15,0,8,0)
+PTGB EF 3
+PTGB D 4
+goto Ready
+Fire23:
+POPC D 1 A_PlaySoundEx("weapon/crackerthrow","Weapon")
+POPC D 2 A_FireCustomMissile("PopCorn",0,0,8,0)
+POPC D 2
+POPC EF 2
+POPC D 15
+goto Ready
+Fire24:
+PINM A 0 A_PlaySoundEx("weapon/TIMESTOPPER","Weapon")
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,15),0,32,15,0,0)
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,15),0,64,15,random(-16,-16),random(0,0))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,15),0,96,15,random(-16,-16),random(0,0))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,128,15,random(-32,32),random(-32,64))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,100,15,random(-32,32),random(-32,64))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,50,15,random(-64,64),random(-64,48))
+PINM A 0 A_SpawnItemEx("PinMissile",random(-15,32),0,70,15,random(-64,64),random(-64,48))
+PINM BCD 5
+goto Ready
+Fire25:
+PHNX B 5 BRIGHT
+PHNX C 0 A_Recoil(4)
+PHNX C 1 A_PlaySoundEx("weapon/firestorm","Weapon")
+PHNX C 0 A_FireCustomMissile("PhoenixShot",0,0,0,0)
+PHNX C 7 BRIGHT
+PHNX DB 4
+goto Ready
+Fire26:
+FLSP A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FLSP A 0 A_FireCustomMissile("IceSpike1",0,0,8,0)
+FLSP BCD 5
+FLSP A 3
+goto Ready
+Fire27:
+BLIZ D 0 A_PlaySoundEx("weapon/gemini","Weapon")
+BLIZ D 0 A_FireCustomMissile("LaserSpawner",0,0,8,0)
+BLIZ EF 3
+BLIZ D 16
+goto Ready
+Fire28:
+FDLU E 0 A_PlaySoundEx("weapon/thunderbolt","Weapon")
+FDLU E 0 A_FireCustomMissile("FadeShot1",0,0,8,0)
+FDLU FGE 5
+FDLU E 10
+goto Ready
+Fire29:
+QDMI A 0 A_PlaySoundEx("weapon/drillfly","Weapon")
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,0,8,0)
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,0,-100,0)
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,0,8,100)
+QDMI A 0 A_FireCustomMissile("QuadMissile",0,0,-100,100)
+QDMI A 0 A_Recoil(15)
+QDMI B 3
+QDMI A 16
+goto Ready
+Fire30:
+DANF G 0 A_PlaySoundEx("weapon/mmvshot","Weapon")
+DANF G 0 A_FireCustomMissile("DangerField",0,0,8,0)
+DANF HIG 5
+DANF G 20
+goto Ready
+Fire31:
+BUST B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+BUST B 0 A_FireCustomMissile("SuperArrow",0,0,8,0)
+BUST CD 3
+BUST B 9
+goto Ready
+Fire32:
+COMT A 0 A_PlaySoundEx("weapon/megaball","Weapon")
+COMT A 0 A_FireCustomMissile("CometLaunched",0,0,8,0)
+COMT BE 4
+COMT A 16
+goto Ready
+Fire33:
+WWAV E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+WWAV E 0 A_FireCustomMissile("WaveGuide",0,0,8,0)
+WWAV FG 2
+WWAV E 8
+goto Ready
+Fire34:
+CRYE K 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+CRYE K 0 A_FireCustomMissile("CrystalMineStart",0,0,8,0)
+CRYE LMK 5
+CRYE K 30
+goto Ready
+Fire35:
+NAPA T 1 A_PlaySoundEx("weapon/DrillFly","Weapon")
+NAPA T 1 A_FireCustomMissile("DoubleNapalmR",0,0,-100,0)
+NAPA T 1 A_FireCustomMissile("DoubleNapalmL",0,0,8,0)
+NAPA UV 6
+NAPA T 16
+goto Ready
+Fire36:
+GCLB C 0 A_PlaySoundEx("weapon/twgo","Weapon")
+GCLB C 0 A_FireCustomMissile("CloudBomber",0,0,8,0)
+GCLB DE 4
+GCLB C 16
+goto Ready
+Fire37:
+STAA A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+STAA A 0 A_FireCustomMissile("SideStar",20,0,8,0)
+STAA A 0 A_FireCustomMissile("SideStar",-20,0,8,0)
+STAA IJ 1
+STAA K 18
+STAA J 2
+goto Ready
+Fire38:
+GHOL A 0 A_PlaySoundEx("weapon/gravityhold","Weapon")
+GHOL A 0 A_FireCustomMissile("GravityHole",0,0,8,0)
+GHOL CB 3
+GHOL A 20
+goto Ready
+Fire39:
+FLMB P 0 A_PlaySoundEx("weapon/coalgun","Weapon")
+FLMB P 0 A_FireCustomMissile("CoalShot4",0,0,8,0)
+FLMB QRP 3
+FLMB P 12
+goto Ready
+Fire40:
+ICSH A 0 A_PlaySoundEx("weapon/shadow","Weapon")
+ICSH A 0 A_FireCustomMissile("IceShuriken",-6,0,8,0)
+ICSH A 0 A_FireCustomMissile("IceShuriken",6,0,8,0)
+ICSH BCDEFG 2
+TNT1 A 4
+ICSH HI 1
+goto Ready
+Fire41:
+THUN H 0 A_PlaySoundEx("weapon/twshot","Weapon")
+THUN H 0 A_SpawnItemEx("TCLOUDNM", 0, 0, 0, 28, 0, 0)
+THUN IJJI 2
+THUN H 10
+THUN H 0 A_PlaySoundEx("weapon/twshot","Weapon")
+THUN H 0 A_SpawnItemEx("TCLOUDNM", 0, 0, 0, 88, 0, 0)
+THUN H 12
+THUN H 0 A_PlaySoundEx("weapon/twshot","Weapon")
+THUN H 0 A_SpawnItemEx("TCLOUDNM", 0, 0, 0, 168, 0, 0)
+THUN H 12
+goto Ready
+Fire42:
+SCBA A 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA A 0 A_SpawnItemEx("ScatterBall",32,random(-32,32),32,0,0,0,0,0,0)
+SCBA BCD 5
+SCBA A 14
+goto Ready
+Fire43:
+FRSB A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FRSB A 0 A_FireCustomMissile("FrostBomb",0,0,8,0)
+FRSB BCDEFG 2
+FRSB HI 2
+FRSB A 7
+goto Ready
+Fire44:
+FANG E 0 A_PlaySoundEx("weapon/chargekick","Weapon")
+FANG E 0 A_FireCustomMissile("ThunderFang",0,0,8,0)
+FANG FGE 5
+FANG E 10
+goto Ready
+Fire45:
+STHR A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+STHR A 0 A_FireCustomMissile("StealthRockStart",0,0,8,0)
+STHR BC 3
+STHR A 35
+goto Ready
+Fire46:
+ICES D 0 A_PlaySoundEx("weapon/hailshotgun","Weapon")
+ICES D 0 A_FireCustomMissile("HailShot",0,0,8,0)
+ICES D 0 A_FireCustomMissile("HailShot",15,0,8,0)
+ICES D 0 A_FireCustomMissile("HailShot",10,0,8,0)
+ICES D 0 A_FireCustomMissile("HailShot",-10,0,8,0)
+ICES D 0 A_FireCustomMissile("HailShot",-5,0,8,0)
+ICES EFD 3
+ICES D 8
+goto Ready
+Fire47:
+LEAF A 1 A_SpawnItemEx("FrenzyPlantBegin",30,70,0)
+LEAF A 1 A_SpawnItemEx("FrenzyPlantBegin",30,-70,0)
+LEAF A 1 
+LEAF IJ 3
+LEAF K 37
+goto Ready
+Fire48:
+POWS E 0 A_PlaySoundEx("weapon/powerstone","Weapon")
+POWS FG 2
+POWS H 1 A_FireCustomMissile("HeadCrash1",0,0,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash1",0,0,8,0)
+POWS HH 4
+POWS H 1 A_FireCustomMissile("HeadCrash2",0,0,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash2",0,0,8,0)
+POWS HH 4
+POWS H 1 A_FireCustomMissile("HeadCrash3",0,0,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash3",0,0,8,0)
+POWS HH 4
+POWS H 1 A_FireCustomMissile("HeadCrash4",0,0,8,0)
+POWS H 1 A_FireCustomMissile("HeadCrash4",0,0,8,0)
+POWS H 20
+POWS GF 4
+POWS E 30
+goto Ready
+Fire49:
+APXL BC 2
+APXL D 0 SetPlayerProperty(0,1,4)
+APXL D 17 A_PlaySoundEx("weapon/apexwarn","Weapon")
+APXL D 1
+APXL D 17
+APXL D 2 A_JumpIfInventory("IsDead",1,"NoAmmo")
+APXL D 0
+APXL D 2 A_PlaySoundEx("weapon/laserrocks","Voice")
+APXL D 0 A_FireCustomMissile("ApexLaserSpawner",0,0,8,0)
+APXL D 0 A_FireCustomMissile("ApexLaserSpawner",0,0,-64,0)
+APXL D 35
+APXL CBA 4
+APXL A 1 SetPlayerProperty(0,0,4)
+goto Ready
+Fire50:
+SPBS A 1 A_PlaySoundEx("weapon/sakugarne","Weapon")
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,0)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,90)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,180)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,70)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,35)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,45)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,105)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,135)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-90)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-180)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-70)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-35)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-45)
+SPBS B 2 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-105)
+SPBS B 0 A_SpawnItemEx("SpikeRock",3,0,0,9,0,5,-135)
+SPBS BCCB 2
+SPBS A 5
+goto Ready
+Fire51:
+RABS A 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+RABS A 2 A_SpawnItemEx("GemExplode1",20,0,0,0,0,0,0)
+RABS A 1 A_TakeInventory("GemCannonAmmo", 5)
+RABS BC 2
+RABS A 15
+goto Ready
+Fire52:
+SKBL J 0 A_PlaySoundEx("weapon/coilbounce2","Weapon")
+SKBL J 0 A_FireCustomMissile("SpikeBall2",0,0,8,0)
+SKBL LK 3
+SKBL J 20
+goto Ready
+Fire53:
+SKBL J 0 A_PlaySoundEx("weapon/superboost","Weapon")
+SKBL J 0 A_FireCustomMissile("SpikeBall1",0,0,8,0)
+SKBL LKJ 2 
+SKBL J 7
+goto Ready
+Fire54:
+RSHC A 0 A_PlaySoundEx("weapon/gemini","Weapon")
+RSHC BCA 3
+RSHC A 1 A_FireCustomMissile("OpticLaser",0,0,8,0)
+RSHC A 1 A_FireCustomMissile("OpticLaser",0,0,8,0)
+RSHC A 1 A_FireCustomMissile("OpticLaser",0,0,8,0)
+RSHC A 15
+goto Ready
+Fire55:
+RSHC A 0 A_PlaySoundEx("weapon/pshot","Weapon")
+RSHC A 0 A_FireCustomMissile("DelayBuster1",0,0,8,0)
+RSHC BCA 3
+RSHC A 7
+goto Ready
+Fire56:
+BLIZ D 0 A_PlaySoundEx("weapon/gemini","Weapon")
+BLIZ D 0 A_FireCustomMissile("FractalLaser1",0,0,8,0)
+BLIZ EF 3
+BLIZ D 20
+goto Ready
+Fire57:
+YATK C 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+YATK DEC 4
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,0,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,0,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,0,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWaveT",0,0,8,0)
+YATK C 5
+YATK C 0 A_FireCustomMissile("DimensionalWave2",0,0,8,0)
+YATK C 3
+goto Ready
+Fire58:
+FIRW A 0 A_PlaySoundEx("weapon/mbuster", "Weapon")
+FIRW A 0 A_FireCustomMissile("SizzleRocket",0,0,8,0)
+FIRW BCA 3
+FIRW A 27
+goto Ready
+Fire59:
+RAKU A 0 A_PlaySoundEx("misc/hugequake2","Weapon")
+RAKU GHIJKL 2 A_Stop
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,0)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,90)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,45)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-45)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,10)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,25)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,30)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-10)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-25)
+TNT1 A 0 A_SpawnItemEx("RakuShot2",0,0,0,28,0,0,-30)
+RAKU A 20
+goto Ready
+Fire60:
+NTSH A 0 A_PlaySoundEx("weapon/mbuster", "Weapon")
+NTSH A 0 A_FireCustomMissile("NoteableShot",0,0,8,0)
+NTSH BCA 3
+NTSH A 14
+goto Ready
+Fire61:
+DRIL D 0 A_PlaySoundEx("weapon/drillfly","Weapon")
+DRIL D 0 A_FireCustomMissile("DrillTorpSpawner",0,0,8,0)
+DRIL D 0 A_FireCustomMissile("DrillTorpNorm",0,0,8,0)
+DRIL EFD 6
+DRIL D 0
+goto Ready
+Fire62:
+TOAH A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+TOAH BCDEFG 2
+TNT1 A 2 A_SpawnItemEx("StarToad1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 2 A_SpawnItemEx("StarToad3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 2 A_SpawnItemEx("StarToad4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+TNT1 A 0 A_SpawnItemEx("ToadMorpher",0,0,0)
+TNT1 A 0 A_PlaySoundEx("weapon/rainflush","Weapon")
+TOAH HIA 1
+TOAH A 30
+goto Ready
+Fire63:
+AIRS D 0 A_PlaySoundEx("weapon/watercutter","Weapon")
+AIRS D 0 A_FireCustomMissile("WaterCutter",0,0,8,0)
+AIRS EFD 3
+AIRS D 10
+goto Ready
+Fire64:
+RSHC A 0 A_PlaySoundEx("item/refill","Weapon")
+RSHC A 0 A_SpawnItemEx("RushCannonTeleport", 64, 0, 256, 0, 0, -32, 0, SXF_NOCHECKPOSITION, 0)
+RSHC A 4
+RSHC A 13
+goto Ready
+Fire65:
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",0,0,8,0)
+PAHN A 0 A_FireCustomMissile("PharaohShotGun3",-15,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",15,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",8,0,8,0)
+PHAN A 0 A_FireCustomMissile("PharaohShotGun3",-8,0,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+goto Ready
+Fire66:
+SPMB C 0 A_TakeInventory("IHeldItMan",1)
+SPMB C 0 A_FireCustomMissile("SparkManBowProjectile",0,0,8,0)
+SPMB BA 3
+goto Ready
+Fire67:
+PHAN A 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+PHAN A 0 A_FireCustomMissile("PharaohBuild2",0,0,8,0)
+PHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+PHAN LMA 2
+PHAN A 20
+goto Ready
+Fire68:
+AIRS D 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+AIRS D 0 A_FireCustomMissile("LaserMissile",0,0,8,0)
+AIRS EFD 3
+AIRS D 16
+goto Ready
+Fire69:
+DSTS B 0 A_PlaySoundEx("weapon/dustvaccum","Weapon")
+DSTS B 0 A_FireCustomMissile("DustVaccum",0,0,8,0)
+DSTS CD 6
+DSTS B 20
+goto Ready
+Fire70:
+RING E 0 A_PlaySoundEx("weapon/ringboomerang","Weapon")
+RING E 0 A_FireCustomMissile("RingToss",0,0,8,0)
+RING FG 4
+RING E 8
+goto Ready
+Fire71:
+PCHS D 1 A_PlaySoundEx("weapon/magnetmissile","Weapon")
+PCHS D 1 A_FireCustomMissile("QuakeSkull",0,0,8,0)
+PCHS EFG 5
+PCHS D 14
+goto Ready
+Fire72:
+SUNS F 0 A_PlaySoundEx("weapon/SparkShock","Weapon")
+SUNS F 0 A_FireCustomMissile("SunSpark",0,0,8,0)
+SUNS GH 4
+SUNS F 7
+goto Ready
+Fire73:
+TOAH A 0 A_FireCustomMissile("RainFlood",0,0,8,0)
+TOAH A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+TOAH BCDEFG 2
+TNT1 A 50
+TOAH HIA 1
+TOAH A 1 A_GiveInventory("NormalGravity",1)
+goto Ready
+Fire74:
+GSHT H 0 A_PlaySoundEx("weapon/glueshot","Weapon")
+GSHT H 0 A_FireCustomMissile("GlueShotC",0,0,8,0)
+GSHT JIH 2
+GSHT H 12
+goto Ready
+Fire75:
+TNKA E 1 A_PlaySoundEx("weapon/tankarsenal","Weapon")
+TNKA E 0 A_FireCustomMissile("TankStraight",0,0,8,0)
+TNKA E 0 A_FireCustomMissile("TankGrenade",0,0,8,30)
+TNKA E 0 A_FireCustomMissile("TankFloorSpawner",0,0,8,0)
+TNKA GFE 2
+TNKA E 35
+goto Ready
+Fire76:
+YATK C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+YATK C 0 A_FireCustomMissile("YokuAttacker",0,0,8,0)
+YATK DEC 4
+YATK C 19
+Goto Ready
+Fire77:
+JTMS D 1 A_PlaySoundEx("weapon/mbuster","Weapon")
+JTMS FED 2
+JTMS D 0 A_FireCustomMissile("JetMissileHoming",0,0,8,0) 
+JTMS D 7
+goto Ready
+Fire78:
+YOHD A 0 A_PlaySoundEx("weapon/yoyocutter","Weapon")
+YOHD A 0 A_FireCustomMissile("YoYoCutter",0,0,8,0)
+YOHD BCDEFGHI 3
+YOHD A 13
+goto Ready
+Fire79:
+HMHD A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+HMHD A 0 A_FireCustomMissile("HammerTosser",0,0,8,0)
+HMHD BCDEFGIJ 3
+HMHD A 15
+goto Ready
+Fire80:
+SPDP C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+SPDP C 0 A_FireCustomMissile("DumplingBomb",0,0,8,0)
+SPDP EDC 3
+SPDP C 6
+goto Ready
+Fire81:
+NSHD A 0 A_PlaySoundEx("weapon/nailshieldthrow","Weapon")
+NSHD A 0 A_FireCustomMissile("Nail",12,0,52,0)
+NSHD A 0 A_FireCustomMissile("Nail",-12,0,-52,0)
+NSHD A 0 A_FireCustomMissile("Nail",0,0,32,0)
+NSHD A 0 A_FireCustomMissile("Nail",0,0,-32,0)
+NSHD IJ 3
+NSHD K 27
+NSHD I 3
+goto Ready
+Fire82:
+NBLS A 0 A_PlaySoundEx("weapon/nitroblast","Weapon")
+NBLS A 0 A_FireCustomMissile("NitroExplodeSpawner",0,0,8,0)
+NBLS CBA 3
+NBLS A 20
+goto Ready
+Fire83:
+NEDC B 0 A_PlaySoundEx("weapon/firestorm","Weapon")
+NEDC B 0 A_FireCustomMissile("TriAttackF",0,0,8,0)
+NEDC CDB 2
+NEDC B 6
+NEDC B 0 A_PlaySoundEx("weapon/sparkshock","Weapon")
+NEDC D 0 A_FireCustomMissile("TriAttackT",0,0,8,0)
+NEDC CDB 2
+NEDC B 6
+NEDC B 0 A_PlaySoundEx("weapon/iceslasher","Weapon")
+NEDC B 0 A_FireCustomMissile("TriAttackI",0,0,8,0)
+NEDC CDB 2
+NEDC B 17
+goto Ready
+Fire84:
+OILL A 0 A_PlaySoundEx("weapon/magdrillshoot","Weapon")
+OILL A 0 A_FireCustomMissile("OctaZooka",0,0,8,0)
+OILL CBA 2
+OILL A 18
+goto Ready
+Fire85:
+DRWE A 1 A_PlaySoundEx("weapon/junkend","Weapon")
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,0)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,15)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,30)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,45)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,60)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,75)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,90)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,105)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,120)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,135)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,150)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,165)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,180)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,195)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,210)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,225)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,240)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,255)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,270)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,285)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,300)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,315)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,330)
+DRWE A 0 A_SpawnItemEx("NightDaze",0,0,0,15,0,0,345)
+DRWE D 2
+DRWE CB 2
+DRWE A 18
+goto Ready
+Fire86:
+MNBL C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+MNBL C 0 A_SpawnItemEx("TheMoon", 256, 0, 256, 0, 0, -20, 0, SXF_NOCHECKPOSITION, 0)
+MNBL EDC 4
+MNBL C 35
+goto Ready
+Fire87:
+WOWS B 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+WOWS C 0 A_FireCustomMissile("willowisp",0,0,8,0)
+WOWS BCA 4
+WOWS B 20
+goto Ready
+Fire88:
+BUBB E 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+BUBB E 0 A_FireCustomMissile("MagnetBomb",0,0,0,0)
+BUBB E 0 A_FireCustomMissile("MagnetBomb",0,0,80,0)
+BUBB E 0 A_FireCustomMissile("MagnetBomb",0,0,-80,0)
+BUBB FE 6
+BUBB D 21
+goto Ready
+Fire89:
+BUSD A 0 A_PlaySoundEx("weapon/leafshield","Weapon")
+BUSD A 0 A_FireCustomMissile("LeafStorm",0,0,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 5
+goto Ready
+Fire90:
+WTRB H 0 A_PlaySoundEx("weapon/waterballoon","Weapon")
+WTRB H 0 A_SpawnItemEx("WaterSpout",0,0,30,0,0,15,0)
+WTRB IJ 3
+WTRB J 17
+goto Ready
+Fire91:
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,30,8,0)
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,-15,8,0)
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,15,8,0)
+BEEH A 0 A_FireCustomMissile("NotTheBees",0,0,-30,8,0)
+BEEH IJ 3
+BEEH K 27
+BEEH I 3
+goto Ready
+Fire92:
+BUBB E 0 A_PlaySoundEx("weapon/timestopper","Weapon")
+BUBB E 0 A_FireCustomMissile("SteelWing",-20,0,52,0)
+BUBB E 0 A_FireCustomMissile("SteelWing",20,0,-52,0)
+BUBB FE 6
+BUBB D 19
+goto Ready
+Fire93:
+BUSD A 0 A_PlaySoundEx("item/refill","Weapon")
+BUSD A 0 A_FireCustomMissile("SeedFlareSpawner",0,1,8,0)
+BUSD A 0
+BUSD BC 2
+BUSD A 27
+goto Ready
+Fire94:
+FIRE H 0 A_PlaySoundEx("weapon/firestorm","Weapon")
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield1", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield2", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield3", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE I 1 A_SpawnItemEx("FlameShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1
+FIRE I 1 A_SpawnItemEx("FlameShield4", 0, 0, 0, momx, momy, momz, 0, SXF_ABSOLUTEMOMENTUM, 0)
+FIRE I 1 A_SpawnItemEx("FireXplode")
+FIRE H 0 A_PlaySoundEx("weapon/firestorm","Weapon")
+FIRE I 0 A_FireCustomMissile("FireBlast",0,0,8,0)
+FIRE I 11
+FIRE H 16
+FIRE G 35
+goto Ready
+Fire95:
+FIRE G 0 A_PlaySoundEx("weapon/firestorm","Weapon")
+FIRE G 1 A_FireCustomMissile("FireBallX",0,0,8,0)
+FIRE IHG 4
+FIRE G 24
+goto Ready
+Fire96:
+FIRE G 1 A_PlaySoundEx("weapon/mbuster","Voice")
+FIRE G 0 A_GiveInventory("SRSProtection",1)
+FIRE G 0 A_SpawnItemEx("SeriousBomb",32,0,64,30,0,0,0)
+FIRE IHG 4
+FIRE G 24
+goto Ready
+Fire97:
+FLMB P 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FLMB P 0 A_FireCustomMissile("PKFire",0,0,8,0)
+FLMB QRP 5
+FLMB P 15
+Fire98:
+FIRE H 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FIRE H 1 A_FireCustomMissile("FireFly",0,0,8,0)
+FIRE H 4
+FIRE I 6
+FIRE G 9
+goto Ready
+Fire99:
+SUGD A 0 A_PlaySoundEx("weapon/cometdash","Weapon")
+SUGD ABC 3
+TNT1 A 0 SetPlayerProperty(0,1,4)
+TNT1 A 1 A_Stop
+TNT1 A 1 A_ChangeFlag("SOLID",0)
+TNT1 A 2 A_ChangeVelocity(75,0,momz,CVF_RELATIVE|CVF_REPLACE)
+TNT1 A 1 A_GiveInventory("Repulsion",1)
+TNT1 A 1 A_SpawnItemEx("SuguriSpawner",0,0,64)
+TNT1 A 0 SetPlayerProperty(0,0,4)
+TNT1 A 1 A_ChangeFlag("SOLID",1)
+SUGD A 13
+SUGD A 1 A_Refire
+goto Ready
+Fire100:
+CDHD G 0 A_PlaySoundEx("weapon/cometdash","Weapon")
+CDHD GHI 3
+TNT1 A 0 SetPlayerProperty(0,1,4)
+TNT1 A 0 SetPlayerProperty(0,1,3)
+TNT1 A 1 A_Stop
+TNT1 A 1 A_ChangeFlag("SOLID",0)
+TNT1 A 2 A_ChangeVelocity(60,0,momz,CVF_RELATIVE|CVF_REPLACE)
+TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("CometUp",0,0,0,0,0,35,0)
+TNT1 A 1 A_SpawnItemEx("CometDown",0,0,0,0,0,-35,0)
+TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("CometUp",0,0,0,0,0,35,0)
+TNT1 A 1 A_SpawnItemEx("CometDown",0,0,0,0,0,-35,0)
+TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("CometUp",0,0,0,0,0,35,0)
+TNT1 A 1 A_SpawnItemEx("CometDown",0,0,0,0,0,-35,0)
+TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("CometUp",0,0,0,0,0,35,0)
+TNT1 A 1 A_SpawnItemEx("CometDown",0,0,0,0,0,-35,0)
+TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("CometUp",0,0,0,0,0,35,0)
+TNT1 A 1 A_SpawnItemEx("CometDown",0,0,0,0,0,-35,0)
+TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
+TNT1 A 1 A_SpawnItemEx("CometUp",0,0,0,0,0,35,0)
+TNT1 A 1 A_SpawnItemEx("CometDown",0,0,0,0,0,-35,0)
+TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
+TNT1 A 0 SetPlayerProperty(0,0,4)
+TNT1 A 1 A_ChangeFlag("SOLID",1)
+TNT1 A 0 SetPlayerProperty(0,0,3)
+CDHD G 20
+goto Ready
+Fire101:
+EGGB C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+EGGB DEC 6
+EGGB C 0 A_FireCustomMissile("EggBomb",0,0,8,0)
+EGGB C 26
+goto Ready
+Fire102:
+WTRB H 0 A_PlaySoundEx("weapon/waterballoon","Weapon")
+WTRB H 0 A_FireCustomMissile("WaterPulse1",0,0,8,0)
+WTRB IJ 3
+WTRB J 21
+goto Ready
+Fire103:
+CRAS X 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+CRAS X 0 A_FireCustomMissile("ReverseCrashBomb",0,0,8,0)
+CRAS YZ 5
+CRAS X 25
+goto Ready
+Fire104:
+WOWS B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+WOWS C 0 A_FireCustomMissile("Hadouken",0,0,8,0)
+WOWS BCA 4
+WOWS B 25
+goto Ready
+Fire105:
+CBRK C 0 A_PlaySoundEx("weapon/circuit","Weapon")
+CBRK C 1 A_FireCustomMissile("CircuitBreaker",0,0,8,0)
+CBRK C 1 A_FireCustomMissile("CircuitBreakerBack",0,0,8,0)
+CBRK EDC 4
+CBRK C 14
+goto Ready
+Fire106:
+SUNS F 0 A_PlaySoundEx("weapon/flare","Weapon")
+SUNS G 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS H 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
+SUNS F 1 A_PlaySoundEx("weapon/magdrillsplit","Weapon")
+SUNS F 1 A_SpawnItemEx("SolarFlare", 0, 0, 128, 8, 0, 0)
+SUNS F 1 A_SpawnItemEx("SolarFlare", 0, 0, 128, 18, 0, 0)
+SUNS F 1 A_SpawnItemEx("SolarFlare", 0, 0, 128, 28, 0, 0)
+SUNS F 9
+goto Ready
+Fire107:
+SPAS C 2
+SPAS C 0 A_PlaySoundEx("weapon/thunderbolt","Weapon")
+SPAS C 0 A_FireCustomMissile("ShockGauntlet",0,0,8,0)
+SPAS DE 4
+SPAS D 18
+goto Ready
+Fire108:
+KNIG B 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+KNIG B 0 A_FireCustomMissile("MaceBall",0,0,8,0)
+KNIG BCD 4
+goto Ready
+Fire109:
+WWAV E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+WWAV E 1 A_FireCustomMissile("DolphinFloorSpawner",0,0,8,0)
+WWAV FG 2 
+WWAV E 12
+goto Ready
+Fire110:
+GCLB C 0 A_PlaySoundEx("weapon/tengushot","Weapon")
+GCLB C 0 A_FireCustomMissile("IonicSlash",0,0,8,0)
+GCLB DE 4
+GCLB C 1
+goto Ready
+Fire111:
+GCLB C 0 A_FireCustomMissile("SugarCube",0,0,8,0)
+GCLB DE 4
+GCLB C 10
+goto Ready
+Fire112:
+WOWS B 0 A_PlaySoundEx("weapon/pharaoh2","Weapon")
+WOWS C 0 A_FireCustomMissile("EvilEyeProj3",0,0,8,0)
+WOWS BCA 4
+WOWS B 20
+goto Ready
+Fire113:
+FLSB T 0 A_PlaySoundEx("weapon/reversegrenade","Weapon")
+FLSB T 0 A_FireCustomMissile("XbmoBhsalF",0,0,8,0)
+FLSB UV 6
+FLSB T 24
+goto Ready
+Fire114:
+PCPB C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+PCPB C 0 A_FireCustomMissile("PorcupineBomb",0,0,8,0)
+PCPB DEFGHI 2
+PCPB JK 2
+PCPB C 7
+goto Ready
+Fire115:
+SCBA A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+SCBA A 0 A_FireCustomMissile("WraithRing",0,0,80,16)
+SCBA A 0 A_FireCustomMissile("WraithRing",0,0,-80,16)
+SCBA A 0 A_FireCustomMissile("WraithRing",0,0,80,-16)
+SCBA A 0 A_FireCustomMissile("WraithRing",0,0,-80,-16)
+SCBA A 0 A_FireCustomMissile("WraithRing",0,0,0,-64)
+SCBA A 0 A_FireCustomMissile("WraithRing",0,0,0,64)
+SCBA BCD 5
+SCBA A 8
+goto Ready
+Fire116:
+PCHS D 1 A_PlaySoundEx("weapon/magnetmissile","Weapon")
+PCHS D 1 A_FireCustomMissile("Skullhoming",0,0,8,0)
+PCHS EFG 5
+PCHS D 4
+goto Ready
+Fire117:
+FLSP A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+FLSP A 0 A_FireCustomMissile("AnguishCannon",0,0,8,0)
+FLSP BCD 5
+FLSP A 9
+goto Ready
+Fire118:
+FIRE G 0 A_PlaySoundEx("weapon/firestorm","Weapon")
+FIRE G 0 A_FireCustomMissile("CatapultofDoom",0,0,8,0)
+FIRE G 1 A_FireCustomMissile("CatapultofDoom",0,0,32,0)
+FIRE G 1 A_FireCustomMissile("CatapultofDoom",0,0,64,0)
+FIRE G 1 A_FireCustomMissile("CatapultofDoom",0,0,96,0)
+FIRE IHG 4
+FIRE G 24
+goto Ready
+Fire119:
+FLSP A 0 A_PlaySoundEx("item/refill","Weapon")
+FLSP A 0 A_FireCustomMissile("CepheusTower",0,0,8,0)
+FLSP BCD 5
+FLSP A 18
+goto Ready
+Fire120:
+WWAV E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+WWAV E 1 A_FireCustomMissile("ArchonCube",0,0,8,0)
+WWAV FG 2 
+WWAV E 14
+goto Ready
+Fire121:
+THUN H 0 A_PlaySoundEx("weapon/twshot","Weapon")
+THUN H 0 A_SpawnItemEx("GenoBlast", random(-64,64), random(-128,128), 0, 28, 0, 0)
+THUN H 0 A_SpawnItemEx("GenoBlast", random(-64,64), random(-128,128), 0, 28, 0, 0)
+THUN H 0 A_SpawnItemEx("GenoBlast", random(-64,64), random(-128,128), 0, 28, 0, 0)
+THUN H 0 A_SpawnItemEx("GenoBlast", random(-64,64), random(-128,128), 0, 28, 0, 0)
+THUN H 0 A_SpawnItemEx("GenoBlast", random(-64,64), random(-128,128), 0, 28, 0, 0)
+THUN H 0 A_SpawnItemEx("GenoBlast", random(-64,64), random(-128,128), 0, 28, 0, 0)
+GHAN FGHIJK 2
+TNT1 A 4 A_ClearRefire
+GHAN LMA 2
+goto Ready
+NoAmmo:
+RAND B 1
+goto Ready
+}
+}
