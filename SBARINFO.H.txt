@@ -3,6 +3,8 @@ height 0;
 
 statusbar normal, forcescaled
 {
+InInventory not NoHud, 1
+{
 InInventory not NoHealthBar, 1
 {
 Drawbar "VARHEALT", "VAREMPTY", Health, horizontal, 130, 184;
@@ -11,8 +13,8 @@ Drawbar "VARHEALT", "VAREMPTY", Health, horizontal, 130, 184;
 	InInventory CossackTeamFlag, 1{DrawImage "CBARH", 130, 179;}
 	InInventory KingTeamFlag, 1{DrawImage "KBARH", 130, 179;}
 
-InInventory SkullShieldCheck, 1{DrawBar "VARFLS5", "VAREMPTY", Health, horizontal, 130, 184;}
-InInventory SkullBarrierProtection, 1{DrawBar "VARFLS5", "VAREMPTY", Health, horizontal, 130, 184;}
+InInventory SkullShieldCheck, 1{DrawBar "VARFLS5", "VNOBAR", SkullShieldCheck, horizontal, 130, 184;}
+InInventory SkullBarrierProtection, 1{DrawBar "VARFLS5", "VNOBAR", SkullShieldCheck, horizontal, 130, 184;}
 InInventory BasicArmor, 1{DrawBar "VARAMT31", "VNOBAR", Armor, horizontal, 130, 184;}
 }
 
@@ -903,6 +905,47 @@ IsSelected PowerTreeWep
 IsSelected bmoBhsalFWep{Drawbar"VARAMM46", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 //end v5 weps
 
+//begin v6 weps
+
+IsSelected GenoBlastWep
+	{
+	Drawbar"VARAMM49", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	InInventory WeaponCharge, 78
+	{
+	DrawBar "VARFLS4", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	}
+	}
+	
+	IsSelected ArchonCubeWep{Drawbar"VARAMM10", "VAREMPTY", Ammo1, horizontal, 58, 184;}
+	
+	IsSelected CepheusTowerWep
+	{
+	DrawBar "VARAMMO3", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	}
+	
+	IsSelected AnguishCannonWep
+	{
+	DrawBar "VARAMMO3", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	}
+	
+	IsSelected CatapultofDoom1Wep{Drawbar"VARAMMO5", "VAREMPTY", Ammo1, horizontal, 58, 184;}	
+	IsSelected CatapultofDoom2Wep{Drawbar"VARAMMO5", "VAREMPTY", Ammo1, horizontal, 58, 184;}	
+	
+	IsSelected SkullOfThanatosWep
+	{
+	DrawBar "BARAMPC2", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	}
+	
+	IsSelected PorcupineBombWep
+	{
+	DrawBar "BARAMPK2", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	}
+	
+	IsSelected WraithRingsWep{Drawbar"VARAMM14", "VAREMPTY", Ammo1, horizontal, 58, 184;}
+
+//end v6 weps
+
+
 //MM1 Bars
 IsSelected RollingCutterWep{Drawbar"VARAMMO1", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected SuperArmWep{Drawbar"VARAMMO2", "VAREMPTY", Ammo1, horizontal, 58, 184;}
@@ -941,7 +984,8 @@ IsSelected FlashStopperWep{Drawbar"VARAMM18", "VAREMPTY", Ammo1, horizontal, 58,
 IsSelected RainFlushWep{Drawbar"VARAMM19", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected DrillBombWep{Drawbar"VARAMM14", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected PharaohShotWep{Drawbar"VARAMM20", "VAREMPTY", Ammo1, horizontal, 58, 184;
-	InInventory WeaponCharge, 78{DrawBar "VARFLS4", "VAREMPTY", Ammo1, horizontal, 58, 184;}}
+	InInventory PharaohCharge, 78{DrawBar "VARFLS4", "VAREMPTY", Ammo1, horizontal, 58, 184;}
+	InInventory PharaohCharge, 1{DrawBar"VARFLS1", "VNOBAR", PharaohCharge, horizontal, 58, 184;}}
 IsSelected RingBoomerangWep{Drawbar"VARAMMO9", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected DustCrusherWep{Drawbar"VARAMMO1", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected DiveMissileWep{Drawbar"VARAMM10", "VAREMPTY", Ammo1, horizontal, 58, 184;}
@@ -1003,7 +1047,8 @@ IsSelected CopyVisionWep{Drawbar"VARAMM52", "VAREMPTY", Ammo1, horizontal, 58, 1
 IsSelected LightningBoltWep{Drawbar"VARAMM53", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected IceWallWep{Drawbar"VARAMM54", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected SpreadDrillWep{DrawBar"VARAMM55", "VAREMPTY", Ammo1, horizontal, 58, 184;}
-IsSelected RemoteMineWep{Drawbar"VARAMM56", "VAREMPTY", Ammo1, horizontal, 58, 184;}
+IsSelected RemoteMineWep{Drawbar"VARAMM56", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	InInventory WeaponCharge, 5{DrawBar "VARFLS14", "VAREMPTY", Ammo1, horizontal, 58, 184;}}
 IsSelected WaveBurnerWep{Drawbar"VARAMM57", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected MagicCardWep{Drawbar"VARAMM58", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 IsSelected TrebleBoost{Drawbar"VARAMM59", "VAREMPTY", Ammo1, horizontal, 58, 184;}
@@ -1015,9 +1060,10 @@ IsSelected TornadoBlowWep {DrawBar "VARAMM62", "VAREMPTY", Ammo1, horizontal, 58
 IsSelected JewelSatelliteWep{DrawBar "VARAMM63", "VAREMPTY", Ammo1, horizontal, 58, 184;
 	InInventory JewelShieldCheck, 1	{DrawBar "VARFLS1", "VNOBAR", JewelShieldCheck, horizontal, 58, 184;}}
 IsSelected MagmaBazookaWep{DrawBar "VARAMM64", "VAREMPTY", Ammo1, horizontal, 58, 184;
-	InInventory WeaponCharge, 20{DrawBar "VARFLS13", "VAREMPTY", Ammo1, horizontal, 58, 184;}}
+	InInventory WeaponCharge, 19 {DrawBar "VARFLS13", "VAREMPTY", Ammo1, horizontal, 58, 184;}}
 IsSelected ConcreteShotWep{DrawBar "VARAMM65", "VAREMPTY", Ammo1, horizontal, 58, 184;}
-IsSelected BlackHoleBombWep{DrawBar "VARAMM66", "VAREMPTY", Ammo1, horizontal, 58, 184;}
+IsSelected BlackHoleBombWep{DrawBar "VARAMM66", "VAREMPTY", Ammo1, horizontal, 58, 184;
+	InInventory BlackHoleBombCooldown, 1{DrawBar "VARFLS15", "VAREMPTY", Ammo1, horizontal, 58, 184;}}
 IsSelected HornetChaserWep{DrawBar "VARAMM67", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 
 //MM10
@@ -1040,8 +1086,8 @@ IsSelected ScrewCrusherWep{Drawbar"VARAMM50", "VAREMPTY", Ammo1, horizontal, 58,
 IsSelected BalladeCrackerWep{Drawbar"VARAMM51", "VAREMPTY", Ammo1, horizontal, 58, 184;}
 
 //Assists
-InInventory RushJetCounter, 5{DrawImage "RUSHH2H8", 290,8;}
-InInventory RushJetCounter, 1{DrawImage "RUSHOUT", 290,8;}
+InInventory RushJetCounter, 5{DrawImage "RUSHH2H8", 290,16;}
+InInventory RushJetCounter, 1{DrawImage "RUSHOUT", 290,16;}
 InInventory RushMarineCounter, 1{InInventory IsUnderWater, 1{
 	InInventory RushMarineCounter, 5{DrawImage "RUSHO0", 290,8;}
 	InInventory RushMarineCounter, 1{DrawImage "RUSHMOUT", 290,8;}}
@@ -1050,6 +1096,7 @@ InInventory BeatCallCheck, 1{DrawImage "BEATD0", 298,16;}
 InInventory BeatCounter, 5{DrawImage "BEATB8B2", 298,16;}
 InInventory BeatCounter, 1{DrawImage "BEATOUT",298,16;}
 InInventory BeatSupportActivated, 1{DrawImage "BSPTA0",314,16;}
+InInventory BeatSupportFired, 1 {DrawImage "BSPTB0",314,16;}
 InInventory Flashed, 1{DrawImage "FBLIND",  -30,-20;}	
 InInventory EnergyBalancerActive, 1{DrawImage "NRGOUT", 267, 10;}
 
@@ -1061,5 +1108,10 @@ InInventory BossHealth4, 1{DrawBar "VARHEALT", "VAREMPTY", BossHealth4, horizont
 InInventory BossHealth5, 1{DrawBar "VARHEALT", "VAREMPTY", BossHealth5, horizontal, 202, 184;}
 InInventory BossHealth6, 1{DrawBar "VARHEALT", "VAREMPTY", BossHealth6, horizontal, 202, 184;}
 InInventory BossHealth7, 1{DrawBar "VARHEALT", "VAREMPTY", BossHealth7, horizontal, 202, 168;}
+InInventory BossHealth8, 1{DrawBar "VARHEALT", "VAREMPTY", BossHealth8, horizontal, 202, 184;}
 InInventory EvilRobotShield, 1{DrawBar "VARAMM32", "VAREMPTY", BossHealth1, horizontal, 202, 184;}
+
+// Misc
+InInventory TimeStoppedCounter, 1{DrawImage "FLASHS", 36, 0;}
+}
 }

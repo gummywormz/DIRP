@@ -1,0 +1,149 @@
+actor CatapultofDoom1Wep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Tag  "Catapult of Doom"
+Obituary "%o was doomed by %k's Catapult of Doom."
+Weapon.SlotNumber 2
+Inventory.Pickupmessage "Power up! Catapult of Doom!"
+weapon.ammotype "CatapultofDoomAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "CPODICO"
+Scale 2.0
+States
+{
+Spawn:
+CPOD B -1
+stop
+Ready:
+FIRE G 0 ACS_ExecuteAlways(998,0,21)
+FIRE G 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FIRE G 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FIRE G 1 A_Raise
+Loop
+Fire:
+FIRE G 0 A_JumpIfNoAmmo("NoAmmo")
+FIRE G 0 A_PlaySoundEx("weapon/firestorm","Weapon")
+FIRE G 0 A_FireCustomMissile("CatapultofDoom",0,1,8,0)
+FIRE G 1 A_FireCustomMissile("CatapultofDoom",0,0,32,0)
+FIRE G 1 A_FireCustomMissile("CatapultofDoom",0,0,64,0)
+FIRE G 1 A_FireCustomMissile("CatapultofDoom",0,0,96,0)
+FIRE IHG 4
+FIRE G 24
+FIRE G 0 A_Refire
+goto Ready+1
+NoAmmo:
+FIRE G 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor CatapultofDoom2Wep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Tag  "Catapult of Doom"
+Obituary "%o was doomed by %k's Catapult of Doom."
+Weapon.SlotNumber 3
+Inventory.Pickupmessage "Power up! Catapult of Doom!"
+weapon.ammotype "CatapultofDoomAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "CPODICO"
+Scale 2.0
+States
+{
+Spawn:
+CPOD B -1
+stop
+Ready:
+FIRE G 0 ACS_ExecuteAlways(998,0,21)
+FIRE G 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+FIRE G 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+FIRE G 1 A_Raise
+Loop
+Fire:
+FIRE G 0 A_JumpIfNoAmmo("NoAmmo")
+FIRE G 0 A_PlaySoundEx("weapon/firestorm","Weapon")
+FIRE G 0 A_FireCustomMissile("CatapultofDoom",0,1,random(-16,16),0)
+FIRE IHG 4
+FIRE G 3
+FIRE G 0 A_Refire
+goto Ready+1
+NoAmmo:
+FIRE G 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor CatapultOfDoomGiver : CustomInventory
+{
+Inventory.Pickupmessage "Power up! Catapult of Doom!"
+inventory.pickupsound "weapon/weaponup"
+Inventory.RespawnTics 1
+scale 2.5
+states
+{
+Spawn:
+CPOD B -1
+stop
+Pickup:
+CPOD B 0 A_JumpIfInventory("CatapultofDoom1Wep",1,"Fale")
+CPOD B 0 A_JumpIfInventory("CatapultofDoom2Wep",1,"Fale")
+CPOD B 0 A_jump(256,"Give1","Give2")
+stop
+Give1:
+CPOD B 0 A_GiveInventory("CatapultofDoom1Wep")
+stop
+Give2:
+CPOD B 0 A_GiveInventory("CatapultofDoom2Wep")
+stop
+Fale:
+CPOD B 1
+fail
+}
+}
+
+actor CatapultOfDoom
+{
+PROJECTILE
+damagetype "FireStorm"
+-NOGRAVITY
+Obituary "%o was doomed by %k's Catapult of Doom."
+Radius 6
+Height 7
+scale 2.5
+Damage (1)
+speed 30
+States
+{
+Spawn:
+CPOD A 4 thrustthingz(0,25,1,0)
+loop
+Death:
+CPOD A 0 A_Stop
+NAPA D 0 A_PlaySoundEx("weapon/crackerexplode", "Weapon")
+NAPA D 0 A_Explode(27, 128, 0)
+NAPA EFGHIJKLMNOPQRS 1
+stop
+}
+}
+
+actor CatapultofDoomAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}

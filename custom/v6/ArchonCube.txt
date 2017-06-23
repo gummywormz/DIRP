@@ -1,0 +1,122 @@
+actor ArchonCube
+{
+PROJECTILE
+damagetype "RingBoomerang"
+scale 2.5
+-NOGRAVITY
++DONTBLAST
++HEXENBOUNCE
+BounceType HEXENCOMPAT
+WallBounceFactor 0.8
+BounceFactor 0.8
++CANBOUNCEWATER
+bouncecount 8
+bouncefactor 0.8
+Speed 30
+Radius 15
+Obituary "%o became subservant to %k's Archon Cube."
+Height 8
+gravity 0.50
+Damage (1)
+reactiontime 60
+States
+{
+Spawn:
+ARHC A 0
+ARHC A 15
+CEPL A 0 A_PlaySoundEx("item/refill","Weapon")
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,0)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,15)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,30)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,45)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,60)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,75)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,90)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,105)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,120)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,135)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,150)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,165)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,180)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,195)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,210)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,225)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,240)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,255)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,270)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,285)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,300)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,315)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,330)
+CEPL A 0 A_SpawnItemEx("ArchonBlast",0,0,0,15,0,0,345)
+ARHC A 3 A_CountDown
+loop
+}
+}
+
+actor ArchonBlast
+{
+PROJECTILE
+Scale 2.0
+Speed 90
+Damagetype "WaterBalloon"
+Obituary "%o became subservant to %k's Archon Cube."
+Damage (6)
+Radius 32
+Height 32
+States
+{
+Spawn:
+DUOR T 1 A_FadeOut(0.15)
+loop
+}
+}
+
+actor ArchonCubeWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 3
+Inventory.Pickupmessage "Power Up! Archon Cube"
+Obituary "%o became subservant to %k's Archon Cube."
+Tag "Archon Cube"
+weapon.ammotype "ArchonCubeAmmo"
+inventory.icon "ARHCICO"
+States
+{
+Spawn:
+ARHC B -1
+stop
+Ready:
+WWAV E 0 ACS_ExecuteAlways(998,0,32)
+WWAV E 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+WWAV E 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+WWAV E 1 A_Raise
+Loop
+Fire:
+WWAV E 0 A_JumpIfNoAmmo("NoAmmo")
+WWAV E 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+WWAV E 1 A_FireCustomMissile("ArchonCube",0,1,8,0)
+WWAV FG 2 
+WWAV E 14
+WWAV E 0 A_Refire
+Goto Ready+1
+NoAmmo:
+WWAV E 0 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+
+actor ArchonCubeAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}

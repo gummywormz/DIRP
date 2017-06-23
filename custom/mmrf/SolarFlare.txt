@@ -67,6 +67,7 @@ Loop
 Fire:
 SUNS F 0 A_JumpIfNoAmmo("NoAmmo")
 SUNS F 0 A_PlaySoundEx("weapon/flare","Weapon")
+SUNS F 0 ACS_ExecuteAlways(693,0)
 SUNS F 0 A_TakeInventory("SolarFlareAmmo",5)
 SUNS G 2 A_SpawnItemEx("SolarFlareFX",0,0,128)
 SUNS H 2 A_SpawnItemEx("SolarFlareFX",0,0,128)

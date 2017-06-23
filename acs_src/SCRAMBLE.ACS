@@ -15,7 +15,7 @@ str DIRPRune[6]={
 "ReflectionRune",
 };
 
-str DIRPWep1[134]={
+str DIRPWep1[142]={
 "SpeedGearWep",
 "RakuhouhaWep",
 "WaterShurikenWep",
@@ -153,15 +153,26 @@ str DIRPWep1[134]={
 "LightningStormWep",
 "SugarCubeWep",
 "EvilEyeWep",
-"bmoBhsalFWep"
+"bmoBhsalFWep",
+
+"CatapultOfDoomGiver",
+"ArchonCubeWep",
+"CepheusTowerWep",
+"WraithRingsWep",
+"PorcupineBombWep",
+"SkullOfThanatosWep",
+"GenoBlastWep",
+
+"AnguishCannonWep"
+
 };
 
 Script 709 OPEN
 {
 	DIRPRuneRandom = random(0,5);
-	DIRPwep1Random = Random(0,133);
-	DIRPwep2Random = Random(0,133);
-	DIRPwep3Random = Random(0,133);
+	DIRPwep1Random = Random(0,141);
+	DIRPwep2Random = Random(0,141);
+	DIRPwep3Random = Random(0,141);
 }
 
 //Scramble mode! This is lodged in here because all the arrays are already here

@@ -1,0 +1,104 @@
+actor porcupineBomb
+{
+PROJECTILE
+damagetype "HyperBomb"
+-NOGRAVITY
+Obituary "%o was stung by %k's Porcupine Bomb."
+Radius 6
+Height 7
+scale 2.5
+speed 20
+States
+{
+Spawn:
+PCPB A 4 thrustthingz(0,20,1,0)
+loop
+Death:
+PCPB A 0 A_Stop
+PCPB A 0 A_PlaySoundEx("weapon/crackerexplode", "Weapon")
+PCPB A 0 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 0 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 0)
+TNT1 A 0 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 45)
+TNT1 A 0 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 90)
+TNT1 A 0 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 67)
+TNT1 A 0 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 123)
+TNT1 A 0 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 180)
+TNT1 A 0 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 225)
+TNT1 A 1 A_SpawnItemEx("PoisonNeedle", 0, 0, 16, 25, 0, 0, 270)
+stop
+}
+}
+
+actor PoisonNeedle : Needle
+{
+Translation "220:220=111:111"
+scale 2.5
+damage (10)
+Obituary "%o was stung by %k's Porcupine Bomb."
+damagetype "NeedleCannon"
+PoisonDamage 60
+speed 25
+States
+{
+Spawn:
+NEDC A -1
+stop
+}
+}
+
+actor PorcupineBombAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
+}
+
+
+actor PorcupineBombWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Tag  "Porcupine Bomb"
+Obituary "%o was stung by %k's Porcupine Bomb."
+Inventory.Pickupmessage "Power up! Porcupine Bomb!"
+weapon.ammotype "PorcupineBombAmmo"
+inventory.pickupsound "weapon/weaponup"
++WEAPON.AMMO_OPTIONAL
+inventory.icon "PCPBICO"
+Scale 2.0
+States
+{
+Spawn:
+PCPB B -1
+stop
+Ready:
+PCPB C 0 ACS_ExecuteAlways(998,0,244)
+PCPB C 0 A_JumpIfNoAmmo("NoAmmo")
+PCPB C 1 A_WeaponReady
+Goto Ready+2
+ReadyNoAmmo:
+PCPB L 1 A_WeaponReady
+PCPB L 0 A_JumpIfNoAmmo("ReadyNoAmmo")
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+PCPB C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+PCPB C 1 A_Raise
+Loop
+Fire:
+PCPB C 0 A_JumpIfNoAmmo("NoAmmo")
+PCPB C 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+PCPB C 0 A_FireCustomMissile("PorcupineBomb",0,1,8,0)
+PCPB DEFGHI 2
+PCPB JK 2
+PCPB C 7
+PCPB C 0 A_Refire
+Goto Ready+1
+NoAmmo:
+PCPB L 1 ACS_Execute(979,0)
+Goto ReadyNoAmmo
+}
+}

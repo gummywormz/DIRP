@@ -2743,6 +2743,29 @@ object SuguriRing1
 frame PLSRA {light BLUELIGHT3}
 }
 
+object SkullHoming
+{
+frame SKTHA {light FIRELIGHT}
+}
+
+object AnguishCannon
+{
+frame ANGC {light BLUELIGHT}
+}
+
+object CatapultOfDoom
+{
+frame CPODA {light FIRELIGHT}
+}
+
+object TBoltGB1
+{
+frame GNOBA {light FLASHBOMB1}
+frame GNOBB {light FLASHBOMB1}
+frame GNOBC {light FLASHBOMB1}
+frame GNOBD {light FLASHBOMB1}
+}
+
 object SuguriRing2
 {
 frame PLSRA {light BLUELIGHT3}

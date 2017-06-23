@@ -4,6 +4,7 @@ PROJECTILE
 +RIPPER
 Scale 2.5
 Height 2
+Damagetype "QuickBoomerang"
 Obituary "%o was sliced up by %k's shock gauntlet chain"
 Radius 2
 Speed 0
@@ -22,7 +23,7 @@ actor ShockGauntlet
 PROJECTILE
 +RIPPER
 +PIERCEARMOR
-Damage (10)
+Damage (5)
 Radius 8
 Height 5
 Scale 2.5

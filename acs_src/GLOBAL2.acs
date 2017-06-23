@@ -20,6 +20,7 @@ GiveInventory("PossesionReset",1);
 Script 603 RESPAWN
 {
 Acs_ExecuteAlways(602,0,0);
+Acs_ExecuteAlways(681,0,0);
 }
 
 //604 taken by wephelp
@@ -53,6 +54,23 @@ Fadeto(0, 0, 0, 0.94, 0.5);
 Delay(35 * 4);
 Fadeto(0, 0, 0, 0.0, 0.5);
 }
+//instagib mode
+Script 681 ENTER
+{
+	Delay(5);
+	if(GetCvar("instagib")==1){
+	TakeInventory("IGMetalBladeWep",1);
+	GiveInventory("TheUltimateWeapon",1);
+	GiveInventory("IGMovement",1);
+	}
+}
+//z heal block
+Script 689 (void)
+{
+GiveInventory("RageRune",1);
+Delay(35 * 4);
+TakeInventory("RuneDoubleFiringSpeed",1);
+}
 
 Script 690 (void)
 {
@@ -71,6 +89,12 @@ script 692 (void)
 SetActorProperty(ActivatorTID(), APROP_Gravity, 0.8);
 Delay(3);
 SetActorProperty(ActivatorTID(), APROP_Gravity, 0.25);
+}
+
+//refresh screen with some weapons
+Script 693 (void)
+{
+Fadeto(0, 0, 0, 0.0, 0.5);
 }
 
 script 694 (void)

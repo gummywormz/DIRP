@@ -115,3 +115,19 @@ v5:
 v5a compatibility
 All weapons have name tags
 Added 8 new weapons and 1 new item
+
+-------------------------------------------------------------------------------------
+v6a:
+
+v5b compatibility
+Added 8 (or 9...) new weapons
+Instagib mode has been replaced by "Ultimate Weapon" mode, where you fire almost every weapon in the game at once. Don't get toasted!
+
+Bee Order - Bee Order no longer heals if the user is affected by Heal Block
+Heal Block - Becomes Z Heal Block if used in lms
+Ice Beam - No more hitstun
+Shock Gauntlet - Head damage nerf from 10 to 5. No More hitstun on the chains
+PK Fire - No more hitstun. Damage nerf from 13 to 10
+Seed Flare - Damage nerf from 17 to 12
+
+Solar Flare, Spark Manbow, and Rainbow Beam - They now refresh your screen from darkness / blinding effects upon firing them

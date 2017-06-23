@@ -209,7 +209,7 @@ Scale 2.0
 States
 {
 Spawn:
-WEA2 Y 0
+TNT1 A 0
 stop
 Ready:
 TNT1 A 0 ACS_ExecuteAlways(998,0,44)
@@ -576,7 +576,7 @@ BeatAssist:
 Goto Pain+1
 Pain:
 4ROG H 1 A_ScaleVelocity(0.75) // I put a tic here. I hope it didn't break anything. Call 555-256-@CutmanMike for details
-4ROG H 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb")
+4ROG H 0 //A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb")
 4ROG H 0 A_Pain
 4ROG H 1 A_SpawnItem("PainFX",0,3)
 4ROG H 1 A_Recoil(1)
@@ -671,35 +671,6 @@ Ice:
 4ROG Z 1 A_CheckPlayerDone
 wait
 //stop
-PunkSpin:
-4ROG AVW 3
-4ROG XY 3
-Goto PunkSpin+3
-PunkStop:
-4ROG WV 5
-Goto Spawn+2
-EnkerRaise:
-4ROG Y 1
-loop
-EnkerAbsorb:
-4ROG Y 0 A_PlaySound("weapon/mirrorabsorb")
-4ROG Y 0 A_GiveInventory("EnkerMirrorCount",1)
-Goto EnkerAbsorb3
-EnkerAbsorb3:
-4ROG Y 3 ACS_ExecuteAlways(998,0,65)
-4ROG Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb2")
-Goto Spawn+2
-EnkerAbsorb2:
-4ROG Y 3 ACS_ExecuteAlways(998,0,66)
-4ROG Y 0 A_JumpIfInventory("EnkerMirrorCount",1,"EnkerAbsorb3")
-Goto Spawn+2
-DarkLeap:
-4ROG Y 1 A_SpawnItemEx("DarkDamager")
-4ROG Y 0 A_JumpIf(z-floorz==0,"Spawn")
-loop
-BalladeJump:
-4ROG Y 5 A_SpawnItemEx("BalladeMelee")
-loop
 TheEnd:
 4ROG G 4
 loop

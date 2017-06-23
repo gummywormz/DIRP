@@ -1141,3 +1141,59 @@ graphic RBOMICO, 30, 30
    YScale 2.0
    Patch RBOMA0, 0, 0
 }
+
+graphic PCPBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch PCPBB0, 0, 0
+}
+
+graphic WRRNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WRRNB0, 0, 0
+}
+
+graphic SKTHICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SKTHB0, 0, 0
+}
+
+graphic CEPLICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CEPLB0, 0, 0
+}
+
+graphic CPODICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CPODB0, 0, 0
+}
+
+graphic ANGCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch ANGCE0, 0, 0
+}
+
+graphic ARHCICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch ARHCB0, 0, 0
+}
+
+graphic GNOBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch GNOBE0, 0, 0
+}

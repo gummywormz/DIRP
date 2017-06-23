@@ -80,7 +80,7 @@ CDHD G 0 A_JumpIfNoAmmo("NoAmmo")
 CDHD G 0 A_PlaySoundEx("weapon/cometdash","Weapon")
 CDHD GHI 3
 TNT1 A 0 SetPlayerProperty(0,1,4)
-TNT1 A 0 A_ChangeFlag("NOGRAVITY",1)
+TNT1 A 0 SetPlayerProperty(0,1,3)
 TNT1 A 1 A_Stop
 TNT1 A 1 A_ChangeFlag("SOLID",0)
 TNT1 A 2 A_ChangeVelocity(60,0,momz,CVF_RELATIVE|CVF_REPLACE)
@@ -113,7 +113,7 @@ TNT1 A 1 A_FireCustomMissile("CometDasher",0,0,0,0)
 
 TNT1 A 0 SetPlayerProperty(0,0,4)
 TNT1 A 1 A_ChangeFlag("SOLID",1)
-TNT1 A 0 A_ChangeFlag("NOGRAVITY",0)
+TNT1 A 0 SetPlayerProperty(0,0,3)
 CDHD G 20
 CDHD G 1 A_Refire
 Goto Ready+1
