@@ -4,8 +4,8 @@ actor PKFire // : MaceFX1
 PROJECTILE
 -NOGRAVITY
 Obituary "%o was incinerated by %k's PK fire."
-Damage (13)
-damagetype "FlameBlast"
+Damage (10)
+damagetype "QuickBoomerang"
 Height 5
 Radius 6
 Scale 2.5

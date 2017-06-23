@@ -36,6 +36,7 @@ SPMB A 1 A_Raise
 Loop
 Fire:
 SPMB A 0 A_JumpIfNoAmmo("NoAmmo")
+SUNS F 0 ACS_ExecuteAlways(693,0)
 SPMB A 0 A_JumpIfInventory("IHeldItMan",1,"Hold")
 SPMB A 1 A_PlaySoundEx("weapon/sparkmanbow","Weapon")
 SPMB A 0 A_FireCustomMissile("SparkManBowTemp",0,1,8,0)

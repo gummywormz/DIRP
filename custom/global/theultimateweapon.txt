@@ -14,26 +14,26 @@ States{
 Spawn:
 TNT1 A 0
 stop
-Ready: // This state is for when the weapon is idle, ready to be fired or switched out.
-TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1) // This calls the color changing script. The last argument defines what colors to change to player to (see WCOLORS for more info)
-RAND B 2 A_WeaponReady // A_WeaponReady is called when you want to allow the player to do something with the weapon, so it must be called repeatedly in the idle state.
+Ready: 
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND C 2 A_WeaponReady
+RAND B 4 A_WeaponReady 
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND D 2 A_WeaponReady
+RAND C 4 A_WeaponReady
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND E 2 A_WeaponReady
+RAND D 4 A_WeaponReady
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND F 2 A_WeaponReady
+RAND E 4 A_WeaponReady
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND G 2 A_WeaponReady
+RAND F 4 A_WeaponReady
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND H 2 A_WeaponReady
+RAND G 4 A_WeaponReady
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND I 2 A_WeaponReady
+RAND H 4 A_WeaponReady
 TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
-RAND J 2 A_WeaponReady
-Goto Ready // Go back to ready but skip the ACS_ExecuteAlways function.
+RAND I 4 A_WeaponReady
+TNT1 A 0 ACS_ExecuteAlways(998,0,random(1,100),1)
+RAND J 4 A_WeaponReady
+Goto Ready
 Deselect:
 TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
 RAND H 1 A_Lower

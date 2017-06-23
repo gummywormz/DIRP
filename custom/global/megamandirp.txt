@@ -70,6 +70,7 @@ Pain.WaveBurner:
 Pain.WaveBurnerUW:
 Pain.Misc:
 Pain.Treble:
+Pain.IceBeam:
 Pain.FlameSwordSpark:
 PLY1 H 0 
 Goto pain+1

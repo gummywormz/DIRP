@@ -334,5 +334,32 @@ HudMessage(s:"Power Tree - A simple tree platform that blocks projectiles and is
 
 if(CheckWeapon("bmoBhsalFWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"Reverse Grenade - A reverse flash bomb. Damage - 40,30,20 explosive with 80 range, 20 base"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+//v6
+if(CheckWeapon("PorcupineBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Porcupine Bomb - An attack that splits into 8 poison needles. Damage - 10 base and 60 poison"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("WraithRingsWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Wraith Rings - Fires 6 fast but weak homing shots. Damage - 3"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("SkullofThanatisWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Skull of Thanatos - An explosive homing weapon. Damage - 5 base with 25 explosive, 128 range"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("AnguishCannonWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Anguish Cannon - A large ripping projectile. Damage - 8 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("CatapultOfDoom1Wep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Catapult Of Doom - Quickly fires many explosive projectiles affected by gravity. Damage - 27 explosive with 128 range"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("CatapultOfDoom2Wep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Catapult Of Doom - Quickly fires many explosive projectiles affected by gravity. Damage - 27 explosive with 128 range"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("CepheusTowerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Cepheus Tower - Creates a tower that sends 3 shockwaves in rapid succession. Damage - 1 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("ArchonCubeWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Archon Cube - A fast bouncing cube that occasionally sends shockwaves. Damage - 6"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+if(CheckWeapon("GenoBlastWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Geno Blast - A chargeable weapon that sends powerful blasts from the sky in a radius around your player. Damage - 5 explosive with 150 range"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
 
 }

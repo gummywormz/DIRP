@@ -97,6 +97,7 @@ Fire:
 RNBW E 1 A_JumpIfInventory("RainbowFired1",1,"AsplodeIt")
 RNBW E 1 A_JumpIfInventory("RainbowFired2",1,"NoAmmo")
 RNBW E 0 A_JumpIfNoAmmo("NoAmmo")
+SUNS F 0 ACS_ExecuteAlways(693,0)
 RNBW E 0 A_PlaySoundEx("weapon/rainbowbeammega","Weapon")
 RNBW E 0 A_FireCustomMissile("RainbowBeamMega",0,1,8,0)
 RNBW E 0 A_GiveInventory("RainbowFired1",1)

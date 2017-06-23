@@ -88,6 +88,7 @@ BEEH K 27
 BEEH I 3
 goto Ready+1
 Heal:
+BEHH A 1 A_JumpIfInventory("HealBlocker",1,"NoAmmo")
 BEEH A 1 A_PlaySoundEx("item/refill","Weapon")
 BEEH A 1 A_TakeInventory("BeeOrderAmmo",16)
 BEEH A 1 HealThing(15)
