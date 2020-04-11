@@ -231,7 +231,7 @@ if(CheckWeapon("IceShardWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"Summons random ice shards quickly. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
 if(CheckWeapon("TriAttackWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"Fires fire, ice, and electric attacks in succession. Damage: 10"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
-if(CheckWeapon("BlazeKickWepWep")==1){SetFont("SMALLFONT");
+if(CheckWeapon("BlazeKickWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"Flings you back upon hitting an enemy. Damage: 8 base, 20 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
 if(CheckWeapon("OctaZookaWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"A powerful cannon that darkens the enemy's screen. Damage: 30 base, 15 explosive"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
@@ -361,5 +361,22 @@ HudMessage(s:"Archon Cube - A fast bouncing cube that occasionally sends shockwa
 
 if(CheckWeapon("GenoBlastWep")==1){SetFont("SMALLFONT");
 HudMessage(s:"Geno Blast - A chargeable weapon that sends powerful blasts from the sky in a radius around your player. Damage - 5 explosive with 150 range"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+
+
+
+if(CheckWeapon("HWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"H - H! Damage: 3 - 50"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ActualNapalmBombWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Actual Napalm Bomb - Summons a napalm bomb that breaks into flames. Damage: 2 ripper"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ConcussiveKnuckleWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Concussive Knuckle - A Hard Knuckle that summons explosions every so often. Damage: 30 base, 18 * 4 explosive 64 radius"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TopRiderWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Top Rider - Summons a top platform to ride and fly with. Damage - 20 explosive 90 radius"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("SparkBouncerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Spark Bouncer - A spark shock bounces along the ground, sending sparks flying. Damage: 6 split, 22 initial"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("ShadowBreakerWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"Shadow Breaker - A shadow blade that splits into four more. Damage: 10 initial 7 split"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
+if(CheckWeapon("TenKNullWep")==1){SetFont("SMALLFONT");
+HudMessage(s:"10k Null - Summons ten copy visions to fire a few shots forward in a random pattern. Damage: 20"; HUDMSG_PLAIN, 10, CR_White, 0.1, 400.0, 10.0);}
 
 }

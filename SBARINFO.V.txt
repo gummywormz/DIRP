@@ -948,6 +948,17 @@ IsSelected GenoBlastWep
 	IsSelected WraithRingsWep{Drawbar"BARAMM14", "BAREMPTY", Ammo1, vertical, 16, 8;}
 //end v6 weps
 
+//begin v7 weps
+IsSelected SparkBouncerWep{Drawbar"BARAMM12", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected ShadowBreakerWep{Drawbar"BARAMMO7", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected ConcussiveKnuckleWep{Drawbar"BARAMM16", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected TopRiderWep{Drawbar"BARAMMO6", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected ActualNapalmBombWep{Drawbar"BARAMM24", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected TenKNullWep{Drawbar"BARAMM52", "BAREMPTY", Ammo1, vertical, 16, 8;}
+IsSelected HWep
+	{
+	Drawbar"BARAMRSH", "BAREMPTY", Ammo1, vertical, 16, 8;
+	}
 //MM1 Bars
 IsSelected RollingCutterWep{Drawbar"BARAMMO1", "BAREMPTY", Ammo1, vertical, 16, 8;}
 IsSelected SuperArmWep{Drawbar"BARAMMO2", "BAREMPTY", Ammo1, vertical, 16, 8;}

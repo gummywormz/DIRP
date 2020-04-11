@@ -5,7 +5,7 @@
 #include "8bdmlib.acs"// included with MM8BDM under acs_source.
 					  // See 8bdmlib.acs for details.
 
-#DEFINE MAX_WEAPONS_GLOBAL 250 // Maximum number of weapons for the following arrays
+#DEFINE MAX_WEAPONS_GLOBAL 257 // Maximum number of weapons for the following arrays
 // v6's weapon total would be 94
 // v7's weapon total would be 103
 #DEFINE MAX_BUSTERS 7 // Maximum number of non-ammo buster upgrades for the following arrays
@@ -306,7 +306,17 @@ str weapons_ammo[MAX_WEAPONS_GLOBAL][7] =
 {"CatapultOfDoom2Wep","CatapultofDoomAmmo","Catapult of Doom",1.0, "YES", "YES","SLOT_RAPID"},
 {"CepheusTowerWep","CepheusTowerAmmo","Cepheus Tower",1.0, "YES", "YES","SLOT_POWER"},
 {"ArchonCubeWep","ArchonCubeAmmo","Archon Cube",1.0, "YES", "YES","SLOT_RANGED"},
-{"GenoBlastWep","GenoBlastAmmo","Geno Blast",1.0, "YES", "YES","SLOT_POWER"}
+{"GenoBlastWep","GenoBlastAmmo","Geno Blast",1.0, "YES", "YES","SLOT_POWER"},
+
+{"HWep","HAmmo","H",1.0, "YES", "YES","SLOT_RAPID"},
+{"TenKNullWep","TenKNullAmmo","10k null",1.0, "YES", "YES","SLOT_POWER"},
+{"ActualNapalmBombWep","ActualNapalmBombAmmo","Actual Napalm Bomb",1.0, "YES", "YES","SLOT_POWER"},
+
+{"SparkBouncerWep","SparkBouncerAmmo","Spark Bouncer",1.0, "YES", "YES","SLOT_RANGED"},
+{"TopRiderWep","TopRiderAmmo","Top Rider",1.0, "YES", "YES","SLOT_POWER"},
+{"ConcussiveKnuckleWep","ConcussiveKnuckleAmmo","Concussive Knuckle",1.0, "YES", "YES","SLOT_POWER"},
+{"ShadowBreakerWep","ShadowBreakerAmmo","ShadowBreaker",1.0, "YES", "YES","SLOT_RANGED"}
+
 };
 
 str BusterUpgrades[MAX_BUSTERS] =

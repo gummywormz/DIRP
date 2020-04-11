@@ -263,3 +263,14 @@ Catapult Of Doom - Quickly fires many explosive projectiles affected by gravity.
 Cepheus Tower - Creates a tower that sends 3 shockwaves in rapid succession. 
 Archon Cube - A fast bouncing cube that occasionally sends shockwaves.
 Geno Blast - A chargeable weapon that sends powerful blasts from the sky in a radius around your player.
+
+Included in v7a:
+
+10k Null - Summons ten copy visions to fire a few shots forward in a random pattern. Damage: 20
+H - H! Damage: 3 - 50
+Actual Napalm Bomb - Summons a napalm bomb that breaks into flames. Damage: 2 ripper
+Spark Bouncer - A spark shock bounces along the ground, sending sparks flying. Damage: 6 split, 22 initial
+Top Rider - Summons a top platform to ride and fly with. Damage - 20 explosive 90 radius
+Concussive Knuckle - A Hard Knuckle that summons explosions every so often. Damage: 30 base, 18 * 4 explosive 64 radius
+Shadow Breaker - A shadow blade that splits into four more. Damage: 10 initial 7 split
+Wolf Howl - If you are above 50 HP, double your damage. If you are below 50 HP, half your damage taken.

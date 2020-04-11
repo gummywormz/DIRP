@@ -750,6 +750,18 @@ frame SPASA { light SPARKSHOCK }
 frame SPASB { light SPARKSHOCK }
 }
 
+object SparkBounce
+{
+frame SPASA { light SPARKSHOCK }
+frame SPASB { light SPARKSHOCK }
+}
+
+object SparkShock2
+{
+frame SPASA { light SPARKSHOCK }
+frame SPASB { light SPARKSHOCK }
+}
+
 flickerlight GRENADE_X1
 {
     color 1.0 1.0 0.0
@@ -914,6 +926,16 @@ frame COPY {light GREENLIGHT}
 }
 
 object CopyVision
+{
+frame COPY {light GREENLIGHT}
+}
+
+object CopyShot10k
+{
+frame COPY {light GREENLIGHT}
+}
+
+object CopyVision10k
 {
 frame COPY {light GREENLIGHT}
 }
@@ -1707,6 +1729,11 @@ offset 0 25 0
 object flameblast
 {
 frame FLMBH { light HOLYFLAM1 }
+}
+
+object NapalmFlame
+{
+frame BRNF { light HOLYFLAM1 }
 }
 
 object flamepillar
@@ -2525,6 +2552,22 @@ frame CRASW { light NAPAEXPLO3 }
 }
 
 object CrashBombCeiling
+{
+frame CRASK { light NAPAEXPLO7 }
+frame CRASL { light NAPAEXPLO5 }
+frame CRASM { light NAPAEXPLO3 }
+frame CRASN { light NAPAEXPLO7 }
+frame CRASO { light NAPAEXPLO5 }
+frame CRASP { light NAPAEXPLO3 }
+frame CRASQ { light NAPAEXPLO7 }
+frame CRASR { light NAPAEXPLO5 }
+frame CRASS { light NAPAEXPLO3 }
+frame CRAST { light NAPAEXPLO7 }
+frame CRASV { light NAPAEXPLO5 }
+frame CRASW { light NAPAEXPLO3 }
+}
+
+object CKExploder
 {
 frame CRASK { light NAPAEXPLO7 }
 frame CRASL { light NAPAEXPLO5 }

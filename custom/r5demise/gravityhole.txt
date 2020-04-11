@@ -184,6 +184,16 @@ GHOL CBA 2 A_TakeInventory("GravityHoleCharge",999)
 GHOL A 7
 GHOL A 1 A_Refire
 goto Ready+2
+
+AltFire:
+GHOL A 0 A_JumpIfNoAmmo("NoAmmo")
+GHOL A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+GHOL A 0 A_FireCustomMissile("GravityHoleShot2",0,0,8,0)
+GHOL CBA 2 A_TakeInventory("GravityHoleCharge",999)
+GHOL A 7
+GHOL A 1 A_Refire("AltFire")
+goto Ready+2
+
 Fire2:
 GHOL A 0 A_TakeInventory("GravityHoleCharge",999)
 GHOL A 3

@@ -127,6 +127,17 @@ JTMS FED 2
 JTMS D 4
 JTMS D 1 A_Refire
 goto Ready+1
+
+AltFire:
+JTMS D 0 A_JumpIfNoAmmo("NoAmmo")
+JTMS D 1 A_PlaySoundEx("weapon/mbuster","Weapon")
+JTMS D 0 A_FireCustomMissile("JetMissileStraight",0,1,8,0)
+JTMS FED 2
+JTMS D 4
+JTMS D 1 A_Refire("AltFire")
+goto Ready+1
+
+
 Hold:
 JTMS D 1 A_GiveInventory("JetMissileSound",1)
 JTMS D 1 A_GiveInventory("JetCounter",1)

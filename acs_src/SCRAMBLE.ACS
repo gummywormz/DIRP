@@ -15,7 +15,7 @@ str DIRPRune[6]={
 "ReflectionRune",
 };
 
-str DIRPWep1[142]={
+str DIRPWep1[149]={
 "SpeedGearWep",
 "RakuhouhaWep",
 "WaterShurikenWep",
@@ -163,7 +163,16 @@ str DIRPWep1[142]={
 "SkullOfThanatosWep",
 "GenoBlastWep",
 
-"AnguishCannonWep"
+"AnguishCannonWep",
+
+"HWep",
+"ConcussiveKnuckleWep",
+"TopRiderWep",
+"ShadowBreakerWep",
+"SparkBouncerWep",
+"ActualNapalmBombWep",
+"TenKNullWep"
+
 
 };
 

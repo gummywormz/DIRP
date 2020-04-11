@@ -1,3 +1,6 @@
 clearplayerclasses
 addplayerclass Megamandirp
 alias wephelp "puke 604"
+
+addkeysection "DIRP" DIRP
+addmenukey "Weapon Help" wephelp

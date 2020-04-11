@@ -141,13 +141,25 @@ SKBL LKJ 2 A_TakeInventory("SpikeBallCharge",999)
 SKBL J 7
 SKBL J 1 A_Refire
 goto Ready+2
+
+AltFire:
+SKBL J 0 A_JumpIfNoAmmo("NoAmmo")
+SKBL J 0 A_PlaySoundEx("weapon/superboost","Weapon")
+SKBL J 0 A_FireCustomMissile("SpikeBall1",0,1,8,0)
+SKBL LKJ 2 A_TakeInventory("SpikeBallCharge",999)
+SKBL J 7
+SKBL J 1 A_Refire("AltFire")
+goto Ready+2
+
 Fire2:
+SKBL J 0 A_JumpIfNoAmmo("NoAmmo")
 SKBL J 0 A_TakeInventory("SpikeBallCharge",999)
 SKBL J 3
 SKBL LKJ 3
 SKBL J 0 A_Refire
 goto Ready+2
 Fire3:
+SKBL J 0 A_JumpIfNoAmmo("NoAmmo")
 SKBL J 0
 SKBL J 0 A_TakeInventory("SpikeBallCharge",999)
 SKBL J 0 A_PlaySoundEx("weapon/coilbounce2","Weapon")
@@ -158,6 +170,7 @@ SKBL J 20
 SKBL J 0 A_Refire
 goto Ready+1
 Hold:
+SKBL J 0 A_JumpIfNoAmmo("NoAmmo")
 SKBL J 0 A_JumpIfInventory("SpikeBallCharge",33,"BotCheck")
 SKBL J 0 A_JumpIfInventory("SpikeBallCharge",32,"Charge2")
 SKBL J 0 A_JumpIfInventory("SpikeBallCharge",18,"Charge")

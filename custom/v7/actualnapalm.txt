@@ -1,0 +1,106 @@
+actor NapalmFlame
+{
+PROJECTILE
+Damage (2)
++RIPPER
+Radius 5
+Height 10
+Speed 0
+Scale 2.5
+Obituary "%o was burnt by %k's Actual Napalm Bomb"
+DamageType "FireStorm"
+States
+{
+Spawn:
+TNT1 A 0
+BRNF ABCDEF 4
+BRNF ABCDEF 4
+BRNF GH 2
+stop
+}
+}
+
+actor NapalmSpawner
+{
++NOINTERACTION
+PROJECTILE
++NOTARGETSWITCH
+Damage (0)
+ReactionTime 7
+States
+{
+Spawn:
+TNT1 A 0
+TNT1 A 0 A_SpawnItemEx("NapalmFlame",random(-80,80),random(-80,80),0,0,0,0,0)
+TNT1 A 0 A_Countdown
+loop
+}
+}
+
+actor ActualNapalmBomb : NapalmBomb
+{
+Obituary "%o was burnt by %k's Actual Napalm Bomb"
+bouncecount 1
+States
+{
+Spawn:
+NAPA A 0
+NAPA A 0 ThrustThingZ(0, 25, 0, 1)
+NAPA A 0 A_CountDown
+NAPA ABCD 4
+Goto Spawn+2
+Death:
+NAPA A 0 A_Stop
+NAPA A 0 A_PlaySoundEx("weapon/napalm", "Weapon")
+NAPA A 0 A_SpawnItemEx("NapalmSpawner")
+stop
+}
+}
+
+actor ActualNapalmBombWep : BaseMM8BDMWep
+{
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Inventory.Pickupmessage "Power up! Actual Napalm Bomb"
+Obituary "%o was burnt by %k's Actual Napalm Bomb"
+Tag "Actual Napalm Bomb"
+weapon.ammotype "ActualNapalmBombAmmo"
+inventory.icon "ANPBICO"
+States
+{
+Spawn:
+ANPB A -1
+stop
+Ready:
+NAPA T 0 ACS_ExecuteAlways(998,0,5)
+NAPA T 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+NAPA T 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+NAPA T 1 A_Raise
+Loop
+Fire:
+NAPA T 0 A_JumpIfNoAmmo("NoAmmo")
+NAPA T 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+NAPA T 0 A_FireCustomMissile("ActualNapalmBomb",0,1,8,0)
+NAPA UV 6
+NAPA T 18
+NAPA T 0 A_Refire
+Goto Ready+1
+NoAmmo:
+NAPA T 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor ActualNapalmBombAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}

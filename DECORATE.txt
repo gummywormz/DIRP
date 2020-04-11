@@ -186,6 +186,19 @@
 #include "custom/v6/GenoBlast.txt"
 #include "custom/v6/AnguishCannon.txt"
 
+//v7
+#include "custom/v7/h.txt"
+#include "custom/v7/tenknull.txt"
+#include "custom/v7/wolfhowl.txt"
+#include "custom/v7/actualnapalm.txt"
+
+#include "custom/r3dess/sparkbouncer.txt"
+#include "custom/r3dess/toprider.txt"
+#include "custom/r3dess/harddasher.txt"
+#include "custom/r3dess/shadowbreaker.txt"
+
+
+
 #Include "custom/global/extrasupport.txt"
 
 #include "custom/global/giverammofix.txt"

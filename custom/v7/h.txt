@@ -1,0 +1,121 @@
+actor HProj1
+{
+PROJECTILE
+Radius 10
+Height 10
+scale 2.5
+damage (12)
+speed 35
+damagetype "SparkShock"
+Obituary "%o H %k!"
+States
+{
+Spawn:
+HHHH A 4
+loop
+}
+}
+
+actor HProj2 : HProj1
+{
+damagetype "QuickBoomerang"
+speed 60
+}
+
+actor HProj3 : HProj1
+{
+speed 20
++RIPPER
+damagetype "QuickBoomerang"
+Damage (30)
+}
+
+actor HProj4 : HProj1
+{
+speed 35
+damagetype "QuickBoomerang"
++RIPPER
+Damage (3)
+}
+
+actor HProj5 : HProj1
+{
+-NOGRAVITY
+speed 35
+damagetype "QuickBoomerang"
+Damage (50)
+}
+
+actor HProj6 : HProj1
+{
+speed 40
+Damage (30)
+damagetype "QuickBoomerang"
+}
+
+actor HWep : BaseMM8BDMWep 
+{
+Weapon.AmmoUse 2
+Weapon.AmmoGive 28
+Weapon.SlotNumber 5
+Inventory.Pickupmessage "Power Up! H!"
+Obituary "$OB_CRASHBOMB"
+Tag "H"
+weapon.ammotype "HAmmo"
+inventory.icon "HICO"
+States
+{
+Spawn:
+HHHH E -1
+stop
+Ready:
+HHHH B 0 ACS_ExecuteAlways(998,0,23)
+HHHH B 1 A_WeaponReady
+Goto Ready+1
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+HHHH B 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+HHHH B 1 A_Raise
+Loop
+Fire:
+HHHH B 0 A_JumpIfNoAmmo("NoAmmo")
+HHHH B 0 A_PlaySoundEx("weapon/h","Weapon")
+HHHH B 1 A_Jump(256,"Fire1","Fire2","Fire3","Fire4","Fire5","Fire6")
+Fire1:
+HHHH B 0 A_FireCustomMissile("HProj1",0,1,8,0)
+goto Delay
+Fire2:
+HHHH B 0 A_FireCustomMissile("HProj2",0,1,8,0)
+goto Delay
+Fire3:
+HHHH B 0 A_FireCustomMissile("HProj3",0,1,8,0)
+goto Delay
+Fire4:
+HHHH B 0 A_FireCustomMissile("HProj4",0,1,8,0)
+goto Delay
+Fire5:
+HHHH B 0 A_FireCustomMissile("HProj5",0,1,8,0)
+goto Delay
+Fire6:
+HHHH B 0 A_FireCustomMissile("HProj6",0,1,8,0)
+goto Delay
+Delay:
+HHHH CD 5
+HHHH B 15
+HHHH B 0 A_Refire
+Goto Ready+1
+NoAmmo:
+HHHH B 1 ACS_Execute(979,0)
+Goto Ready+1
+}
+}
+
+actor HAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}

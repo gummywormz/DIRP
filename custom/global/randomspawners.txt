@@ -7,6 +7,7 @@ DropItem "MagicBalloonGiver" 255 5
 DropItem "GamblingDice" 255 5
 DropItem "SeriousBombItem" 255 5
 DropItem "EMPGiver" 255 5
+DropItem "WolfHowlGiver" 255 5
 }
 
 Actor ActualItemSpawner
@@ -206,7 +207,16 @@ actor BaseSpawner : RandomSpawner
 	Dropitem "GenoBlastWep" 255 2
 	Dropitem "AnguishCannonWep" 255 4
 	Dropitem "SkullOfThanatosWep" 255 6
-
+	
+	DropItem "SparkBouncerWep" 255 8
+	DropItem "TopRiderWep" 255 4
+	DropItem "ActualNapalmBombWep" 255 6
+	DropItem "ConcussiveKnuckleWep" 255 3
+	DropItem "HWep" 255 10
+	DropItem "ShadowBreakerWep" 255 10
+	DropItem "TenKNullWep" 255 5
+	
+	
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
 	//DropItem "ThunderBoltWep" 255 3
@@ -435,6 +445,15 @@ actor BaseAOESpawner : RandomSpawner
 	Dropitem "GenoBlastWep" 255 8
 	Dropitem "AnguishCannonWep" 255 6
 	Dropitem "SkullOfThanatosWep" 255 3
+	
+	
+	DropItem "SparkBouncerWep" 255 2
+	DropItem "TopRiderWep" 255 8
+	DropItem "ActualNapalmBombWep" 255 3
+	DropItem "ConcussiveKnuckleWep" 255 8
+	DropItem "HWep" 255 2
+	DropItem "ShadowBreakerWep" 255 2
+	DropItem "TenKNullWep" 255 9
 	//DropItem "DangerWrapWep" 255 3
 	//DropItem "NoiseCrushWep" 255 3
 	//DropItem "ThunderBoltWep" 255 3
@@ -891,6 +910,14 @@ actor AllBaseSpawner : RandomSpawner
 	Dropitem "GenoBlastWep" 255 2
 	Dropitem "AnguishCannonWep" 255 4
 	Dropitem "SkullOfThanatosWep" 255 6
+	
+		DropItem "SparkBouncerWep" 255 8
+	DropItem "TopRiderWep" 255 4
+	DropItem "ActualNapalmBombWep" 255 6
+	DropItem "ConcussiveKnuckleWep" 255 3
+	DropItem "HWep" 255 10
+	DropItem "ShadowBreakerWep" 255 10
+	DropItem "TenKNullWep" 255 5
 }
 
 actor AllAOESpawner : RandomSpawner
@@ -1080,4 +1107,12 @@ actor AllAOESpawner : RandomSpawner
 	Dropitem "GenoBlastWep" 255 8
 	Dropitem "AnguishCannonWep" 255 6
 	Dropitem "SkullOfThanatosWep" 255 3
+	
+	DropItem "SparkBouncerWep" 255 2
+	DropItem "TopRiderWep" 255 8
+	DropItem "ActualNapalmBombWep" 255 3
+	DropItem "ConcussiveKnuckleWep" 255 8
+	DropItem "HWep" 255 2
+	DropItem "ShadowBreakerWep" 255 2
+	DropItem "TenKNullWep" 255 9
 }

@@ -1,11 +1,11 @@
 ===========================================================================
-Update to               : v6a
+Update to               : v7a
 Advanced engine needed  : Zandronum 3.0
 Primary purpose         : Deathmatch
 ===========================================================================
 Title                   : Drown In Robot Parts
-Filename                : dirp-v6a.pk3
-Release date            : 6/22/17
+Filename                : dirp-v7a.pk3
+Release date            : 4/10/2020
 Author                  : Gummywormz
 
 Description             : D.I.R.P v6a is a weapon pack for MM8BDM designed
@@ -38,7 +38,7 @@ Graphics                : Yes
 Dehacked/BEX Patch      : No
 Demos                   : No
 Other                   : Weapons
-Other files required    : MM8BDM-v5b, megagame.wad
+Other files required    : MM8BDM-v5d, megagame.wad
 
 
 * Play Information *

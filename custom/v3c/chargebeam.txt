@@ -40,6 +40,17 @@ CHGB CBA 2 A_TakeInventory("BeamCharge",999)
 CHGB A 7
 CHGB A 1 A_Refire
 goto Ready+2
+
+AltFire:
+CHGB A 0 A_JumpIfNoAmmo("NoAmmo")
+CHGB A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+CHGB A 0 A_FireCustomMissile("ChargeBeam",0,1,8,0)
+CHGB CBA 2 A_TakeInventory("BeamCharge",999)
+CHGB A 7
+CHGB A 1 A_Refire("AltFire")
+goto Ready+2
+
+
 Fire2:
 CHGB A 0 A_TakeInventory("BeamCharge",999)
 CHGB A 0 A_PlaySoundEx("weapon/mbuster","Weapon")

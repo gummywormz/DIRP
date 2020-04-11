@@ -1197,3 +1197,59 @@ graphic GNOBICO, 30, 30
    YScale 2.0
    Patch GNOBE0, 0, 0
 }
+
+//v7
+graphic CNKNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch CNKNA0, 0, 0
+}
+
+graphic ROPPICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch ROPPD0, 0, 0
+}
+
+graphic TENKICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch TENKA0, 0, 0
+}
+
+graphic WOLFICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch WOLFA0, 0, 0
+}
+graphic HICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch HHHHE0, 0, 0
+}
+
+graphic SPBNICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SPBNR0, 0, 0
+}
+
+graphic ANPBICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch ANPBA0, 0, 0
+}
+
+graphic SHBKICO, 30, 30
+{
+   XScale 2.0
+   YScale 2.0
+   Patch SHBKA0, 0, 0
+}

@@ -172,3 +172,10 @@ if(CheckActorFloorTexture(0, "SLAWATL") || CheckActorFloorTexture(0, "SLAWATR")
 SetResultValue(1);
 }
 }
+
+Script 600 (void)
+{
+if(GetActorProperty(0,APROP_HEALTH) < 50){GiveInventory("WolfDefense",1);}
+else{GiveInventory("WolfOffense",1);}
+
+}

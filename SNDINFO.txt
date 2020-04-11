@@ -97,3 +97,5 @@ weapon/virusoutbreak virus
 weapon/hyperspacehole TELEPORT
 
 weapon/reversegrenade RBOMB
+
+weapon/h h

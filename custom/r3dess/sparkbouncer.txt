@@ -1,0 +1,104 @@
+actor SparkBounce
+{
+PROJECTILE
+Obituary "%o was lit up by %k's Spark Bouncer"
+damagetype "SparkShock"
+scale 2.5
+-NOGRAVITY
+
+//+DONTBLAST
++HEXENBOUNCE
+-BOUNCEONACTORS
+-BOUNCEONWALLS
+bouncecount 6
+bouncefactor 1.0
+wallbouncefactor 1.0
+Speed 8
+Radius 20
+Height 16
+gravity 1.0
+Damage (22)
+ReactionTime 45
+States
+{
+Spawn:
+SPAS A 0
+SPAS A 0 A_Recoil(-9)
+SPAS A 0 ThrustThingZ(0, 25, 0, 0)
+SPAS AB 4 A_CountDown
+SPAS A 1 A_JumpIf(z-floorz<=48,"Splits")
+Goto Spawn+3
+Death:
+XDeath:
+TNT1 A 1
+stop
+Splits:
+SPAS A 1 A_SpawnItemEx("SparkShock2",0,0,0,30,0,0,90)
+SPAS B 1 A_SpawnItemEx("SparkShock2",0,0,0,30,0,0,270)
+SPAS B 1 A_SpawnItemEx("SparkShock2",0,0,0,30,0,0,180)
+SPAS B 1 A_SpawnItemEx("SparkShock2",0,0,0,30,0,0,0)
+
+goto Spawn+3
+}
+}
+
+actor SparkBouncerWep : BaseMM8BDMWep
+{
+//$Category MM8BDM-Weapons
+//$Title Spark Shock
+Weapon.AmmoUse 4
+Weapon.AmmoGive 28
+Weapon.SlotNumber 2
+Inventory.Pickupmessage "Power Up! Spark Bouncer"
+Obituary "%o was lit up by %k's Spark Bouncer"
+Tag "Spark Bouncer"
+weapon.ammotype "SparkBouncerAmmo"
+inventory.icon "SPBNICO"
+States
+{
+Spawn:
+SPBN R -1
+STOP
+Ready:
+SPAS C 0 ACS_ExecuteAlways(998,0,26)
+SPAS CCCCCC 1 A_WeaponReady(WRF_NOFIRE)
+Ready2:
+SPAS C 1 A_WeaponReady
+Goto Ready2
+Deselect:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Lower
+SPAS C 1 A_Lower
+Loop
+Select:
+TNT1 AAAAAAAAAAAAAAAAAAAAAA 0 A_Raise
+SPAS C 1 A_Raise
+Loop
+Fire:
+SPAS C 0 A_JumpIfNoAmmo("NoAmmo")
+SPAS C 2 
+SPAS C 0 A_PlaySoundEx("weapon/sparkshock","Weapon")
+SPAS C 0 A_FireCustomMissile("SparkBounce",0,1,8,0)
+SPAS DE 4
+SPAS D 8
+SPAS CCCCCC 1 A_WeaponReady(WRF_NOFIRE)
+SPAS D 0 A_Refire
+Goto Ready2
+NoAmmo:
+SPAS C 1 ACS_Execute(979,0)
+Goto Ready2
+}
+}
+
+actor SparkBouncerAmmo : Ammo
+{
+inventory.amount 1
+inventory.maxamount 28
++INVENTORY.IGNORESKILL
+}
+
+actor SparkShock2 : SparkShock
+{
+Scale 1.5
+Damage (6)
+Obituary "%o was lit up by %k's Spark Bouncer"
+}

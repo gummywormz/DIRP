@@ -74,6 +74,16 @@ RAKU A 0 A_FireCustomMissile("RakuShot1",15,0,8,0)
 RAKU CBA 3
 RAKU A 1 A_Refire
 goto Ready+2
+
+AltFire:
+RAKU A 0 A_TakeInventory("rakuhouhacharge",999)
+RAKU A 0 A_PlaySoundEx("weapon/mbuster","Weapon")
+RAKU A 0 A_FireCustomMissile("RakuShot1",-15,0,8,0)
+RAKU A 0 A_FireCustomMissile("RakuShot1",15,0,8,0)
+RAKU CBA 3
+RAKU A 1 A_Refire("AltFire")
+goto Ready+2
+
 Fire3:
 RAKU A 0
 RAKU A 0 A_TakeInventory("rakuhouhacharge",999)

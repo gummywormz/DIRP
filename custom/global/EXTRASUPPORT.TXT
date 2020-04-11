@@ -162,3 +162,21 @@ actor IceChunk2 : IceChunk Replaces IceChunk
 {
 +CLIENTSIDEONLY
 }
+
+actor botart5 : custominventory
+{
++INVENTORY.AUTOACTIVATE
+States
+{
+Pickup:
+TNT1 A 1 A_GiveInventory("HWep",1)
+TNT1 A 1 A_GiveInventory("ShadowBreakerWep",1)
+TNT1 A 1 A_GiveInventory("ConcussiveKnuckleWep",1)
+TNT1 A 1 A_GiveInventory("ActualNapalmBombWep",1)
+TNT1 A 1 A_GiveInventory("TopRiderWep",1)
+TNT1 A 1 A_GiveInventory("SparkBouncerWep",1)
+TNT1 A 1 A_GiveInventory("TenKNullWep",1)
+TNT1 A 1 A_GiveInventory("WolfHowlGiver",1)
+stop
+}
+}

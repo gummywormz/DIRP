@@ -1,0 +1,67 @@
+actor WolfHowlGiver : CustomInventory
+{
+Inventory.Pickupmessage "Support Item! Wolf Howl!"
+inventory.pickupsound "item/1up"
+inventory.amount 1
+inventory.maxamount 1
+inventory.icon "WOLFICO"
+Tag "Wolf Howl"
+Inventory.RespawnTics 1800
+scale 2.0
++COUNTITEM
++INVBAR
+states
+{
+Spawn:
+WOLF A -1
+stop
+Use:
+PBAM B 0 A_PlaySoundEx("item/refill","Voice")
+PBAM B 0 ACS_ExecuteAlways(600,0)
+stop
+Fale:
+PBAM B 0
+fail
+}
+}
+
+actor WolfDefense : PowerupGiver
+{
+powerup.duration -5
+powerup.type "PowerWolfDefense"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 1
+stop
+}
+}
+
+actor WolfOffense : PowerupGiver
+{
+powerup.duration -5
+powerup.type "PowerWolfOffense"
++INVENTORY.AUTOACTIVATE
++INVENTORY.ALWAYSPICKUP
+states
+{
+Pickup:
+TNT1 A 1
+stop
+}
+}
+
+
+actor PowerWolfDefense : PowerProtection
+{
+Powerup.Color GreenMap
+DamageFactor "Normal", 0.5
+}
+
+actor PowerWolfOffense : PowerDamage
+{
+damagefactor "normal", 2
+Powerup.Color RedMap
+}
